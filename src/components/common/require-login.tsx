@@ -19,7 +19,7 @@ export function RequireLogin({ next }: { next: string }) {
           </>
         ) : (
           <p className="text-sm text-muted-foreground">
-            当前为演示模式（未配置 Supabase 与数据库），做题记录不会被保存。
+            当前为演示模式（未配置数据库），做题记录不会被保存。
             <br />
             配置 <code className="rounded bg-muted px-1.5 py-0.5">.env.local</code> 后即可启用账号功能。
           </p>

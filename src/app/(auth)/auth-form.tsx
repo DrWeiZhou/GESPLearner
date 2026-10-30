@@ -18,21 +18,30 @@ export function AuthForm({ mode, next }: { mode: "login" | "signup"; next?: stri
     <Card className="w-full max-w-sm">
       <CardHeader>
         <CardTitle className="text-xl">{isLogin ? "登录" : "注册账号"}</CardTitle>
-        <CardDescription>{isLogin ? "登录后可保存做题记录、错题本和 AI 讲解" : "开始你的 GESP 备考之旅"}</CardDescription>
+        <CardDescription>
+          {isLogin ? "登录后可保存做题记录、错题本和金币" : "用用户名和密码即可注册，无需邮箱"}
+        </CardDescription>
       </CardHeader>
       <form action={action}>
         <CardContent className="space-y-4">
           {next && <input type="hidden" name="next" value={next} />}
+          <div className="space-y-2">
+            <Label htmlFor="username">用户名</Label>
+            <Input
+              id="username"
+              name="username"
+              autoComplete="username"
+              placeholder="3~20 位字母、数字、下划线"
+              required
+              autoFocus
+            />
+          </div>
           {!isLogin && (
             <div className="space-y-2">
-              <Label htmlFor="displayName">昵称</Label>
-              <Input id="displayName" name="displayName" placeholder="小明" required maxLength={20} />
+              <Label htmlFor="displayName">昵称（可选）</Label>
+              <Input id="displayName" name="displayName" placeholder="不填则使用用户名" maxLength={20} />
             </div>
           )}
-          <div className="space-y-2">
-            <Label htmlFor="email">邮箱</Label>
-            <Input id="email" name="email" type="email" autoComplete="email" required />
-          </div>
           <div className="space-y-2">
             <Label htmlFor="password">密码</Label>
             <Input
@@ -47,11 +56,6 @@ export function AuthForm({ mode, next }: { mode: "login" | "signup"; next?: stri
           {state?.error && (
             <Alert variant="destructive">
               <AlertDescription>{state.error}</AlertDescription>
-            </Alert>
-          )}
-          {state?.message && (
-            <Alert>
-              <AlertDescription>{state.message}</AlertDescription>
             </Alert>
           )}
         </CardContent>

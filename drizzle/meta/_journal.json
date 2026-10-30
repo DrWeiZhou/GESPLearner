@@ -22,6 +22,20 @@
       "when": 1793375996651,
       "tag": "0002_rls",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1793399661790,
+      "tag": "0003_drop_profiles",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1793399666700,
+      "tag": "0004_users_and_coins",
+      "breakpoints": true
     }
   ]
 }

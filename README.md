@@ -12,12 +12,14 @@
 | 在线评测 | Monaco 编辑器 + Judge0：自测运行（自定义输入）与提交评测（样例 + 隐藏测试点），返回每个测试点的判定、用时与差异 |
 | AI 讲解 | 结合学生的作答/代码/评测结果讲解错因，可继续追问；编程题默认只给诊断与提示，不直接给出完整答案 |
 | 错题本 / 学习报告 | 自动收录错题（重做答对后标记已掌握）、各级别正确率、模拟考试成绩趋势 |
+| 账号体系 | 用户名 + 密码注册登录（学生多半没有邮箱），scrypt 加盐哈希、服务端会话、失败锁定；每份试卷的成绩按用户存储 |
+| 金币 | 交卷后可把得分按比例兑换成金币（默认每 1 分 = 0.3 枚，管理员可改），每份试卷限兑一次；兑换奖励后可扣除金币，全部记入可追溯的流水 |
 
 ## 技术栈
 
 - **Next.js 16**（App Router、Cache Components、Partial Prefetching）+ React 19 + TypeScript
 - **Tailwind CSS v4** + **shadcn/ui**（Base UI）+ Framer Motion 动效 + next-themes 深色模式
-- **Supabase**：Postgres（+ pgvector）与 Auth
+- **Supabase**：Postgres（+ pgvector）。账号为应用自建，不使用 Supabase Auth
 - **Drizzle ORM** + drizzle-kit 迁移
 - **Vercel AI SDK**（`useChat` 流式 UI）+ **LangChain**（`@ai-sdk/langchain` 适配器接入任意 OpenAI 兼容模型）
 - **Judge0** 代码评测（本地开发可用本机编译器）
@@ -45,7 +47,6 @@ bun run dev
 | --- | --- |
 | `DATABASE_URL` | 应用连接串。Supabase 用 **Transaction pooler（6543）** |
 | `DATABASE_DIRECT_URL` | 迁移用直连（5432） |
-| `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Supabase Auth（邮箱密码登录） |
 | `ZAI_BASE_URL` / `ZAI_API_KEY` | 任意 OpenAI 兼容大模型接口（如智谱 `https://open.bigmodel.cn/api/paas/v4`） |
 | `AI_MODEL` / `AI_VISION_MODEL` / `AI_EMBEDDING_MODEL` | 讲解模型 / 解析试卷的视觉模型 / 向量模型（默认 `glm-4.6`、`glm-4.5v`、`embedding-3`） |
 | `JUDGE0_URL`（+ `JUDGE0_RAPIDAPI_KEY` 或 `JUDGE0_AUTH_TOKEN`） | 代码评测服务 |
@@ -70,6 +71,21 @@ docker run -d --name judge0 -p 2358:2358 judge0/judge0:1.13.1   # 或参考 Judg
 | `bun run render-pdf <file.pdf> <outDir>` | 调试：导出 PDF 每页的图片与阅读顺序文字 |
 
 `parse` 的结果建议人工抽查后再 `seed` 发布——公式和样例空格最容易出错。
+
+## 账号与金币
+
+账号不走 Supabase Auth：GESP 的学生多是中小学生，常常没有邮箱，因此系统自建**用户名 + 密码**账号。
+
+- 密码用 `node:crypto` 的 **scrypt**（N=32768）加随机盐哈希，参数随哈希一起存储，日后可提高强度而不作废旧密码；验证用 `timingSafeEqual`。
+- 会话存在服务端 `sessions` 表，Cookie 里只放随机令牌，库中只存它的 SHA-256，因此即使数据库泄露也拿不到可用会话。Cookie 为 HttpOnly + SameSite=Lax，生产环境加 Secure。
+- 连续 8 次密码错误锁定 15 分钟；用户名不存在时也会走一次等长的哈希计算，避免用响应时间探测用户是否存在。
+- **系统中注册的第一个账号自动成为管理员**，可在 `/admin` 修改金币兑换比例。
+
+金币采用**流水账**（`coin_transactions`）而非存一个余额字段：余额始终是流水求和，既可追溯又不会因并发写丢失更新。
+
+- 兑换：`floor(试卷得分 × 比例)`，默认比例 0.3。**每份试卷只能兑换一次**，由局部唯一索引
+  `coin_tx_one_earn_per_attempt` 在数据库层保证，并发重复提交也只会成功一次。
+- 扣除：在事务中对用户行加锁后校验余额，余额不足直接拒绝，不会出现负数。
 
 ## 安全设计
 

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { CodeXmlIcon } from "lucide-react";
+import { CodeXmlIcon, CoinsIcon } from "lucide-react";
 import { accountsEnabled, getCurrentUser } from "@/lib/auth";
+import { getBalance } from "@/lib/coins";
 import { buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { MainNav } from "./main-nav";
@@ -45,5 +46,17 @@ async function HeaderUser() {
       </Link>
     );
   }
-  return <UserMenu name={user.displayName} email={user.email} />;
+  return (
+    <>
+      <Link
+        href="/coins"
+        className="flex items-center gap-1 rounded-md px-2 py-1 text-sm font-medium text-amber-600 transition-colors hover:bg-amber-500/10 dark:text-amber-400"
+        title="我的金币"
+      >
+        <CoinsIcon className="size-4" />
+        <span className="tabular-nums">{await getBalance(user.id)}</span>
+      </Link>
+      <UserMenu name={user.displayName} username={user.username} isAdmin={user.role === "admin"} />
+    </>
+  );
 }

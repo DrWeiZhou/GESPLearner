@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { CheckCircle2Icon, SparklesIcon, XCircleIcon } from "lucide-react";
+import { CheckCircle2Icon, CoinsIcon, Loader2Icon, SparklesIcon, XCircleIcon } from "lucide-react";
+import { toast } from "sonner";
+import { postJSON } from "@/lib/api";
 import { TutorPanel } from "@/components/tutor/tutor-panel";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -47,6 +49,7 @@ export function ExamReportView({
               ? "　🎉 达到合格线（70 分）"
               : "　距离合格线还需努力"}
           </p>
+          {report.attemptId && <RedeemCoins attemptId={report.attemptId} />}
           <div className="mt-6 flex justify-center gap-3">
             <Link
               href={`/papers/${paper.id}`}
@@ -171,5 +174,43 @@ function ReviewRow({ item, paper }: { item: ReportItem; paper: PaperDetail }) {
         </CardContent>
       )}
     </Card>
+  );
+}
+
+/** Convert this attempt's score into coins — allowed once per attempt. */
+function RedeemCoins({ attemptId }: { attemptId: string }) {
+  const [state, setState] = useState<"idle" | "pending" | "done">("idle");
+  const [coins, setCoins] = useState(0);
+
+  if (state === "done") {
+    return (
+      <p className="mt-5 flex items-center justify-center gap-1.5 text-sm font-medium text-amber-600 dark:text-amber-400">
+        <CoinsIcon className="size-4" /> 已兑换 {coins} 枚金币
+      </p>
+    );
+  }
+
+  return (
+    <div className="mt-5">
+      <Button
+        variant="outline"
+        disabled={state === "pending"}
+        onClick={async () => {
+          setState("pending");
+          try {
+            const r = await postJSON<{ coins: number }>("/api/coins/redeem", { attemptId });
+            setCoins(r.coins);
+            setState("done");
+            toast.success(`兑换成功，获得 ${r.coins} 枚金币`);
+          } catch (err) {
+            setState("idle");
+            toast.error(err instanceof Error ? err.message : "兑换失败");
+          }
+        }}
+      >
+        {state === "pending" ? <Loader2Icon className="animate-spin" /> : <CoinsIcon />}
+        兑换金币
+      </Button>
+    </div>
   );
 }

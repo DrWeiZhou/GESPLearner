@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { LogOutIcon, UserIcon } from "lucide-react";
+import { CoinsIcon, LogOutIcon, SettingsIcon, UserIcon } from "lucide-react";
 import { signOut } from "@/app/(auth)/actions";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
@@ -14,7 +14,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export function UserMenu({ name, email }: { name: string; email: string | null }) {
+export function UserMenu({
+  name,
+  username,
+  isAdmin,
+}: {
+  name: string;
+  username: string;
+  isAdmin: boolean;
+}) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="rounded-full outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
@@ -26,13 +34,21 @@ export function UserMenu({ name, email }: { name: string; email: string | null }
         <DropdownMenuGroup>
           <DropdownMenuLabel>
             <div className="font-medium text-foreground">{name}</div>
-            {email && <div className="truncate text-xs font-normal">{email}</div>}
+            <div className="truncate text-xs font-normal">@{username}</div>
           </DropdownMenuLabel>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
+        <DropdownMenuItem render={<Link href="/coins" />}>
+          <CoinsIcon /> 我的金币
+        </DropdownMenuItem>
         <DropdownMenuItem render={<Link href="/dashboard" />}>
           <UserIcon /> 学习报告
         </DropdownMenuItem>
+        {isAdmin && (
+          <DropdownMenuItem render={<Link href="/admin" />}>
+            <SettingsIcon /> 系统设置
+          </DropdownMenuItem>
+        )}
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => signOut()}>
           <LogOutIcon /> 退出登录
