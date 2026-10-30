@@ -1,22 +1,33 @@
 import { sql } from "drizzle-orm";
 import { getDb } from "@/db";
+import { getCurrentUser } from "@/lib/auth";
+import { getBalance, getCoinRate, getLedger, getRedeemableAttempts } from "@/lib/coins";
 
-/** Temporary diagnostic: times a trivial query so connection reuse can be observed. */
-export async function GET() {
-  const started = Date.now();
+/** Temporary diagnostic: times each query the wallet page runs. */
+async function step<T>(name: string, fn: () => Promise<T>) {
+  const t0 = Date.now();
   try {
-    const timeout = new Promise<never>((_, rej) =>
-      setTimeout(() => rej(new Error("query exceeded 12s")), 12_000),
-    );
-    const [row] = await Promise.race([
-      getDb().execute(sql`select 1 as ok, inet_server_addr()::text as server`),
-      timeout,
+    const value = await Promise.race([
+      fn(),
+      new Promise<never>((_, rej) => setTimeout(() => rej(new Error("timeout 10s")), 10_000)),
     ]);
-    return Response.json({ ok: true, ms: Date.now() - started, row });
+    return { name, ms: Date.now() - t0, ok: true as const, value };
   } catch (err) {
-    return Response.json(
-      { ok: false, ms: Date.now() - started, error: err instanceof Error ? err.message : String(err) },
-      { status: 500 },
-    );
+    return { name, ms: Date.now() - t0, ok: false as const, error: err instanceof Error ? err.message : String(err) };
   }
+}
+
+export async function GET() {
+  const out: unknown[] = [];
+  out.push(await step("ping", async () => (await getDb().execute(sql`select 1 as ok`))[0]));
+  const user = await step("getCurrentUser", () => getCurrentUser());
+  out.push({ ...user, value: user.ok ? (user.value ? { id: user.value.id, username: user.value.username } : null) : undefined });
+  const uid = user.ok && user.value ? user.value.id : null;
+  if (uid) {
+    out.push(await step("getBalance", () => getBalance(uid)));
+    out.push(await step("getCoinRate", () => getCoinRate()));
+    out.push(await step("getRedeemable", async () => (await getRedeemableAttempts(uid)).length));
+    out.push(await step("getLedger", async () => (await getLedger(uid)).length));
+  }
+  return Response.json(out);
 }
