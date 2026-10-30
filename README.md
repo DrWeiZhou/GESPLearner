@@ -118,8 +118,13 @@ Vercel 已配置的环境变量（Production + Preview）：`DATABASE_URL`（Tra
 
 ### MCP
 
-仓库内 `.mcp.json` 已注册官方 Supabase MCP（限定到本项目 ref）。首次使用需在**交互式终端**执行一次
-`claude /mcp`，选择 `supabase` 完成 OAuth 授权。
+仓库内 `.mcp.json` 已注册两个官方 MCP server：
+
+- `supabase` —— 限定到本项目 ref，可查库、查日志、读文档
+- `vercel` —— 查项目、部署与构建日志
+
+两者都走 OAuth。首次使用需在**交互式终端**里运行 `claude`，执行 `/mcp` 分别批准并完成授权
+（非交互会话无法走授权流程）。
 
 ## 版权
 
