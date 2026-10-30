@@ -1,7 +1,7 @@
 import "server-only";
 import { createHash, randomBytes } from "node:crypto";
 import { cookies } from "next/headers";
-import { and, eq, gt, sql } from "drizzle-orm";
+import { and, eq, sql } from "drizzle-orm";
 import { getDb, isDatabaseConfigured } from "@/db";
 import { sessions, users } from "@/db/schema";
 import { isUniqueViolation } from "@/lib/db-errors";
@@ -148,7 +148,9 @@ export async function getCurrentUser(): Promise<CurrentUser | null> {
     })
     .from(sessions)
     .innerJoin(users, eq(users.id, sessions.userId))
-    .where(and(eq(sessions.tokenHash, tokenHash(token)), gt(sessions.expiresAt, new Date())));
+    // Compare against the database clock: this runs while the static shell is being
+    // prerendered, where Cache Components rejects an unstable `new Date()`.
+    .where(and(eq(sessions.tokenHash, tokenHash(token)), sql`${sessions.expiresAt} > now()`));
 
   return row ? { ...row, displayName: row.displayName ?? row.username } : null;
 }
