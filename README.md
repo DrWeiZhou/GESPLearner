@@ -95,11 +95,31 @@ drizzle/                迁移
 data/                   sources.json、pdf/、papers/、tests/
 ```
 
-## 部署（Vercel）
+## 已部署的环境
 
-1. 导入仓库，配置上表中的环境变量（`DATABASE_URL` 用 Supabase 的 Transaction pooler）。
-2. `bun run db:migrate` 在本地对生产库执行一次（或接入 CI）。
-3. Judge0 需单独部署（自建或 RapidAPI），不要使用 `JUDGE_PROVIDER=local`。
+| 平台 | 资源 | 说明 |
+| --- | --- | --- |
+| Supabase | 项目 `GESPLearner`（ref `wylhizzgkoodtqmkewdk`） | 区域 **ap-northeast-1 / Tokyo**（国内访问延迟优于默认的孟买）；已建表、已导入 2 套真题 |
+| Vercel | 项目 `gesp-learner`（团队 `goodluck22`） | 通过 Git 集成关联 `DrWeiZhou/GESPLearner`，推送 `main` 自动部署 |
+
+Supabase 侧的安全设置：建项目时关闭了「Automatically expose new tables」、开启「Enable automatic RLS」；
+加上迁移 `0002_rls.sql` 给所有表启用 RLS 且不建策略，因此用 publishable key 直接请求 Data API
+（`/rest/v1/questions` 等）会返回 **401 insufficient privileges**，答案表与测试数据不会外泄。
+
+Vercel 已配置的环境变量（Production + Preview）：`DATABASE_URL`（Transaction pooler，6543）、
+`NEXT_PUBLIC_SUPABASE_URL`、`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`。
+
+**上线前仍需补充：**
+
+1. `ZAI_BASE_URL` / `ZAI_API_KEY` —— 否则 AI 讲解接口返回「大模型未配置」。
+2. `JUDGE0_URL` —— 否则编程题评测返回「未配置代码评测服务」。
+   切勿在 Vercel 上设置 `JUDGE_PROVIDER=local`：那会在无沙箱的环境里编译运行任意代码。
+3. Supabase Auth → URL Configuration 里把 Site URL 设为线上域名，否则注册确认邮件里的链接会指回 localhost。
+
+### MCP
+
+仓库内 `.mcp.json` 已注册官方 Supabase MCP（限定到本项目 ref）。首次使用需在**交互式终端**执行一次
+`claude /mcp`，选择 `supabase` 完成 OAuth 授权。
 
 ## 版权
 
