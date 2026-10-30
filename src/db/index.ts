@@ -21,19 +21,25 @@ const globalForDb = globalThis as unknown as { __gespDb?: DB };
  *   that stall, even though a new connection costs ~2s from outside the region.
  * - `max_lifetime` — recycle long-lived connections for the same reason.
  * - `connect_timeout` — surface connection problems as errors instead of hanging.
- * - `max` — one connection per instance in serverless (many short-lived instances
- *   share the external pooler); a few more locally where the process is long-lived.
+ * - `max` — small, but never 1: a page renders several queries concurrently, and a
+ *   single connection would both serialise them and let one stalled query deadlock
+ *   the whole instance until the function times out.
+ * - `statement_timeout` — a query that outlives it is cancelled server-side instead
+ *   of pinning a pooler slot forever.
+ *
+ * Functions run in Tokyo (see vercel.json) to sit next to the database; without
+ * that every one of these round trips crosses the Pacific.
  */
 export function getDb(): DB {
   if (!globalForDb.__gespDb) {
     if (!process.env.DATABASE_URL) throw new Error("DATABASE_URL 未配置");
-    const serverless = Boolean(process.env.VERCEL);
     const client = postgres(process.env.DATABASE_URL, {
       prepare: false,
-      max: serverless ? 1 : 4,
+      max: 4,
       idle_timeout: 20,
       max_lifetime: 60 * 30,
       connect_timeout: 15,
+      connection: { statement_timeout: 20_000 },
     });
     globalForDb.__gespDb = drizzle(client, { schema, casing: "snake_case" });
   }
