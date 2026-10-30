@@ -94,6 +94,18 @@ docker run -d --name judge0 -p 2358:2358 judge0/judge0:1.13.1   # 或参考 Judg
 - **数据库直连 + RLS 兜底**：应用以表属主身份通过 Drizzle 访问；所有表都启用了 RLS 且不建策略，因此 Supabase 的公开 REST/GraphQL 接口读不到任何数据。
 - **会话校验贴近数据**：`proxy.ts` 只负责刷新会话 Cookie，真正的鉴权在每个 Route Handler 内完成。
 
+## 部署注意事项
+
+两点是在生产环境踩出来的，换环境时同样适用：
+
+1. **函数要和数据库同区。** `vercel.json` 里固定了 `regions: ["hnd1"]`（东京）。
+   默认区域在美东，每次查询跨太平洋往返，页面要并发多条查询时极易触发函数超时；
+   同区之后单条查询从 2 秒以上降到 3 毫秒。
+2. **Server Component 里按用户读数据库要顺序执行。** 用 `Promise.all` 并发时，
+   带会话的页面会卡在骨架屏（Suspense 边界不解析，最终 300 秒函数超时），而同样的
+   查询在 Route Handler 里只要几毫秒。页面与 `src/lib/stats.ts` 因此都改为逐条 await；
+   同区后每条仅几毫秒，顺序执行没有可感知的代价。
+
 ## 项目结构
 
 ```
