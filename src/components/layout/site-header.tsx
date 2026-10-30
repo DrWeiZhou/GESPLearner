@@ -8,6 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { MainNav } from "./main-nav";
 import { ThemeToggle } from "./theme-toggle";
 import { UserMenu } from "./user-menu";
+import { connection } from "next/server";
 
 export function SiteHeader() {
   return (
@@ -38,7 +39,12 @@ export function SiteHeader() {
 }
 
 async function HeaderUser() {
+  // These reads are per-request and hit the database. Without this the prerender
+  // pass tries to run them and trips on the driver's internal clock reads, leaving
+  // the Suspense boundary unresolved until the function times out.
+  await connection();
   const user = await getCurrentUser();
+
   if (!user) {
     return (
       <Link href="/login" className={buttonVariants({ size: "sm" })}>

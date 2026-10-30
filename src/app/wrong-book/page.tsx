@@ -10,6 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { getCurrentUser } from "@/lib/auth";
 import { formatExamId, QUESTION_TYPE_LABEL } from "@/lib/format";
 import { getWrongQuestions } from "@/lib/stats";
+import { connection } from "next/server";
 
 export const metadata: Metadata = { title: "错题本" };
 
@@ -26,7 +27,12 @@ export default function WrongBookPage() {
 }
 
 async function WrongList() {
+  // These reads are per-request and hit the database. Without this the prerender
+  // pass tries to run them and trips on the driver's internal clock reads, leaving
+  // the Suspense boundary unresolved until the function times out.
+  await connection();
   const user = await getCurrentUser();
+
   if (!user) return <RequireLogin next="/wrong-book" />;
 
   const items = await getWrongQuestions(user.id);
