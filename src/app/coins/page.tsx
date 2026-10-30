@@ -30,11 +30,12 @@ async function Wallet() {
 
   if (!user) return <RequireLogin next="/coins" />;
 
-  const [balance, rate, redeemable, ledger] = await Promise.all([
-    getBalance(user.id),
-    getCoinRate(),
-    getRedeemableAttempts(user.id),
-    getLedger(user.id),
-  ]);
+  // Sequential on purpose: issuing these concurrently inside a Server Component
+  // render leaves the Suspense boundary unresolved on Vercel. Each query is only a
+  // few milliseconds now that the function sits in the same region as the database.
+  const balance = await getBalance(user.id);
+  const rate = await getCoinRate();
+  const redeemable = await getRedeemableAttempts(user.id);
+  const ledger = await getLedger(user.id);
   return <CoinWallet balance={balance} rate={rate} redeemable={redeemable} ledger={ledger} />;
 }

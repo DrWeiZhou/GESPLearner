@@ -33,11 +33,10 @@ async function Dashboard() {
 
   if (!user) return <RequireLogin next="/dashboard" />;
 
-  const [overview, byLevel, recent] = await Promise.all([
-    getOverview(user.id),
-    getAccuracyByLevel(user.id),
-    getRecentAttempts(user.id),
-  ]);
+  // Sequential — see the note in app/coins/page.tsx.
+  const overview = await getOverview(user.id);
+  const byLevel = await getAccuracyByLevel(user.id);
+  const recent = await getRecentAttempts(user.id);
 
   const stats = [
     { label: "累计答题", value: overview.answered },

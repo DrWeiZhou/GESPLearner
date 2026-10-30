@@ -16,26 +16,26 @@ export type OverviewStats = {
 
 export async function getOverview(userId: string): Promise<OverviewStats> {
   const db = getDb();
-  const [[ans], [subs], [exams]] = await Promise.all([
-    db
+  // Sequential — concurrent queries inside a Server Component render leave the
+  // Suspense boundary unresolved on Vercel; see app/coins/page.tsx.
+  const [ans] = await (db
       .select({
         answered: count(),
         correct: sql<number>`count(*) filter (where ${answerRecords.isCorrect})`,
       })
       .from(answerRecords)
-      .where(eq(answerRecords.userId, userId)),
-    db
+      .where(eq(answerRecords.userId, userId)));
+  const [subs] = await (db
       .select({
         total: count(),
         ac: sql<number>`count(*) filter (where ${submissions.verdict} = 'AC')`,
       })
       .from(submissions)
-      .where(eq(submissions.userId, userId)),
-    db
+      .where(eq(submissions.userId, userId)));
+  const [exams] = await (db
       .select({ n: count() })
       .from(attempts)
-      .where(and(eq(attempts.userId, userId), sql`${attempts.submittedAt} is not null`)),
-  ]);
+      .where(and(eq(attempts.userId, userId), sql`${attempts.submittedAt} is not null`)));
 
   const answered = Number(ans?.answered ?? 0);
   const correct = Number(ans?.correct ?? 0);
