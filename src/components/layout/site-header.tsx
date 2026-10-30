@@ -1,0 +1,49 @@
+import Link from "next/link";
+import { Suspense } from "react";
+import { CodeXmlIcon } from "lucide-react";
+import { accountsEnabled, getCurrentUser } from "@/lib/auth";
+import { buttonVariants } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { MainNav } from "./main-nav";
+import { ThemeToggle } from "./theme-toggle";
+import { UserMenu } from "./user-menu";
+
+export function SiteHeader() {
+  return (
+    <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="mx-auto flex h-14 max-w-7xl items-center gap-6 px-4">
+        <Link href="/" className="flex items-center gap-2 font-semibold">
+          <span className="flex size-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+            <CodeXmlIcon className="size-4" />
+          </span>
+          <span className="hidden sm:inline">GESP 备考助手</span>
+        </Link>
+        <MainNav />
+        <div className="ml-auto flex items-center gap-1">
+          <ThemeToggle />
+          {accountsEnabled ? (
+            <Suspense fallback={<Skeleton className="h-8 w-20" />}>
+              <HeaderUser />
+            </Suspense>
+          ) : (
+            <span className="rounded-md bg-amber-500/10 px-2 py-1 text-xs text-amber-700 dark:text-amber-400">
+              演示模式
+            </span>
+          )}
+        </div>
+      </div>
+    </header>
+  );
+}
+
+async function HeaderUser() {
+  const user = await getCurrentUser();
+  if (!user) {
+    return (
+      <Link href="/login" className={buttonVariants({ size: "sm" })}>
+        登录
+      </Link>
+    );
+  }
+  return <UserMenu name={user.displayName} email={user.email} />;
+}

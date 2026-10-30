@@ -1,0 +1,504 @@
+{
+  "id": "cpp-2026-09-l3",
+  "language": "cpp",
+  "level": 3,
+  "exam": {
+    "id": "2026-09",
+    "title": "2026年9月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10300.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1767258728693792.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "关于计算机的数据编码，下面说法不正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "数字 $5$，不管采用原码、反码、补码，它的 8 位二进制形式都是 $(0000\\,0101)_2$。"
+        },
+        {
+          "label": "B",
+          "content": "计算机科学中，单位换算默认 $1\\text{KB} = 1024\\text{B}$，而非 $1000\\text{ B}$。"
+        },
+        {
+          "label": "C",
+          "content": "原码是最直观的一种有符号数表示方法。"
+        },
+        {
+          "label": "D",
+          "content": "反码运算中，最高位进位要抛掉。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "关于进制转换，下面说法不正确的是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "数字 $1101\\text{B}$ 可以分解为：\n\n$1 \\times 2^3 + 1 \\times 2^2 + 0 \\times 2^1 + 1 \\times 2^0 = 8 + 4 + 0 + 1 = 13$（十进制）"
+        },
+        {
+          "label": "B",
+          "content": "数字 $42\\text{Q}$ 可以分解为：\n\n$4 \\times 8^1 + 2 \\times 8^0 = 32 + 2 = 34$（十进制）"
+        },
+        {
+          "label": "C",
+          "content": "数字 $2\\text{BEH}$ 可以分解为：\n\n$2 \\times 16^2 + 11\\,(\\text{B}) \\times 16^1 + 14\\,(\\text{E}) \\times 16^0 = 512 + 176 + 14 = 702$（十进制）"
+        },
+        {
+          "label": "D",
+          "content": "$345\\text{Q} = 0\\text{E3H}$（通常写作 $\\text{E3H}$）"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下面程序的运行结果是（ ）\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int x = 1;\n    for (int i = 0; i = 0; i <= 5) {\n        x++;\n    }\n    cout << x << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1`"
+        },
+        {
+          "label": "B",
+          "content": "`10`"
+        },
+        {
+          "label": "C",
+          "content": "`15`"
+        },
+        {
+          "label": "D",
+          "content": "程序编译错误"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "关于计算机编码中补码，下面说法错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "正数的补码：与其原码、反码相同。"
+        },
+        {
+          "label": "B",
+          "content": "负数的补码：将其对应的正数的原码按位取反（得到反码），然后加 $1$。"
+        },
+        {
+          "label": "C",
+          "content": "8 位的补码，最大表示数据是 $128$，最小表示数据是 $-128$。"
+        },
+        {
+          "label": "D",
+          "content": "负数的补码，从右往左扫描正数的二进制形式，遇到第一个 $1$ 之后，左边的所有位都取反。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面程序执行的结果是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int x = 2026;\n    int count = 0;\n    while (x > 0) {\n        count++;\n        x = x & (x - 1);\n    }\n    cout << count << endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`2026`"
+        },
+        {
+          "label": "B",
+          "content": "`8`"
+        },
+        {
+          "label": "C",
+          "content": "`16`"
+        },
+        {
+          "label": "D",
+          "content": "`32`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "关于位运算，下列说法错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "找唯一数：数组中唯一出现一次的数，其余出现两次，全部异或结果即为该数。\\\n例子：数组 `[5, 7, 9, 7, 5]`（唯一数是 `9`）"
+        },
+        {
+          "label": "B",
+          "content": "若左移导致高位溢出（如超过整型范围），结果不再符合乘法规律。"
+        },
+        {
+          "label": "C",
+          "content": "有符号整数左移溢出时结果确定。"
+        },
+        {
+          "label": "D",
+          "content": "$n+2$ 位二进制数 $A_1A_2\\cdots A_n00$，一定是 $4$ 的倍数（最后两位 $00$ 是二进制的 $00$）。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "计算 `3 & 7 | 15 ^ ~11`（`a=3, b=7, c=15, d=11`）：（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`-9`"
+        },
+        {
+          "label": "B",
+          "content": "`-1`"
+        },
+        {
+          "label": "C",
+          "content": "`-7`"
+        },
+        {
+          "label": "D",
+          "content": "`-5`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面函数是一个加密解密的函数，横线处应该填入的程序段是（ ）。\n\n```cpp\n#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    int key;\n    cin >> key;\n    string msg = \"Hello GESP\";\n    cout << msg << endl;\n    for (int i = 0; i < msg.size(); i++) {\n        msg[i] = msg[i] ^ key;\n    }\n    cout << msg << endl;\n    _________________________________\n    cout << msg << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nfor (int i = 0; i < msg.size(); i++) {\n    msg[i] = msg[i] | key;\n}\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nfor (int i = 0; i < msg.size(); i++) {\n    msg[i] = msg[i] >> key;\n}\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nfor (int i = 0; i < msg.size(); i++) {\n    msg[i] = msg[i] ^ key;\n}\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nfor (int i = 0; i < msg.size(); i++) {\n    msg[i] = msg[i] & key;\n}\n```"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下列程序是分别判断输入的 `N` 个数是否可能是二进制、八进制、十进制、十六进制，横线处应该填入的是（ ）\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int n = 0;\n    cin >> n;\n    for (int i = 0; i < n; i++) {\n        char str[11];\n        cin >> str;\n        char max = '0';\n        for (int i = 0; str[i] != '\\0'; i++)\n            if (str[i] > max)\n                max = str[i];\n        _____________________________\n    }\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`cout << (max <= '1') << \" \" << (max <= '7') << \" \" << (max <= '9') << \" \" << (max <= 'F') << endl;`"
+        },
+        {
+          "label": "B",
+          "content": "`cout << (max <= 1) << \" \" << (max <= 7) << \" \" << (max <= 9) << \" \" << (max <= 'F') << endl;`"
+        },
+        {
+          "label": "C",
+          "content": "`cout << (max <= 1) << \" \" << (max <= 7) << \" \" << (max <= 9) << \" \" << (max <= F) << endl;`"
+        },
+        {
+          "label": "D",
+          "content": "`cout << (max >= 1) << \" \" << (max >= 7) << \" \" << (max >= 9) << \" \" << (max >= F) << endl;`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面的程序是位掩码技术实现权限的组合管理。首先定义四个权限常量，分别对应读、写、修改、删除，每个权限占用整数的一个独立二进制位。初始化权限掩码 `mask` 为 `0`，代表没有任何权限。如果想实现如下的操作：添加读权限；添加写权限；清除读权限，其他位不变；添加删除权限。则横线处应该填入的是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    const int READ = 1 << 0;\n    const int WRITE = 1 << 1;\n    const int MODIFY = 1 << 2;\n    const int DELETE_ = 1 << 3;\n    int mask = 0;\n    __________________________\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nmask = mask | READ;\nmask = mask | WRITE;\nmask = mask & (~READ);\nmask = mask | DELETE_;\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nmask = mask & READ;\nmask = mask & WRITE;\nmask = mask | (~READ);\nmask = mask & DELETE_;\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nmask = mask | READ;\nmask = mask & WRITE;\nmask = mask & (~READ);\nmask = mask | DELETE_;\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nmask = mask | READ;\nmask = mask | WRITE;\nmask = mask | (~READ);\nmask = mask | DELETE_;\n```"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面选项中提到的变量都是正整数，关于位运算，下面说法错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`num >> 1`，对于正整数，等价于对 `num` 做整数除以 $2$，向下取整"
+        },
+        {
+          "label": "B",
+          "content": "`num | 0x0F`，可以把 `num` 的低 4 位全部置为 `1`，高位保持不变"
+        },
+        {
+          "label": "C",
+          "content": "`num ^ num` 的结果一定等于 `0`"
+        },
+        {
+          "label": "D",
+          "content": "若 `num` 右移时低位被移出丢弃，结果一定符合除法数学规律"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "已知：`a=0, b=2, c=11, d=7, e=5`，表达式 `!a & b << c ^ d | e` 的结果是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`5`"
+        },
+        {
+          "label": "B",
+          "content": "`13`"
+        },
+        {
+          "label": "C",
+          "content": "`7`"
+        },
+        {
+          "label": "D",
+          "content": "`28`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "关于 `string` 的成员函数，下面说法错误的是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`size()` 返回字符串的字符个数，不包含末尾的 `'\\0'`；`length()` 和 `size()` 功能完全等价"
+        },
+        {
+          "label": "B",
+          "content": "`s.empty()`：字符串为空时返回 `true`，字符串不为空返回 `false`"
+        },
+        {
+          "label": "C",
+          "content": "`s.substr(pos, len)`，当省略第二个参数 `len` 时，代表从 `pos` 位置一直截取到字符串末尾"
+        },
+        {
+          "label": "D",
+          "content": "`s.erase(2)` 表示删除字符串中下标为 2 的这一个字符"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "以下数组定义，符合 C++ 语法的是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`int a[] = {1, 2, 3.0};`"
+        },
+        {
+          "label": "B",
+          "content": "`int b['A'];`"
+        },
+        {
+          "label": "C",
+          "content": "`int c[ ];`"
+        },
+        {
+          "label": "D",
+          "content": "`float d[10.0];`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "三进制有个奇妙的应用，有 1000 个酒缸，恰好 1 缸有毒。毒酒喝下后 24 小时毒发死亡；无毒酒无影响。总共有 48 小时，可以做两轮实验，每轮可以重新安排老鼠喝酒。有三种情况，这只老鼠两轮都不喝这缸酒；这只老鼠第一轮喝这缸酒；这只老鼠第二轮喝这缸酒，要保证找出毒酒，最少需要多少只老鼠？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "$5$"
+        },
+        {
+          "label": "B",
+          "content": "$7$"
+        },
+        {
+          "label": "C",
+          "content": "$10$"
+        },
+        {
+          "label": "D",
+          "content": "$9$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "对于计算机编码运算，补码做加法运算时，如果最高位产生进位，需要把该进位循环加到结果的最低位。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "求 $-13$ 的补码，可以对正数 $13$ 的二进制，从右向左扫描，遇到第一个 $1$ 之后，右边所有位全部取反，左边保持不变。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "一个 8 位二进制原码表示的有符号数，可表示的数值范围是 $-128$ 到 $+127$。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "这段代码执行后，能够将数组中所有大于 `0` 的元素赋值为 `0`。\n\n```cpp\nint a[] = {2, -5, 7, 0, -1};\nint n = sizeof(a) / sizeof(a[0]);\nfor (int num : a) {\n    if (num > 0) {\n        num = 0;\n    }\n}\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "`a` 是 `int` 有符号整型，若 `(a & 1) == 1` 结果为 `true`，则 `a` 一定是正奇数。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "`char str[4] = \"GESP\";` 将在内存空间中给 `str[4]` 分配 `5` 个字节。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "判断字符串中字符是否是 `'0'` 或者 `'1'`，可以写条件：`if(str[i]==0 || str[i]==1)`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "下面程序执行后，将输出 `98`。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int a = 'a', b = 'b';\n    if (a > 0 || b++ > 0) {\n    }\n    cout << b;\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "枚举可以在保证不漏解的前提下缩小枚举范围，不是必须遍历全部。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "下面流程图逻辑：初始化 $\\text{sum} \\leftarrow 0$，$i \\leftarrow 0$；当 $i < n$ 成立时，执行 $\\text{sum} \\leftarrow \\text{sum} + a[i]$，再执行 $i \\leftarrow i + 1$；循环结束输出 `sum`。该流程图可以正确计算一维数组 `a[0]` ∼ `a[n]` 全部元素的总和。\n\n```text\n开始 → sum=0 → i=0 → ◇ i<n?\n                      ├─ 是 → sum=sum+a[i] → i=i+1 → 回到 ◇ i<n?\n                      └─ 否 → 输出sum → 结束\n```",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "公共二进制位",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小红有 $n$ 个非负整数 $a_1, a_2, \\cdots, a_n$。她将每个整数转换为二进制后，想知道有多少个二进制位在所有整数中均为 $1$。\n\n二进制位从右向左编号为 $0, 1, 2, \\cdots$。若某个整数的二进制表示中没有第 $k$ 位，则认为它的第 $k$ 位为 $0$。\n\n请你求出满足条件的二进制位数量。",
+      "inputFormat": "- 第一行一个整数 $n$，表示整数的个数。\n- 第二行 $n$ 个非负整数 $a_1, a_2, \\cdots, a_n$。",
+      "outputFormat": "输出一个整数，表示所有整数的二进制表示中均为 $1$ 的二进制位数量。",
+      "samples": [
+        {
+          "input": "3\n13 7 15",
+          "output": "2",
+          "explanation": "三个整数的二进制表示分别为 $(1101)_2$、$(0111)_2$ 和 $(1111)_2$。\n\n其中第 $0$ 位和第 $2$ 位均为 $1$，因此答案为 $2$。"
+        }
+      ],
+      "dataRange": "$2 \\le n \\le 20000$，$0 \\le a_i \\le 10^9$。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nint a[20010];\n\nint main() {\n    int n;\n    cin >> n;\n    for (int i = 0; i < n; ++i)\n        cin >> a[i];\n    int S = a[0];\n    for (int i = 1; i < n; ++i)\n        S &= a[i];\n    int ans = 0;\n    while (S > 0) {\n        if (S & 1) ans++;\n        S >>= 1;\n    }\n    cout << ans;\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "分割字符串",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小明拿到了一段字符串文本，小明希望用下面的规则分割这个字符串：\n\n1. 小明从左到右扫描字符串，遇到**第一个空格**后停止，并将字符串分割为左右两个部分（舍弃用于分割的这个空格）；\n2. 对于上次分割后右侧的字符串，小明继续扫描，第一次遇到**连续两个空格**后停止，并将字符串分割为左右两个部分（舍弃用于分割的这两个空格）；\n3. 对于上次分割后右侧的字符串，小明继续扫描，第一次遇到**连续三个空格**后停止，并将字符串分割为左右两个部分（舍弃用于分割的这三个空格）；\n4. 以此类推，小明每分割一次，下一次分割就需要更长的连续空格；直到字符串无法再次分割。\n\n最后输出每次分割的左侧的字符串，以及最后一次分割的右侧字符串。\\\n如果字符串完全无法进行任何一次分割，直接输出其本身。",
+      "inputFormat": "输入一行，一个字符串。",
+      "outputFormat": "输出若干行。每行为分割后的一个字符串，注意依次输出：\\\n第一次分割左侧的字符串，第二次分割左侧的字符串，...，最后一次分割左侧的字符串，最后一次分割右侧的字符串。",
+      "samples": [
+        {
+          "input": "sdfd 55 55   99312",
+          "output": "sdfd\n55 55\n 99312",
+          "explanation": "1. 第一次分割将字符串分割为 `sdfd` 和 `55 55   99312`；\n2. 第二次分割将字符串分割为 `55 55` 和 ` 99312`。\n\n对于第二次分割，注意 `55` 和 `55` 之间虽然有空格，但是第二次分割需要连续两个空格才行；\n\n另外，`55 55` 和 `99312` 之间有三个空格，第二次分割只需要两个，所以会分割为 `55 55` 和 ` 99312`，也就是右侧会留下一个空格；因为只留下了一个空格，所以不再满足第三次分割要求。"
+        },
+        {
+          "input": "AbCd   999",
+          "output": "AbCd\n\n999",
+          "explanation": "1. 第一次分割将字符串分割为 `AbCd` 和 `  999`；\n2. 第二次分割将字符串分割为 空字符串 和 `999`。\n\n由于 `AbCd` 和 `999` 之间有三个空格，第一次分割消耗掉一个，因此还能进行第二次分割，这个时候会分割出空字符串，因此输出中会输出一个空行（不能省略）。"
+        }
+      ],
+      "dataRange": "字符串长度不超过 $1000$，字符串中只包含大写字母、小写字母，数字，**或空格**，且输入字符串不会以空格结尾。\n\n特别强调：输入仅一行，但可能包含**若干空格**",
+      "referenceSolution": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string s = \"\";\n    getline(cin, s);\n\n    for (int k = 1;; ++k) {\n        string spaces = \"\";\n        for (int i = 0; i < k; ++i) {\n            spaces += \" \";\n        }\n\n        int pos = s.find(spaces);\n        if (pos < 0 || pos >= s.size()) break;\n\n        for (int i = 0; i < pos; ++i) {\n            cout << s[i];\n        }\n        cout << endl;\n\n        string rest = \"\";\n        for (int i = pos + k; i < s.length(); ++i) {\n            rest += s[i];\n        }\n        s = rest;\n    }\n\n    cout << s << endl;\n    return 0;\n}\n"
+    }
+  ]
+}

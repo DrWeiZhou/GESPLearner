@@ -1,0 +1,507 @@
+{
+  "id": "cpp-2026-09-l1",
+  "language": "cpp",
+  "level": 1,
+  "exam": {
+    "id": "2026-09",
+    "title": "2026年9月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10300.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1767258592378912.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "第二届世界人形机器人运动会开幕式上，机器人方阵通过控制程序来完成整场表演。表演前，工程师们使用集成开发环境（IDE）编写并调试方阵的控制程序。下列关于 IDE 功能的描述，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "可以提供代码自动补全，提高编程效率"
+        },
+        {
+          "label": "B",
+          "content": "可以提供辅助信息，帮助排查程序逻辑错误"
+        },
+        {
+          "label": "C",
+          "content": "可以直接控制机器人电机转动"
+        },
+        {
+          "label": "D",
+          "content": "支持语法高亮，使代码更易阅读"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "现代计算机自问世至今，已经经历了四个时代，即：电子管计算机（1946—1958 年）、晶体管计算机（1958—1964 年）、中小规模集成电路计算机（1965—1970 年）以及大规模和超大规模集成电路计算机（1971 年至今）。那么这里划分计算机时代所采用的主要依据是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "运算速度"
+        },
+        {
+          "label": "B",
+          "content": "存储容量"
+        },
+        {
+          "label": "C",
+          "content": "体积大小"
+        },
+        {
+          "label": "D",
+          "content": "核心元器件"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下列 C++ 代码执行的输出是（ ）。\n\n```cpp\nint a = 4 + -2 * 3;\ncout << a;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`-2`"
+        },
+        {
+          "label": "B",
+          "content": "`6`"
+        },
+        {
+          "label": "C",
+          "content": "`18`"
+        },
+        {
+          "label": "D",
+          "content": "输出错误提示信息"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下列 C++ 表达式与 `2 * - 2 % 3` 的值相同的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(2 * - 2) % 3`"
+        },
+        {
+          "label": "B",
+          "content": "`2 * (- 2 % 3)`"
+        },
+        {
+          "label": "C",
+          "content": "`2 * - (2 % 3)`"
+        },
+        {
+          "label": "D",
+          "content": "`2 % - 2 * 3`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "如下 C++ 代码执行后，其输出是（ ）。\n\n```cpp\nint a = 3;\nint b = 4;\nprintf(\"%d#%d\\n\", a, b);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3 4`"
+        },
+        {
+          "label": "B",
+          "content": "`3#4`"
+        },
+        {
+          "label": "C",
+          "content": "`3 # 4`"
+        },
+        {
+          "label": "D",
+          "content": "```text\n3\n4\n```"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下列 C++ 代码执行后的输出是（ ）。\n\n```cpp\nint a = 8;\nint b = 10;\ncout << (a % b) << \" \" << (a * 1 / b) << \" \" << (a * 1.0 / b);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`8 0.8 0`"
+        },
+        {
+          "label": "B",
+          "content": "`0 0.8 0`"
+        },
+        {
+          "label": "C",
+          "content": "`8 0 0.8`"
+        },
+        {
+          "label": "D",
+          "content": "`0 0 0.8`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "执行下面代码后，`b` 的值会是（ ）。\n\n```cpp\nint b = 8;\n++b *= 2 + 1;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`18`"
+        },
+        {
+          "label": "B",
+          "content": "`17`"
+        },
+        {
+          "label": "C",
+          "content": "`19`"
+        },
+        {
+          "label": "D",
+          "content": "`27`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "执行如下 C++ 代码，其输出是（ ）。\n\n```cpp\nint i, cnt = 0;\nfor (i = 0; i < 10; i++)\n    cnt += 1;\ncout << i << ' ' << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`10 10`"
+        },
+        {
+          "label": "B",
+          "content": "`9 9`"
+        },
+        {
+          "label": "C",
+          "content": "`10 9`"
+        },
+        {
+          "label": "D",
+          "content": "`9 10`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "执行如下 C++ 代码，变量都是整型，则其输出是（ ）。\n\n```cpp\nint cnt, i;\ncnt = 0;\nfor (i = -10; i < 0; i++)\n    cnt += 1;\ncout << (i * cnt);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`-10`"
+        },
+        {
+          "label": "B",
+          "content": "`-9`"
+        },
+        {
+          "label": "C",
+          "content": "`0`"
+        },
+        {
+          "label": "D",
+          "content": "`9`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "如下 C++ 代码执行输出是（ ）。\n\n```cpp\nint i;\nfor (i = 1; i < 5; i++) {\n    if (i % 3 == 0) {\n        printf(\"%d+\", i);\n        continue;\n    } else {\n        printf(\"%d-\", i);\n        break;\n    }\n}\nprintf(\"%dEND*\", i);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1-1`"
+        },
+        {
+          "label": "B",
+          "content": "`1 - 1 END*`"
+        },
+        {
+          "label": "C",
+          "content": "`1+1-2-2END*`"
+        },
+        {
+          "label": "D",
+          "content": "`1-1END*`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "如下 C++ 代码执行时，下列说法错误的是（ ）。\n\n```cpp\nint N, tot;\ncin >> N;\ntot = 0;\n\nwhile (N > 0) {\n    cout << N << \"#\";\n    tot += 1;\n    N -= 1;\n}\n\ncout << tot << \"-END\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "如果输入 `3`，输出是：`3#2#1#3-END`"
+        },
+        {
+          "label": "B",
+          "content": "如果输入 `-10`，输出是：`0-END`"
+        },
+        {
+          "label": "C",
+          "content": "如果输入 `0`，输出是：`0-END`"
+        },
+        {
+          "label": "D",
+          "content": "如果输入 `1`，输出是：`1#0-END`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下列 C++ 代码执行时如输入 `35`，输出如下图所示。横线处应填入的代码是（ ）。\n\n```text\n35 34 33 32 31 30 29 28 27 26\n25 24 23 22 21 20 19 18 17 16\n15 14 13 12 11 10  9  8  7  6\n 5  4  3  2  1\n```\n\n```cpp\nint N, tot, i;\ncin >> N;\n\ntot = 0;\nfor (i = 0; i < N; i++) {\n    printf(__________);\n    tot = tot + 1;\n    if (tot % 10 == 0)\n        printf(\"\\n\");\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`\"%3d\", N`"
+        },
+        {
+          "label": "B",
+          "content": "`\"%3d\", N - i`"
+        },
+        {
+          "label": "C",
+          "content": "`N - i`"
+        },
+        {
+          "label": "D",
+          "content": "`N`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后输出是（ ）。\n\n```cpp\nint k = 0;\nwhile (k < 8) {\n    k += 2;\n    continue;\n    if (k > 5)\n        break;\n    cout << k << \"#\";\n}\nif (k >= 8)\n    cout << \"FINISH\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`FINISH`"
+        },
+        {
+          "label": "B",
+          "content": "`2#4#6#FINISH`"
+        },
+        {
+          "label": "C",
+          "content": "`2#4#FINISH`"
+        },
+        {
+          "label": "D",
+          "content": "`2#4#6#8#FINISH`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "在下列 C++ 代码中，如果 `N` 和 `M` 均输入大于 `0` 的整数，则可以取得正整数 `N` 的从右到左第 `M` 位置的数。个位数为第 `1` 位置。则横线处应填入（ ）。\n\n```cpp\nint N, M, M10;\n\ncout << \"请输入正整数:\";\ncin >> N;\ncout << \"从右到左第几位？\";\ncin >> M;\n\nM10 = 1;\nfor (; M > 1; M--)\n    M10 *= 10;\ncout << ______________; // L1\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`N / M10 % 10`"
+        },
+        {
+          "label": "B",
+          "content": "`N / M10 / 10`"
+        },
+        {
+          "label": "C",
+          "content": "`N % M10 % 10`"
+        },
+        {
+          "label": "D",
+          "content": "`N % M10 / 10`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "求解鸡兔同笼。在如下 C++ 代码中，`tou` 代表鸡和兔的头总数，`jiao` 代表鸡和兔的脚总数。先后两个输入均为正整数。关于该程序下面说法准确的是（ ）\n\n```cpp\nint tou, jiao, tu_tou, ji_tou;\n\ncout << \"请输入鸡和兔的头总数：\";\ncin >> tou;\ncout << \"请输入鸡和兔的脚总数：\";\ncin >> jiao;\n\nfor (tu_tou = 0; tu_tou < tou + 1; tu_tou++) { // L1\n    ji_tou = tou - tu_tou;\n    if (tu_tou * 4 + ji_tou * 2 == jiao) {\n        printf(\"兔的数量=%d,鸡的数量=%d\\n\", tu_tou, ji_tou);\n        break;\n    }\n}\nif (tu_tou == tou) // L2\n    printf(\"无解\\n\");\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "能求解鸡兔同笼。"
+        },
+        {
+          "label": "B",
+          "content": "`ji_tou` 没有初始化，在 `L1` 行代码前增加 `ji_tou = 0;` 即可求解鸡兔同笼。"
+        },
+        {
+          "label": "C",
+          "content": "将 `L1` 行的 `tu_tou < tou + 1` 改为 `tu_tou <tou` 即可求解鸡兔同笼。"
+        },
+        {
+          "label": "D",
+          "content": "将 `L2` 行的 `tu_tou == tou` 改为 `tu_tou == tou + 1` 即可求解鸡兔同笼。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "C++ 程序执行 `cin` 或 `scanf` 语句时通常是使用键盘等输入设备来输入某个变量的值。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "如果 `n` 为 `3` 位数的正整数，则 C++ 表达式 `n % 100` 将能得到最高位。如 `n` 为 `123`，则该表达式的值为 `1`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后将输出 `20`。\n\n```cpp\nint i;\nfor (i = 0; i < 20; i += 3)\n    if (i % 3 != 0)\n        continue;\ncout << i;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "下列 C++ 代码执行时如果先后输入 `10` 和 `10`，则将输出 `10小于10`。\n\n```cpp\nint N, M;\n\ncin >> N >> M;\n\nif (N > M)\n    printf(\"%d大于%d\", N, M);\nelse\n    printf(\"%d小于%d\", N, M);\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "如下 C++ 代码如果输入大于 `0` 的整数，则可以求 `1` 到 `N` 之和。\n\n```cpp\nint N, tot;\n\ncout << \"请输入正整数：\";\ncin >> N;\ntot = 0;\n\nwhile (N > 0) {\n    tot += N;\n    N += -1;\n}\ncout << tot;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "在 C++ 中，表达式 `2 % 2` 与 `(-2) % 2` 的值相同。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "试图编译并执行下面 C++ 代码，会输出 `2`。\n\n```cpp\nfloat z = 12.0;\nz = z / 4;\nz--;\ncout << z++;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "在 C++ 代码中，如果两个变量 `__` 和 `____` 都只包含下划线(`_`)，但数目不同，则可能导致编译器无法识别，而报告变量重复定义。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "C++ 的变量 `X` 是 `double` 型，则表达式 `X = 27 % 12` 的结果不可预测。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后输出的是 `3`。\n\n```cpp\nint ans = 0;\nfor (int idx = 1; idx <= 7; idx += 2) {\n    if (idx == 5)\n        continue;\n    if (idx * idx > 30)\n        break;\n    ans += idx;\n}\ncout << ans;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "新龟兔赛跑",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "自从上次龟兔赛跑，兔子因为轻敌而惨败后，一直心有不甘，因此有了新一届龟兔赛跑。\n\n乌龟和上次一样，将会以恒定的速度往终点爬行，题目将给出乌龟从起点到终点所需时间；\\\n兔子并没有吸取教训，只是打算在终点前少睡一会儿，题目将给出兔子的速度，和兔子打算在终点前睡觉的时间；\n\n起点和终点之间的距离固定为 $1000.0$，请帮忙计算乌龟和兔子谁会获胜？",
+      "inputFormat": "输入包含 3 行，每行一个浮点数：\n\n- 第 1 行的浮点数表示乌龟从起点到终点所需时间；\n- 第 2 行的浮点数表示兔子的速度；\n- 第 3 行的浮点数表示兔子打算在终点前睡觉的时间。",
+      "outputFormat": "输出包含 2 行：\n\n- 第 1 行，如果乌龟获胜，输出 `turtle`；如果兔子获胜，输出 `rabbit`；如果平局，输出 `tie`；\n- 第 2 行，输出兔子到达终点所需的总时间（含兔子睡觉的时间），保留两位小数。",
+      "samples": [
+        {
+          "input": "20.0\n100.0\n11.0",
+          "output": "turtle\n21.00",
+          "explanation": "兔子跑完全程所需时间是 $1000.0 \\div 100.0 = 10.0$，而兔子要睡觉 $11.0$ 单位时间，所以兔子一共需要 $21.0$ 单位时间才能到达终点，这大于乌龟所需时间。"
+        },
+        {
+          "input": "20.0\n100.0\n9.0",
+          "output": "rabbit\n19.00",
+          "explanation": "与样例 1 类似，兔子跑完全程所需时间是 $1000.0 \\div 100.0 = 10.0$，但兔子仅睡觉 $9.0$ 单位时间，所以兔子一共需要 $19.0$ 单位时间就能到达终点，这小于乌龟所需时间。"
+        }
+      ],
+      "dataRange": "所有输入均有且仅有一位小数，且是不超过 $1000.0$ 的正数。\n\n本题默认给出的数值均为龟兔世界中的标准单位，不需要进行任何单位换算。\n\n$\\text{路程} = \\text{速度} \\times \\text{时间}$",
+      "referenceSolution": "#include <iostream>\n#include <cstdio>\nusing namespace std;\n\nint main() {\n    float t1, v, t2;\n    cin >> t1 >> v >> t2;\n    float tt = 1000.0 / v + t2;\n    if (tt < t1)\n        printf(\"rabbit\\n\");\n    else if (tt > t1)\n        printf(\"turtle\\n\");\n    else\n        printf(\"tie\\n\");\n    printf(\"%.2f\\n\", tt);\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "棋盘上的奖赏",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "相传古印度舍罕王为了奖赏宰相西萨发明国际象棋，西萨提的任何要求舍罕王都愿意满足。西萨只求在棋盘第 $1$ 格放 $1$ 粒麦子，第 $2$ 格放 $2$ 粒麦子，之后每一格都放前一格两倍的麦子，以此类推直到第 $64$ 格。国王觉得这奖赏微不足道，立刻命人取粮。\n\n然而麦子的数量飞速增长：到第 $20$ 格已需上百万粒，到第 $40$ 格就耗尽了全国库存，而后面仍有 $24$ 格。最终国王发现，即便倾尽天下粮食也填不满棋盘。\n\n聪明的你知道前 $n$ 格总共需要多少粒麦子吗？",
+      "inputFormat": "一行，一个整数 $n$。",
+      "outputFormat": "一行，一个整数，表示前 $n$ 格总共需要的麦子粒数。",
+      "samples": [
+        {
+          "input": "3",
+          "output": "7"
+        },
+        {
+          "input": "10",
+          "output": "1023"
+        }
+      ],
+      "dataRange": "对于 $40\\%$ 的测试点，保证 $1 \\le n \\le 10$。\n\n对于所有测试点，保证 $1 \\le n \\le 30$。",
+      "referenceSolution": "#include <cstdio>\n#include <algorithm>\nusing namespace std;\n\nint n;\nlong long f, ans;\n\nint main() {\n    scanf(\"%d\", &n);\n    f = 1;\n    for (int i = 1; i <= n; i++) {\n        ans += f;\n        f *= 2;\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n"
+    }
+  ]
+}
