@@ -70,6 +70,12 @@ async function main() {
     }
   }
   console.log(`完成：${ok}/${levels.length} 个级别`);
+  // `listSyllabi` is cached for hours and tagged; the admin import route drops that
+  // tag afterwards, but a CLI run happens outside the Next runtime and can't. So a
+  // deployed /syllabus keeps serving whatever it had — including the "not imported
+  // yet" card baked into its prerendered shell.
+  if (seed && ok > 0)
+    console.log("提示：线上 /syllabus 列表缓存若干小时，重新部署或在「系统设置 → 考试大纲」导入一次才会立刻刷新。");
 }
 
 await main();
