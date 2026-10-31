@@ -106,10 +106,20 @@ function compileArgs(compiler: CompilerInfo, dir: string, src: string, bin: stri
   return args;
 }
 
-/** The compiler's own directory first in PATH, so MinGW finds its helpers and DLLs. */
-function toolEnv(compiler: CompilerInfo): NodeJS.ProcessEnv {
+/**
+ * The compiler's own directory first in PATH, so MinGW finds its helpers and DLLs,
+ * and its temp files in our (ASCII) work folder: GCC writes intermediate objects to
+ * %TEMP%, which for a Windows user named 张三 is a path the assembler can't open.
+ */
+function toolEnv(compiler: CompilerInfo, workDir: string): NodeJS.ProcessEnv {
   const bin = path.dirname(compiler.path);
-  return { ...process.env, PATH: `${bin}${path.delimiter}${process.env.PATH ?? ""}` };
+  return {
+    ...process.env,
+    PATH: `${bin}${path.delimiter}${process.env.PATH ?? ""}`,
+    TMP: workDir,
+    TEMP: workDir,
+    TMPDIR: workDir,
+  };
 }
 
 const systemError = (message: string): RunResult => ({
@@ -144,7 +154,7 @@ export function createLocalRunner(preferred?: string | null): CodeRunner {
           await writeFile(path.join(dir, "bits", "stdc++.h"), STDCXX_SHIM);
         }
 
-        const env = toolEnv(compiler);
+        const env = toolEnv(compiler, dir);
         const compile = await exec(compiler.path, compileArgs(compiler, dir, src, bin), "", 60_000, { cwd: dir, env });
         const tidy = (s: string) => s.replaceAll(dir + path.sep, "").replaceAll(dir.replaceAll("\\", "/") + "/", "");
         if (compile.code !== 0) {
