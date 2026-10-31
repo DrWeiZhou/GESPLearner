@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { CoinsIcon, LogOutIcon, SettingsIcon, UserIcon } from "lucide-react";
+import { CoinsIcon, KeyRoundIcon, LogOutIcon, SettingsIcon, UserIcon } from "lucide-react";
 import { signOut } from "@/app/(auth)/actions";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
@@ -43,6 +43,9 @@ export function UserMenu({
         </DropdownMenuItem>
         <DropdownMenuItem render={<Link href="/dashboard" />}>
           <UserIcon /> 学习报告
+        </DropdownMenuItem>
+        <DropdownMenuItem render={<Link href="/account" />}>
+          <KeyRoundIcon /> 账号设置
         </DropdownMenuItem>
         {isAdmin && (
           <DropdownMenuItem render={<Link href="/admin" />}>

@@ -107,6 +107,35 @@ export async function authenticate(username: string, password: string): Promise<
   return { id: row.id, username: row.username, displayName: row.displayName ?? row.username, role: row.role };
 }
 
+/**
+ * Changes a password after re-checking the current one, so someone who gets hold of
+ * a signed-in device still can't lock the owner out. On success every *other*
+ * session is revoked — if the old password had leaked, those sessions die with it —
+ * while the caller stays signed in.
+ */
+export async function changePassword(userId: string, currentPassword: string, newPassword: string) {
+  if (newPassword.length < 6) throw new HttpError(400, "新密码至少 6 位");
+  if (newPassword === currentPassword) throw new HttpError(400, "新密码不能和当前密码相同");
+
+  const db = getDb();
+  const [row] = await db.select().from(users).where(eq(users.id, userId));
+  if (!row) throw new HttpError(404, "用户不存在");
+  if (!(await verifyPassword(currentPassword, row.passwordHash)))
+    throw new HttpError(400, "当前密码不正确");
+
+  const passwordHash = await hashPassword(newPassword);
+  await db.update(users).set({ passwordHash }).where(eq(users.id, userId));
+
+  const keep = (await cookies()).get(SESSION_COOKIE)?.value;
+  await db
+    .delete(sessions)
+    .where(
+      keep
+        ? and(eq(sessions.userId, userId), sql`${sessions.tokenHash} <> ${tokenHash(keep)}`)
+        : eq(sessions.userId, userId),
+    );
+}
+
 // ───────────────────────── sessions ─────────────────────────
 
 export async function createSession(userId: string) {
