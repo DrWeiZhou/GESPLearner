@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { errorResponse, HttpError, requireUserIfConfigured } from "@/lib/auth";
+import { rewardQuestions } from "@/lib/coins";
 import { getQuestion, getTestCases } from "@/lib/content";
 import { judge, MAX_CODE_LENGTH } from "@/lib/judge";
 import { getOpenAttempt, recordSubmission } from "@/lib/records";
@@ -27,8 +28,16 @@ export async function POST(req: Request) {
     const result = await judge(code, cases, { timeLimitMs: q.timeLimitMs, memoryLimitMb: q.memoryLimitMb });
     result.score = result.total ? Math.round((q.score * result.passed) / result.total) : 0;
 
-    if (user) await recordSubmission({ userId: user.id, questionId, code, result, attemptId: attempt?.id });
-    return Response.json(result);
+    let reward = null;
+    if (user) {
+      await recordSubmission({ userId: user.id, questionId, code, result, attemptId: attempt?.id });
+      // The first 提交 settles the question for good — a later, better submission
+      // earns nothing, which is why the editor tells students to 运行 first.
+      reward = await rewardQuestions(user.id, [
+        { questionId, score: result.score ?? 0, attemptId: attempt?.id, label: `编程题第 ${q.number} 题` },
+      ]);
+    }
+    return Response.json({ ...result, reward });
   } catch (err) {
     return errorResponse(err);
   }

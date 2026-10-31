@@ -15,7 +15,9 @@ export function CoinRateForm({ rate }: { rate: number }) {
   const [value, setValue] = useState(String(rate));
   const [saving, setSaving] = useState(false);
 
-  const preview = (score: number) => Math.floor(score * (Number(value) || 0));
+  // Per-question amounts are rarely whole coins, so show the exact value — the
+  // remainder is carried on the student's wallet until it adds up to one.
+  const preview = (score: number) => Math.round(score * (Number(value) || 0) * 1000) / 1000;
 
   const save = async () => {
     const n = Number(value);
@@ -37,7 +39,9 @@ export function CoinRateForm({ rate }: { rate: number }) {
     <Card>
       <CardHeader>
         <CardTitle className="text-base">金币兑换比例</CardTitle>
-        <CardDescription>每 1 分试卷得分可兑换的金币数量，默认 0.3。兑换时向下取整。</CardDescription>
+        <CardDescription>
+          每 1 分题目得分发放的金币数量，默认 0.3。每做对一道新题立刻结算，不满 1 枚的零头会攒到下一题。
+        </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="flex items-end gap-3">
@@ -57,8 +61,8 @@ export function CoinRateForm({ rate }: { rate: number }) {
           </Button>
         </div>
         <p className="text-sm text-muted-foreground">
-          按当前比例：满分 100 分 → <b>{preview(100)}</b> 枚；70 分 → <b>{preview(70)}</b> 枚；
-          8 分 → <b>{preview(8)}</b> 枚。
+          按当前比例：2 分的客观题 → <b>{preview(2)}</b> 枚；25 分的编程题满分 → <b>{preview(25)}</b> 枚；
+          做完一整套 100 分的卷子 → <b>{preview(100)}</b> 枚。
         </p>
       </CardContent>
     </Card>

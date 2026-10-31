@@ -4,51 +4,38 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { CoinsIcon, Loader2Icon, MinusCircleIcon } from "lucide-react";
 import { toast } from "sonner";
-import { LevelBadge } from "@/components/common/level-badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { postJSON } from "@/lib/api";
-import type { CoinTransaction, RedeemableAttempt } from "@/lib/coins";
+import type { CoinTransaction } from "@/lib/coins";
 import { formatExamId } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
-const TYPE_LABEL = { earn: "试卷兑换", spend: "扣除", adjust: "管理员调整" } as const;
+const TYPE_LABEL = { reward: "做题奖励", spend: "扣除", adjust: "管理员调整", earn: "试卷兑换" } as const;
 
 export function CoinWallet({
   balance,
+  carry,
   rate,
-  redeemable,
   ledger,
 }: {
   balance: number;
+  /** Fraction of a coin saved up but not yet credited. */
+  carry: number;
   rate: number;
-  redeemable: RedeemableAttempt[];
   ledger: CoinTransaction[];
 }) {
   const router = useRouter();
-  const [pending, setPending] = useState<string | null>(null);
+  const [spending, setSpending] = useState(false);
   const [amount, setAmount] = useState("");
   const [note, setNote] = useState("");
-
-  const redeem = async (attemptId: string) => {
-    setPending(attemptId);
-    try {
-      const r = await postJSON<{ coins: number; balance: number }>("/api/coins/redeem", { attemptId });
-      toast.success(`兑换成功，获得 ${r.coins} 枚金币`);
-      router.refresh();
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : "兑换失败");
-    } finally {
-      setPending(null);
-    }
-  };
 
   const spend = async () => {
     const n = Number(amount);
     if (!Number.isInteger(n) || n <= 0) return toast.error("请输入正整数");
-    setPending("spend");
+    setSpending(true);
     try {
       const r = await postJSON<{ balance: number }>("/api/coins/spend", { amount: n, note: note || undefined });
       toast.success(`已扣除 ${n} 枚金币，剩余 ${r.balance} 枚`);
@@ -58,7 +45,7 @@ export function CoinWallet({
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "扣除失败");
     } finally {
-      setPending(null);
+      setSpending(false);
     }
   };
 
@@ -71,36 +58,23 @@ export function CoinWallet({
           <p className="mt-2 text-sm text-muted-foreground">
             枚金币　·　当前兑换比例：每 1 分 = {rate} 枚
           </p>
+          {carry > 0 && (
+            <p className="mt-1 text-xs text-muted-foreground">
+              另有 {carry} 枚零头正在累计，攒满 1 枚会自动入账
+            </p>
+          )}
         </CardContent>
       </Card>
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-base">可兑换的试卷</CardTitle>
+          <CardTitle className="text-base">怎么拿金币</CardTitle>
         </CardHeader>
-        <CardContent>
-          {redeemable.length === 0 ? (
-            <p className="text-sm text-muted-foreground">
-              暂无可兑换的试卷。完成一次模拟考试并交卷后，就能把得分换成金币（每份试卷限一次）。
-            </p>
-          ) : (
-            <ul className="divide-y">
-              {redeemable.map((a) => (
-                <li key={a.attemptId} className="flex flex-wrap items-center gap-3 py-3 text-sm">
-                  <LevelBadge level={a.level} />
-                  <span>{formatExamId(a.examId)}</span>
-                  <span className="text-muted-foreground tabular-nums">
-                    {a.score}/{a.maxScore} 分
-                  </span>
-                  <span className="ml-auto font-medium text-amber-600 tabular-nums">+{a.coins} 金币</span>
-                  <Button size="sm" disabled={pending !== null || a.coins <= 0} onClick={() => redeem(a.attemptId)}>
-                    {pending === a.attemptId && <Loader2Icon className="animate-spin" />}
-                    {a.coins > 0 ? "兑换" : "不足 1 枚"}
-                  </Button>
-                </li>
-              ))}
-            </ul>
-          )}
+        <CardContent className="space-y-1.5 text-sm text-muted-foreground">
+          <p>· 客观题答对、编程题通过测试点，都会按本题得分 × {rate} 立刻发金币。</p>
+          <p>· 一道题只结算一次：重做、或者在错题本里再做一遍，都不会再发金币。</p>
+          <p>· 编程题按<b>第一次提交</b>的得分结算，提交前先用「自测运行」试一试。</p>
+          <p>· 不满 1 枚的零头会先攒起来，攒满 1 枚自动入账。</p>
         </CardContent>
       </Card>
 
@@ -132,8 +106,8 @@ export function CoinWallet({
                 maxLength={100}
               />
             </div>
-            <Button variant="outline" disabled={pending !== null || !amount} onClick={spend}>
-              {pending === "spend" ? <Loader2Icon className="animate-spin" /> : <MinusCircleIcon />}
+            <Button variant="outline" disabled={spending || !amount} onClick={spend}>
+              {spending ? <Loader2Icon className="animate-spin" /> : <MinusCircleIcon />}
               扣除
             </Button>
           </div>

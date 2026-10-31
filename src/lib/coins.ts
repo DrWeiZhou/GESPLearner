@@ -1,6 +1,6 @@
 import "server-only";
-import { and, desc, eq, isNotNull, sql } from "drizzle-orm";
-import { getDb } from "@/db";
+import { desc, eq, sql } from "drizzle-orm";
+import { getDb, type Tx } from "@/db";
 import {
   appSettings,
   attempts,
@@ -8,14 +8,25 @@ import {
   COIN_RATE_KEY,
   DEFAULT_COIN_RATE,
   papers,
+  questionRewards,
+  questions,
   users,
 } from "@/db/schema";
 import { HttpError } from "@/lib/auth";
-import { isUniqueViolation } from "@/lib/db-errors";
+import type { CoinReward } from "@/lib/types";
 
 /**
- * Coins: students convert an exam score into coins once per finished attempt, and
- * an adult deducts them when the coins are cashed in for a real-world reward.
+ * Coins: a question pays out the moment it is graded, and an adult deducts coins
+ * when they are cashed in for a real-world reward.
+ *
+ * Two rules shape the design:
+ *
+ * - A question pays once, the first time it is graded — so a redo, or a second pass
+ *   through the wrong-answer book, earns nothing. The `question_rewards` row written
+ *   at that first grading (score 0 included) is what enforces it.
+ * - score × rate is rarely a whole number — a 2-point question at 0.3 is worth 0.6
+ *   coins — so only whole coins reach the ledger and the remainder is carried on
+ *   `users.coinCarry` until it adds up to one.
  *
  * The balance is always SUM(amount) over the ledger — never a stored counter — so
  * history stays auditable and concurrent writes can't lose an update.
@@ -24,38 +35,31 @@ import { isUniqueViolation } from "@/lib/db-errors";
 export type CoinTransaction = {
   id: number;
   amount: number;
-  type: "earn" | "spend" | "adjust";
+  type: "reward" | "spend" | "adjust" | "earn";
   note: string | null;
   createdAt: Date;
-  attemptId: string | null;
-  paperId: string | null;
   level: number | null;
   examId: string | null;
 };
 
-export type RedeemableAttempt = {
-  attemptId: string;
-  paperId: string;
-  examId: string;
-  level: number;
-  score: number;
-  maxScore: number;
-  submittedAt: Date;
-  coins: number;
-};
-
 // ───────────────────────── rate ─────────────────────────
 
-/** Coins awarded per exam point. Admin-configurable; defaults to 0.3. */
-export async function getCoinRate(): Promise<number> {
-  const [row] = await getDb().select().from(appSettings).where(eq(appSettings.key, COIN_RATE_KEY));
+/**
+ * Coins awarded per exam point. Admin-configurable; defaults to 0.3.
+ *
+ * Takes the connection to read on: a settlement reads the rate while holding its
+ * transaction, and borrowing a second connection from the small pool to do it
+ * deadlocks as soon as a few students are graded at once.
+ */
+export async function getCoinRate(conn: Pick<Tx, "select"> = getDb()): Promise<number> {
+  const [row] = await conn.select().from(appSettings).where(eq(appSettings.key, COIN_RATE_KEY));
   const value = Number(row?.value);
   return Number.isFinite(value) && value >= 0 ? value : DEFAULT_COIN_RATE;
 }
 
 export async function setCoinRate(rate: number, adminId: string) {
   if (!Number.isFinite(rate) || rate < 0 || rate > 100) throw new HttpError(400, "兑换比例需在 0 ~ 100 之间");
-  const value = Math.round(rate * 1000) / 1000;
+  const value = round3(rate);
   await getDb()
     .insert(appSettings)
     .values({ key: COIN_RATE_KEY, value, updatedBy: adminId })
@@ -66,8 +70,13 @@ export async function setCoinRate(rate: number, adminId: string) {
   return value;
 }
 
-/** Whole coins only — a 7-point score at 0.3 is 2 coins, not 2.1. */
-export const coinsFor = (score: number, rate: number) => Math.floor(score * rate);
+/**
+ * Exact coins a score is worth, kept to three decimals — the same precision the
+ * rate is stored at, so repeated additions can't drift away from a whole coin.
+ */
+export const coinsFor = (score: number, rate: number) => round3(score * rate);
+
+const round3 = (n: number) => Math.round(n * 1000) / 1000;
 
 // ───────────────────────── balance & history ─────────────────────────
 
@@ -79,7 +88,16 @@ export async function getBalance(userId: string): Promise<number> {
   return row?.balance ?? 0;
 }
 
+/** The fraction of a coin not yet credited, always < 1. */
+export async function getCarry(userId: string): Promise<number> {
+  const [row] = await getDb().select({ carry: users.coinCarry }).from(users).where(eq(users.id, userId));
+  return row?.carry ?? 0;
+}
+
 export async function getLedger(userId: string, limit = 50): Promise<CoinTransaction[]> {
+  // A row points at a paper either through its question (per-question reward) or
+  // through the attempt (an exam hand-in, and legacy whole-paper redemptions).
+  const paperId = sql<string | null>`coalesce(${questions.paperId}, ${attempts.paperId})`;
   return getDb()
     .select({
       id: coinTransactions.id,
@@ -87,96 +105,110 @@ export async function getLedger(userId: string, limit = 50): Promise<CoinTransac
       type: coinTransactions.type,
       note: coinTransactions.note,
       createdAt: coinTransactions.createdAt,
-      attemptId: coinTransactions.attemptId,
-      paperId: attempts.paperId,
       level: papers.level,
       examId: papers.examId,
     })
     .from(coinTransactions)
     .leftJoin(attempts, eq(attempts.id, coinTransactions.attemptId))
-    .leftJoin(papers, eq(papers.id, attempts.paperId))
+    .leftJoin(questions, eq(questions.id, coinTransactions.questionId))
+    .leftJoin(papers, eq(papers.id, paperId))
     .where(eq(coinTransactions.userId, userId))
     .orderBy(desc(coinTransactions.createdAt), desc(coinTransactions.id))
     .limit(limit);
 }
 
-/** Finished attempts that have not been converted into coins yet. */
-export async function getRedeemableAttempts(userId: string): Promise<RedeemableAttempt[]> {
-  const rate = await getCoinRate();
-  const rows = await getDb()
-    .select({
-      attemptId: attempts.id,
-      paperId: attempts.paperId,
-      examId: papers.examId,
-      level: papers.level,
-      score: attempts.score,
-      maxScore: attempts.maxScore,
-      submittedAt: attempts.submittedAt,
-    })
-    .from(attempts)
-    .innerJoin(papers, eq(papers.id, attempts.paperId))
-    .where(
-      and(
-        eq(attempts.userId, userId),
-        isNotNull(attempts.submittedAt),
-        sql`not exists (
-          select 1 from ${coinTransactions} ct
-          where ct.attempt_id = ${attempts.id} and ct.type = 'earn'
-        )`,
-      ),
+// ───────────────────────── rewards ─────────────────────────
+
+export type GradedQuestion = {
+  questionId: string;
+  /** Points earned on the question, 0 for a wrong answer. */
+  score: number;
+  attemptId?: string | null;
+  /** For the ledger note, e.g. "单选第 3 题". */
+  label?: string;
+};
+
+/**
+ * Settle freshly graded questions into coins.
+ *
+ * Questions that already have a `question_rewards` row are skipped silently, which
+ * is what makes a redo — or the wrong-answer book — earn nothing. Returns null when
+ * nothing was settled, so callers can tell "nothing to show" from "+0 coins".
+ *
+ * Safe to call with the whole batch a hand-in produced: the carry is applied once,
+ * to their total.
+ */
+export async function rewardQuestions(
+  userId: string,
+  graded: GradedQuestion[],
+  tx?: Tx,
+): Promise<CoinReward | null> {
+  if (!graded.length) return null;
+  if (!tx) return getDb().transaction((t) => rewardQuestions(userId, graded, t));
+
+  const rate = await getCoinRate(tx);
+
+  // Lock the wallet row: unlike the balance, the carry is a stored remainder, so two
+  // concurrent settlements must not read the same value. Deductions take the same
+  // lock, which serialises the whole wallet per student.
+  const [owner] = await tx
+    .select({ carry: users.coinCarry })
+    .from(users)
+    .where(eq(users.id, userId))
+    .for("update");
+  if (!owner) throw new HttpError(404, "用户不存在");
+
+  const fresh = await tx
+    .insert(questionRewards)
+    .values(
+      graded.map((g) => ({
+        userId,
+        questionId: g.questionId,
+        attemptId: g.attemptId ?? null,
+        score: g.score,
+        rate,
+        coins: coinsFor(g.score, rate),
+      })),
     )
-    .orderBy(desc(attempts.submittedAt));
-
-  return rows.map((r) => ({
-    attemptId: r.attemptId,
-    paperId: r.paperId,
-    examId: r.examId,
-    level: r.level,
-    score: r.score ?? 0,
-    maxScore: r.maxScore ?? 0,
-    submittedAt: r.submittedAt!,
-    coins: coinsFor(r.score ?? 0, rate),
-  }));
-}
-
-// ───────────────────────── mutations ─────────────────────────
-
-export type RedeemResult = { coins: number; score: number; rate: number; balance: number };
-
-/** Convert one finished attempt into coins. The unique index makes this idempotent-safe. */
-export async function redeemAttempt(userId: string, attemptId: string): Promise<RedeemResult> {
-  const db = getDb();
-  const [attempt] = await db
-    .select()
-    .from(attempts)
-    .where(and(eq(attempts.id, attemptId), eq(attempts.userId, userId)));
-
-  if (!attempt) throw new HttpError(404, "考试记录不存在");
-  if (!attempt.submittedAt) throw new HttpError(400, "该试卷还没有交卷");
-
-  const rate = await getCoinRate();
-  const score = attempt.score ?? 0;
-  const coins = coinsFor(score, rate);
-  if (coins <= 0) throw new HttpError(400, "本次得分太低，还兑换不到 1 枚金币");
-
-  try {
-    await db.insert(coinTransactions).values({
-      userId,
-      amount: coins,
-      type: "earn",
-      attemptId,
-      note: `试卷得分 ${score} × ${rate}`,
+    .onConflictDoNothing()
+    .returning({
+      questionId: questionRewards.questionId,
+      score: questionRewards.score,
+      coins: questionRewards.coins,
     });
-  } catch (err) {
-    // The partial unique index on (attempt_id) where type='earn' is the real guard
-    // against double redemption, including two concurrent requests.
-    if (isUniqueViolation(err, "coin_tx_one_earn_per_attempt"))
-      throw new HttpError(409, "这份试卷已经兑换过金币了");
-    throw err;
+  if (!fresh.length) return null;
+
+  const score = round3(fresh.reduce((s, r) => s + r.score, 0));
+  const coins = round3(fresh.reduce((s, r) => s + r.coins, 0));
+  const pending = round3(owner.carry + coins);
+  const credited = Math.floor(pending);
+  const carry = round3(pending - credited);
+
+  await tx.update(users).set({ coinCarry: carry }).where(eq(users.id, userId));
+
+  if (credited > 0) {
+    const single = fresh.length === 1 ? graded.find((g) => g.questionId === fresh[0].questionId) : undefined;
+    await tx.insert(coinTransactions).values({
+      userId,
+      amount: credited,
+      type: "reward",
+      questionId: single?.questionId ?? null,
+      attemptId: graded[0].attemptId ?? null,
+      note: single
+        ? `${single.label ?? "答题"} ${score} 分 × ${rate}`
+        : `${fresh.length} 道题共 ${score} 分 × ${rate}`,
+    });
   }
 
-  return { coins, score, rate, balance: await getBalance(userId) };
+  const [row] = await tx
+    .select({ balance: sql<number>`coalesce(sum(${coinTransactions.amount}), 0)::int` })
+    .from(coinTransactions)
+    .where(eq(coinTransactions.userId, userId));
+
+  return { coins, credited, carry, balance: row?.balance ?? 0, questions: fresh.length };
 }
+
+// ───────────────────────── deductions ─────────────────────────
 
 /** Deduct coins (cashing them in for a reward). Refuses to overdraw. */
 export async function spendCoins(params: {

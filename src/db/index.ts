@@ -7,6 +7,9 @@ export const isDatabaseConfigured = Boolean(process.env.DATABASE_URL);
 
 type DB = ReturnType<typeof drizzle<typeof schema>>;
 
+/** Transaction handle, for helpers that have to join a caller's transaction. */
+export type Tx = Parameters<Parameters<DB["transaction"]>[0]>[0];
+
 const globalForDb = globalThis as unknown as { __gespDb?: DB };
 
 /**

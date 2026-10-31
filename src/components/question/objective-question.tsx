@@ -1,17 +1,23 @@
 "use client";
 
-import { CheckIcon, Loader2Icon, XIcon } from "lucide-react";
+import { CheckIcon, CoinsIcon, Loader2Icon, XIcon } from "lucide-react";
 import { useState } from "react";
 import { Markdown } from "@/components/common/markdown";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { QUESTION_TYPE_LABEL } from "@/lib/format";
-import type { ObjectiveQuestion } from "@/lib/types";
+import { formatReward, QUESTION_TYPE_LABEL } from "@/lib/format";
+import type { CoinReward, ObjectiveQuestion } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 export type ObjectiveChoice = "A" | "B" | "C" | "D" | "T" | "F";
 
-export type CheckedResult = { correct: boolean; answer: string; explanation?: string | null };
+export type CheckedResult = {
+  correct: boolean;
+  answer: string;
+  explanation?: string | null;
+  /** Coins this grading settled; null for a redo, which never pays. */
+  reward?: CoinReward | null;
+};
 
 const TF_OPTIONS = [
   { label: "T" as const, content: "正确 √" },
@@ -58,6 +64,7 @@ export function ObjectiveQuestionCard({
             {result.correct ? "回答正确" : "回答错误"}
           </Badge>
         )}
+        {result?.reward && <RewardBadge reward={result.reward} />}
       </div>
 
       <Markdown>{question.stem}</Markdown>
@@ -125,5 +132,16 @@ export function ObjectiveQuestionCard({
 
       {children}
     </section>
+  );
+}
+
+/** The coins a freshly graded question just paid out, next to the 正确/错误 badge. */
+function RewardBadge({ reward }: { reward: CoinReward }) {
+  const text = formatReward(reward);
+  if (!text) return null;
+  return (
+    <Badge className="border-transparent bg-amber-500/15 text-amber-700 dark:text-amber-400">
+      <CoinsIcon className="size-3" /> {text}
+    </Badge>
   );
 }

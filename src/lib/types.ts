@@ -106,6 +106,25 @@ export const VERDICT_LABEL: Record<Verdict, string> = {
   SE: "评测系统错误",
 };
 
+// ───────── coins ─────────
+
+/**
+ * Coins settled for one or more freshly graded questions (see `lib/coins`). A
+ * question pays once, so a redo returns null instead of this.
+ */
+export type CoinReward = {
+  /** Exact coins the questions earned — score × rate, usually fractional. */
+  coins: number;
+  /** Whole coins credited to the balance right now. */
+  credited: number;
+  /** Fraction left over, waiting for the next question. Always < 1. */
+  carry: number;
+  /** Balance after crediting. */
+  balance: number;
+  /** How many questions this settlement covered. */
+  questions: number;
+};
+
 // ───────── AI tutor ─────────
 
 export type ChatMessage = { role: "user" | "assistant"; content: string };

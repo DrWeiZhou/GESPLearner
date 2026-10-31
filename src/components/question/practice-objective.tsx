@@ -1,6 +1,7 @@
 "use client";
 
 import { SparklesIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { TutorPanel } from "@/components/tutor/tutor-panel";
@@ -12,6 +13,7 @@ import { ObjectiveQuestionCard, type CheckedResult, type ObjectiveChoice } from 
 
 /** Single objective question in practice mode: instant grading + AI explanation. */
 export function PracticeObjective({ question }: { question: ObjectiveQuestion }) {
+  const router = useRouter();
   const [value, setValue] = useState<ObjectiveChoice | null>(null);
   const [result, setResult] = useState<CheckedResult | null>(null);
   const [showTutor, setShowTutor] = useState(false);
@@ -23,6 +25,8 @@ export function PracticeObjective({ question }: { question: ObjectiveQuestion })
       const res = await postJSON<CheckedResult>("/api/answers/check", { questionId: question.id, answer: value });
       answerRef.current = value;
       setResult(res);
+      // Coins just landed in the balance the header renders on the server.
+      if (res.reward?.credited) router.refresh();
       // Wrong answers almost always need an explanation — open the tutor right away.
       if (!res.correct) setShowTutor(true);
     } catch (err) {

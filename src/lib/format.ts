@@ -1,3 +1,5 @@
+import type { CoinReward } from "@/lib/types";
+
 /** "2026-09" → "2026年9月" */
 export function formatExamId(examId: string) {
   const [y, m] = examId.split("-");
@@ -16,3 +18,17 @@ export const QUESTION_TYPE_LABEL = {
   true_false: "判断题",
   programming: "编程题",
 } as const;
+
+/**
+ * How a settled reward reads to a student. A 2-point question at the default rate
+ * is only worth 0.6 coins, so most gradings say what has been saved up rather than
+ * what was credited. Null when the question earned nothing (a wrong answer).
+ */
+export function formatReward(reward: CoinReward): string | null {
+  if (reward.credited > 0)
+    return reward.carry > 0
+      ? `+${reward.credited} 金币，另攒下 ${reward.carry} 枚`
+      : `+${reward.credited} 金币`;
+  if (reward.coins > 0) return `攒下 ${reward.coins} 枚，共 ${reward.carry}/1 枚，满 1 枚自动入账`;
+  return null;
+}

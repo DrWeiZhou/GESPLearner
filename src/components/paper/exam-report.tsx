@@ -2,16 +2,14 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { CheckCircle2Icon, CoinsIcon, Loader2Icon, SparklesIcon, XCircleIcon } from "lucide-react";
-import { toast } from "sonner";
-import { postJSON } from "@/lib/api";
+import { CheckCircle2Icon, CoinsIcon, SparklesIcon, XCircleIcon } from "lucide-react";
 import { TutorPanel } from "@/components/tutor/tutor-panel";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Markdown } from "@/components/common/markdown";
-import { QUESTION_TYPE_LABEL } from "@/lib/format";
+import { formatReward, QUESTION_TYPE_LABEL } from "@/lib/format";
 import type { ExamReport, ReportItem } from "@/lib/grading";
-import type { PaperDetail, TutorContext } from "@/lib/types";
+import type { CoinReward, PaperDetail, TutorContext } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 const tfText = (a: string | null) =>
@@ -49,7 +47,7 @@ export function ExamReportView({
               ? "　🎉 达到合格线（70 分）"
               : "　距离合格线还需努力"}
           </p>
-          {report.attemptId && <RedeemCoins attemptId={report.attemptId} />}
+          {report.coins && <SettledCoins reward={report.coins} />}
           <div className="mt-6 flex justify-center gap-3">
             <Link
               href={`/papers/${paper.id}`}
@@ -177,40 +175,16 @@ function ReviewRow({ item, paper }: { item: ReportItem; paper: PaperDetail }) {
   );
 }
 
-/** Convert this attempt's score into coins — allowed once per attempt. */
-function RedeemCoins({ attemptId }: { attemptId: string }) {
-  const [state, setState] = useState<"idle" | "pending" | "done">("idle");
-  const [coins, setCoins] = useState(0);
-
-  if (state === "done") {
-    return (
-      <p className="mt-5 flex items-center justify-center gap-1.5 text-sm font-medium text-amber-600 dark:text-amber-400">
-        <CoinsIcon className="size-4" /> 已兑换 {coins} 枚金币
-      </p>
-    );
-  }
-
+/**
+ * Coins this hand-in settled. Nothing to click: each question pays out the moment
+ * it is graded, and the ones answered in practice beforehand have already paid.
+ */
+function SettledCoins({ reward }: { reward: CoinReward }) {
+  const text = formatReward(reward);
+  if (!text) return null;
   return (
-    <div className="mt-5">
-      <Button
-        variant="outline"
-        disabled={state === "pending"}
-        onClick={async () => {
-          setState("pending");
-          try {
-            const r = await postJSON<{ coins: number }>("/api/coins/redeem", { attemptId });
-            setCoins(r.coins);
-            setState("done");
-            toast.success(`兑换成功，获得 ${r.coins} 枚金币`);
-          } catch (err) {
-            setState("idle");
-            toast.error(err instanceof Error ? err.message : "兑换失败");
-          }
-        }}
-      >
-        {state === "pending" ? <Loader2Icon className="animate-spin" /> : <CoinsIcon />}
-        兑换金币
-      </Button>
-    </div>
+    <p className="mt-5 flex items-center justify-center gap-1.5 text-sm font-medium text-amber-600 dark:text-amber-400">
+      <CoinsIcon className="size-4" /> 本次结算 {reward.questions} 道新题：{text}
+    </p>
   );
 }

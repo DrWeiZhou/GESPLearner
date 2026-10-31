@@ -18,7 +18,9 @@ export default function WrongBookPage() {
   return (
     <div className="mx-auto w-full max-w-4xl px-4 py-10">
       <h1 className="mb-1 text-2xl font-bold">错题本</h1>
-      <p className="mb-6 text-sm text-muted-foreground">做错过的题目会自动收录，重做答对后标记为已掌握。</p>
+      <p className="mb-6 text-sm text-muted-foreground">
+        做错过的题目会自动收录，重做答对后标记为已掌握。这里的题目已经结算过金币，重做答对不会再发金币。
+      </p>
       <Suspense fallback={<Skeleton className="h-64 w-full" />}>
         <WrongList />
       </Suspense>

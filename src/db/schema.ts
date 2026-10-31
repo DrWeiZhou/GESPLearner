@@ -8,6 +8,7 @@ import {
   jsonb,
   numeric,
   pgTable,
+  primaryKey,
   smallint,
   text,
   timestamp,
@@ -143,6 +144,12 @@ export const users = pgTable(
     displayName: text(),
     role: text({ enum: ["student", "admin"] }).notNull().default("student"),
     targetLevel: smallint(),
+    /**
+     * Leftover fraction of a coin from per-question rewards, always < 1. Only whole
+     * coins ever reach the ledger, so the 0.6 coins a 2-point question is worth
+     * waits here until it adds up to one. See `lib/coins`.
+     */
+    coinCarry: numeric({ mode: "number", precision: 6, scale: 3 }).notNull().default(0),
     createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
     lastLoginAt: timestamp({ withTimezone: true }),
     /** Throttling for password guessing. */
@@ -265,12 +272,42 @@ export const aiChats = pgTable(
 );
 
 /**
+ * One row per (student, question) as soon as the question is first graded — the
+ * record that it has been settled, whether or not it paid anything. The composite
+ * primary key is what makes a redo earn nothing, including a second pass through
+ * the wrong-answer book: the row is already there, with the score of that first
+ * attempt (0 for a wrong answer).
+ */
+export const questionRewards = pgTable(
+  "question_rewards",
+  {
+    userId: uuid()
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    questionId: text()
+      .notNull()
+      .references(() => questions.id, { onDelete: "cascade" }),
+    /** Score earned the first time the question was graded. */
+    score: numeric({ mode: "number" }).notNull(),
+    /** The rate in force at that moment, so old rows stay explainable. */
+    rate: numeric({ mode: "number" }).notNull(),
+    /** score × rate, fractional: whole coins go to the ledger, the rest to users.coinCarry. */
+    coins: numeric({ mode: "number" }).notNull(),
+    /** Set when the question was graded as part of a mock exam. */
+    attemptId: uuid().references(() => attempts.id, { onDelete: "set null" }),
+    createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.questionId] }), index().on(t.userId, t.createdAt)],
+);
+
+/**
  * Coin ledger. The balance is the SUM of amounts rather than a stored counter, so
  * every change is auditable and concurrent writes can't lose an update.
  *
- * - `earn`:  redeeming a finished attempt (floor(score × rate)), positive
+ * - `reward`: whole coins from freshly graded questions (see `questionRewards`), positive
  * - `spend`: coins deducted when the student cashes them in, negative
  * - `adjust`: manual correction by an admin, either sign
+ * - `earn`:  legacy whole-paper redemption, kept so old history still reads correctly
  */
 export const coinTransactions = pgTable(
   "coin_transactions",
@@ -279,15 +316,18 @@ export const coinTransactions = pgTable(
     userId: uuid().notNull(),
     /** Positive = credit, negative = debit. Whole coins only. */
     amount: integer().notNull(),
-    type: text({ enum: ["earn", "spend", "adjust"] }).notNull(),
+    type: text({ enum: ["reward", "spend", "adjust", "earn"] }).notNull(),
     attemptId: uuid().references(() => attempts.id, { onDelete: "set null" }),
+    /** Set when the row is the reward for a single question. */
+    questionId: text().references(() => questions.id, { onDelete: "set null" }),
     note: text(),
     createdBy: uuid().references(() => users.id, { onDelete: "set null" }),
     createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [
     index().on(t.userId, t.createdAt),
-    // One redemption per attempt — enforced by the database, not just the route.
+    // Legacy: guarded the old one-redemption-per-paper flow. Nothing writes 'earn'
+    // any more, but the index stays so existing rows keep their guarantee.
     uniqueIndex("coin_tx_one_earn_per_attempt")
       .on(t.attemptId)
       .where(sql`${t.type} = 'earn'`),

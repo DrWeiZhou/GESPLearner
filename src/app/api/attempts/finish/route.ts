@@ -1,6 +1,8 @@
 import { z } from "zod";
 import { errorResponse, HttpError, requireUserIfConfigured } from "@/lib/auth";
+import { rewardQuestions } from "@/lib/coins";
 import { getAnswerKeys, getPaper } from "@/lib/content";
+import { QUESTION_TYPE_LABEL } from "@/lib/format";
 import type { ExamReport, ReportItem } from "@/lib/grading";
 import { getOpenAttempt } from "@/lib/records";
 import { eq } from "drizzle-orm";
@@ -85,6 +87,19 @@ export async function POST(req: Request) {
               answer: i.studentAnswer!, isCorrect: i.correct,
             })),
           );
+        // Objective questions are only graded here, so this is where they settle
+        // into coins. Programming questions already settled on their first 提交,
+        // and questions left blank stay unsettled — they weren't attempted.
+        report.coins = await rewardQuestions(
+          user.id,
+          answered.map((i) => ({
+            questionId: i.questionId,
+            score: i.earned,
+            attemptId,
+            label: `${QUESTION_TYPE_LABEL[i.type]}第 ${i.number} 题`,
+          })),
+          tx,
+        );
         await tx
           .update(attempts)
           .set({ submittedAt: new Date(), score: report.score, detail: report })

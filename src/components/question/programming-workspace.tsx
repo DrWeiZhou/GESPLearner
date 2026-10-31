@@ -1,6 +1,7 @@
 "use client";
 
-import { Loader2Icon, PlayIcon, RotateCcwIcon, SendIcon, SparklesIcon } from "lucide-react";
+import { CoinsIcon, Loader2Icon, PlayIcon, RotateCcwIcon, SendIcon, SparklesIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Markdown } from "@/components/common/markdown";
@@ -14,9 +15,13 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/componen
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { loadDraft, postJSON, saveDraft } from "@/lib/api";
-import type { JudgeResult, PublicProgramming, RunResult, TutorContext } from "@/lib/types";
+import { formatReward } from "@/lib/format";
+import type { CoinReward, JudgeResult, PublicProgramming, RunResult, TutorContext } from "@/lib/types";
 
 type Panel = "run" | "judge" | "tutor";
+
+/** `/api/submit` settles the question's coins along with the verdict. */
+type SubmitResponse = JudgeResult & { reward?: CoinReward | null };
 
 /**
  * Online-IDE workspace for one programming question.
@@ -31,10 +36,12 @@ export function ProgrammingWorkspace({
   attemptId?: string | null;
   onJudged?: (result: JudgeResult) => void;
 }) {
+  const router = useRouter();
   const [code, setCode] = useState(DEFAULT_CPP_TEMPLATE);
   const [stdin, setStdin] = useState(question.samples[0]?.input ?? "");
   const [runResult, setRunResult] = useState<RunResult | null>(null);
   const [judgeResult, setJudgeResult] = useState<JudgeResult | null>(null);
+  const [reward, setReward] = useState<CoinReward | null>(null);
   const [pending, setPending] = useState<"run" | "submit" | null>(null);
   const [panel, setPanel] = useState<Panel>("run");
 
@@ -69,10 +76,19 @@ export function ProgrammingWorkspace({
     setPending("submit");
     setPanel("judge");
     try {
-      const result = await postJSON<JudgeResult>("/api/submit", { questionId: question.id, code, attemptId });
+      const { reward: settled, ...result } = await postJSON<SubmitResponse>("/api/submit", {
+        questionId: question.id,
+        code,
+        attemptId,
+      });
       setJudgeResult(result);
+      setReward(settled ?? null);
       onJudged?.(result);
       if (result.verdict === "AC") toast.success(`全部通过！得分 ${result.score ?? question.score}`);
+      const coins = settled ? formatReward(settled) : null;
+      if (coins) toast.success(coins, { icon: "🪙" });
+      // The balance in the header is rendered on the server.
+      if (settled?.credited) router.refresh();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "评测失败");
     } finally {
@@ -157,9 +173,16 @@ export function ProgrammingWorkspace({
 
               <TabsContent value="judge" className="min-h-0 flex-1 overflow-y-auto">
                 {judgeResult ? (
-                  <JudgeResultView result={judgeResult} />
+                  <>
+                    {reward && <RewardNote reward={reward} />}
+                    <JudgeResultView result={judgeResult} />
+                  </>
                 ) : (
-                  <p className="p-4 text-sm text-muted-foreground">点击「提交评测」后，这里会显示每个测试点的结果。</p>
+                  <p className="p-4 text-sm text-muted-foreground">
+                    点击「提交评测」后，这里会显示每个测试点的结果。
+                    <br />
+                    本题的金币按<b>第一次提交</b>的得分结算，之后再提交不再发放，建议先用「自测运行」确认代码没问题。
+                  </p>
                 )}
               </TabsContent>
 
@@ -177,6 +200,17 @@ export function ProgrammingWorkspace({
         </ResizablePanelGroup>
       </ResizablePanel>
     </ResizablePanelGroup>
+  );
+}
+
+/** Coins the first submission settled — shown above the test-point results. */
+function RewardNote({ reward }: { reward: CoinReward }) {
+  const text = formatReward(reward);
+  if (!text) return null;
+  return (
+    <p className="flex items-center gap-1.5 border-b bg-amber-500/10 px-4 py-2 text-sm font-medium text-amber-700 dark:text-amber-400">
+      <CoinsIcon className="size-4" /> {text}
+    </p>
   );
 }
 
