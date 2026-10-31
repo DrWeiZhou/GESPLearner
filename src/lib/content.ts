@@ -1,11 +1,9 @@
 import "server-only";
-import { readdir, readFile } from "node:fs/promises";
-import path from "node:path";
 import { cacheLife, cacheTag } from "next/cache";
-import { and, asc, cosineDistance, count, eq, getTableColumns, inArray, isNotNull, ne, sql, type SQL } from "drizzle-orm";
-import { getDb, isDatabaseConfigured } from "@/db";
+import { and, asc, count, eq, getTableColumns, inArray, isNotNull, ne, type SQL } from "drizzle-orm";
+import { getDb } from "@/db";
 import { exams, papers, questionKeys, questions, testCases } from "@/db/schema";
-import { PaperSchema, questionId, type Paper, type QuestionType } from "@/lib/schema/paper";
+import type { QuestionType } from "@/lib/schema/paper";
 import type {
   PaperDetail,
   PaperSummary,
@@ -18,70 +16,9 @@ import type {
  * cached (`use cache`); answer keys and test cases are only exposed through the
  * server-only private getters at the bottom.
  *
- * Source: Postgres via Drizzle when DATABASE_URL is set, otherwise `data/papers/*.json` (demo mode).
+ * Source: the SQLite database, which is filled from the bundled `data/papers/*.json`
+ * on first start (see db/bootstrap).
  */
-
-const DATA_DIR = path.join(process.cwd(), "data");
-
-// ───────────────────────── local JSON source ─────────────────────────
-
-async function loadLocalPapers(): Promise<Paper[]> {
-  const dir = path.join(DATA_DIR, "papers");
-  let files: string[] = [];
-  try {
-    files = (await readdir(dir)).filter((f) => f.endsWith(".json"));
-  } catch {
-    return [];
-  }
-  const papers = await Promise.all(
-    files.map(async (f) => PaperSchema.parse(JSON.parse(await readFile(path.join(dir, f), "utf8")))),
-  );
-  return papers;
-}
-
-function toPublicQuestions(paper: Paper): PublicQuestion[] {
-  return paper.questions.map((q) => {
-    const id = questionId(paper.id, q);
-    switch (q.type) {
-      case "single_choice":
-        return { id, type: q.type, number: q.number, score: q.score, stem: q.stem, options: q.options };
-      case "true_false":
-        return { id, type: q.type, number: q.number, score: q.score, stem: q.stem };
-      case "programming":
-        return {
-          id,
-          type: q.type,
-          number: q.number,
-          score: q.score,
-          title: q.title,
-          timeLimitMs: q.timeLimitMs,
-          memoryLimitMb: q.memoryLimitMb,
-          description: q.description,
-          inputFormat: q.inputFormat,
-          outputFormat: q.outputFormat,
-          samples: q.samples,
-          dataRange: q.dataRange,
-        };
-    }
-  });
-}
-
-function summarize(paper: Paper): PaperSummary {
-  const counts = { single_choice: 0, true_false: 0, programming: 0 } satisfies Record<QuestionType, number>;
-  for (const q of paper.questions) counts[q.type]++;
-  return {
-    id: paper.id,
-    examId: paper.exam.id,
-    examTitle: paper.exam.title,
-    level: paper.level,
-    language: paper.language,
-    durationMinutes: paper.durationMinutes,
-    totalScore: paper.questions.reduce((s, q) => s + q.score, 0),
-    counts,
-    pdfUrl: paper.pdfUrl ?? null,
-    sourceUrl: paper.exam.sourceUrl ?? null,
-  };
-}
 
 // ───────────────────────── database source ─────────────────────────
 
@@ -155,12 +92,7 @@ export async function listPapers(): Promise<PaperSummary[]> {
   cacheLife("hours");
   cacheTag("papers");
 
-  let list: PaperSummary[];
-  if (isDatabaseConfigured) {
-    list = await selectPapers(eq(papers.status, "published"));
-  } else {
-    list = (await loadLocalPapers()).map(summarize);
-  }
+  const list = await selectPapers(eq(papers.status, "published"));
   return list.sort((a, b) => b.examId.localeCompare(a.examId) || a.level - b.level);
 }
 
@@ -169,19 +101,14 @@ export async function getPaper(id: string): Promise<PaperDetail | null> {
   cacheLife("hours");
   cacheTag("papers", `paper:${id}`);
 
-  if (isDatabaseConfigured) {
-    const [summary] = await selectPapers(and(eq(papers.id, id), eq(papers.status, "published"))!);
-    if (!summary) return null;
-    const rows = await getDb()
-      .select(publicQuestionColumns)
-      .from(questions)
-      .where(eq(questions.paperId, id))
-      .orderBy(asc(questions.sortOrder));
-    return { ...summary, questions: rows.map((r) => rowToQuestion(r as QuestionRow)) };
-  }
-
-  const paper = (await loadLocalPapers()).find((p) => p.id === id);
-  return paper ? { ...summarize(paper), questions: toPublicQuestions(paper) } : null;
+  const [summary] = await selectPapers(and(eq(papers.id, id), eq(papers.status, "published"))!);
+  if (!summary) return null;
+  const rows = await getDb()
+    .select(publicQuestionColumns)
+    .from(questions)
+    .where(eq(questions.paperId, id))
+    .orderBy(asc(questions.sortOrder));
+  return { ...summary, questions: rows.map((r) => rowToQuestion(r as QuestionRow)) };
 }
 
 export function paperIdOf(questionId: string) {
@@ -214,25 +141,9 @@ export async function getAnswerKeys(ids: string[]): Promise<Map<string, AnswerKe
   const keys = new Map<string, AnswerKey>();
   if (ids.length === 0) return keys;
 
-  if (isDatabaseConfigured) {
-    const rows = await getDb().select().from(questionKeys).where(inArray(questionKeys.questionId, ids));
-    for (const r of rows)
-      keys.set(r.questionId, { answer: r.answer, explanation: r.explanation, referenceSolution: r.referenceSolution });
-    return keys;
-  }
-
-  const wanted = new Set(ids);
-  for (const paper of await loadLocalPapers()) {
-    for (const q of paper.questions) {
-      const id = questionId(paper.id, q);
-      if (!wanted.has(id)) continue;
-      keys.set(id, {
-        answer: q.type === "programming" ? null : q.answer,
-        explanation: q.type === "programming" ? null : (q.explanation ?? null),
-        referenceSolution: q.type === "programming" ? (q.referenceSolution ?? null) : null,
-      });
-    }
-  }
+  const rows = await getDb().select().from(questionKeys).where(inArray(questionKeys.questionId, ids));
+  for (const r of rows)
+    keys.set(r.questionId, { answer: r.answer, explanation: r.explanation, referenceSolution: r.referenceSolution });
   return keys;
 }
 
@@ -240,22 +151,12 @@ export type TestCase = { idx: number; input: string; expectedOutput: string; isS
 
 /** Samples first, then hidden cases. Falls back to samples only when no tests were generated. */
 export async function getTestCases(qid: string): Promise<TestCase[]> {
-  if (isDatabaseConfigured) {
-    const rows = await getDb()
-      .select({ idx: testCases.idx, input: testCases.input, expectedOutput: testCases.expectedOutput, isSample: testCases.isSample })
-      .from(testCases)
-      .where(eq(testCases.questionId, qid))
-      .orderBy(asc(testCases.idx));
-    if (rows.length > 0) return rows;
-  } else {
-    try {
-      const file = path.join(DATA_DIR, "tests", `${qid}.json`);
-      const cases = JSON.parse(await readFile(file, "utf8")) as TestCase[];
-      if (cases.length > 0) return cases;
-    } catch {
-      // no generated tests yet
-    }
-  }
+  const rows = await getDb()
+    .select({ idx: testCases.idx, input: testCases.input, expectedOutput: testCases.expectedOutput, isSample: testCases.isSample })
+    .from(testCases)
+    .where(eq(testCases.questionId, qid))
+    .orderBy(asc(testCases.idx));
+  if (rows.length > 0) return rows;
 
   const found = await getQuestion(qid);
   if (found?.question.type !== "programming") return [];
@@ -267,7 +168,7 @@ export async function getTestCases(qid: string): Promise<TestCase[]> {
   }));
 }
 
-// ───────────────────────── similarity (pgvector) ─────────────────────────
+// ───────────────────────── similarity (embeddings) ─────────────────────────
 
 export type SimilarQuestion = {
   id: string;
@@ -279,15 +180,29 @@ export type SimilarQuestion = {
   similarity: number;
 };
 
+function cosine(a: number[], b: number[]) {
+  let dot = 0;
+  let na = 0;
+  let nb = 0;
+  for (let i = 0; i < a.length; i++) {
+    dot += a[i] * b[i];
+    na += a[i] * a[i];
+    nb += b[i] * b[i];
+  }
+  return na && nb ? dot / Math.sqrt(na * nb) : 0;
+}
+
 /**
  * Nearest questions by embedding (cosine), from other published papers.
- * Returns [] in demo mode or before `scripts/embed.ts` has run.
+ * Returns [] before the embeddings have been generated (/admin →「生成题目向量」).
+ *
+ * The bank is a few thousand questions, so a linear scan over the vectors is a
+ * few milliseconds — no vector index needed — and the result is cached anyway.
  */
 export async function getSimilarQuestions(qid: string, limit = 4): Promise<SimilarQuestion[]> {
   "use cache";
   cacheLife("days");
   cacheTag("papers", `similar:${qid}`);
-  if (!isDatabaseConfigured) return [];
 
   const db = getDb();
   const [target] = await db
@@ -296,7 +211,6 @@ export async function getSimilarQuestions(qid: string, limit = 4): Promise<Simil
     .where(eq(questions.id, qid));
   if (!target?.embedding) return [];
 
-  const distance = cosineDistance(questions.embedding, target.embedding);
   const rows = await db
     .select({
       id: questions.id,
@@ -305,12 +219,15 @@ export async function getSimilarQuestions(qid: string, limit = 4): Promise<Simil
       number: questions.number,
       title: questions.title,
       stem: questions.stem,
-      similarity: sql<number>`1 - (${distance})`,
+      embedding: questions.embedding,
     })
     .from(questions)
     .innerJoin(papers, eq(papers.id, questions.paperId))
-    .where(and(isNotNull(questions.embedding), ne(questions.paperId, target.paperId), eq(papers.status, "published")))
-    .orderBy(distance)
-    .limit(limit);
-  return rows.map((r) => ({ ...r, similarity: Number(r.similarity) }));
+    .where(and(isNotNull(questions.embedding), ne(questions.paperId, target.paperId), eq(papers.status, "published")));
+
+  return rows
+    .filter((r) => r.embedding?.length === target.embedding!.length)
+    .map(({ embedding, ...r }) => ({ ...r, similarity: cosine(target.embedding!, embedding!) }))
+    .sort((a, b) => b.similarity - a.similarity)
+    .slice(0, limit);
 }

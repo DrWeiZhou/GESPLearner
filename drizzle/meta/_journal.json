@@ -1,61 +1,12 @@
 {
   "version": "7",
-  "dialect": "postgresql",
+  "dialect": "sqlite",
   "entries": [
     {
       "idx": 0,
-      "version": "7",
-      "when": 1793375996025,
-      "tag": "0000_extensions",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1793375996344,
-      "tag": "0001_init",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1793375996651,
-      "tag": "0002_rls",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1793399661790,
-      "tag": "0003_drop_profiles",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1793399666700,
-      "tag": "0004_users_and_coins",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "7",
-      "when": 1793445618480,
-      "tag": "0005_per_question_coins",
-      "breakpoints": true
-    },
-    {
-      "idx": 6,
-      "version": "7",
-      "when": 1793449477569,
-      "tag": "0006_knowledge_points",
-      "breakpoints": true
-    },
-    {
-      "idx": 7,
-      "version": "7",
-      "when": 1793450519829,
-      "tag": "0007_fractional_coins",
+      "version": "6",
+      "when": 1793460904357,
+      "tag": "0000_init",
       "breakpoints": true
     }
   ]

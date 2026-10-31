@@ -41,8 +41,8 @@ export type AISettingsInput = {
 const hint = (key: string) => key.slice(-4);
 
 function saveBlockedReason() {
-  if (!isDatabaseConfigured) return "未配置数据库（DATABASE_URL），无法保存到后台";
-  if (!isSecretBoxConfigured()) return "未配置 SETTINGS_SECRET（至少 16 位），API key 无法加密保存";
+  if (!isDatabaseConfigured) return "未配置数据库，无法保存到后台";
+  if (!isSecretBoxConfigured()) return "SETTINGS_SECRET 少于 16 位，API key 无法加密保存";
   return null;
 }
 

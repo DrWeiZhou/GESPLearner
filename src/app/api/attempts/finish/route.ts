@@ -84,18 +84,22 @@ export async function POST(req: Request) {
     if (user && attemptId) {
       const db = getDb();
       const answered = items.filter((i) => i.type !== "programming" && i.studentAnswer !== null);
-      await db.transaction(async (tx) => {
+      // One synchronous transaction (see db/sqlite): the answers, the coins and the
+      // hand-in land together or not at all.
+      db.transaction((tx) => {
         if (answered.length)
-          await tx.insert(answerRecords).values(
-            answered.map((i) => ({
-              userId: user.id, questionId: i.questionId, attemptId,
-              answer: i.studentAnswer!, isCorrect: i.correct,
-            })),
-          );
+          tx.insert(answerRecords)
+            .values(
+              answered.map((i) => ({
+                userId: user.id, questionId: i.questionId, attemptId,
+                answer: i.studentAnswer!, isCorrect: i.correct,
+              })),
+            )
+            .run();
         // Objective questions are only graded here, so this is where they settle
         // into coins. Programming questions already settled on their first 提交,
         // and questions left blank stay unsettled — they weren't attempted.
-        report.coins = await rewardQuestions(
+        report.coins = rewardQuestions(
           user.id,
           answered.map((i) => ({
             questionId: i.questionId,
@@ -105,10 +109,10 @@ export async function POST(req: Request) {
           })),
           tx,
         );
-        await tx
-          .update(attempts)
+        tx.update(attempts)
           .set({ submittedAt: new Date(), score: report.score, detail: report })
-          .where(eq(attempts.id, attemptId!));
+          .where(eq(attempts.id, attemptId!))
+          .run();
       });
     }
 

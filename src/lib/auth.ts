@@ -11,10 +11,12 @@ import { hashPassword, verifyPassword } from "@/lib/password";
  * Username/password accounts with server-side sessions.
  *
  * GESP students are children who often have no mailbox, so the app keeps its own
- * accounts instead of using Supabase Auth; Supabase is just the Postgres host.
+ * accounts; several students can share one installation.
  */
 
-export const accountsEnabled = isDatabaseConfigured;
+// A literal, not `isDatabaseConfigured`: this module sits on an import cycle with
+// @/db, and a top-level read of that binding could run before it is initialised.
+export const accountsEnabled = true;
 
 export const SESSION_COOKIE = "gesp_session";
 const SESSION_DAYS = 30;
@@ -30,6 +32,9 @@ export type CurrentUser = {
 };
 
 const tokenHash = (token: string) => createHash("sha256").update(token).digest("hex");
+
+/** SQLite's clock in epoch milliseconds — timestamps are stored as `timestamp_ms`. */
+export const NOW_MS = sql.raw("(cast(strftime('%s', 'now') as integer) * 1000)");
 
 export class HttpError extends Error {
   constructor(
@@ -56,8 +61,8 @@ export async function registerUser(input: {
 
   const passwordHash = await hashPassword(input.password);
   // The very first account administers the system (sets the coin rate, adjusts coins).
-  const [{ count }] = await db.select({ count: sql<number>`count(*)::int` }).from(users);
-  const role = count === 0 ? "admin" : "student";
+  const [{ count }] = await db.select({ count: sql<number>`count(*)` }).from(users);
+  const role = Number(count) === 0 ? "admin" : "student";
 
   try {
     const [row] = await db
@@ -184,7 +189,9 @@ export async function createSession(userId: string) {
   store.set(SESSION_COOKIE, token, {
     httpOnly: true,
     sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    // The desktop app serves plain http on 127.0.0.1, where a Secure cookie
+    // would never be sent back.
+    secure: process.env.NODE_ENV === "production" && process.env.GESP_DESKTOP !== "1",
     path: "/",
     expires: expiresAt,
   });
@@ -216,7 +223,7 @@ export async function getCurrentUser(): Promise<CurrentUser | null> {
     .innerJoin(users, eq(users.id, sessions.userId))
     // Compare against the database clock: this runs while the static shell is being
     // prerendered, where Cache Components rejects an unstable `new Date()`.
-    .where(and(eq(sessions.tokenHash, tokenHash(token)), sql`${sessions.expiresAt} > now()`));
+    .where(and(eq(sessions.tokenHash, tokenHash(token)), sql`${sessions.expiresAt} > ${NOW_MS}`));
 
   return row ? { ...row, displayName: row.displayName ?? row.username } : null;
 }
