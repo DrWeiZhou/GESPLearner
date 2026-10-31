@@ -1,14 +1,16 @@
 import "server-only";
 import type { RunResult } from "@/lib/types";
+import type { Judge0Config } from "./settings";
 import type { CodeRunner, RunLimits } from "./types";
 
 /**
- * Judge0 (https://judge0.com) — self-hosted or via RapidAPI.
- *   JUDGE0_URL            e.g. https://judge0-ce.p.rapidapi.com or http://my-judge0:2358
- *   JUDGE0_RAPIDAPI_KEY   when using RapidAPI
- *   JUDGE0_AUTH_TOKEN     when the instance has AUTHN_TOKEN set
- *   JUDGE0_CPP_LANGUAGE_ID  default 54 (C++ GCC 9.2.0)
- *   JUDGE0_COMPILER_OPTIONS default "-O2 -std=c++14" (GESP uses C++14-compatible judges)
+ * Judge0 (https://judge0.com) — self-hosted or via RapidAPI, configured from
+ * /admin →「代码评测」or env (see ./settings):
+ *   url          e.g. https://judge0-ce.p.rapidapi.com or http://my-judge0:2358
+ *   rapidApiKey  when using RapidAPI
+ *   authToken    when the instance has AUTHN_TOKEN set
+ *   languageId   default 54 (C++ GCC 9.2.0)
+ *   compilerOptions default "-O2 -std=c++14" (GESP uses C++14-compatible judges)
  */
 
 const b64 = (s: string) => Buffer.from(s, "utf8").toString("base64");
@@ -27,27 +29,27 @@ type Judge0Response = {
   status: { id: number; description: string };
 };
 
-function headers(): Record<string, string> {
+function headers(config: Judge0Config): Record<string, string> {
   const h: Record<string, string> = { "Content-Type": "application/json" };
-  const url = new URL(process.env.JUDGE0_URL!);
-  if (process.env.JUDGE0_RAPIDAPI_KEY) {
-    h["X-RapidAPI-Key"] = process.env.JUDGE0_RAPIDAPI_KEY;
+  const url = new URL(config.url);
+  if (config.rapidApiKey) {
+    h["X-RapidAPI-Key"] = config.rapidApiKey;
     h["X-RapidAPI-Host"] = url.host;
   }
-  if (process.env.JUDGE0_AUTH_TOKEN) h["X-Auth-Token"] = process.env.JUDGE0_AUTH_TOKEN;
+  if (config.authToken) h["X-Auth-Token"] = config.authToken;
   return h;
 }
 
-async function runOnce(code: string, stdin: string, limits: RunLimits): Promise<RunResult> {
-  const base = process.env.JUDGE0_URL!.replace(/\/$/, "");
+async function runOnce(config: Judge0Config, code: string, stdin: string, limits: RunLimits): Promise<RunResult> {
+  const base = config.url.replace(/\/$/, "");
   const res = await fetch(`${base}/submissions?base64_encoded=true&wait=true`, {
     method: "POST",
-    headers: headers(),
+    headers: headers(config),
     body: JSON.stringify({
       source_code: b64(code),
       stdin: b64(stdin),
-      language_id: Number(process.env.JUDGE0_CPP_LANGUAGE_ID ?? 54),
-      compiler_options: process.env.JUDGE0_COMPILER_OPTIONS ?? "-O2 -std=c++14",
+      language_id: config.languageId,
+      compiler_options: config.compilerOptions,
       cpu_time_limit: Math.min(limits.timeLimitMs / 1000, 15),
       wall_time_limit: Math.min((limits.timeLimitMs / 1000) * 3, 20),
       memory_limit: Math.min(limits.memoryLimitMb * 1024, MAX_MEMORY_KB),
@@ -87,23 +89,22 @@ async function runOnce(code: string, stdin: string, limits: RunLimits): Promise<
   return { status: "SE", ...out };
 }
 
-export const judge0Runner: CodeRunner = {
+export const judge0Runner = (config: Judge0Config): CodeRunner => ({
   async runMany(code, inputs, limits) {
     // Run the first case alone: if it fails to compile, skip the rest.
-    const first = await runOnce(code, inputs[0] ?? "", limits);
+    const first = await runOnce(config, code, inputs[0] ?? "", limits);
     if (first.status === "CE" || inputs.length <= 1) return [first];
 
     const rest: RunResult[] = new Array(inputs.length - 1);
-    const concurrency = Number(process.env.JUDGE0_CONCURRENCY ?? 4);
     let next = 1;
     await Promise.all(
-      Array.from({ length: Math.min(concurrency, inputs.length - 1) }, async () => {
+      Array.from({ length: Math.min(config.concurrency, inputs.length - 1) }, async () => {
         while (next < inputs.length) {
           const i = next++;
-          rest[i - 1] = await runOnce(code, inputs[i], limits);
+          rest[i - 1] = await runOnce(config, code, inputs[i], limits);
         }
       }),
     );
     return [first, ...rest];
   },
-};
+});

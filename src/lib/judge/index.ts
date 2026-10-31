@@ -2,30 +2,32 @@ import "server-only";
 import type { CaseResult, JudgeResult, RunResult, Verdict } from "@/lib/types";
 import type { TestCase } from "@/lib/content";
 import { judge0Runner } from "./judge0";
-import { localRunner } from "./local";
+import { createLocalRunner } from "./local";
+import { loadJudgeConfig } from "./settings";
 import type { CodeRunner, RunLimits } from "./types";
 
 export type { RunLimits };
 
-export function getRunner(): CodeRunner {
-  const provider = process.env.JUDGE_PROVIDER ?? (process.env.JUDGE0_URL ? "judge0" : "none");
-  if (provider === "judge0") {
-    if (!process.env.JUDGE0_URL) throw new Error("JUDGE0_URL 未配置");
-    return judge0Runner;
-  }
-  if (provider === "local") {
-    if (process.env.NODE_ENV === "production" && process.env.ALLOW_LOCAL_JUDGE !== "1")
-      throw new Error("本地评测仅限开发环境使用");
-    return localRunner;
-  }
-  throw new Error("未配置代码评测服务：请设置 JUDGE0_URL（或开发时 JUDGE_PROVIDER=local）");
+/**
+ * The local runner compiles and runs on this machine without a sandbox. That is
+ * the point of the desktop app — the server only listens on 127.0.0.1 and runs
+ * the student's own code — but a server exposed to others must use Judge0.
+ */
+const localAllowed = () =>
+  process.env.GESP_DESKTOP === "1" || process.env.NODE_ENV !== "production" || process.env.ALLOW_LOCAL_JUDGE === "1";
+
+export async function getRunner(): Promise<CodeRunner> {
+  const config = await loadJudgeConfig();
+  if (config.provider === "judge0") return judge0Runner(config);
+  if (!localAllowed()) throw new Error("本机评测只能在桌面版或开发环境中使用，请在「系统设置 → 代码评测」配置 Judge0");
+  return createLocalRunner(config.compilerPath);
 }
 
 export const MAX_CODE_LENGTH = 64 * 1024;
 export const MAX_STDIN_LENGTH = 256 * 1024;
 
 export async function runCode(code: string, stdin: string, limits: RunLimits): Promise<RunResult> {
-  const [r] = await getRunner().runMany(code, [stdin], limits);
+  const [r] = await (await getRunner()).runMany(code, [stdin], limits);
   return r;
 }
 
@@ -47,7 +49,7 @@ export async function judge(code: string, cases: TestCase[], limits: RunLimits):
   if (cases.length === 0) {
     return { verdict: "SE", passed: 0, total: 0, cases: [], compileOutput: "该题暂无测试数据" };
   }
-  const runs = await getRunner().runMany(code, cases.map((c) => c.input), limits);
+  const runs = await (await getRunner()).runMany(code, cases.map((c) => c.input), limits);
 
   if (runs[0]?.status === "CE") {
     return { verdict: "CE", passed: 0, total: cases.length, cases: [], compileOutput: runs[0].compileOutput };

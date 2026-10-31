@@ -1,9 +1,14 @@
 "use client";
 
-import Editor, { type OnMount } from "@monaco-editor/react";
+import Editor, { loader, type OnMount } from "@monaco-editor/react";
 import { Loader2Icon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Skeleton } from "@/components/ui/skeleton";
+
+// Monaco ships with the app (copied to public/monaco by scripts/desktop/copy-monaco.mjs)
+// instead of loading from the jsDelivr CDN: the editor must work offline, and the
+// CDN is slow or unreachable from many networks in mainland China.
+loader.config({ paths: { vs: "/monaco/vs" } });
 
 export const DEFAULT_CPP_TEMPLATE = `#include <iostream>
 using namespace std;
