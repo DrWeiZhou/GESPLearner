@@ -1,9 +1,14 @@
+import { after } from "next/server";
 import { z } from "zod";
 import { errorResponse, HttpError, requireUserIfConfigured } from "@/lib/auth";
 import { rewardQuestions } from "@/lib/coins";
 import { getAnswerKeys, getQuestion } from "@/lib/content";
 import { QUESTION_TYPE_LABEL } from "@/lib/format";
+import { classifyQuestions } from "@/lib/knowledge/classify";
 import { recordAnswer } from "@/lib/records";
+
+// The knowledge-point verdict runs in `after()`, inside this budget.
+export const maxDuration = 60;
 
 const Body = z.object({
   questionId: z.string(),
@@ -24,6 +29,11 @@ export async function POST(req: Request) {
     if (!key?.answer) throw new HttpError(404, "该题暂无答案");
 
     const correct = key.answer === answer;
+    // The wrong-answer book groups by syllabus knowledge point. Work out this
+    // question's point once it has actually been missed, and only after the
+    // response: the student shouldn't wait on a model call to see their result.
+    if (!correct) after(() => classifyQuestions([questionId]));
+
     let reward = null;
     if (user) {
       await recordAnswer({ userId: user.id, questionId, answer, isCorrect: correct });

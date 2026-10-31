@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 const ITEMS = [
   { href: "/papers", label: "真题库" },
+  { href: "/syllabus", label: "考试大纲" },
   { href: "/wrong-book", label: "错题本" },
   { href: "/dashboard", label: "学习报告" },
 ];

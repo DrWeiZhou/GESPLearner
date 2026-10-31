@@ -3,7 +3,7 @@ import { errorResponse, requireUser } from "@/lib/auth";
 import { spendCoins } from "@/lib/coins";
 
 const Body = z.object({
-  amount: z.number().int().positive(),
+  amount: z.number().positive(),
   note: z.string().trim().max(100).optional(),
 });
 

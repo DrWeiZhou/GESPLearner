@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { LevelBadge } from "@/components/common/level-badge";
+import { SyllabusCard } from "@/components/syllabus/syllabus-card";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { listPapers } from "@/lib/content";
 import { formatExamId } from "@/lib/format";
 import { LEVEL_NAMES } from "@/lib/schema/paper";
+import { listSyllabi } from "@/lib/syllabus/content";
 
 export const metadata: Metadata = { title: "真题库" };
 
@@ -16,7 +18,7 @@ export default function PapersPage() {
       <header className="mb-8">
         <h1 className="text-2xl font-bold">真题库</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          按等级选择试卷，可逐题练习，也可限时模拟考试。
+          按等级选择试卷，可逐题练习，也可限时模拟考试。每个等级后面附有官方考试大纲的知识点。
         </p>
       </header>
       <Suspense fallback={<Skeleton className="h-64 w-full" />}>
@@ -29,6 +31,7 @@ export default function PapersPage() {
 async function PaperList() {
   "use cache";
   const papers = await listPapers();
+  const syllabi = await listSyllabi();
   if (papers.length === 0) {
     return (
       <Card>
@@ -42,13 +45,14 @@ async function PaperList() {
 
   const byLevel = new Map<number, typeof papers>();
   for (const p of papers) byLevel.set(p.level, [...(byLevel.get(p.level) ?? []), p]);
+  const syllabusOf = new Map(syllabi.map((s) => [s.level, s]));
 
   return (
     <div className="space-y-8">
       {[...byLevel.entries()]
         .sort((a, b) => a[0] - b[0])
         .map(([level, list]) => (
-          <section key={level}>
+          <section key={level} id={`l${level}`}>
             <div className="mb-3 flex items-center gap-3">
               <LevelBadge level={level} />
               <h2 className="text-sm text-muted-foreground">{LEVEL_NAMES[level]} · {list.length} 套</h2>
@@ -71,6 +75,11 @@ async function PaperList() {
                 </Link>
               ))}
             </div>
+            {syllabusOf.has(level) && (
+              <div className="mt-3">
+                <SyllabusCard syllabus={syllabusOf.get(level)!} />
+              </div>
+            )}
           </section>
         ))}
     </div>

@@ -19,14 +19,13 @@ import type { CoinReward } from "@/lib/types";
  * Coins: a question pays out the moment it is graded, and an adult deducts coins
  * when they are cashed in for a real-world reward.
  *
- * Two rules shape the design:
+ * Amounts are fractional. A 2-point question at the default rate is worth 0.6 coins
+ * and the student is credited exactly that, so the balance and the ledger both move
+ * on every question — nothing is rounded away or held back.
  *
- * - A question pays once, the first time it is graded — so a redo, or a second pass
- *   through the wrong-answer book, earns nothing. The `question_rewards` row written
- *   at that first grading (score 0 included) is what enforces it.
- * - score × rate is rarely a whole number — a 2-point question at 0.3 is worth 0.6
- *   coins — so only whole coins reach the ledger and the remainder is carried on
- *   `users.coinCarry` until it adds up to one.
+ * A question pays once, the first time it is graded, so a redo — or a second pass
+ * through the wrong-answer book — earns nothing. The `question_rewards` row written
+ * at that first grading (score 0 included) is what enforces it.
  *
  * The balance is always SUM(amount) over the ledger — never a stored counter — so
  * history stays auditable and concurrent writes can't lose an update.
@@ -70,10 +69,7 @@ export async function setCoinRate(rate: number, adminId: string) {
   return value;
 }
 
-/**
- * Exact coins a score is worth, kept to three decimals — the same precision the
- * rate is stored at, so repeated additions can't drift away from a whole coin.
- */
+/** Coins a score is worth, to three decimals — the precision the rate is stored at. */
 export const coinsFor = (score: number, rate: number) => round3(score * rate);
 
 const round3 = (n: number) => Math.round(n * 1000) / 1000;
@@ -81,17 +77,16 @@ const round3 = (n: number) => Math.round(n * 1000) / 1000;
 // ───────────────────────── balance & history ─────────────────────────
 
 export async function getBalance(userId: string): Promise<number> {
-  const [row] = await getDb()
-    .select({ balance: sql<number>`coalesce(sum(${coinTransactions.amount}), 0)::int` })
-    .from(coinTransactions)
-    .where(eq(coinTransactions.userId, userId));
-  return row?.balance ?? 0;
+  return balanceOf(getDb(), userId);
 }
 
-/** The fraction of a coin not yet credited, always < 1. */
-export async function getCarry(userId: string): Promise<number> {
-  const [row] = await getDb().select({ carry: users.coinCarry }).from(users).where(eq(users.id, userId));
-  return row?.carry ?? 0;
+/** SUM over the ledger. Rounded because summing float8 can leave 12.600000000000001. */
+async function balanceOf(conn: Pick<Tx, "select">, userId: string): Promise<number> {
+  const [row] = await conn
+    .select({ balance: sql<number>`coalesce(sum(${coinTransactions.amount}), 0)::float8` })
+    .from(coinTransactions)
+    .where(eq(coinTransactions.userId, userId));
+  return round3(row?.balance ?? 0);
 }
 
 export async function getLedger(userId: string, limit = 50): Promise<CoinTransaction[]> {
@@ -136,8 +131,7 @@ export type GradedQuestion = {
  * with `questions: 0` rather than null: the student needs to be told the question
  * had already paid out, otherwise an unchanged balance just looks broken.
  *
- * Safe to call with the whole batch a hand-in produced: the carry is applied once,
- * to their total.
+ * Safe to call with the whole batch a hand-in produced.
  */
 export async function rewardQuestions(
   userId: string,
@@ -149,16 +143,8 @@ export async function rewardQuestions(
 
   const rate = await getCoinRate(tx);
 
-  // Lock the wallet row: unlike the balance, the carry is a stored remainder, so two
-  // concurrent settlements must not read the same value. Deductions take the same
-  // lock, which serialises the whole wallet per student.
-  const [owner] = await tx
-    .select({ carry: users.coinCarry })
-    .from(users)
-    .where(eq(users.id, userId))
-    .for("update");
-  if (!owner) throw new HttpError(404, "用户不存在");
-
+  // No wallet lock needed: nothing here is a read-modify-write. The composite primary
+  // key decides which questions are new, and the ledger row is a plain append.
   const fresh = await tx
     .insert(questionRewards)
     .values(
@@ -177,19 +163,15 @@ export async function rewardQuestions(
       score: questionRewards.score,
       coins: questionRewards.coins,
     });
+
   const score = round3(fresh.reduce((s, r) => s + r.score, 0));
   const coins = round3(fresh.reduce((s, r) => s + r.coins, 0));
-  const pending = round3(owner.carry + coins);
-  const credited = Math.floor(pending);
-  const carry = round3(pending - credited);
 
-  if (fresh.length) await tx.update(users).set({ coinCarry: carry }).where(eq(users.id, userId));
-
-  if (credited > 0) {
+  if (coins > 0) {
     const single = fresh.length === 1 ? graded.find((g) => g.questionId === fresh[0].questionId) : undefined;
     await tx.insert(coinTransactions).values({
       userId,
-      amount: credited,
+      amount: coins,
       type: "reward",
       questionId: single?.questionId ?? null,
       attemptId: graded[0].attemptId ?? null,
@@ -199,12 +181,7 @@ export async function rewardQuestions(
     });
   }
 
-  const [row] = await tx
-    .select({ balance: sql<number>`coalesce(sum(${coinTransactions.amount}), 0)::int` })
-    .from(coinTransactions)
-    .where(eq(coinTransactions.userId, userId));
-
-  return { coins, credited, carry, balance: row?.balance ?? 0, questions: fresh.length };
+  return { coins, balance: await balanceOf(tx, userId), questions: fresh.length };
 }
 
 // ───────────────────────── deductions ─────────────────────────
@@ -218,20 +195,18 @@ export async function spendCoins(params: {
   actorId?: string;
   type?: "spend" | "adjust";
 }): Promise<{ balance: number }> {
-  const { userId, amount, note, actorId, type = "spend" } = params;
-  if (!Number.isInteger(amount) || amount <= 0) throw new HttpError(400, "扣除数量需为正整数");
+  const { userId, note, actorId, type = "spend" } = params;
+  if (!Number.isFinite(params.amount) || params.amount <= 0) throw new HttpError(400, "扣除数量需为正数");
+  const amount = round3(params.amount);
 
   const db = getDb();
   return db.transaction(async (tx) => {
-    // Lock the user row so two concurrent deductions can't both pass the check.
+    // Lock the user row so two concurrent deductions can't both pass the check — this
+    // one really is a read-modify-write on the balance.
     const [owner] = await tx.select({ id: users.id }).from(users).where(eq(users.id, userId)).for("update");
     if (!owner) throw new HttpError(404, "用户不存在");
 
-    const [row] = await tx
-      .select({ balance: sql<number>`coalesce(sum(${coinTransactions.amount}), 0)::int` })
-      .from(coinTransactions)
-      .where(eq(coinTransactions.userId, userId));
-    const balance = row?.balance ?? 0;
+    const balance = await balanceOf(tx, userId);
     if (balance < amount) throw new HttpError(400, `金币不足：当前仅有 ${balance} 枚`);
 
     await tx.insert(coinTransactions).values({
@@ -241,7 +216,7 @@ export async function spendCoins(params: {
       note: note?.trim() || null,
       createdBy: actorId ?? userId,
     });
-    return { balance: balance - amount };
+    return { balance: round3(balance - amount) };
   });
 }
 
@@ -252,8 +227,9 @@ export async function adjustCoins(params: {
   note?: string;
   actorId: string;
 }): Promise<{ balance: number }> {
-  const { userId, amount, note, actorId } = params;
-  if (!Number.isInteger(amount) || amount === 0) throw new HttpError(400, "调整数量需为非零整数");
+  const { userId, note, actorId } = params;
+  if (!Number.isFinite(params.amount) || params.amount === 0) throw new HttpError(400, "调整数量不能为 0");
+  const amount = round3(params.amount);
   if (amount < 0) return spendCoins({ userId, amount: -amount, note, actorId, type: "adjust" });
 
   await getDb()

@@ -4,7 +4,7 @@ import { CoinWallet } from "@/components/coins/coin-wallet";
 import { RequireLogin } from "@/components/common/require-login";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getCurrentUser } from "@/lib/auth";
-import { getBalance, getCarry, getCoinRate, getLedger } from "@/lib/coins";
+import { getBalance, getCoinRate, getLedger } from "@/lib/coins";
 import { connection } from "next/server";
 
 export const metadata: Metadata = { title: "我的金币" };
@@ -36,8 +36,7 @@ async function Wallet() {
   // render leaves the Suspense boundary unresolved on Vercel. Each query is only a
   // few milliseconds now that the function sits in the same region as the database.
   const balance = await getBalance(user.id);
-  const carry = await getCarry(user.id);
   const rate = await getCoinRate();
   const ledger = await getLedger(user.id);
-  return <CoinWallet balance={balance} carry={carry} rate={rate} ledger={ledger} />;
+  return <CoinWallet balance={balance} rate={rate} ledger={ledger} />;
 }

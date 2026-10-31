@@ -14,6 +14,7 @@
     "crawl": "bun --conditions react-server scripts/crawl.ts",
     "parse": "bun --conditions react-server scripts/parse.ts",
     "seed": "bun --conditions react-server scripts/seed.ts",
+    "syllabus": "bun --conditions react-server scripts/syllabus.ts",
     "update": "bun --conditions react-server scripts/update.ts",
     "embed": "bun --conditions react-server scripts/embed.ts",
     "gen-tests": "bun --conditions react-server scripts/gen-tests.ts",

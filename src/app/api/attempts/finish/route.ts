@@ -1,13 +1,18 @@
+import { after } from "next/server";
 import { z } from "zod";
 import { errorResponse, HttpError, requireUserIfConfigured } from "@/lib/auth";
 import { rewardQuestions } from "@/lib/coins";
 import { getAnswerKeys, getPaper } from "@/lib/content";
 import { QUESTION_TYPE_LABEL } from "@/lib/format";
+import { classifyQuestions } from "@/lib/knowledge/classify";
 import type { ExamReport, ReportItem } from "@/lib/grading";
 import { getOpenAttempt } from "@/lib/records";
 import { eq } from "drizzle-orm";
 import { getDb } from "@/db";
 import { answerRecords, attempts, submissions } from "@/db/schema";
+
+// The knowledge-point verdicts run in `after()`, inside this budget.
+export const maxDuration = 60;
 
 const Body = z.object({
   paperId: z.string(),
@@ -106,6 +111,12 @@ export async function POST(req: Request) {
           .where(eq(attempts.id, attemptId!));
       });
     }
+
+    // See api/answers/check: classify what was missed, after the response. A whole
+    // paper can be missed, which is more model calls than one function should carry,
+    // so take a few here — the wrong-answer book catches up on the rest when opened.
+    const missed = items.filter((i) => !i.correct && i.type !== "programming").map((i) => i.questionId);
+    if (missed.length) after(() => classifyQuestions(missed, { limit: 4 }));
 
     return Response.json(report);
   } catch (err) {

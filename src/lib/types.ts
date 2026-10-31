@@ -108,20 +108,13 @@ export const VERDICT_LABEL: Record<Verdict, string> = {
 
 // ───────── coins ─────────
 
-/**
- * Coins settled for one or more freshly graded questions (see `lib/coins`). A
- * question pays once, so a redo returns null instead of this.
- */
+/** Coins settled for one or more freshly graded questions (see `lib/coins`). */
 export type CoinReward = {
-  /** Exact coins the questions earned — score × rate, usually fractional. */
+  /** Coins credited — score × rate, often fractional (a 2-point question is 0.6). */
   coins: number;
-  /** Whole coins credited to the balance right now. */
-  credited: number;
-  /** Fraction left over, waiting for the next question. Always < 1. */
-  carry: number;
   /** Balance after crediting. */
   balance: number;
-  /** How many questions this settlement covered. */
+  /** Questions this settlement covered; 0 when they had all already paid out. */
   questions: number;
 };
 

@@ -15,8 +15,8 @@ export function CoinRateForm({ rate }: { rate: number }) {
   const [value, setValue] = useState(String(rate));
   const [saving, setSaving] = useState(false);
 
-  // Per-question amounts are rarely whole coins, so show the exact value — the
-  // remainder is carried on the student's wallet until it adds up to one.
+  // Per-question amounts are rarely whole coins and aren't rounded, so show the
+  // exact value a student would be credited.
   const preview = (score: number) => Math.round(score * (Number(value) || 0) * 1000) / 1000;
 
   const save = async () => {
@@ -40,7 +40,7 @@ export function CoinRateForm({ rate }: { rate: number }) {
       <CardHeader>
         <CardTitle className="text-base">金币兑换比例</CardTitle>
         <CardDescription>
-          每 1 分题目得分发放的金币数量，默认 0.3。每做对一道新题立刻结算，不满 1 枚的零头会攒到下一题。
+          每 1 分题目得分发放的金币数量，默认 0.3。每做对一道新题立刻结算，金币可以带小数，不做取整。
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">

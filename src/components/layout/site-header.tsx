@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { CodeXmlIcon, CoinsIcon } from "lucide-react";
 import { accountsEnabled, getCurrentUser } from "@/lib/auth";
-import { getBalance, getCarry } from "@/lib/coins";
+import { getBalance } from "@/lib/coins";
 import { buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { MainNav } from "./main-nav";
@@ -52,21 +52,16 @@ async function HeaderUser() {
       </Link>
     );
   }
-  // Sequential — see the note in app/coins/page.tsx.
-  const balance = await getBalance(user.id);
-  const carry = await getCarry(user.id);
   return (
     <>
       <Link
         href="/coins"
         className="flex items-center gap-1 rounded-md px-2 py-1 text-sm font-medium text-amber-600 transition-colors hover:bg-amber-500/10 dark:text-amber-400"
-        title={carry > 0 ? `我的金币：${balance} 枚，另有 ${carry} 枚零头在累计` : "我的金币"}
+        title="我的金币"
       >
         <CoinsIcon className="size-4" />
-        <span className="tabular-nums">{balance}</span>
-        {/* Most questions are worth less than a whole coin, so without the carry the
-            number would sit still after a correct answer and look broken. */}
-        {carry > 0 && <span className="text-xs font-normal opacity-70 tabular-nums">+{carry}</span>}
+        {/* Fractional: a 2-point question at the default rate is worth 0.6 coins. */}
+        <span className="tabular-nums">{await getBalance(user.id)}</span>
       </Link>
       <UserMenu name={user.displayName} username={user.username} isAdmin={user.role === "admin"} />
     </>

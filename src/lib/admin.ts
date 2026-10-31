@@ -37,7 +37,7 @@ export async function listUsers(): Promise<ManagedUser[]> {
     .orderBy(asc(users.createdAt));
 
   const balances = await db
-    .select({ userId: coinTransactions.userId, total: sql<number>`coalesce(sum(${coinTransactions.amount}), 0)::int` })
+    .select({ userId: coinTransactions.userId, total: sql<number>`coalesce(sum(${coinTransactions.amount}), 0)::float8` })
     .from(coinTransactions)
     .groupBy(coinTransactions.userId);
 
@@ -47,7 +47,8 @@ export async function listUsers(): Promise<ManagedUser[]> {
     .where(sql`${sessions.expiresAt} > now()`)
     .groupBy(sessions.userId);
 
-  const coinsBy = new Map(balances.map((b) => [b.userId, Number(b.total)]));
+  // Fractional balances, so round the float8 sum (see lib/coins).
+  const coinsBy = new Map(balances.map((b) => [b.userId, Math.round(Number(b.total) * 1000) / 1000]));
   const sessionsBy = new Map(active.map((a) => [a.userId, Number(a.n)]));
 
   return rows.map((r) => ({

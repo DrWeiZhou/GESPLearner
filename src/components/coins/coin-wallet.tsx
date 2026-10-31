@@ -17,13 +17,11 @@ const TYPE_LABEL = { reward: "做题奖励", spend: "扣除", adjust: "管理员
 
 export function CoinWallet({
   balance,
-  carry,
   rate,
   ledger,
 }: {
+  /** Fractional: a 2-point question at the default rate is worth 0.6 coins. */
   balance: number;
-  /** Fraction of a coin saved up but not yet credited. */
-  carry: number;
   rate: number;
   ledger: CoinTransaction[];
 }) {
@@ -34,7 +32,7 @@ export function CoinWallet({
 
   const spend = async () => {
     const n = Number(amount);
-    if (!Number.isInteger(n) || n <= 0) return toast.error("请输入正整数");
+    if (!Number.isFinite(n) || n <= 0) return toast.error("请输入大于 0 的数字");
     setSpending(true);
     try {
       const r = await postJSON<{ balance: number }>("/api/coins/spend", { amount: n, note: note || undefined });
@@ -58,11 +56,6 @@ export function CoinWallet({
           <p className="mt-2 text-sm text-muted-foreground">
             枚金币　·　当前兑换比例：每 1 分 = {rate} 枚
           </p>
-          {carry > 0 && (
-            <p className="mt-1 text-xs text-muted-foreground">
-              另有 {carry} 枚零头正在累计，攒满 1 枚会自动入账
-            </p>
-          )}
         </CardContent>
       </Card>
 
@@ -72,9 +65,9 @@ export function CoinWallet({
         </CardHeader>
         <CardContent className="space-y-1.5 text-sm text-muted-foreground">
           <p>· 客观题答对、编程题通过测试点，都会按本题得分 × {rate} 立刻发金币。</p>
+          <p>· 金币可以带小数：2 分的客观题答对就是 {2 * rate} 枚，不做取整。</p>
           <p>· 一道题只结算一次：重做、或者在错题本里再做一遍，都不会再发金币。</p>
           <p>· 编程题按<b>第一次提交</b>的得分结算，提交前先用「自测运行」试一试。</p>
-          <p>· 不满 1 枚的零头会先攒起来，攒满 1 枚自动入账。</p>
         </CardContent>
       </Card>
 
@@ -90,8 +83,8 @@ export function CoinWallet({
               <Input
                 id="coin-amount"
                 value={amount}
-                onChange={(e) => setAmount(e.target.value.replace(/\D/g, ""))}
-                inputMode="numeric"
+                onChange={(e) => setAmount(e.target.value.replace(/[^\d.]/g, ""))}
+                inputMode="decimal"
                 placeholder="10"
                 className="w-24"
               />

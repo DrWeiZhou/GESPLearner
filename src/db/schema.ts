@@ -125,6 +125,69 @@ export const testCases = pgTable(
   (t) => [unique().on(t.questionId, t.idx)],
 );
 
+/**
+ * The official syllabus (《CCF 编程能力等级认证标准》), one row per C++ level.
+ *
+ * All eight levels live in a single official PDF; `pages` records which slice of it
+ * this row was parsed from, so a bad transcription can be traced back.
+ */
+export const syllabi = pgTable(
+  "syllabi",
+  {
+    level: smallint().primaryKey(),
+    language: text().notNull().default("cpp"),
+    /** 考核目标 for the level, as printed in the syllabus. */
+    objective: text().notNull().default(""),
+    pdfUrl: text(),
+    sourceUrl: text(),
+    /** 1-based [from, to] page range inside the official PDF. */
+    pages: jsonb().$type<[number, number]>(),
+    updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [check("syllabi_level_range", sql`${t.level} between 1 and 8`)],
+);
+
+/**
+ * A single examinable topic, e.g. 三级「位运算」. Ids are derived from the level and
+ * the name (see `knowledgePointId`) so re-parsing the syllabus keeps the ids of
+ * points that haven't changed, and with them the question classifications.
+ */
+export const knowledgePoints = pgTable(
+  "knowledge_points",
+  {
+    id: text().primaryKey(), // 'kp-l3-1a2b3c4d'
+    level: smallint()
+      .notNull()
+      .references(() => syllabi.level, { onDelete: "cascade" }),
+    /** 知识块 the point belongs to. */
+    block: text().notNull(),
+    name: text().notNull(),
+    summary: text().notNull().default(""),
+    sortOrder: integer().notNull().default(0),
+  },
+  (t) => [index().on(t.level, t.sortOrder)],
+);
+
+/**
+ * Which knowledge point a question examines, decided by the LLM the first time a
+ * student gets the question wrong and then reused for everyone — the verdict is a
+ * property of the question, not of who missed it.
+ *
+ * A null `knowledgePointId` means the model was asked and couldn't place the
+ * question; the row still exists, so it isn't asked again on every page load.
+ */
+export const questionKnowledge = pgTable("question_knowledge", {
+  questionId: text()
+    .primaryKey()
+    .references(() => questions.id, { onDelete: "cascade" }),
+  knowledgePointId: text().references(() => knowledgePoints.id, { onDelete: "cascade" }),
+  /** One line of the model's reasoning, shown to the student in the wrong-answer book. */
+  reason: text(),
+  /** Which model decided, so old verdicts stay explainable after a model change. */
+  model: text(),
+  createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+});
+
 // ───────────────────────── Users ─────────────────────────
 
 /**
@@ -144,12 +207,6 @@ export const users = pgTable(
     displayName: text(),
     role: text({ enum: ["student", "admin"] }).notNull().default("student"),
     targetLevel: smallint(),
-    /**
-     * Leftover fraction of a coin from per-question rewards, always < 1. Only whole
-     * coins ever reach the ledger, so the 0.6 coins a 2-point question is worth
-     * waits here until it adds up to one. See `lib/coins`.
-     */
-    coinCarry: numeric({ mode: "number", precision: 6, scale: 3 }).notNull().default(0),
     createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
     lastLoginAt: timestamp({ withTimezone: true }),
     /** Throttling for password guessing. */
@@ -291,7 +348,7 @@ export const questionRewards = pgTable(
     score: numeric({ mode: "number" }).notNull(),
     /** The rate in force at that moment, so old rows stay explainable. */
     rate: numeric({ mode: "number" }).notNull(),
-    /** score × rate, fractional: whole coins go to the ledger, the rest to users.coinCarry. */
+    /** score × rate — what the ledger was credited. Fractional, e.g. 0.6. */
     coins: numeric({ mode: "number" }).notNull(),
     /** Set when the question was graded as part of a mock exam. */
     attemptId: uuid().references(() => attempts.id, { onDelete: "set null" }),
@@ -304,7 +361,10 @@ export const questionRewards = pgTable(
  * Coin ledger. The balance is the SUM of amounts rather than a stored counter, so
  * every change is auditable and concurrent writes can't lose an update.
  *
- * - `reward`: whole coins from freshly graded questions (see `questionRewards`), positive
+ * Amounts are fractional: a 2-point question at the default rate is worth 0.6 coins,
+ * and the student gets exactly that — no rounding, no remainder held back.
+ *
+ * - `reward`: coins from freshly graded questions (see `questionRewards`), positive
  * - `spend`: coins deducted when the student cashes them in, negative
  * - `adjust`: manual correction by an admin, either sign
  * - `earn`:  legacy whole-paper redemption, kept so old history still reads correctly
@@ -314,8 +374,8 @@ export const coinTransactions = pgTable(
   {
     id: bigint({ mode: "number" }).primaryKey().generatedAlwaysAsIdentity(),
     userId: uuid().notNull(),
-    /** Positive = credit, negative = debit. Whole coins only. */
-    amount: integer().notNull(),
+    /** Positive = credit, negative = debit. Fractional, to three decimals. */
+    amount: numeric({ mode: "number", precision: 12, scale: 3 }).notNull(),
     type: text({ enum: ["reward", "spend", "adjust", "earn"] }).notNull(),
     attemptId: uuid().references(() => attempts.id, { onDelete: "set null" }),
     /** Set when the row is the reward for a single question. */
