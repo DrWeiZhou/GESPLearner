@@ -1,6 +1,7 @@
 import "server-only";
 import { spawn } from "node:child_process";
-import { existsSync, readdirSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { cpSync, existsSync, mkdirSync, readdirSync, rmdirSync, symlinkSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { hostPlatform, isWindows } from "@/lib/platform";
 
@@ -99,11 +100,51 @@ const WINDOWS_LOCATIONS = [
   "C:\\Program Files\\Dev-Cpp\\MinGW64\\bin\\g++.exe",
 ];
 
+const isAscii = (s: string) => /^[\x20-\x7e]*$/.test(s);
+
+/**
+ * MinGW's GCC works out where its own libraries live (crt2.o, libstdc++ …) from
+ * its executable's path, through the ANSI code page. Installed under a folder with
+ * Chinese characters — the default install location contains the Windows user
+ * name — that path comes out as `C:/??/…` and linking fails. So the bundled
+ * toolchain is reached through an ASCII path: a directory junction in the public
+ * profile (no admin rights, no extra disk), or a one-time copy if that fails.
+ */
+function asciiToolchain(dir: string): string {
+  if (!isWin || isAscii(dir)) return dir;
+  const root = path.join(/*turbopackIgnore: true*/ process.env.PUBLIC || "C:\\Users\\Public", "GESPLearner");
+  const tag = createHash("sha256").update(dir).digest("hex").slice(0, 10);
+  const gpp = (base: string) => path.join(/*turbopackIgnore: true*/ base, "bin", "g++.exe");
+  const link = path.join(/*turbopackIgnore: true*/ root, `toolchain-${tag}`);
+  try {
+    if (existsSync(gpp(link))) return link;
+    mkdirSync(root, { recursive: true });
+    // A stale junction (its target was removed): rmdir drops the link, never the target.
+    if (existsSync(link)) rmdirSync(link);
+    symlinkSync(dir, link, "junction");
+    if (existsSync(gpp(link))) return link;
+  } catch (err) {
+    console.error("创建编译器链接失败，改为复制：", err);
+  }
+  const copy = path.join(/*turbopackIgnore: true*/ root, `toolchain-${tag}-copy`);
+  try {
+    if (!existsSync(path.join(/*turbopackIgnore: true*/ copy, ".complete"))) {
+      cpSync(dir, copy, { recursive: true });
+      writeFileSync(path.join(/*turbopackIgnore: true*/ copy, ".complete"), dir);
+    }
+    return copy;
+  } catch (err) {
+    console.error("复制编译器失败：", err);
+    return dir;
+  }
+}
+
 async function candidates(): Promise<{ path: string; source: CompilerInfo["source"] }[]> {
   const list: { path: string; source: CompilerInfo["source"] }[] = [];
   if (process.env.CXX) list.push({ path: process.env.CXX, source: "env" });
   const toolchain = process.env.GESP_TOOLCHAIN_DIR;
-  if (toolchain) list.push({ path: path.join(/*turbopackIgnore: true*/ toolchain, "bin", exe("g++")), source: "bundled" });
+  if (toolchain)
+    list.push({ path: path.join(/*turbopackIgnore: true*/ asciiToolchain(toolchain), "bin", exe("g++")), source: "bundled" });
 
   const system: string[] = [];
   if (hostPlatform() === "darwin") {
