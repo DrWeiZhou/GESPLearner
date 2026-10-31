@@ -1,0 +1,505 @@
+{
+  "id": "cpp-2025-06-l3",
+  "language": "cpp",
+  "level": 3,
+  "exam": {
+    "id": "2025-06",
+    "title": "2025年6月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10217.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1699464809021472.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "8 位二进制原码能表示的最小整数是：（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`-127`"
+        },
+        {
+          "label": "B",
+          "content": "`-128`"
+        },
+        {
+          "label": "C",
+          "content": "`-255`"
+        },
+        {
+          "label": "D",
+          "content": "`-256`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "反码表示中，零的表示形式有：",
+      "options": [
+        {
+          "label": "A",
+          "content": "1 种"
+        },
+        {
+          "label": "B",
+          "content": "2 种"
+        },
+        {
+          "label": "C",
+          "content": "8 种"
+        },
+        {
+          "label": "D",
+          "content": "16 种"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "补码 $1011\\,1011$ 对应的真值是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`-69`"
+        },
+        {
+          "label": "B",
+          "content": "`-59`"
+        },
+        {
+          "label": "C",
+          "content": "`-68`"
+        },
+        {
+          "label": "D",
+          "content": "`-58`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "若 $X$ 的 8 位补码为 $0000\\,1010$，则 $X/2$ 的补码是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0000 0101`"
+        },
+        {
+          "label": "B",
+          "content": "`1000 0101`"
+        },
+        {
+          "label": "C",
+          "content": "`0000 0101` 或 `1000 0101`"
+        },
+        {
+          "label": "D",
+          "content": "算术右移后结果取决于符号位"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "二进制数 $1101.101$ 对应的十进制数是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`13.625`"
+        },
+        {
+          "label": "B",
+          "content": "`12.75`"
+        },
+        {
+          "label": "C",
+          "content": "`11.875`"
+        },
+        {
+          "label": "D",
+          "content": "`14.5`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "补码加法中，若符号位无进位而次高位有进位，则说明（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "结果正确"
+        },
+        {
+          "label": "B",
+          "content": "发生上溢"
+        },
+        {
+          "label": "C",
+          "content": "发生下溢"
+        },
+        {
+          "label": "D",
+          "content": "结果符号位错误"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "八进制数 $35.6$ 对应的十进制数是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`29.75`"
+        },
+        {
+          "label": "B",
+          "content": "`28.5`"
+        },
+        {
+          "label": "C",
+          "content": "`27.625`"
+        },
+        {
+          "label": "D",
+          "content": "`30.25`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "二进制数 `1010 | 1100` 的结果是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1000`"
+        },
+        {
+          "label": "B",
+          "content": "`1110`"
+        },
+        {
+          "label": "C",
+          "content": "`1010`"
+        },
+        {
+          "label": "D",
+          "content": "`1100`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "以下哪个位运算可以交换两个变量的值（无需临时变量）（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`a = a ^ b; b = a ^ b; a = a ^ b;`"
+        },
+        {
+          "label": "B",
+          "content": "`a = a & b; b = a | b; a = a & b;`"
+        },
+        {
+          "label": "C",
+          "content": "`a = a | b; b = a ^ b; a = a ^ b;`"
+        },
+        {
+          "label": "D",
+          "content": "`a = ~a; b = ~b; a = ~a;`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "如何正确定义一个长度为 5 的整型数组（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`int array = new int[5];`"
+        },
+        {
+          "label": "B",
+          "content": "`array int[5];`"
+        },
+        {
+          "label": "C",
+          "content": "`int[] array = {1,2,3,4,5};`"
+        },
+        {
+          "label": "D",
+          "content": "`int array[5];`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "以下程序使用枚举法（穷举法）求解满足条件的三位数，横线处应该填入的是（ ）\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int count = 0;\n    for (int i = 100; i <= 999; i++) {\n        int a = i / 100;\n        ____________________\n        int c = i % 10;\n        if (a * a + b * b == c * c) {\n            count++;\n        }\n    }\n    cout << count << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`int b = (i / 10) / 10;`"
+        },
+        {
+          "label": "B",
+          "content": "`int b = (i / 10) % 10;`"
+        },
+        {
+          "label": "C",
+          "content": "`int b = (i % 10) / 10;`"
+        },
+        {
+          "label": "D",
+          "content": "`int b = (i % 10) % 10;`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "以下程序模拟了一个简单的小球反弹过程，横线处应该填入的是（ ）\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int height = 10;\n    int distance = 0;\n    for (int i = 1; i <= 5; i++) { // 模拟5次落地\n        ________________________\n        height /= 2;\n        distance += height;\n    }\n    cout << distance << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`distance += height/2;`"
+        },
+        {
+          "label": "B",
+          "content": "`distance += height;`"
+        },
+        {
+          "label": "C",
+          "content": "`distance += height*2;`"
+        },
+        {
+          "label": "D",
+          "content": "`distance += height+1;`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "C++ 代码 `string s = \"GESP考试\";`，`s` 占据的字节数是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "10"
+        },
+        {
+          "label": "B",
+          "content": "8"
+        },
+        {
+          "label": "C",
+          "content": "8 或 10"
+        },
+        {
+          "label": "D",
+          "content": "取决于计算机采用什么编码"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "C++ 语句 `string s=\"Gesp Test\";` 执行 `s.rfind(\"e\")` 以后，输出的是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "1"
+        },
+        {
+          "label": "B",
+          "content": "2"
+        },
+        {
+          "label": "C",
+          "content": "6"
+        },
+        {
+          "label": "D",
+          "content": "3"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "字符串 \"Gesp考试\"，字符数是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "10"
+        },
+        {
+          "label": "B",
+          "content": "8"
+        },
+        {
+          "label": "C",
+          "content": "6"
+        },
+        {
+          "label": "D",
+          "content": "字符数多少取决于编码"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "C++ 中 `string` 的 `==` 运算符比较的是字符串的内存地址，而非内容",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "`string` 的 `substr(1, 3)` 返回从下标 1 开始的 3 个字符的子串。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "`x` 是浮点数，`(x >> 1)` 等价于 `x / 2`",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "`string(\"hello\") == \"hello\"` 的比较结果为 `true`。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "`sort` 可以直接用于排序 `set` 中的元素。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "`(x & 1) == 0` 可以判断整数 `x` 是否为偶数。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "`string` 的 `substr(2, 10)` 在字符串长度不足时会抛出异常。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "在数学纸面计算中，`pow(2, 3)` 的计算结果一定是 8，但是在 C++ 中，如果遇到数据类型是浮点数，那就不一定正确。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "在 C++ 中，枚举的底层类型可以是非整型（如 `float` 或 `double`）。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "函数声明 `double f();` 返回 `int` 时，会自动转换为 `double`",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "奇偶校验",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "数据在传输过程中可能出错，因此接收方收到数据后通常会校验传输的数据是否正确，奇偶校验是经典的校验方式之一。\n\n给定 $n$ 个非负整数 $c_1, c_2, \\ldots, c_n$ 代表所传输的数据，它们的校验码取决于这些整数在二进制下 $1$ 的数量之和的奇偶性。如果这些整数在二进制下共有奇数个 $1$，那么校验码为 $1$；否则校验码为 $0$。你能求出这些整数的校验码吗？",
+      "inputFormat": "第一行，一个正整数 $n$，表示所传输的数据量。\n\n第二行，$n$ 个非负整数 $c_1, c_2, \\ldots, c_n$，表示所传输的数据。",
+      "outputFormat": "输出一行，两个整数，以一个空格分隔：\n\n第一个整数表示 $c_1, c_2, \\ldots, c_n$ 在二进制下 $1$ 的总数量；\n\n第二个整数表示校验码（$0$ 或 $1$）。",
+      "samples": [
+        {
+          "input": "4\n71 69 83 80",
+          "output": "13 1"
+        },
+        {
+          "input": "6\n1 2 4 8 16 32",
+          "output": "6 0"
+        }
+      ],
+      "dataRange": "对于所有测试点，保证 $1 \\le n \\le 100$，$0 \\le c_i \\le 255$。",
+      "referenceSolution": "#include <cstdio>\nusing namespace std;\n\nint n, v;\n\nint main() {\n\n    scanf(\"%d\", &n);\n    for (int i = 1; i <= n; i++) {\n        int c;\n        scanf(\"%d\", &c);\n        while (c) {\n            v += c & 1;\n            c >>= 1;\n        }\n    }\n    printf(\"%d %d\\n\", v, v & 1);\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "分糖果",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "有 $n$ 位小朋友排成一队等待老师分糖果。第 $i$ 位小朋友想要至少 $a_i$ 颗糖果，并且分给他的糖果数量必须比分给前一位小朋友的糖果数量更多，不然他就会不开心。\n\n老师想知道至少需要准备多少颗糖果才能让所有小朋友都开心。你能帮帮老师吗？",
+      "inputFormat": "第一行，一个正整数 $n$，表示小朋友的人数。\n\n第二行，$n$ 个正整数 $a_1, a_2, \\ldots, a_n$，依次表示每位小朋友至少需要的糖果数量。",
+      "outputFormat": "输出一行，一个整数，表示最少需要准备的糖果数量。",
+      "samples": [
+        {
+          "input": "4\n1 4 3 3",
+          "output": "16"
+        },
+        {
+          "input": "15\n314 15926 53589793 238462643 383279502 8 8 4 1 9 7 1 6 9 3",
+          "output": "4508143253"
+        }
+      ],
+      "dataRange": "对于所有测试点，保证 $1 \\le n \\le 1000$，$1 \\le a_i \\le 10^9$。",
+      "referenceSolution": "#include <cstdio>\n#include <algorithm>\nusing namespace std;\n\nconst int N = 1005;\n\nint n, a[N];\nlong long ans;\n\nint main() {\n    scanf(\"%d\", &n);\n    for (int i = 1; i <= n; i++) {\n        scanf(\"%d\", &a[i]);\n        a[i] = max(a[i - 1] + 1, a[i]);\n        ans += a[i];\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n"
+    }
+  ]
+}

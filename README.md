@@ -37,7 +37,7 @@ bun run seed                 # 导入数据库并发布
 bun run dev
 ```
 
-仓库已内置 2026 年 9 月 C++ 一级、三级两套真题（`data/papers/`），只跑 `db:migrate` + `seed` 即可先看到效果。
+仓库已内置 C++ 三级全部 14 套真题（2023 年 6 月 ~ 2026 年 9 月）与 2026 年 9 月一级（`data/papers/`），只跑 `db:migrate` + `seed` 即可先看到效果。
 
 > **演示模式**：未配置 Supabase Auth 或数据库时，应用直接读取 `data/papers/*.json`，题目、判分、评测、AI 讲解都可用，只是不保存任何记录。
 
@@ -70,6 +70,7 @@ docker run -d --name judge0 -p 2358:2358 judge0/judge0:1.13.1   # 或参考 Judg
 | `bun run gen-tests <paperId...> | --all` | 让模型为编程题写数据生成器，用官方参考程序产出隐藏测试点（先校验参考程序能复现官方样例，否则跳过该题） |
 | `bun run embed [--force]` | 生成题目向量（pgvector），用于相似题推荐与 AI 讲解的 RAG |
 | `bun run render-pdf <file.pdf> <outDir>` | 调试：导出 PDF 每页的图片与阅读顺序文字 |
+| `bun run backup [--keep N]` | 备份数据库到 `data/backups/`（见下文「备份与恢复」） |
 
 `parse` 的结果建议人工抽查后再 `seed` 发布——公式和样例空格最容易出错。
 
@@ -95,6 +96,29 @@ docker run -d --name judge0 -p 2358:2358 judge0/judge0:1.13.1   # 或参考 Judg
 - 兑换：`floor(试卷得分 × 比例)`，默认比例 0.3。**每份试卷只能兑换一次**，由局部唯一索引
   `coin_tx_one_earn_per_attempt` 在数据库层保证，并发重复提交也只会成功一次。
 - 扣除：在事务中对用户行加锁后校验余额，余额不足直接拒绝，不会出现负数。
+
+## 备份与恢复
+
+题库的源头是仓库里的 `data/papers/*.json`，数据库丢失后 `db:migrate` + `seed` 即可完整重建。
+账号、作答记录、成绩、错题、金币流水、AI 对话和后台设置**只存在数据库里**，而 Supabase 免费版没有可下载的自动备份
+（项目 7 天无访问会被暂停，暂停期间可在控制台恢复），因此需要自己定期备份：
+
+```bash
+bun run backup            # → data/backups/gesp-<时间>.dump，默认保留最近 30 份
+```
+
+- 用 `pg_dump` 导出 `public`（全部业务表）、`drizzle`（迁移记录）与 pgvector 扩展，压缩的 custom 格式；需要本机 `pg_dump` 主版本 ≥ 服务器（Supabase 为 17，`brew install postgresql@17`）。
+- 连接用 `DATABASE_DIRECT_URL`（5432）；事务池 6543 端口不支持 `pg_dump`。
+- 备份含账号密码哈希与学生记录，`data/backups/` 已被 `.gitignore` 排除，不要上传到公开位置。
+
+恢复到一个空数据库（如新建的 Supabase 项目）：
+
+```bash
+pg_restore --no-owner --no-privileges -d "<新库的 DATABASE_DIRECT_URL>" data/backups/gesp-<时间>.dump
+```
+
+唯一的报错 `schema "public" already exists` 是正常的。之后把 `.env.local` 与 Vercel 的连接串换成新库；
+后台保存的大模型 API key 依赖同一个 `SETTINGS_SECRET` 才能解密。
 
 ## 安全设计
 
@@ -136,7 +160,7 @@ data/                   sources.json、pdf/、papers/、tests/
 
 | 平台 | 资源 | 说明 |
 | --- | --- | --- |
-| Supabase | 项目 `GESPLearner`（ref `wylhizzgkoodtqmkewdk`） | 区域 **ap-northeast-1 / Tokyo**（国内访问延迟优于默认的孟买）；已建表、已导入 2 套真题 |
+| Supabase | 项目 `GESPLearner`（ref `wylhizzgkoodtqmkewdk`） | 区域 **ap-northeast-1 / Tokyo**（国内访问延迟优于默认的孟买）；已建表、已导入 15 套真题（三级 14 套 + 一级 1 套） |
 | Vercel | 项目 `gesp-learner`（团队 `goodluck22`） | 通过 Git 集成关联 `DrWeiZhou/GESPLearner`，推送 `main` 自动部署 |
 
 Supabase 侧的安全设置：建项目时关闭了「Automatically expose new tables」、开启「Enable automatic RLS」；

@@ -1,0 +1,500 @@
+{
+  "id": "cpp-2023-06-l3",
+  "language": "cpp",
+  "level": 3,
+  "exam": {
+    "id": "2023-06",
+    "title": "2023年6月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10092.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1553039911551008.pdf",
+  "durationMinutes": 90,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "高级语言编写的程序需要经过以下（ ）操作，可以生成在计算机上运行的可执行代码。",
+      "options": [
+        {
+          "label": "A",
+          "content": "编辑"
+        },
+        {
+          "label": "B",
+          "content": "保存"
+        },
+        {
+          "label": "C",
+          "content": "调试"
+        },
+        {
+          "label": "D",
+          "content": "编译"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "二进制数 $11.01$ 在十进制下是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$3.01$"
+        },
+        {
+          "label": "B",
+          "content": "$3.05$"
+        },
+        {
+          "label": "C",
+          "content": "$3.125$"
+        },
+        {
+          "label": "D",
+          "content": "$3.25$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "已知大写字符 `'A'` 的 ASCII 编码的十六进制表示为 `0x41`，则字符 `'F'` 的 ASCII 编码的十六进制表示为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`46`"
+        },
+        {
+          "label": "B",
+          "content": "`47`"
+        },
+        {
+          "label": "C",
+          "content": "`48`"
+        },
+        {
+          "label": "D",
+          "content": "`49`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "以下哪个不是 C++ 语言中的运算符？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`&`"
+        },
+        {
+          "label": "B",
+          "content": "`&&`"
+        },
+        {
+          "label": "C",
+          "content": "`*`"
+        },
+        {
+          "label": "D",
+          "content": "`**`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "如果字符串定义为 `char str[] = \"Hello\";`，则字符数组 `str` 的长度为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$0$"
+        },
+        {
+          "label": "B",
+          "content": "$5$"
+        },
+        {
+          "label": "C",
+          "content": "$6$"
+        },
+        {
+          "label": "D",
+          "content": "$7$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "一个数组定义为 `double array[3];`，则这个数组占用内存的大小为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$24$"
+        },
+        {
+          "label": "B",
+          "content": "$12$"
+        },
+        {
+          "label": "C",
+          "content": "$6$"
+        },
+        {
+          "label": "D",
+          "content": "$3$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "以下数组定义，符合 C++ 语言语法的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`int a[];`"
+        },
+        {
+          "label": "B",
+          "content": "`int b['3'];`"
+        },
+        {
+          "label": "C",
+          "content": "`int c[3.0];`"
+        },
+        {
+          "label": "D",
+          "content": "`int[3] d;`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下列关于进制的叙述，不正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "正整数的二进制表示中只会出现 $0$ 和 $1$。"
+        },
+        {
+          "label": "B",
+          "content": "$10$ 不是 $2$ 的整数次幂，所以十进制数无法转换为二进制数。"
+        },
+        {
+          "label": "C",
+          "content": "从二进制转换为 $8$ 进制时，可以很方便地由低到高将每 $3$ 位二进制位转换为对应的一位 $8$ 进制位。"
+        },
+        {
+          "label": "D",
+          "content": "从二进制转换为 $16$ 进制时，可以很方便地由低到高将每 $4$ 位二进制位转换为对应的一位 $16$ 进制位。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下列关于 C++ 语言中数组的叙述，不正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "数组必须先定义后使用。"
+        },
+        {
+          "label": "B",
+          "content": "数组的所有元素在内存中是连续存放的。"
+        },
+        {
+          "label": "C",
+          "content": "除了字符数组，在定义数组时“`[]`”内必须有常数。"
+        },
+        {
+          "label": "D",
+          "content": "不能对数组赋值，但可以对数组的每个基础类型的元素赋值。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "一个 `int` 类型的值，做以下哪个操作，一定会变回原来的值？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "左移 $3$ 位，再右移 $3$ 位。"
+        },
+        {
+          "label": "B",
+          "content": "右移 $3$ 位，再左移 $3$ 位。"
+        },
+        {
+          "label": "C",
+          "content": "按位或 $7$，再按位与 $-8$。"
+        },
+        {
+          "label": "D",
+          "content": "按位异或 $7$，再按位异或 $7$。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "如果 `a` 和 `b` 均为 `int` 类型的变量，下列表达式能正确判断“`a` 等于 `b`”的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`((a / b) == 1)`"
+        },
+        {
+          "label": "B",
+          "content": "`((a & b) == a)`"
+        },
+        {
+          "label": "C",
+          "content": "`((a ^ b) == 0)`"
+        },
+        {
+          "label": "D",
+          "content": "`((a | b) == b)`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "如果 `a` 为 `int` 类型的变量，下列哪个表达式可以正确求出满足“小于等于 `a` 且是 $4$ 的倍数”的整数中最大的？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(a & (~3))`"
+        },
+        {
+          "label": "B",
+          "content": "`((a << 2) >> 2)`"
+        },
+        {
+          "label": "C",
+          "content": "`(a ^ 3)`"
+        },
+        {
+          "label": "D",
+          "content": "`((a - 1) | 3) + 1`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "在下列代码的横线处填写（ ），可以使得输出是“24 12”。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int a = 12, b = 24;\n    _____; // 在此处填入代码\n    a = a ^ b;\n    b = a ^ b;\n    cout << a << \" \" << b << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`a = a ^ b`"
+        },
+        {
+          "label": "B",
+          "content": "`b = a ^ b`"
+        },
+        {
+          "label": "C",
+          "content": "`a = a + b`"
+        },
+        {
+          "label": "D",
+          "content": "`b = a + b`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "在下列代码的横线处填写（ ），可以使得输出是“2”。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int array[5] = {3, 7, 5, 2, 4};\n    int min = 0;\n    for (int i = 0; i < 5; i++)\n        if (_____) // 在此处填写代码\n            min = array[i];\n    cout << min << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`min > array[i]`"
+        },
+        {
+          "label": "B",
+          "content": "`min < array[i]`"
+        },
+        {
+          "label": "C",
+          "content": "`min = array[i]`"
+        },
+        {
+          "label": "D",
+          "content": "以上均不对。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "在下列代码的横线处填写（ ），可以使得输出**不是**“31”。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int array[5] = {1, 2, 4, 8, 16};\n    int res = 0;\n    for (int i = 0; i < 5; i++)\n        _____; // 在此处填写代码\n    cout << res << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`res = res + array[i]`"
+        },
+        {
+          "label": "B",
+          "content": "`res = res & array[i]`"
+        },
+        {
+          "label": "C",
+          "content": "`res = res | array[i]`"
+        },
+        {
+          "label": "D",
+          "content": "`res = res ^ array[i]`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "一个算法可以用不同的形式来描述，但要求描述比较规范，因此不能用自然语言描述。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "域名是由一串用点分隔的名字来标识互联网上一个计算机或计算机组的名称，CCF 编程能力等级认证官方网站的域名是 `gesp.ccf.org.cn`，其中顶级域名是 `gesp`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "数据编码方式只有原码、反码、补码三种。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "在 C++ 语言中，长度为 `n` 的数组，合理的下标范围是从 `0` 到 `n`，包括 `0` 和 `n`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "字符常量 `'\\0'` 常用来表示字符串结束，它和字符常量 `'0'` 是不同的。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "在 C++ 语言中，可以使用字符（如 `'0'`）作为数组下标。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "在 C++ 语言中，数组被定义时，它的大小就确定了。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "计算机中存储的数据都是二进制形式。因此，在使用 C++ 语言编写程序时，将所有十进制数改写为相同数值的二进制数，会使得程序运行效率更高。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "在 C++ 语言中，表达式 `(0xf == 015)` 的值为 `true`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "如果 `a` 为 `int` 类型的变量，且表达式 `((a | 3) == 3)` 的值为 `true`，则说明 `a` 在从 $0$ 到 $3$ 之间（可能为 $0$、可能为 $3$）。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "春游",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "老师带领同学们春游。已知班上有 $N$ 位同学，每位同学有从 $0$ 到 $N-1$ 的唯一编号。到了集合时间，老师确认是否所有同学都到达了集合地点，就让同学们报出自己的编号。到达的同学都会报出的编号，不会报出别人的编号，但有的同学很顽皮，会多次报出。你能帮老师找出有哪些同学没有到达吗？",
+      "inputFormat": "输入包含 $2$ 行。第一行包含两个整数 $N$ 和 $M$，表示班级有 $N$ 位同学，同学们共有 $M$ 次报出编号。约定 $2 \\le N, M \\le 1000$。\n\n第二行包含 $M$ 个整数，分别为 $M$ 次报出的编号。约定所有编号都在合理范围内。",
+      "outputFormat": "输出一行。如果所有同学都到达，则输出 $N$；否则由小到大输出所有未到达的同学编号，空格分隔。",
+      "samples": [
+        {
+          "input": "3 3\n0 2 1",
+          "output": "3"
+        },
+        {
+          "input": "3 5\n0 0 0 0 0",
+          "output": "1 2"
+        }
+      ],
+      "referenceSolution": "#include <iostream>\nusing namespace std;\nbool arrive[1000];\nint main() {\n    int n = 0, m = 0;\n    cin >> n >> m;\n    // 初始化 arrive 数组为所有同学均未报到\n    for (int i = 0; i < n; i++)\n        arrive[i] = false;\n    // 依次报到 m 次\n    for (int i = 0; i < m; i++) {\n        int code = 0;\n        cin >> code;\n        arrive[code] = true;\n    }\n    // 依次检查 n 位同学是否到达\n    bool all = true;\n    for (int i = 0; i < n; i++) {\n        if (!arrive[i]) {\n            if (all) {\n                cout << i;\n                all = false;\n            } else {\n                cout << \" \" << i;\n            }\n        }\n    }\n    // 处理全部到达的特殊情况\n    if (all)\n        cout << n;\n    cout << endl;\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "密码合规检测",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "网站注册需要有用户名和密码，编写程序以检查用户输入密码的有效性。合规的密码应满足以下要求：\n\n1. 只能由 `a-z` 之间 $26$ 个小写字母、`A-Z` 之间 $26$ 个大写字母、`0-9` 之间 $10$ 个数字以及 `!@#$` 四个特殊字符构成。\n2. 密码最短长度：$6$ 个字符，密码最大长度：$12$ 个字符。\n3. 大写字母、小写字母和数字必须至少有其中两种，以及至少有四个特殊字符中的一个。",
+      "inputFormat": "输入一行不含空格的字符串。约定长度不超过 $100$。该字符串被英文逗号分隔为多段，作为多组被检测密码。",
+      "outputFormat": "输出若干行，每行输出一组合规的密码。\n\n输出顺序以输入先后为序，即先输入则先输出。",
+      "samples": [
+        {
+          "input": "seHJ12!@,sjdkffH$123,sdf!@&12HDHa!,123&^YUhg@!",
+          "output": "seHJ12!@\nsjdkffH$123",
+          "explanation": "输入被英文逗号分为了四组被检测密码：“`seHJ12!@`”、“`sjdkffH$123`”、“`sdf!@&12HDHa!`”、“`123&^YUhg@!`”。其中，“`sdf!@&12HDHa!`”长度超过 $12$ 个字符，不合规；“`123&^YUhg@!`”包含四个特殊字符之外的字符“`^`”，不合规。"
+        }
+      ],
+      "referenceSolution": "#include <iostream>\nusing namespace std;\nchar line[101];\nchar pwd[101];\n// 检查从 str 开始、长度为 l 的密码是否合规\nbool check(char * str, int l) {\n    if (l < 6 || l > 12)\n        return false;\n    bool hasC = false, hasL = false, hasD = false, hasS = false;\n    for (int i = 0; str[i] != '\\0'; i++) {\n        if ('A' <= str[i] && str[i] <= 'Z') {\n            hasC = true;\n        } else if ('a' <= str[i] && str[i] <= 'z') {\n            hasL = true;\n        } else if ('0' <= str[i] && str[i] <= '9') {\n            hasD = true;\n        } else if (str[i] == '!' || str[i] == '@' ||\n                   str[i] == '#' || str[i] == '$') {\n            hasS = true;\n        } else\n            return false;\n    }\n    if (!hasS)\n        return false;\n    if (hasC + hasL + hasD < 2)\n        return false;\n    return true;\n}\nint main() {\n    cin >> line;\n    // 按逗号对输入进行切分，并依次判断\n    int len = 0;\n    for (int i = 0; line[i] != '\\0'; i++) {\n        if (line[i] != ',') {\n            pwd[len] = line[i];\n            len++;\n        } else {\n            pwd[len] = '\\0';\n            if (check(pwd, len))\n                cout << pwd << endl;\n            len = 0;\n        }\n    }\n    if (len > 0) {\n        pwd[len] = '\\0';\n        if (check(pwd, len))\n            cout << pwd << endl;\n    }\n    return 0;\n}\n"
+    }
+  ]
+}

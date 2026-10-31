@@ -1,0 +1,506 @@
+{
+  "id": "cpp-2023-12-l3",
+  "language": "cpp",
+  "level": 3,
+  "exam": {
+    "id": "2023-12",
+    "title": "2023年12月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10119.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1584917876047904.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "下面 C++ 数组的定义中，会丢失数据的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`char dict_key[] = {'p','t','o'};`"
+        },
+        {
+          "label": "B",
+          "content": "`int dict_value[] = {33,22,11};`"
+        },
+        {
+          "label": "C",
+          "content": "`char dict_name[]={'chen','wang','zhou'};`"
+        },
+        {
+          "label": "D",
+          "content": "`float dict_value[]={3,2,1};`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "在下列编码中，不能够和二进制 \"1101 1101\" 相等的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "（221）10进制"
+        },
+        {
+          "label": "B",
+          "content": "（335）8进制"
+        },
+        {
+          "label": "C",
+          "content": "（dd）16进制"
+        },
+        {
+          "label": "D",
+          "content": "（5d）16进制"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后不能输出 \"GESP\" 的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`string str(\"GESP\"); cout<<str<<endl;`"
+        },
+        {
+          "label": "B",
+          "content": "`string str=\"GESP\"; cout<<str<<endl;`"
+        },
+        {
+          "label": "C",
+          "content": "`string str(\"GESP\"); cout<<str[1]<<str[2]<<str[3]<<str[4]<<endl;`"
+        },
+        {
+          "label": "D",
+          "content": "`string str{\"GESP\"}; cout<<str<<endl;`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "执行下面 C++ 代码输出是（ ）。\n\n```cpp\nint temp=0;\nfor(int i=1;i<7;i++)\n{\n    for(int j=1;j<5;j++)\n    {\n        if(i/j==2)\n        {\n            temp++;\n        }\n    }\n}\ncout<<temp<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`10`"
+        },
+        {
+          "label": "B",
+          "content": "`8`"
+        },
+        {
+          "label": "C",
+          "content": "`4`"
+        },
+        {
+          "label": "D",
+          "content": "`3`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "执行下面 C++ 代码后，输出是（ ）。\n\n```cpp\nstring str=(\"chen\");\nint x=str.length();\nint temp=0;\nfor(int i=0;i<=x;i++)\n{\n    temp++;\n}\ncout<<temp<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`4`"
+        },
+        {
+          "label": "B",
+          "content": "`2`"
+        },
+        {
+          "label": "C",
+          "content": "`5`"
+        },
+        {
+          "label": "D",
+          "content": "`3`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "执行下面 C++ 代码后输出的是（ ）。\n\n```cpp\nstring str=(\"chen\");\nint x=str.length();\ncout<<x<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`4`"
+        },
+        {
+          "label": "B",
+          "content": "`3`"
+        },
+        {
+          "label": "C",
+          "content": "`2`"
+        },
+        {
+          "label": "D",
+          "content": "`5`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "执行下面 C++ 代码后输出的是（ ）。\n\n```cpp\nstring str=(\"chen\");\ncout<<str[5]<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "输出未知的数"
+        },
+        {
+          "label": "B",
+          "content": "输出 `'n'`"
+        },
+        {
+          "label": "C",
+          "content": "输出 `'\\0'`"
+        },
+        {
+          "label": "D",
+          "content": "输出空格"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\nchar ch[10]={'1'};\ncout<<ch[2]<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0`"
+        },
+        {
+          "label": "B",
+          "content": "`1`"
+        },
+        {
+          "label": "C",
+          "content": "输出空格"
+        },
+        {
+          "label": "D",
+          "content": "什么也不输出"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面 C++ 代码用于统计每种字符出现的次数，当输出为 3 时，横线上不能填入的代码是（ ）。\n\n```cpp\nstring str=\"GESP is a good programming test!\";\nint x=0;\nfor(int i=0;i<str.length();i++)\n{\n    if(_________)\n    {\n        x++;\n    }\n}\ncout<<x<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`str[i]=='o'`"
+        },
+        {
+          "label": "B",
+          "content": "`str[i]=='a'+14`"
+        },
+        {
+          "label": "C",
+          "content": "`str[i]==115`"
+        },
+        {
+          "label": "D",
+          "content": "`str[i]==111`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "32 位计算机中，C++ 的整型变量 `int` 能够表示的数据范围是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$2^{31} \\sim (2^{31})-1$"
+        },
+        {
+          "label": "B",
+          "content": "$2^{32}$"
+        },
+        {
+          "label": "C",
+          "content": "$-2^{31} \\sim +(2^{31})-1$"
+        },
+        {
+          "label": "D",
+          "content": "$-(2^{31})+1 \\sim 2^{31}$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面 C++ 程序执行的结果是（ ）。\n\n```cpp\nint cnt=0;\nfor(int i=0;i<=20;i++)\n{\n    if(i%3==0&&i%5==0)\n    {\n        cnt++;\n    }\n}\ncout<<cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`2`"
+        },
+        {
+          "label": "B",
+          "content": "`3`"
+        },
+        {
+          "label": "C",
+          "content": "`5`"
+        },
+        {
+          "label": "D",
+          "content": "`4`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "C++ 的数据类型转换让人很难琢磨透，下列代码输出的值是（ ）。\n\n```cpp\nint a=3;\nint b=2;\ncout<<a/b*1.0<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1.5`"
+        },
+        {
+          "label": "B",
+          "content": "`1`"
+        },
+        {
+          "label": "C",
+          "content": "`2`"
+        },
+        {
+          "label": "D",
+          "content": "`1.50`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "C++ 代码用于抽取字符串中的电话号码。约定：电话号码全部是数字，数字之间没有其他符号如连字符或空格等。代码中变量 `strSrc` 仅仅是示例，可以包含更多字符。下面有关代码说法，正确的说法是（ ）。\n\n```cpp\nstring strSrc=\"红十字：01084025890火警电话：119急救电话：120紧急求助：110\";\nstring tel=\"\";\nfor(int i=0;i<=strSrc.length();i++)\n{\n    if(strSrc[i]>='0'&&strSrc[i]<='9')\n    {\n        tel=tel+strSrc[i];\n    }\n    else if(tel!=\"\")\n    {\n        cout<<tel<<endl;\n        tel=\"\";\n    }\n\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "代码将换行输出各个含有数字的电话号码。"
+        },
+        {
+          "label": "B",
+          "content": "代码将不换行输出各个含有数字的电话号码，号码中间没有分隔。"
+        },
+        {
+          "label": "C",
+          "content": "代码将不换行输出各个含有数字的电话号码，号码中间有分隔。"
+        },
+        {
+          "label": "D",
+          "content": "不能够输出数字电话号码。"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "某公司新出了一款无人驾驶的小汽车，通过声控智能驾驶系统，乘客只要告诉汽车目的地，车子就能自动选择一条优化路线，告诉乘客后驶达那里。请问下面哪项不是驾驶系统完成选路所必须的。（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "麦克风"
+        },
+        {
+          "label": "B",
+          "content": "扬声器"
+        },
+        {
+          "label": "C",
+          "content": "油量表"
+        },
+        {
+          "label": "D",
+          "content": "传感器"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "现代计算机是指电子计算机，它所基于的是（ ）体系结构。",
+      "options": [
+        {
+          "label": "A",
+          "content": "艾伦·图灵"
+        },
+        {
+          "label": "B",
+          "content": "冯·诺依曼"
+        },
+        {
+          "label": "C",
+          "content": "阿塔纳索夫"
+        },
+        {
+          "label": "D",
+          "content": "埃克特-莫克利"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "执行 C++ 代码 `cout<<(5&&2)<<endl;` 后将输出 `1`。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "C++ 程序执行后，输入 `chen a dai` 输出应该为：`chen`。\n\n```cpp\nstring str;\ncin>>str;\ncout<<str;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "执行 C++ 代码 `cout<<(5||2);` 后将输出 `1`。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "执行下面 C++ 代码后将输出 \"China\"。\n\n```cpp\nstring a=\"china\";\na.replace(0,1,\"C\");\ncout<<a<<endl;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "执行 C++ 代码将输出 `0 5`，`5` 之后还有一个空格。\n\n```cpp\nint list[10]={1,2,3,4,5,6,7,8,9,10};\nfor(int i=0;i<10;i++)\n{\n    if(i%5==0)\n    {\n        cout<<list[i]<<\" \";\n    }\n}\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "下面 C++ 代码将输出 `1`。\n\n```cpp\nint list[10]={1};\ncout<<list<<endl;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "下面 C++ 程序将输出 `1`。\n\n```cpp\nint arr[10]={1};\ncout<<arr[0]<<endl;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "执行 C++ 代码，将输出 `1 3 5 7 9`，`9` 之后还有一个空格。\n\n```cpp\nint list[10]={1,2,3,4,5,6,7,8,9,10};\nfor(int i=0;i<10;i+=2)\n{\n    cout<<list[i]<<\" \";\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "小杨最近在准备考 GESP，他用的 Dev C++ 来练习和运行程序，所以 Dev C++ 也是一个小型操作系统。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "任何一个 `while` 循环都可以转化为等价的 `for` 循环。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "小猫分鱼",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "海滩上有一堆鱼，$N$ 只小猫来分。第一只小猫把这堆鱼平均分为 $N$ 份，多了 $i < N$ 个，这只小猫把多的 $i$ 个扔入海中，拿走了一份。第二只小猫接着把剩下的鱼平均分成 $N$ 份，又多了 $i$ 个，小猫同样把多的 $i$ 个扔入海中，拿走了一份。第三、第四、……，第 $N$ 只小猫仍是最终剩下的鱼分成 $N$ 份，扔掉多了的 $i$ 个，并拿走一份。\n\n编写程序，输入小猫的数量 $N$ 以及每次扔到海里的鱼的数量 $i$，输出海滩上最少的鱼数，使得每只小猫都可吃到鱼。\n\n例如：两只小猫来分鱼 $N = 2$，每次扔掉鱼的数量为 $i = 1$，为了每只小猫都可吃到鱼，可令第二只小猫需要拿走 1 条鱼，则此时待分配的有 3 条鱼。第一只小猫待分配的鱼有 $3 * 2 + 1 = 7$ 条。",
+      "inputFormat": "总共 2 行。第一行一个整数 $N$，第二行一个整数 $i$。",
+      "outputFormat": "一行一个整数，表示满足要求的海滩上最少的鱼数。",
+      "samples": [
+        {
+          "input": "2\n1",
+          "output": "7"
+        },
+        {
+          "input": "3\n1",
+          "output": "25",
+          "explanation": "三只小猫来分鱼 $N = 3$，每次扔掉鱼的数量为 $i = 1$，为了每只小猫都可吃到鱼，可令第三只小猫需要拿走 3 条鱼（拿走 1 条和 2 条不满足要求），则此时待分配的有 10 条鱼。第二只小猫待分配的鱼有 $10 \\times 3 / 2 + 1 = 16$ 条。第一只小猫待分配的鱼有 $16 \\times 3 / 2 + 1 = 25$ 条。"
+        }
+      ],
+      "dataRange": "保证 $0 < N < 10$；$i < N$。",
+      "referenceSolution": "#include <stdio.h>\n\nint main(int argc, char **argv)\n{\n    long long n, i, j, k, ans;\n    bool flag;\n    scanf(\"%lld%lld\", &n, &i);\n\n    k = 1;\n    while(true)\n    {\n        flag = true;\n        ans = k*n+i;\n        for(j=1; j<n; j++)\n        {\n            if(ans%(n-1) != 0)\n            {\n                flag = false;\n                break;\n            }\n            ans = ans / (n-1) *n + i;\n        }\n        if(flag) break;\n        k++;\n    }\n\n    printf(\"%lld\\n\", ans);\n\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "单位转换",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "小杨这周的数学作业是做单位转换，喜欢编程的小杨决定编程帮他解决这些问题。\n\n小杨只学了长度单位和重量单位，具体来说：\n\n- 长度单位包括千米（`km`）、米（`m`）、毫米（`mm`），它们之间的关系是：$1\\text{ km} = 1000\\text{ m} = 1000000\\text{ mm}$。\n- 重量单位包括千克（`kg`）、克（`g`）、毫克（`mg`），它们之间的关系是：$1\\text{ kg} = 1000\\text{ g} = 1000000\\text{ mg}$。\n\n小杨的作业只涉及将更大的单位转换为更小的单位，也就是说，小杨的作业只会包含如下题型：米转换为毫米、千米转换为毫米、千米转换为米、克转换为毫克、千克转换为毫克、千克转换为克。\n\n现在，请你帮忙完成单位转换的程序。",
+      "inputFormat": "输入的第一行为一个整数 $N$，表示题目数量。\n\n接下来 $N$ 行，每行一个字符串，表示转换单位的题目，格式为 `x 单位1 = ? 单位2`。其中，`x` 为一个不超过 $1000$ 的非负整数，`单位1` 和 `单位2` 分别为两个单位的英文缩写，保证它们都是长度单位或都是重量单位，且 `单位1` 比 `单位2` 更大。\n\n例如，如果题目需要你将 $1\\text{ km}$ 转换为 $\\text{mm}$，则输入为 `1 km = ? mm`。",
+      "outputFormat": "输出 $N$ 行，依次输出所有题目的答案，输出时，只需要将输入中的 `?` 代入答案，其余部分一字不差地输出即可。由于小杨的题目只涉及将更大的单位转换为更小的单位，并且输入的 `x` 是整数，因此答案一定也是整数。\n\n例如，如果题目需要你将 $1\\text{ km}$ 转换为 $\\text{mm}$，输入为 `1 km = ? mm`，则你需要输出 `1 km = 1000000 mm`。",
+      "samples": [
+        {
+          "input": "2\n1 km = ? mm\n1 m = ? mm",
+          "output": "1 km = 1000000 mm\n1 m = 1000 mm"
+        },
+        {
+          "input": "5\n100 m = ? mm\n1000 km = ? m\n20 kg = ? g\n200 g = ? mg\n0 kg = ? mg",
+          "output": "100 m = 100000 mm\n1000 km = 1000000 m\n20 kg = 20000 g\n200 g = 200000 mg\n0 kg = 0 mg"
+        }
+      ],
+      "dataRange": "保证 $1 \\le N \\le 1000$。",
+      "referenceSolution": "#include <cstdio>\n#include <cstdlib>\n#include <cstring>\n#include <algorithm>\nusing namespace std;\nint get_base(char *s) {\n    if (strlen(s) == 1)\n        return 1000;\n    return s[0] == 'k' ? 1000000 : 1;\n}\nint main() {\n    int T;\n    scanf(\"%d\", &T);\n    while(T --) {\n        int x;\n        char s1[5], s2[5];\n        scanf(\"%d\", &x);\n        scanf(\"%s\", s1);\n        scanf(\"%s\", s2), scanf(\"%s\", s2), scanf(\"%s\", s2);\n        // printf(\"%d %s %s\\n\", x, s1, s2);\n        printf(\"%d %s = %d %s\\n\", x, s1, x * get_base(s1) / get_base(s2), s2);\n    }\n    return 0;\n}\n"
+    }
+  ]
+}

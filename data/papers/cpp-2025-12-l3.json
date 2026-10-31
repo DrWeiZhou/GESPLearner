@@ -1,0 +1,499 @@
+{
+  "id": "cpp-2025-12-l3",
+  "language": "cpp",
+  "level": 3,
+  "exam": {
+    "id": "2025-12",
+    "title": "2025年12月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10242.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1723012369874976.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "请将二进制数 $(1101.101)_2$，转换为等值的 10 进制数（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "$14.25$"
+        },
+        {
+          "label": "B",
+          "content": "$13.625$"
+        },
+        {
+          "label": "C",
+          "content": "$13.5$"
+        },
+        {
+          "label": "D",
+          "content": "$14.5$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "以下关于标准 C++ 一维数组的描述，哪一项是错误的？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "数组的下标从 $0$ 开始"
+        },
+        {
+          "label": "B",
+          "content": "数组在内存中是连续存放的"
+        },
+        {
+          "label": "C",
+          "content": "数组的长度只能在运行时才能确定"
+        },
+        {
+          "label": "D",
+          "content": "可以在程序中修改数组某个元素的值"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下列代码段执行后，变量 `sum` 的值是（ ）\n\n```cpp\n{\n    int sum = 0;\n    for (int i = 1; i <= 10; i++) {\n        if (i % 3 == 8>>2)\n            continue;\n        sum += i;\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`12`"
+        },
+        {
+          "label": "B",
+          "content": "`17`"
+        },
+        {
+          "label": "C",
+          "content": "`33`"
+        },
+        {
+          "label": "D",
+          "content": "`40`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "执行以下程序段，输出值是（ ）\n\n```cpp\nint x = 5;\nif (x == 3 >> 2) x = 8 >> 3;\ncout << x << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0`"
+        },
+        {
+          "label": "B",
+          "content": "`5`"
+        },
+        {
+          "label": "C",
+          "content": "`120`"
+        },
+        {
+          "label": "D",
+          "content": "`1`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "已知字符串 `s = \"C++ Programming\"`，下列程序运行的结果是（ ）\n\n```cpp\ncout << (int)(s.length() | 3) << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`14`"
+        },
+        {
+          "label": "B",
+          "content": "`15`"
+        },
+        {
+          "label": "C",
+          "content": "`16`"
+        },
+        {
+          "label": "D",
+          "content": "`17`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "以下代码是一个程序的部分代码，能够正确执行，输出的结果是（ ）\n\n```cpp\nint arr[5] = {1, 2, 3, 4, 5};\nint p = arr[1];\ncout << (p + 2) << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1`"
+        },
+        {
+          "label": "B",
+          "content": "`2`"
+        },
+        {
+          "label": "C",
+          "content": "`3`"
+        },
+        {
+          "label": "D",
+          "content": "`4`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "以下关于 C++ 求最小值函数 `min()` 的描述，不正确的是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "函数必须返回一个值"
+        },
+        {
+          "label": "B",
+          "content": "该函数可以嵌套调用"
+        },
+        {
+          "label": "C",
+          "content": "调用 `min(5)` 是错误的，不能通过编译"
+        },
+        {
+          "label": "D",
+          "content": "调用 `min()`（不传任何参数）可以通过编译，结果为 `0`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "在一个特定的计算机系统中，假如 `unsigned int` 类型需要占用 2 个字节的存储空间（每个字节有 8 位），则 `unsigned int` 可以表示的数据范围是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "$0 \\sim 65535$"
+        },
+        {
+          "label": "B",
+          "content": "$0 \\sim 65536$"
+        },
+        {
+          "label": "C",
+          "content": "$-65536 \\sim 65535$"
+        },
+        {
+          "label": "D",
+          "content": "$0 \\sim 32767$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "以下代码执行后，数组 `arr` 的内容是（ ）\n\n```cpp\nint arr[6] = {1, 2, 3, 4, 5, 6};\nfor (int i = 0; i < 6; i += 2) {\n    arr[i] = arr[i] + arr[i+1];\n    arr[i+1] = arr[i] - arr[i+1];\n    arr[i] = arr[i] - arr[i+1];\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`{2,1,4,3,6,5}`"
+        },
+        {
+          "label": "B",
+          "content": "`{1,2,3,4,5,6}`"
+        },
+        {
+          "label": "C",
+          "content": "`{3,1,4,2,5,3}`"
+        },
+        {
+          "label": "D",
+          "content": "`{1,3,2,5,4,6}`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "`a & b | (c ^ d)`，其中 `a = 3, b = 7, c = 15, d = 4`，计算结果是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "十进制 $11$"
+        },
+        {
+          "label": "B",
+          "content": "二进制 $11$"
+        },
+        {
+          "label": "C",
+          "content": "八进制 $11$"
+        },
+        {
+          "label": "D",
+          "content": "十六进制 $11$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "整型变量 `x` 的初始值为 `10`，以下代码的输出结果是（ ）\n\n```cpp\nint t = x--;\nt -=  x;\ncout << t << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0`"
+        },
+        {
+          "label": "B",
+          "content": "`-1`"
+        },
+        {
+          "label": "C",
+          "content": "`1`"
+        },
+        {
+          "label": "D",
+          "content": "死循环"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "根据下面的流程图，如果成绩 `score` 输入 `60`，输出的结果是（ ）\n\n```text\n开始 → 输入成绩score → ◇ score ≥ 90?\n                        ├─ 是 → 输出“优秀” → 结束\n                        └─ 否 → ◇ score ≥ 60?\n                                 ├─ 是 → 输出“及格” → 结束\n                                 └─ 否 → 输出“不及格” → 结束\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "优秀"
+        },
+        {
+          "label": "B",
+          "content": "及格"
+        },
+        {
+          "label": "C",
+          "content": "不及格"
+        },
+        {
+          "label": "D",
+          "content": "没有输出"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "以下代码运行后，`sum` 的结果是（ ）\n\n```cpp\nint arr[5] = {2, 4, 6, 8, 10};\nint sum = 0;\nfor (int i = 0; i < 5; i++) {\n    switch (arr[i] % (1|2)) {\n        case 0: sum += 1; break;\n        case 1: sum += 2; break;\n        case 2: sum += 3; break;\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`10`"
+        },
+        {
+          "label": "B",
+          "content": "`11`"
+        },
+        {
+          "label": "C",
+          "content": "`14`"
+        },
+        {
+          "label": "D",
+          "content": "`15`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "以下关于 C++ 中 `abs()` 函数的描述，正确的是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`abs()` 函数可用于计算 `int` 类型整数的绝对值，头文件为 `<cmath>` 或 `<cstdlib>`"
+        },
+        {
+          "label": "B",
+          "content": "调用 `abs(3.14)` 可以四舍五入得到 `3`"
+        },
+        {
+          "label": "C",
+          "content": "`abs(-1, -2)` 的返回值是 `1`"
+        },
+        {
+          "label": "D",
+          "content": "若传入负数浮点数，`abs()` 会自动截断小数部分后返回整数绝对值"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "如果字符串 `s` 的值是 `GESP`，以下代码 `s` 的最后结果是（ ）\n\n```cpp\nfor (int i = 0; i < s.length(); i++) {\n    s[i] = toupper(s[i] + i);\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`GESP`"
+        },
+        {
+          "label": "B",
+          "content": "`HFTR`"
+        },
+        {
+          "label": "C",
+          "content": "`hesp`"
+        },
+        {
+          "label": "D",
+          "content": "`GFUS`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "在 C++ 中，数组名不能改变，数组名不能被赋值。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "整型变量 `a` 的值为 `3`，浮点数变量 `b` 的值为 `3.5`，在 C++ 编译环境下，经过 `a *= b` 计算后，`a` 的值变为 `10.5`，此时如果输出 `a`，将输出 `10.5`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "`strcmp(str1, str2)` 返回 `0` 表示 `str1` 大于 `str2`，返回正数表示两者相等。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "以下代码输出结果为 `8`。\n\n```cpp\nint a = 5, b = 3;\nint c = a++ + ++b;\ncout << c << endl;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "位运算符 `&`、`|`、`^`、`~` 的优先级高于算术运算符 `+`、`-`、`*`、`/`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "在 C++ 中，`int a[] = {1, 2, 3, 4, 5};` 可以定义一个包含 5 个元素的整型数组。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "C++ 表达式 `z = a > b ? x : y` 等同于：\n\n```cpp\nif (a > b) {\n    z = x;\n} else {\n    z = y;\n}\n```\n\n以下代码执行后，输出将会是 `2`。\n\n```cpp\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    cout << arr[3 > 2 ? 1 : 2] << endl;\n    return 0;\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "在 C++ 中，`++` 和 `--` 运算符只能用于整型变量，不能用于浮点数变量。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "给定一个正整数 `a`，当需要计算 `-a` 的补码时，有这样一个计算技巧：将 `a` 的二进制形式从右往左扫描，遇到第一个 `1` 之后，将找到的第一个 `1` 左边的所有位都取反，能得到 `-a` 的补码。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "以下代码中，`Hello` 将被输出 5 次。\n\n```cpp\nfor (int i = 0; i < 5; i++);\n{\n    cout << \"Hello\" << endl;\n}\n```",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "密码强度",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨是学校网络安全小组的成员，今天他的任务是设计一个“密码强度检测器”，帮助同学们检查自己的密码是否足够安全。一个安全的密码需要满足以下条件：\n\n- 密码至少包含 $8$ 个字符（太短的密码容易被猜出来哦！）。\n- 密码至少包含一个大写字母（A、B、C、...、Z 都可以）。\n- 密码至少包含一个数字（0、1、2、3、...、9 都可以）。\n\n例如：\n\n- 密码 `PAs1s2an` 是安全密码（有 8 位、包含大写字母 `P`、`A` 和数字 `1`、`2`）。\n- 密码 `ab1da3cd` 不是安全密码（没有大写字母）。\n- 密码 `Paabdbcd` 不是安全密码（没有数字）。\n- 密码 `Pa2` 不是安全密码（只有 3 位，太短了）。",
+      "inputFormat": "第一行一个正整数 $T$，代表需要安全检测的密码组数。\n\n对于每组密码，一行包含一个字符串，代表需要安全检测的密码。",
+      "outputFormat": "对于每组密码，输出一行，如果满足强度要求输出 `Y`，否则输出 `N`。",
+      "samples": [
+        {
+          "input": "6\nPAs1s2an\n1a2bCql3\nPa12bsna\nab1da3cd\nPaabdbcd\nPa2",
+          "output": "Y\nY\nY\nN\nN\nN",
+          "explanation": "- 密码 `PAs1s2an` 是安全密码（有 8 位、包含大写字母 `P`、`A` 和数字 `1`、`2`）。\n- 密码 `1a2bCql3` 是安全密码（有 8 位、包含大写字母 `C` 和数字 `1`、`2`、`3`）。\n- 密码 `Pa12bsna` 是安全密码（有 8 位、包含大写字母 `P` 和数字 `1`、`2`）。\n- 密码 `ab1da3cd` 不是安全密码（没有大写字母）。\n- 密码 `Paabdbcd` 不是安全密码（没有数字）。\n- 密码 `Pa2` 不是安全密码（只有 3 位，太短了）。"
+        }
+      ],
+      "dataRange": "对于所有测试点，保证 $1 \\le T \\le 100$，并且每组密码长度不超过 $100$ 且至少为 $1$，每组密码仅由大小写字母和数字组成。",
+      "referenceSolution": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n    int T;\n    cin >> T;\n    while (T--) {\n        string password;\n        cin >> password;\n\n        bool has_upper = false;\n        bool has_digit = false;\n\n        for (size_t i = 0; i < password.length(); ++i) {\n            if (isupper(password[i])) {\n                has_upper = true;\n            }\n            if (isdigit(password[i])) {\n                has_digit = true;\n            }\n        }\n\n        if (password.length() >= 8 && has_upper && has_digit) {\n            cout << \"Y\\n\";\n        } else {\n            cout << \"N\\n\";\n        }\n    }\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "小杨的智慧购物",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨的班级要举办一个环保手工作品展览，老师请小杨去文具店购买 $M$ 种不同的文具（例如：铅笔、橡皮、尺子等）。\n\n商店里共有 $N$ 件文具，每件文具都有一个种类编号（从 $1$ 到 $M$）和价格。\n\n小杨的预算有限，他想了一个聪明的办法：对于每种文具，他只买最便宜的那一件（如果同种文具有多件价格相同且都是最便宜的，他只会购买其中的一件）。请你帮小杨计算出，买齐这 $M$ 种文具一共需要花费多少钱。",
+      "inputFormat": "第一行两个正整数 $M, N$，代表文具的种类数和总数。\n\n之后 $N$ 行，每行两个正整数 $K_i$ 和 $P_i$，分别代表第 $i$ 件文具的种类编号和它的价格。数据保证每个种类至少有一件文具可供购买。",
+      "outputFormat": "输出一行，代表购买文具的总价。",
+      "samples": [
+        {
+          "input": "2 5\n1 1\n1 2\n1 1\n2 3\n2 10",
+          "output": "4",
+          "explanation": "文具清单如下：\n\n- 文具 1：种类 1，价格 1\n- 文具 2：种类 1，价格 2\n- 文具 3：种类 1，价格 1\n- 文具 4：种类 2，价格 3\n- 文具 5：种类 2，价格 10\n\n小杨的选择过程：对于种类 1：有三件商品，价格分别为 $1, 2, 1$。其中最便宜的价格是 $1$。对于种类 2：有两件商品，价格分别为 $3, 10$。其中最便宜的价格是 $3$。\n\n计算总价：小杨购买这两类文具的总花费为 $1 + 3 = 4$。"
+        }
+      ],
+      "dataRange": "对于所有测试点，保证 $1 \\le M \\le N \\le 10^5$，$1 \\le K_i \\le M$，$1 \\le P_i \\le 10^3$。",
+      "referenceSolution": "#include <iostream>\n#include <cstring>\nusing namespace std;\nint min_price[100005];\nint main() {\n    int M, N;\n    cin >> M >> N;\n    for (int i = 0; i <= M; i ++)\n        min_price[i] = 1000000000;\n    for (int i = 0; i < N; ++i) {\n        int K, P;\n        cin >> K >> P;\n        min_price[K] = min(min_price[K], P);\n    }\n    int total_cost = 0;\n    for (int k = 1; k <= M; ++k) {\n        total_cost += min_price[k];\n    }\n    cout << total_cost;\n    return 0;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,497 @@
+{
+  "id": "cpp-2024-12-l3",
+  "language": "cpp",
+  "level": 3,
+  "exam": {
+    "id": "2024-12",
+    "title": "2024年12月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10178.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1650388837072928.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "下列二进制表示的十进制数值分别是（ ）\n\n```cpp\n[10000011]原= ( )\n[10000011]补= ( )\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`-125, -3`"
+        },
+        {
+          "label": "B",
+          "content": "`-3, -125`"
+        },
+        {
+          "label": "C",
+          "content": "`-3, -3`"
+        },
+        {
+          "label": "D",
+          "content": "`-125, -125`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "关于计算机中的编码，下列说法中错误的是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "对于无符号数，原码就是真值"
+        },
+        {
+          "label": "B",
+          "content": "正数的反码是其本身"
+        },
+        {
+          "label": "C",
+          "content": "负数的反码和补码是不一样的"
+        },
+        {
+          "label": "D",
+          "content": "负数的反码，在其原码的基础上，各个位取反"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "16 进制数 $\\text{B2025}$ 转换成 8 进制数是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "$2620045$"
+        },
+        {
+          "label": "B",
+          "content": "$2004526$"
+        },
+        {
+          "label": "C",
+          "content": "$729125$"
+        },
+        {
+          "label": "D",
+          "content": "$2420045$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "$625.625$ 变成二进制是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1001110001.101`"
+        },
+        {
+          "label": "B",
+          "content": "`101.101`"
+        },
+        {
+          "label": "C",
+          "content": "`101.1001110001`"
+        },
+        {
+          "label": "D",
+          "content": "`1001110001.1101`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面逻辑运算中，正确的是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`5&&3==0`"
+        },
+        {
+          "label": "B",
+          "content": "`5|3==8`"
+        },
+        {
+          "label": "C",
+          "content": "`5||3==11`"
+        },
+        {
+          "label": "D",
+          "content": "`5&3==0001`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "补码 `1111 1101` 进行运算 `1111 1101>>1` 以后得到的结果是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1111 1100`"
+        },
+        {
+          "label": "B",
+          "content": "`-2`"
+        },
+        {
+          "label": "C",
+          "content": "`1111 1101`"
+        },
+        {
+          "label": "D",
+          "content": "`1111 1010`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下列代码输出的是（ ）\n\n```cpp\nstring s=\"1234@@chenadai\";\nstring str=\"12345\";\ns.replace(1,5,str);\ncout<<s<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`12345`"
+        },
+        {
+          "label": "B",
+          "content": "`2345@`"
+        },
+        {
+          "label": "C",
+          "content": "`112345chenadai`"
+        },
+        {
+          "label": "D",
+          "content": "`12345chenadai`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "`a|10`（`a` 与 `10` 都是 10 进制，且二进制表示最高位为 1）运算的结果是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "使 `a` 的二进制表示从右往左的第二位为 `1`"
+        },
+        {
+          "label": "B",
+          "content": "使 `a` 的二进制表示从右往左的第一位为 `0`"
+        },
+        {
+          "label": "C",
+          "content": "使 `a` 的二进制表示从右往左第二位为 `0`"
+        },
+        {
+          "label": "D",
+          "content": "使 `a` 的二进制表示最高位为 `0`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下列程序输出的是（ ）\n\n```cpp\nstring ch=\"hello\";\nif(ch[5]==NULL)\n{\n    cout<<\"right\"<<endl;\n}\nelse if (ch[5]=='\\0')\n{\n    cout<<\"wrong\"<<endl;\n}\nelse\n{\n    cout<<\"hello\"<<endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`right`"
+        },
+        {
+          "label": "B",
+          "content": "`wrong`"
+        },
+        {
+          "label": "C",
+          "content": "`hello`"
+        },
+        {
+          "label": "D",
+          "content": "不能正确执行"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下列程序中，假设一个字符占用的内存空间是 $1$，下列程序中，`ch` 占用的内存空间是（ ）\n\n```cpp\nchar ch[] = \"hello world\";\nsize_t ret=strlen(ch);\ncout<<ret<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`11`"
+        },
+        {
+          "label": "B",
+          "content": "`10`"
+        },
+        {
+          "label": "C",
+          "content": "`13`"
+        },
+        {
+          "label": "D",
+          "content": "`12`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下列程序最后输出的是（ ）\n\n```cpp\nint a=65;\ncout<<tolower(a)<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`65`"
+        },
+        {
+          "label": "B",
+          "content": "`A`"
+        },
+        {
+          "label": "C",
+          "content": "`a`"
+        },
+        {
+          "label": "D",
+          "content": "`97`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "想要计算从数字 $n$ 到数字 $m$ 之间（包含 $n$ 和 $m$）有多少个数字 $d$ 出现，下列程序哪个能够实现（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nint n,m,res,d;\ncin >> n >> m>>d;\nfor(int i = n+1; i <= m; i++){\n    int temp = i;\n    while(temp){\n        if(temp % 10 == d) res++;\n        temp /= 10;\n    }\n}\ncout << res << endl;\nreturn 0;\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nint n,m,res,d;\ncin >> n >> m>>d;\nfor(int i = n; i <= m; i++){\n    int temp = i;\n    while(temp){\n        if(temp % 10 = d) res++;\n        temp /= 10;\n    }\n}\ncout << res << endl;\nreturn 0;\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nint n,m,res=0,d;\ncin >> n >> m>>d;\nfor(int i = n; i <= m; i++){\n    int temp = i;\n    while(temp){\n        if(temp % 10 == d) res++;\n        temp /= 10;\n    }\n}\ncout << res << endl;\nreturn 0;\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nint n,m,res=0,d;\ncin >> n >> m>>d;\nfor(int i = n; i <= m; i++){\n    while(temp){\n        if(temp % 10 == d) res++;\n        temp /= 10;\n    }\n}\ncout << res << endl;\nreturn 0;\n```"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "兔子五元一只，鸡三元一只，小鸭子一元三只，现在你有一百元要买一百只，兔子、鸡、鸭子，问兔子、鸡、鸭子各买多少只，每种必须至少一只，下列哪个程序能实现。（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nfor(int i = 0; i <= 100; i++){\n    for(int j = 0; j <= 100; j++){\n        for(int k = 0; k <= 100; k++){\n            if(i + j + k == 100 && 25 * i + 10 * j + k == 300)\n                cout << i << \" \" << j << \" \" << k << endl;\n        }\n    }\n}\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nfor(int i = 0; i <= 100; i++){\n    for(int j = 0; j <= 100; j++){\n        for(int k = 0; k <= 100; k++){\n            if(i + j + k == 100 && 20 * i + 10 * j + k == 300)\n                cout << i << \" \" << j << \" \" << k << endl;\n        }\n    }\n}\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nfor(int i = 0; i <= 20; i++){\n    for(int j = 0; j <= 34; j++){\n        for(int k = 0; k <= 20; k++){\n            if(i + j + k == 100 && 15 * i + 9 * j + k == 300)\n                cout << i << \" \" << j << \" \" << k << endl;\n        }\n    }\n}\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nfor(int i = 0; i <= 100; i++){\n    for(int j = 0; j <= 100; j++){\n        for(int k = 0; k <= 100; k++){\n            if(i + j + k == 100 && 15 * i + 9 * j + k == 300)\n                cout << i << \" \" << j << \" \" << k << endl;\n        }\n    }\n}\n```"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "求小于等于 $N$ 的素数的方法中，有一种方法是将所有从 $2$ 到它本身减 $1$ 的数都除一遍，如果不能整除，就是素数。下列哪个程序，体现了这种方法（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nif(N >= 3){\ncout<<2<<endl;\nfor(int i = 2;i <= N;i ++){\n    for(int j = 2;j < i;j ++){\n        if(i % j != 0){\n            flag = 1;\n        }\n    }\n    if(flag == 0){\n        cout<<i<<endl;\n    }\n    flag = 0;\n    }\n}\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nif(N >= 2){\nfor(int i = 3;i <= N;i ++){\n    for(int j = 2;j < i;j ++){\n        if(i % j == 0){\n            flag = 1;\n        }\n    }\n    if(flag == 0){\n        cout<<i<<endl;\n    }\n    flag = 0;\n    }\n}\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nif(N >= 2){\ncout<<2<<endl;\nfor(int i = 3;i <= N;i ++){\n    for(int j = 2;j < i;j ++){\n        if(i % j == 0){\n            flag = 1;\n        }\n    }\n    if(flag == 0){\n        cout<<i<<endl;\n    }\n    flag = 0;\n    }\n}\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nif(N >= 2){\n    cout<<2<<endl;\n    for(int i = 3;i <= N;i ++){\n        for(int j = 2;j < i;j ++){\n            if(i % j == 0){\n                flag = 1;\n            }\n        }\n        if(flag == 0){\n            cout<<i<<endl;\n        }\n    }\n}\n```"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "工人工作一天，会得到一个金环作为工资报酬，某个工作需要 $15$ 天完成，一条 $15$ 个环的金环项链，为了严格执行每天工作结束时，完成对工人工资的结算，最少需要将金环项链剪裁成几段，每段几个金环（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "4 段，分别是 1、2，4，8"
+        },
+        {
+          "label": "B",
+          "content": "15 段，每段 1 个"
+        },
+        {
+          "label": "C",
+          "content": "6 段，分别是 3、3、3、3、2、1"
+        },
+        {
+          "label": "D",
+          "content": "9 段，分别是 2、2、2、2、2、2、1、1、1"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "为了简化计算机基本运算电路，使加减法都只需要通过加法电路实现，也就是让减去一个正数或加上一个负数这样的运算可以用加上一个正数来代替。于是改变负数存储的形式，存储成一种可以直接当成正数来相加的形式，这种形式就是补码。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "使用原码进行的计算，`2+(-1)` 的结果是 `-3`",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "反码计算加减法：加法与减法结果都是正确的，只是解决不了 `-0` 的问题",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "10 进制数 $63$，在转换成二进制的计算过程中，产生了如下的式子：\n\n```\n63/2=31 余 1\n31/2=15 余 1\n15/2=7  余 1\n7/2=3   余 1\n3/2=1   余 1\n1/2=0   余 1\n```\n\n按照从前往后的顺序，获得 $63$ 的二进制值是 $111111$",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "下列程序输出的是 `A`\n\n```cpp\nchar x=65;\nx=x&00001111;\ncout<<x<<endl;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "下列可执行程序段中，最后 `pos` 的值是 $4$\n\n```cpp\nstring str=\"chenADai\";\nint pos = str.find('D');\n--pos&11;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "```cpp\nstring ch=\"chen\";\ncout<<ch[4]<<endl;\n```\n\n该段程序将不能正确执行",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "```cpp\nchar a='A';\na=a+32;\ncout<<(int)a<<endl;\n```\n\n将输出 `97`",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "自然界中，最小的素数是 $2$",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "$\\text{CCF}$（十六进制）$= 12363$（七进制）",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "数字替换",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨有一个包含 $n$ 个数字的序列 $A$，即 $A=\\{a_1,a_2,\\ldots,a_n\\}$，他想将其中大于 $k$ 的数字都替换为序列的最大值，将其中小于 $k$ 的数字都替换为序列的最小值，请你帮他计算出替换后的序列。",
+      "inputFormat": "第一行包含两个正整数 $n,k$，含义如题面所示。\n\n第二行包含 $n$ 个数字，代表序列 $A$。",
+      "outputFormat": "输出 $n$ 个整数，代表替换后的结果。",
+      "samples": [
+        {
+          "input": "5 0\n-2 -1 0 1 2",
+          "output": "-2 -2 0 2 2"
+        }
+      ],
+      "dataRange": "对于全部数据，保证有 $1 \\le n \\le 10^5$，$|k|, |a_i| \\le 10^5$。",
+      "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint a[100010];\nint main() {\n    int n, k;\n    cin >> n >> k;\n    for (int i = 1; i <=n; i++) {\n        cin >> a[i];\n    }\n    int max_value = a[1],min_value=a[1];\n    for (int i = 1; i <=n; i++) {\n        max_value=max(max_value,a[i]);\n        min_value=min(min_value,a[i]);\n    }\n    for (int i = 1; i <=n; i++) {\n        if (a[i] > k) {\n            a[i] = max_value;\n        } else if (a[i] < k) {\n            a[i] = min_value;\n        }\n        if (i != n) {\n            cout << a[i] << \" \";\n        } else {\n            cout << a[i] << endl;\n        }\n    }\n\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "打印数字",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨为数字 $0, 1, 2$ 和 $3$ 设计了一款表示形式，每个数字占用了 $5 \\times 5$ 的网格。数字 $0, 1, 2$ 和 $3$ 的表示形式如下：\n\n```\n..... ****. ..... .....\n.***. ****. ****. ****.\n.***. ****. ..... .....\n.***. ****. .**** ****.\n..... ****. ..... .....\n```\n\n小杨想请你将给定的数字 $n$ 转换为对应的表示形式。",
+      "inputFormat": "第一行包含一个正整数代表 $n$。",
+      "outputFormat": "输出对应的表示形式。",
+      "samples": [
+        {
+          "input": "12230",
+          "output": "****.....................\n****.****.****.****..***.\n****.................***.\n****..****.********..***.\n****....................."
+        }
+      ],
+      "dataRange": "对于全部数据，保证有 $0 \\le n \\le 10^6$，且 $n$ 仅由数字 $0, 1, 2, 3$ 组成。",
+      "referenceSolution": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string n;\n    cin >> n;\n\n    for (int row = 0; row < 5; row++) {\n        string line = \"\";\n        for (char digit : n) {\n            if (digit == '0') {\n                if (row == 0 || row == 4) {\n                    line += \".....\";\n                } else {\n                    line += \".***.\";\n                }\n            } else if (digit == '1') {\n                line += \"****.\";\n            } else if (digit == '2') {\n                if (row == 0) {\n                    line += \".....\";\n                } else if (row == 1) {\n                    line += \"****.\";\n                } else if (row == 2) {\n                    line += \".....\";\n                } else if (row == 3) {\n                    line += \".****\";\n                } else {\n                    line += \".....\";\n                }\n            } else if (digit == '3') {\n                if (row == 0) {\n                    line += \".....\";\n                } else if (row == 1) {\n                    line += \"****.\";\n                } else if (row == 2) {\n                    line += \".....\";\n                } else if (row == 3) {\n                    line += \"****.\";\n                } else {\n                    line += \".....\";\n                }\n            }\n        }\n        cout << line << endl;\n    }\n\n    return 0;\n}\n"
+    }
+  ]
+}

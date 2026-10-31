@@ -1,0 +1,499 @@
+{
+  "id": "cpp-2024-09-l3",
+  "language": "cpp",
+  "level": 3,
+  "exam": {
+    "id": "2024-09",
+    "title": "2024年9月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10166.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1644702761746464.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "下列代码中，输出结果是（ ）\n\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n    double a=0.9;\n    double b=1.0;\n    if(((b-a)==0.1))\n    {\n        cout<<\"Equal\"<<endl;\n    }\n    else\n    {\n        cout<<\"Not equal\"<<endl;\n    }\n\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`Equal`"
+        },
+        {
+          "label": "B",
+          "content": "`Not equal`"
+        },
+        {
+          "label": "C",
+          "content": "程序不能正确执行"
+        },
+        {
+          "label": "D",
+          "content": "没有输出"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "关于计算机中的编码，下列说法中正确的是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "机器数的形式值和真值是一致的"
+        },
+        {
+          "label": "B",
+          "content": "原码就是符号位加上真值"
+        },
+        {
+          "label": "C",
+          "content": "机器数是带符号的"
+        },
+        {
+          "label": "D",
+          "content": "`[-1]=[1000 0001]`原`=[1111 1111]`反"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "8 进制数 $3703$ 转换成 16 进制数是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`7C3`"
+        },
+        {
+          "label": "B",
+          "content": "`7A3`"
+        },
+        {
+          "label": "C",
+          "content": "`7B3`"
+        },
+        {
+          "label": "D",
+          "content": "`7D3`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "$0.8125$ 变成二进制是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0.1110`"
+        },
+        {
+          "label": "B",
+          "content": "`0.1 1111 1011 1101`"
+        },
+        {
+          "label": "C",
+          "content": "`0.1 1111 1011 1100`"
+        },
+        {
+          "label": "D",
+          "content": "`0.1101`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面说法正确的是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(22&01) == (22&&01)` 成立"
+        },
+        {
+          "label": "B",
+          "content": "`(23|11)==30`"
+        },
+        {
+          "label": "C",
+          "content": "`(23|10)==31`"
+        },
+        {
+          "label": "D",
+          "content": "`(23|01)==31`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下列说法正确的是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`2>>1` 和 `1>>1` 的值是一样的"
+        },
+        {
+          "label": "B",
+          "content": "`(2>>2)` 和 `(1>>1)` 的值是一样的"
+        },
+        {
+          "label": "C",
+          "content": "`(11^00)` 和 `(1^0)` 的值是一样的"
+        },
+        {
+          "label": "D",
+          "content": "（`~0` 的输出值是 `1`）"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下列代码实现的是（ ）\n\n```cpp\nvoid Swap(int &a, int &b) {\n    if (a != b) {\n        a ^= b;\n        b ^= a;\n        a ^= b;\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`a` 和 `b` 的异或"
+        },
+        {
+          "label": "B",
+          "content": "`a` 和 `b` 的同或"
+        },
+        {
+          "label": "C",
+          "content": "`a` 和 `b` 的值交换"
+        },
+        {
+          "label": "D",
+          "content": "`a` 和 `b` 的高低位互换"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "`a&~1` 运算实现的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "使 `a` 的最低位为 $1$"
+        },
+        {
+          "label": "B",
+          "content": "使 `a` 的最高位为 $1$"
+        },
+        {
+          "label": "C",
+          "content": "使 `a` 的最低位为 $0$"
+        },
+        {
+          "label": "D",
+          "content": "使 `a` 的最高位为 $0$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "`a=1010 1110`，`a<<2`，下面关于这个说法正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`a` 的值变为 `1011 1000`"
+        },
+        {
+          "label": "B",
+          "content": "`a` 的值变为 `1011 1010`"
+        },
+        {
+          "label": "C",
+          "content": "`a` 的值变为 `0101 1101`"
+        },
+        {
+          "label": "D",
+          "content": "`a` 的值变为 `0101 1100`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下列程序中，`result` 和 `result2` 输出分别是（ ）\n\n```cpp\nlong a = 123;\nint b = 1;\nlong result = a & b;\ncout<<result<<endl;\n\nlong a2 = -123;\nunsigned int b2 = -1;\nlong result2 = a2 & b2;\ncout<<result2<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`123 -1`"
+        },
+        {
+          "label": "B",
+          "content": "`123  -123`"
+        },
+        {
+          "label": "C",
+          "content": "`1 -1`"
+        },
+        {
+          "label": "D",
+          "content": "`1 -123`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "陈A歹种植一批农作物，第一天需要浇水一次，随后的两天（第 2、第 3 天），每天需要浇水 2 次，再随后的 3 天（第 4、第 5、第 6 天），需要每天浇水 3 次，这样持续下去，随后的 $n$ 天，每天需要浇水 $n$ 次。请问在 $100$ 天里，总共浇了多少次水（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`994`"
+        },
+        {
+          "label": "B",
+          "content": "`996`"
+        },
+        {
+          "label": "C",
+          "content": "`995`"
+        },
+        {
+          "label": "D",
+          "content": "`945`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "关于一维数组，下列程序能够正确执行的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nint a[10];\nint sum=0;\nfor(int i=0;i<=10;i++) {\n  sum=sum+a[i];\n}\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nint a[10]={1,2,3,4,5,6,7,8,9,10};\nint sum=0;\nfor(int i=0;i<=10;i++) {\n  sum=sum+a[i];\n}\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nint a[10]={1,2,3,4,5,6,7,8,9,10};\nint sum=0;\nfor(int i=0;i<10;i++) {\n  um=sum+a[i];\n}\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nint a[10]={0};\nint sum=0;\nfor(int i=0;i<=10;i++) {\n  sum=sum+a[i];\n}\n```"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下面的程序中，会输出（ ）。\n\n```cpp\nint a[10]={1,2,3,4,5,6,7,8,9,10};\ncout<<a[10]<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1`"
+        },
+        {
+          "label": "B",
+          "content": "`0`"
+        },
+        {
+          "label": "C",
+          "content": "`10`"
+        },
+        {
+          "label": "D",
+          "content": "不确定的值"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "有 ABCD 4 个人，其中一个是小偷，每个人说一句话，只有小偷说的是假话，其中 A 说：不是我。B 说：是 C。C 说：是 D。D 说：C 瞎说，请问谁是小偷（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`A`"
+        },
+        {
+          "label": "B",
+          "content": "`B`"
+        },
+        {
+          "label": "C",
+          "content": "`C`"
+        },
+        {
+          "label": "D",
+          "content": "`D`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下列程序输出的是（ ）\n\n```cpp\nstring str = \"Hello,CHAD\";\ncout << str.find(\"A\") << '\\n';\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`9`"
+        },
+        {
+          "label": "B",
+          "content": "`8`"
+        },
+        {
+          "label": "C",
+          "content": "`7`"
+        },
+        {
+          "label": "D",
+          "content": "`6`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "`+1` 和 `-1` 的原码进行 `1+(-1)` 计算的结果是 `-2`。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "`~1` 的输出值是 `-2`。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "`~1 = 1111 1110`。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "取 `X` 的低四位，可以用 `Y = 0000 1111`，用 `X&Y` 获取 `X` 的低四位。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "下列程序输出的是 `A`。（ ）\n\n```cpp\nchar x=65;\nx++;\ncout<<x++<<endl;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "下列程序输出的是 `3`。（ ）\n\n```cpp\nstring str=\"CHADai\";\nsize_t pos = str.find('D');\ncout<<pos<<endl;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "下列程序将输出 `1`。（ ）\n\n```cpp\nint a[10]={1};\ncout<<a[1]<<endl;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "下列程序将输出 `A`。（ ）\n\n```cpp\nint a=65;\ncout<<(char)a<<endl;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "16 进制数 `AB`，表示成 2 进制数是 `10101011`。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "`def`（十六进制）$=$ `103231`（五进制）。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "平衡序列",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨有一个包含 $n$ 个正整数的序列 $a$，他认为一个序列是平衡的当且仅当存在一个正整数 $i$（$1 \\le i < n$）使得序列第 $1$ 个到第 $i$ 个数字的总和等于第 $i+1$ 个到第 $n$ 个数字的总和。\n\n小杨想请你判断序列 $a$ 是否是平衡的。",
+      "inputFormat": "第一行包含一个正整数 $t$，代表测试用例组数。\n\n接下来是 $t$ 组测试用例。对于每组测试用例，一共两行。\n\n第一行包含一个正整数 $n$，代表序列长度。\n\n第二行包含 $n$ 个正整数，代表序列 $a$。",
+      "outputFormat": "对于每组测试用例，如果序列 $a$ 是否是平衡的，输出 Yes，否则输出 No。",
+      "samples": [
+        {
+          "input": "3\n3\n1 2 3\n4\n2 3 1 4\n5\n1 2 3 4 5",
+          "output": "Yes\nYes\nNo",
+          "explanation": "- 对于第一组测试用例，令 $i=2$，则有 $1+2=3$，因此序列是平衡的；\n- 对于第二组测试用例，令 $i=2$，则有 $2+3=1+4$，因此序列是平衡的；\n- 对于第三组测试用例，不存在满足要求的 $i$。"
+        }
+      ],
+      "dataRange": "对于全部数据，保证有 $1 \\le t \\le 100, 1 \\le n, a_i \\le 10000$。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\nint a[10010];\nint main(){\n    int t;\n    cin>>t;\n    while(t--){\n        int n;\n        cin>>n;\n        int sum=0;\n        for(int i=1;i<=n;i++){\n            cin>>a[i];\n            sum+=a[i];\n        }\n        int tot=0,fl=0;\n        for(int i=1;i<n;i++){\n            tot+=a[i];\n            if(tot*2==sum){\n                fl=1;\n                break;\n            }\n        }\n        if(fl)cout<<\"Yes\\n\";\n        else cout<<\"No\\n\";\n    }\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "回文拼接",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "一个字符串是回文串，当且仅当该字符串从前往后读和从后往前读是一样的，例如，$aabaa$ 和 $ccddcc$ 都是回文串，但 $abcd$ 不是。\n\n小杨有 $n$ 个仅包含小写字母的字符串，他想请你编写程序判断每个字符串是否由两个长度至少为 $2$ 的回文串前后拼接而成。",
+      "inputFormat": "第一行包含一个正整数 $n$，代表字符串数量。\n\n之后 $n$ 行每行一个仅包含小写字母的字符串。",
+      "outputFormat": "对于每个字符串输出一行，如果该字符串由两个长度至少为 $2$ 的回文串前后拼接而成则输出 Yes，否则输出 No。",
+      "samples": [
+        {
+          "input": "4\nabcd\naabbb\naaac\nabcdd",
+          "output": "No\nYes\nNo\nNo",
+          "explanation": "对于第 $1,3,4$ 个字符串，都不是由两个长度至少为 $2$ 的回文串前后拼接而成。\n\n第 $2$ 个字符串由回文串 $aa$ 和 $bbb$ 前后拼接而成，并且两个回文串长度都至少为 $2$。"
+        }
+      ],
+      "dataRange": "对于全部数据，保证有 $1 \\le n \\le 10$，并且每个字符串的长度不超过 $100$。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    int n,k;\n    cin>>n;\n    for(int i=1;i<=n;i++){\n        string s;\n        cin>>s;\n        int m = s.length();\n        int fl = 0;\n        for(int j=2;j<=m-2;j++){\n            string s1=s.substr(0,j);\n            string s2=s.substr(j,m-j);\n            string t1=\"\",t2=\"\";\n            for(int k=(int)s1.size()-1;k>=0;k--)t1+=s1[k];\n            for(int k=(int)s2.size()-1;k>=0;k--)t2+=s2[k];\n            if(t1==s1&&t2==s2){\n                fl=1;\n                break;\n            }\n        }\n        if(fl)cout<<\"Yes\\n\";\n        else cout<<\"No\\n\";\n    }\n\n}\n"
+    }
+  ]
+}
