@@ -1,0 +1,512 @@
+{
+  "id": "cpp-2023-12-l7",
+  "language": "cpp",
+  "level": 7,
+  "exam": {
+    "id": "2023-12",
+    "title": "2023年12月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10119.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1584918444376096.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "定义变量 `double x`，如果下面代码输入为 `100`，输出最接近（ ）。\n\n```cpp\n#include <iostream>\n#include <string>\n#include <cmath>\n#include <vector>\nusing namespace std;\n\nint main()\n{\n    double x;\n\n    cin >> x;\n    cout << log10(x) - log2(x)  << endl;\n\n    cout << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0`"
+        },
+        {
+          "label": "B",
+          "content": "`-5`"
+        },
+        {
+          "label": "C",
+          "content": "`-8`"
+        },
+        {
+          "label": "D",
+          "content": "`8`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "对于下面动态规划方法实现的函数，以下选项中最适合表达其状态转移函数的为（ ）。\n\n```cpp\nint s[MAX_N], f[MAX_N][MAX_N];\nint stone_merge(int n, int a[]) {\n    for (int i = 1; i <= n; i++)\n        s[i] = s[i - 1] + a[i];\n    for (int i = 1; i <= n; i++)\n        for (int j = 1; j <= n; j++)\n            if (i == j)\n                f[i][j] = 0;\n            else\n                f[i][j] = MAX_F;\n    for (int l = 1; l < n; l++)\n        for (int i = 1; i <= n - l; i++) {\n            int j = i + l;\n            for (int k = i; k < j; k++)\n                f[i][j] = min(f[i][j], f[i][k] + f[k + 1][j] + s[j] - s[i - 1]);\n        }\n    return f[1][n];\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$f(i,j) = \\min\\limits_{i \\le k < j}\\big(f(i,j),\\ f(i,k) + f(k+1,j) + s(j) - s(i-1)\\big)$"
+        },
+        {
+          "label": "B",
+          "content": "$f(i,j) = \\min\\limits_{i \\le k < j}\\big(f(i,j),\\ f(i,k) + f(k+1,j) + \\sum_{k=i}^{j} a(k)\\big)$"
+        },
+        {
+          "label": "C",
+          "content": "$f(i,j) = \\min\\limits_{i \\le k \\le j}\\big(f(i,k) + f(k+1,j) + \\sum_{k=i}^{j+1} a(k)\\big)$"
+        },
+        {
+          "label": "D",
+          "content": "$f(i,j) = \\min\\limits_{i \\le k < j}\\big(f(i,k) + f(k+1,j)\\big) + \\sum_{k=i}^{j} a(k)$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下面代码可以用来求最长上升子序列（LIS）的长度，如果输入是：`5 1 7 3 5 9`，则输出是（ ）。\n\n```cpp\nint a[2023], f[2023];\nint main()\n{\n    int n,i,j,ans = -1;\n\n    cin>>n;\n    for( i=1; i<=n; i++){\n        cin >> a[i];\n        f[i] = 1;\n    }\n\n    for( i=1; i<=n; i++)\n        for( j=1; j<i; j++)\n            if(a[j] < a[i])\n                f[i] = max(f[i], f[j]+1);\n    for( i=1; i<=n; i++){\n        ans = max(ans, f[i]);\n        cout << f[i] << \"  \";\n    }\n\n    cout << ans << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`9 7 5 1 1 9`"
+        },
+        {
+          "label": "B",
+          "content": "`1 2 2 3 4 4`"
+        },
+        {
+          "label": "C",
+          "content": "`1 3 5 7 9 9`"
+        },
+        {
+          "label": "D",
+          "content": "`1 1 1 1 1 1`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "C++语言中，下列关于关键字 `static` 的描述不正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "可以修饰类的成员函数。"
+        },
+        {
+          "label": "B",
+          "content": "常量静态成员可以在类外进行初始化。"
+        },
+        {
+          "label": "C",
+          "content": "若 `a` 是类 `A` 常量静态成员，则 `a` 的地址都可以访问且唯一。"
+        },
+        {
+          "label": "D",
+          "content": "静态全局对象一定在 `main` 函数调用前完成初始化，执行完 `main` 函数后被析构。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "`G` 是一个非连通无向图，共有 $28$ 条边，则该图至少有（ ）个顶点。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$6$"
+        },
+        {
+          "label": "B",
+          "content": "$7$"
+        },
+        {
+          "label": "C",
+          "content": "$8$"
+        },
+        {
+          "label": "D",
+          "content": "$9$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "哈希表长 $31$，按照下面的程序依次输入 `4 17 28 30 4`，则最后的 `4` 存入哪个位置？（ ）\n\n```cpp\n#include <iostream>\n#include <string>\n#include <cmath>\n#include <vector>\nusing namespace std;\n\nconst int N=31;\nint htab[N],flag[N];\nint main()\n{\n    int n,x,i,j,k;\n\n    cin >> n;\n    for(i=0; i<n; i++){\n        cin >> x;\n        k=x%13;\n        while(flag[k])  k = (k+1)%13;\n        htab[k]=x;\n        flag[k]=1;\n    }\n\n    for(i=0; i<N; i++)\n        cout << htab[i] << \"  \";\n\n    cout << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$3$"
+        },
+        {
+          "label": "B",
+          "content": "$4$"
+        },
+        {
+          "label": "C",
+          "content": "$5$"
+        },
+        {
+          "label": "D",
+          "content": "$6$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "某二叉树 `T` 的先序遍历序列为：`{A B D F C E G H}`，中序遍历序列为：`{B F D A G E H C}`，则下列说法中正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`T` 的度为 $1$"
+        },
+        {
+          "label": "B",
+          "content": "`T` 的高为 $4$"
+        },
+        {
+          "label": "C",
+          "content": "`T` 有 $4$ 个叶节点"
+        },
+        {
+          "label": "D",
+          "content": "以上说法都不对"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面代码段可以求两个字符串 `s1` 和 `s2` 的最长公共子串（LCS），下列相关描述不正确的是（ ）。\n\n```cpp\nwhile (cin >> s1 >> s2)\n{\n    memset(dp, 0, sizeof(dp));\n    int n1 = strlen(s1), n2 = strlen(s2);\n    for (int i = 1; i <= n1; ++i)\n        for (int j = 1; j <= n2; ++j)\n            if (s1[i - 1] == s2[j - 1])\n                dp[i][j] = dp[i - 1][j - 1] + 1;\n            else\n                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);\n    cout << dp[n1][n2] << endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "代码的时间复杂度为 $O(n^2)$"
+        },
+        {
+          "label": "B",
+          "content": "代码的空间复杂度为 $O(n^2)$"
+        },
+        {
+          "label": "C",
+          "content": "空间复杂度已经最优"
+        },
+        {
+          "label": "D",
+          "content": "采用了动态规划求解"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "图的广度优先搜索中既要维护一个标志数组标志已访问的图的结点，还需哪种结构存放结点以实现遍历？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "双向栈"
+        },
+        {
+          "label": "B",
+          "content": "队列"
+        },
+        {
+          "label": "C",
+          "content": "哈希表"
+        },
+        {
+          "label": "D",
+          "content": "堆"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "对关键字序列 `{44, 36, 23, 35, 52, 73, 90, 58}` 建立哈希表，哈希函数为 `h(k)=k%7`，执行下面的 `Insert` 函数，则等概率情况下的平均成功查找长度（即查找成功时的关键字比较次数的均值）为（ ）。\n\n```cpp\n#include <iostream>\n#include <string>\n#include <cmath>\n#include <vector>\nusing namespace std;\n\ntypedef struct Node{\n    int data;\n    struct Node *next;\n}Node;\nNode* hTab[7];\nint key[]={44, 36, 23, 35, 52, 73, 90, 58, 0};\nvoid Insert()\n{\n    int i,j;\n    Node *x;\n\n    for(i=0; key[i];i++){\n        j = key[i] % 7;\n        x=new Node;\n        x->data = key[i];\n        x->next = hTab[j];\n        hTab[j] = x;\n    }\n\n    return;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$7/8$"
+        },
+        {
+          "label": "B",
+          "content": "$1$"
+        },
+        {
+          "label": "C",
+          "content": "$1.5$"
+        },
+        {
+          "label": "D",
+          "content": "$2$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "学生在读期间所上的某些课程中需要先上其他的课程，所有课程和课程间的先修关系构成一个有向图 `G`，有向边 `<U, V>` 表示课程 `U` 是课程 `V` 的先修课，则要找到某门课程 `C` 的全部先修课下面哪种方法不可行？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "BFS搜索"
+        },
+        {
+          "label": "B",
+          "content": "DFS搜索"
+        },
+        {
+          "label": "C",
+          "content": "DFS+BFS"
+        },
+        {
+          "label": "D",
+          "content": "动态规划"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "一棵完全二叉树有 $2023$ 个结点，则叶结点有多少个？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "$1024$"
+        },
+        {
+          "label": "B",
+          "content": "$1013$"
+        },
+        {
+          "label": "C",
+          "content": "$1012$"
+        },
+        {
+          "label": "D",
+          "content": "$1011$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "用下面的邻接表结构保存一个有向图 `G`，`InfoType` 和 `VertexType` 是定义好的类。设 `G` 有 `n` 个顶点、`e` 条弧，则求图 `G` 中某个顶点 `u`（其顶点序号为 `k`）的度的算法复杂度是（ ）。\n\n```cpp\ntypedef struct ArcNode{\n    int             adjvex;    // 该弧所指向的顶点的位置\n    struct ArcNode  *nextarc;  // 指向下一条弧的指针\n    InfoType        *info;     // 该弧相关信息的指针\n} ArcNode;\ntypedef struct VNode{\n    VertexType  data;       // 顶点信息\n    ArcNode     *firstarc;  // 指向第一条依附该顶点的弧\n} VNode, AdjList[MAX_VERTEX_NUM];\ntypedef struct{\n    AdjList vertices;\n    int     vexnum, arcnum;\n    int     kind;           // 图的种类标志\n} ALGraph;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(e)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n+e)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(n+2*e)$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "给定一个简单有向图 `G`，判断其中是否存在环路的下列说法哪个最准确？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "BFS更快"
+        },
+        {
+          "label": "B",
+          "content": "DFS更快"
+        },
+        {
+          "label": "C",
+          "content": "BFS和DFS一样快"
+        },
+        {
+          "label": "D",
+          "content": "不确定"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "从顶点 `v1` 开始遍历下图 `G` 得到顶点访问序列，在下面所给的 $4$ 个序列中符合广度优先的序列有几个？（ ）\n\n`{v1 v2 v3 v4 v5}`，`{v1 v2 v4 v3 v5}`，`{v1 v4 v2 v3 v5}`，`{v1 v2 v4 v5 v3}`\n\n图 `G` 为无向图，共 $5$ 个顶点、$6$ 条边：`v1-v2`，`v1-v4`，`v2-v3`，`v2-v5`，`v3-v4`，`v3-v5`。\n\n```text\n v1 ────────── v2\n │           ╱  │\n │         ╱    │\n │       v3     │\n │     ╱    ╲   │\n │   ╱        ╲ │\n v4             v5\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$4$"
+        },
+        {
+          "label": "B",
+          "content": "$3$"
+        },
+        {
+          "label": "C",
+          "content": "$2$"
+        },
+        {
+          "label": "D",
+          "content": "$1$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "小杨这学期准备参加GESP的7级考试，其中有关于三角函数的内容，他能够通过下面的代码找到结束循环的角度值。（ ）\n\n```cpp\nint main()\n{\n    double x;\n\n    do{\n        cin >> x;\n        x=x/180*3.14;\n    }while(int(sin(x)*sin(x)+cos(x)*cos(x)) == 1);\n    cout << \"//\" << sin(x) << \"  \" << cos(x);\n\n    cout << endl;\n    return 0;\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "小杨在开发画笔刷小程序（applet），操作之一是选中黄颜色，然后在下面的左图的中间区域双击后，就变成了右图。这个操作可以用图的泛洪算法来实现。（ ）\n\n两幅图都是外围一圈黑色边框、内部 $7 \\times 7$ 的方格（`#` 表示黑色格，`.` 表示白色格，`O` 表示黄色格）。左图中只有正中间一格是黄色（双击位置）；右图中与正中间格通过上下左右相邻的白色格连通的区域全部变成了黄色，左上角和右下角两块白色区域不变。\n\n```text\n左图（双击前）        右图（双击后）\n#########            #########\n#...#...#            #...#OOO#\n#...#...#            #...#OOO#\n#..#....#            #..#OOOO#\n###.O.###            ###OOO###\n#....#..#            #OOOO#..#\n#...#...#            #OOO#...#\n#...#...#            #OOO#...#\n#########            #########\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "假设一棵完全二叉树共有 $N$ 个节点，则树的深度为 $log(N)+1$。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "给定一个数字序列 `A1, A2, A3, ..., An`，要求 `i` 和 `j`（`1<=i<=j<=n`），使 `Ai+…+Aj` 最大，可以使用动态规划方法来求解。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "若变量 `x` 为 `double` 类型正数，则 `log(exp(x)) > log10(x)`。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "简单有向图有 `n` 个顶点和 `e` 条弧，可以用邻接矩阵或邻接表来存储，二者求节点 `u` 的度的时间复杂度一样。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "某个哈希表键值 `x` 为整数，为其定义哈希函数 `H(x)=x%p`，则 `p` 选择素数时不会产生冲突。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "动态规划只要推导出状态转移方程，就可以写出递归程序来求出最优解。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "广度优先搜索（BFS）能够判断图是否连通。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "在C++中，如果定义了构造函数，则创建对象时先执行完缺省的构造函数，再执行这个定义的构造函数。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "商品交易",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "市场上共有 $N$ 种商品，编号从 $0$ 至 $N-1$，其中，第 $i$ 种商品价值 $v_i$ 元。\n\n现在共有 $M$ 个商人，编号从 $0$ 至 $M-1$。在第 $j$ 个商人这，你可以使用第 $x_j$ 种商品交换第 $y_j$ 种商品。每个商人都会按照商品价值进行交易，具体来说，如果 $v_{x_j} > v_{y_j}$，他将会付给你 $v_{y_j} - v_{x_j}$ 元钱；否则，那么你需要付给商人 $v_{x_j} - v_{y_j}$ 元钱。除此之外，每次交易商人还会收取 $1$ 元作为手续费，不论交易商品的价值孰高孰低。\n\n你现在拥有商品 $a$，并希望通过一些交换来获得商品 $b$。请问你至少要花费多少钱？（当然，这个最小花费也可能是负数，这表示你可以在完成目标的同时赚取一些钱。）",
+      "inputFormat": "第一行四个整数 $N, M, a, b$，分别表示商品的数量、商人的数量、你持有的商品以及你希望获得的商品。保证 $0 \\le a, b < N$，保证 $a \\ne b$。\n\n第二行 $N$ 个用单个空格隔开的正整数 $v_0, v_1, \\ldots, v_{N-1}$，依次表示每种商品的价值。保证 $1 \\le v_i \\le 10^9$。\n\n接下来 $M$ 行，每行两个整数 $x_j, y_j$，表示第 $j$ 个商人愿意使用第 $x_j$ 种商品交换第 $y_j$ 种商品。保证 $0 \\le x_j, y_j < N$，保证 $x_j \\ne y_j$。",
+      "outputFormat": "输出一行一个整数，表示最少的花费。特别地，如果无法通过交换换取商品 $b$，请输出 `No solution`",
+      "samples": [
+        {
+          "input": "3 5 0 2\n1 2 4\n1 0\n2 0\n0 1\n2 1\n1 2",
+          "output": "5",
+          "explanation": "可以先找 $2$ 号商人，花 $2-1=1$ 元的差价以及 $1$ 元手续费换得商品 $1$，再找 $4$ 号商人，花 $4-2=2$ 元的差价以及 $1$ 元手续费换得商品 $2$。总计花费 $1+1+2+1=5$ 元。"
+        },
+        {
+          "input": "3 3 0 2\n100 2 4\n0 1\n1 2\n0 2",
+          "output": "-95",
+          "explanation": "可以找 $2$ 号商人，直接换得商品 $2$ 的同时，赚取 $100-4=96$ 元差价，再支付 $1$ 元手续费，净赚 $95$ 元。\n\n也可以先找 $0$ 号商人换取商品 $1$，再找 $1$ 号商人换取商品 $2$，不过这样只能赚 $94$ 元。"
+        },
+        {
+          "input": "4 4 3 0\n1 2 3 4\n1 0\n0 1\n3 2\n2 3",
+          "output": "No solution"
+        }
+      ],
+      "dataRange": "对于 $30\\%$ 的测试点，保证 $N \\le 10$，$M \\le 20$。\n\n对于 $70\\%$ 的测试点，保证 $N \\le 10^3$，$M \\le 10^4$。\n\n对于 $100\\%$ 的测试点，保证 $N \\le 10^5$，$M \\le 2 \\times 10^5$。",
+      "referenceSolution": "#include <iostream>\n#include <cstring>\n#include <vector>\n\nusing namespace std;\n\nconst int max_n = 1e5 + 10;\n\nint n;\nvector<int> edge[max_n];\nint val[max_n];\n\nint min_dist[max_n];\nint queue[max_n], qh, qt;\n\nvoid bfs(int src) {\n    qh = qt = 0;\n    memset(min_dist, 127, sizeof(min_dist));\n    queue[++qt] = src;\n    min_dist[src] = 0;\n    while (qh < qt) {\n        int u = queue[++qh];\n        for (auto v: edge[u]) {\n            if (min_dist[u] + 1 < min_dist[v]) {\n                min_dist[v] = min_dist[u] + 1;\n                queue[++qt] = v;\n            }\n        }\n    }\n}\n\nint main() {\n    int m, src, dst;\n    ios::sync_with_stdio(false);\n    cin >> n >> m >> src >> dst;\n    for (int i = 0; i < n; ++i) {\n        cin >> val[i];\n    }\n    for (int i = 0; i < m; ++i) {\n        int x, y;\n        cin >> x >> y;\n        edge[x].push_back(y);\n    }\n\n    bfs(src);\n    if (min_dist[dst] > n) {\n        cout << \"No solution\\n\";\n    }\n    else {\n        cout << min_dist[dst] - val[src] + val[dst] << '\\n';\n    }\n\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "纸牌游戏",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "你和小杨在玩一个纸牌游戏。\n\n你和小杨各有 $3$ 张牌，分别是 $0$、$1$、$2$。你们要进行 $N$ 轮游戏，每轮游戏双方都要出一张牌，并按 $1$ 战胜 $0$，$2$ 战胜 $1$，$0$ 战胜 $2$ 的规则决出胜负。第 $i$ 轮的胜者可以获得 $2a_i$ 分，败者不得分，如果双方出牌相同，则算平局，二人都可获得 $a_i$ 分（$i = 1, 2, \\ldots, N$）。\n\n玩了一会后，你们觉得这样太过于单调，于是双方给自己制定了不同的新规则。小杨会在整局游戏开始前确定自己全部 $n$ 轮的出牌，并将他的全部计划告诉你；而你从第 $2$ 轮开始，要么继续出上一轮出的牌，要么记一次“换牌”。游戏结束时，你换了 $t$ 次牌，就要额外扣 $b_1 + \\cdots + b_t$ 分。\n\n请计算出你最多能获得多少分。",
+      "inputFormat": "第一行一个整数 $N$，表示游戏轮数。\n\n第二行 $N$ 个用单个空格隔开的非负整数 $a_1, \\ldots, a_N$，意义见题目描述。\n\n第三行 $N-1$ 个用单个空格隔开的非负整数 $b_1, \\ldots, b_{N-1}$，表示换牌的罚分，具体含义见题目描述。由于游戏进行 $N$ 轮，所以你至多可以换 $N-1$ 次牌。\n\n第四行 $N$ 个用单个空格隔开的整数 $c_1, \\ldots, c_N$，依次表示小杨从第 $1$ 轮至第 $N$ 轮出的牌。保证 $c_i \\in \\{0, 1, 2\\}$。",
+      "outputFormat": "一行一个整数，表示你最多获得的分数。",
+      "samples": [
+        {
+          "input": "4\n1 2 10 100\n1 100 1\n1 1 2 0",
+          "output": "219",
+          "explanation": "你可以第 $1$ 轮出 $0$，并在第 $2, 3$ 轮保持不变，如此输掉第 $1, 2$ 轮，但在第 $3$ 轮中取胜，获得 $2 \\times 10 = 20$ 分；随后，你可以在第 $4$ 轮中以扣 $1$ 分为代价改出 $1$，并在第 $4$ 轮中取得胜利，获得 $2 \\times 100 = 200$ 分。如此，你可以获得最高的总分 $20 + 200 - 1 = 219$。"
+        },
+        {
+          "input": "6\n3 7 2 8 9 4\n1 3 9 27 81\n0 1 2 1 2 0",
+          "output": "56"
+        }
+      ],
+      "dataRange": "对于 $30\\%$ 的测试点，保证 $N \\le 15$。\n\n对于 $60\\%$ 的测试点，保证 $N \\le 100$。\n\n对于所有测试点，保证 $N \\le 1{,}000$；保证 $0 \\le a_i, b_i \\le 10^6$。",
+      "referenceSolution": "#include <iostream>\n#include <cstring>\n#include <vector>\n\nusing namespace std;\n\nconst int max_n = 1005;\n\nint n;\nint a[max_n], b[max_n], c[max_n];\n\nint dp[3][max_n];\n\nint result(int x, int y) {\n    if (x == y + 1 || x == y - 2) return 2;\n    if (x == y) return 1;\n    return 0;\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin >> n;\n    for (int i = 1; i <= n; ++i) cin >> a[i];\n    for (int i = 1; i < n; ++i) cin >> b[i];\n    for (int i = 1; i <= n; ++i) cin >> c[i];\n    memset(dp, 128, sizeof(dp));\n    for (int k = 0; k < 3; ++k){\n        dp[k][0] = result(k, c[1]) * a[1];\n    }\n    for (int i = 2; i <= n; ++i)\n        for (int j = i - 1; j >= 0; --j)\n            for (int k = 0; k < 3; ++k) {\n                int curr_score = result(k, c[i]) * a[i];\n                dp[k][j] = dp[k][j] + curr_score;\n                if (j > 0) {\n                    for (int l = 0; l < 3; ++l) {\n                        dp[k][j] = max(dp[k][j], dp[l][j - 1] + curr_score - b[j]);\n                    }\n                }\n            }\n    int ans = -2e9, x = 0;\n    for (int j = 0; j < n; ++j)\n        for (int k = 0; k < 3; ++k) {\n            ans = max(ans, dp[k][j]);\n        }\n    cout << ans << '\\n';\n    return 0;\n}\n"
+    }
+  ]
+}

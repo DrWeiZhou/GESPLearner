@@ -1,0 +1,498 @@
+{
+  "id": "cpp-2026-06-l2",
+  "language": "cpp",
+  "level": 2,
+  "exam": {
+    "id": "2026-06",
+    "title": "2026年6月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10284.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1753295276212256.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "学校组织到未来农场参观，小明听讲解员介绍，在智能温室中，湿度传感器可以连续检测土壤的湿度变化，并将检测到的湿度数据实时发送给中央控制器。中央控制器根据这些数据判断是否开启灌溉系统。请问，这里的湿度传感器所发挥的作用，类似于计算机系统中的哪一类组件？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "处理器"
+        },
+        {
+          "label": "B",
+          "content": "存储器"
+        },
+        {
+          "label": "C",
+          "content": "输入设备"
+        },
+        {
+          "label": "D",
+          "content": "输出设备"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "小明去农场参观回来后就在自己的电脑上安装了一个 3D 农场仿真模拟系统，因为他今年买的二手电脑有点老旧，系统运行时经常弹出“系统内存不足”的警告，导致系统卡顿严重。他计划通过增加物理内存来解决问题。请问他应该购买以下哪种硬件组件？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "机械硬盘"
+        },
+        {
+          "label": "B",
+          "content": "内存条"
+        },
+        {
+          "label": "C",
+          "content": "图形显卡"
+        },
+        {
+          "label": "D",
+          "content": "移动硬盘"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "有关如下 C++ 代码的说法，正确的是（ ）。\n\n```cpp\nfloat a = 3 + 3.5;\ncout << a;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "代码执行将报错。如果将 `a = 3 + 3.5` 改为 `a = float(3) + 3.5` 将能正常执行。"
+        },
+        {
+          "label": "B",
+          "content": "代码执行将报错。如果将 `a = 3 + 3.5` 改为 `a = 3.0 + 3.5` 将能正常执行。"
+        },
+        {
+          "label": "C",
+          "content": "代码能正常执行，将输出 `6`。"
+        },
+        {
+          "label": "D",
+          "content": "代码能正常执行，将输出 `6.5`。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下面选择项中，与 C++ 表达式 `not (x > 5 or y <= 10)` 等价的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`x <= 5 or y > 10`"
+        },
+        {
+          "label": "B",
+          "content": "`x > 5 and y <= 10`"
+        },
+        {
+          "label": "C",
+          "content": "`x <= 5 and y > 10`"
+        },
+        {
+          "label": "D",
+          "content": "`not x > 5 and not y <= 10`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "小明在某开发环境中执行 C++ 代码 `cout << (2.5 + 2.25) << ' ' << (2.2 + 2.1)` 时输出 `4.75 4.300000000000001`，其原因最可能是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "C++ 的 `+` 运算符在处理浮点数时有时正确，有时错误"
+        },
+        {
+          "label": "B",
+          "content": "某些浮点数难以精确表示，导致微小误差"
+        },
+        {
+          "label": "C",
+          "content": "`+` 运算符不能用于浮点数，只能用于整数"
+        },
+        {
+          "label": "D",
+          "content": "因为 `cout` 函数难以输出太长的数值"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "执行如下 C++ 程序后，当输入 `4` 时，输出的最后一行是（ ）。\n\n```cpp\nint n;\ncin >> n;\nfor (int i = n; i > 0; i--) {\n    for (int j = 0; j < i; j++)\n        cout << j + 1 << ' ';\n    cout << endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0`"
+        },
+        {
+          "label": "B",
+          "content": "`1`"
+        },
+        {
+          "label": "C",
+          "content": "`1 2`"
+        },
+        {
+          "label": "D",
+          "content": "`1 2 3 4`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下面的 C++ 代码执行后其输出是（ ）。\n\n```cpp\nint tnt = 0;\nfor (int i = 1; i < 5; i += 3) {\n    for (int j = 0; j < i; j++)\n        tnt += 1;\n    cout << tnt << \"#\";\n}\ncout << tnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1#5#5`"
+        },
+        {
+          "label": "B",
+          "content": "`1#5#5#`"
+        },
+        {
+          "label": "C",
+          "content": "`1#5#12#12`"
+        },
+        {
+          "label": "D",
+          "content": "`0`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面的 C++ 代码执行之后的输出是（ ）。\n\n```cpp\nint i;\nfor (i = -2; i < 2; i++)\n    if (not i % 3 == 0)\n        cout << i << \"#\";\ncout << i;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`-2#-1#1#2`"
+        },
+        {
+          "label": "B",
+          "content": "`-2#-1#1#2#3`"
+        },
+        {
+          "label": "C",
+          "content": "`1#2#3`"
+        },
+        {
+          "label": "D",
+          "content": "`0#1#2#3`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面的 C++ 代码执行后其输出是（ ）。\n\n```cpp\nint cnt = 0, i, j;\nfor (i = 0; i < 3; i++) {\n    j = i;\n    while (j) {\n        cnt += 1;\n        j -= 1;\n    }\n}\ncout << i << ' ' << j << ' ' << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3 0 3`"
+        },
+        {
+          "label": "B",
+          "content": "`2 0 4`"
+        },
+        {
+          "label": "C",
+          "content": "`2 0 5`"
+        },
+        {
+          "label": "D",
+          "content": "`3 0 5`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后其输出是（ ）。\n\n```cpp\nint count = 0, i, j;\nfor (i = 1; i < 4; i++)\n    for (j = 0; j < i; j++) {\n        if (j % 3 != 0)\n            continue;\n        count += 1;\n        break;\n    }\ncout << i << ' ' << j << ' ' << count;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`4 0 4`"
+        },
+        {
+          "label": "B",
+          "content": "`3 0 0`"
+        },
+        {
+          "label": "C",
+          "content": "`3 2 0`"
+        },
+        {
+          "label": "D",
+          "content": "`4 0 3`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "如下 C++ 代码执行后输出是 `1 2 3 4 5 6 7 8 9 10 11 5 6 7 8 9 10 11 5 6 7 8 9 10 11 5 6 7 8 9 10 11 5 6 7`。横线处应该填入的运算符是（ ）。\n\n```cpp\nint num = 1;\nfor (int i = 0; i < 35; i++) {\n    cout << num << \" \";\n    if (num _______ 10)\n        num _______ 2;\n    else\n        num _______ 1;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`>` `/=` `+=`"
+        },
+        {
+          "label": "B",
+          "content": "`>=` `%=` `+=`"
+        },
+        {
+          "label": "C",
+          "content": "`>` `/=` `=+`"
+        },
+        {
+          "label": "D",
+          "content": "`>=` `%=` `=+`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "如下数字图形在通过执行后续的 C++ 代码时，输入 `10` 来输出。横线处应填入的代码是（ ）。\n\n```text\n1 1 1 1 1 1 1 1 1 1\n1 1 0 0 0 0 0 0 0 1\n1 0 1 0 0 0 0 0 0 1\n1 0 0 1 0 0 0 0 0 1\n1 0 0 0 1 0 0 0 0 1\n1 0 0 0 0 1 0 0 0 1\n1 0 0 0 0 0 1 0 0 1\n1 0 0 0 0 0 0 1 0 1\n1 0 0 0 0 0 0 0 1 1\n1 1 1 1 1 1 1 1 1 1\n```\n\n```cpp\nint N;\ncin >> N;\nfor (int i = 1; i < N + 1; i++) {\n    for (int j = 1; j < N + 1; j++)\n        if (________)\n            cout << \"1 \";\n        else\n            cout << \"0 \";\n    cout << endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`i == j and i == 1 and j == 1 and i == N and j == N`"
+        },
+        {
+          "label": "B",
+          "content": "`i == j or i == 1 or j == 1 or i == N or j == N`"
+        },
+        {
+          "label": "C",
+          "content": "`i == j or i == 0 or j == 0 or i == (N + 1) or j == (N + 1)`"
+        },
+        {
+          "label": "D",
+          "content": "`i == j and i == 1 and j == 1 and i == (N + 1) and j == (N + 1)`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "英文 `corner case` 通常翻译为极端案例或边角案例，通常指正常范围以外的问题或者情形。在如下 C++ 代码中，变量都是整型，则 `corner case` 最应该是（ ）。\n\n```cpp\nint tnt = 0, cnt = 0;\nwhile (1) {\n    int score;\n    cin >> score;\n    if (score == -1)\n        break;\n    tnt += score;\n    cnt += 1;\n}\ncout << tnt / cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`tnt = 0, cnt = 0` 是 `corner case`，应分为两行"
+        },
+        {
+          "label": "B",
+          "content": "`while(1)` 是 `corner case`，因为 `while(1)` 将会导致死循环"
+        },
+        {
+          "label": "C",
+          "content": "`cin >> score` 是 `corner case`，因为输入数据前应该提示整型数据"
+        },
+        {
+          "label": "D",
+          "content": "`cout << tnt / cnt` 是 `corner case`，因为如果直接输入 `-1`，将导致执行错误，虽然这种情况较为罕见"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "如下 C++ 代码执行后，输入 `4` 后，输出的数字图形是（ ）。\n\n```cpp\nint n;\ncin >> n;\nfor (int i = n; i > 0; i--) {\n    for (int j = 0; j < n - i; j++)\n        cout << \"0 \";\n    for (int k = 0; k < i; k++)\n        cout << k + 1 << \" \";\n    cout << endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```text\n1 2 3 4\n1 2 3 0\n1 2 0 0\n1 0 0 0\n```"
+        },
+        {
+          "label": "B",
+          "content": "```text\n1 2 3 4\n0 1 2 3\n0 0 1 2\n0 0 0 1\n```"
+        },
+        {
+          "label": "C",
+          "content": "```text\n1 2 3 4\n2 3 4 0\n3 4 0 0\n4 0 0 0\n```"
+        },
+        {
+          "label": "D",
+          "content": "```text\n0 0 0 1\n0 0 1 2\n0 1 2 3\n1 2 3 4\n```"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "某学校举办“校园演讲比赛”，每位选手由 $8$ 位评委打分（分数为 $0 \\sim 10$ 的整数），且每位评委必须打分。计分规则：去掉一个最高分，去掉一个最低分。如下程序通过键盘先输入选手编号，然后依次输入 $8$ 个分数，并计算最终得分。下列说法正确的是（ ）。\n\n```cpp\nfor (int i = 0; i < 10; i++) {\n    int id, score;\n    printf(\"输入选手编号: \");\n    scanf(\"%d\", &id);\n\n    int max_score = 0, min_score = 100; // 最高分和最低分\n    int total_score = 0; // 总分\n\n    for (int j = 1; j < 9; j++) {\n        printf(\"输入选手第%d个成绩:\", j);\n        scanf(\"%d\", &score);\n\n        if (max_score < score)\n            max_score = score;\n\n        if (min_score > score)\n            min_score = score;\n\n        total_score += score;\n    }\n\n    total_score = total_score - max_score - min_score;\n    printf(\"%d号选手的成绩:\\\n            去掉一个最高分%d,\\\n            去掉一个最低分%d,\\\n            最后成绩是：%d\", id, max_score, min_score, total_score);\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "上述代码能完成题目要求"
+        },
+        {
+          "label": "B",
+          "content": "`max_score = 0, min_score = 100` 应修改为 `max_score = 0, min_score = 0`"
+        },
+        {
+          "label": "C",
+          "content": "`max_score < score` 和 `min_score > score` 必须相应修改为 `<=` 和 `>=`"
+        },
+        {
+          "label": "D",
+          "content": "`total_score = total_score - max_score - min_score` 不能达到预期，可修改如下：\n\n```cpp\nint total = total_score - max_score - min_score;\ntotal_score = total;\n```"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "又到期末考试周，小明发现这次许多闭卷考试不仅禁止携带手机、平板电脑，还有最近比较时髦的各类 AI 眼镜（也有叫智能眼镜）也同样不允许带入考场。这些 AI 眼镜应该也是内置了操作系统并可能支持 Wi-Fi 或蓝牙连接。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "C++ 代码 `cout << (not ('5' % 2 == 0) == ((not '5' % 2) == 0))` 执行后的输出是 `1`。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "执行 C++ 语句 `cout << (int(3.5) * 2)` 将输出 `6`。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后将输出 `1-4-7-`。\n\n```cpp\nfor (int i = 1; i < 10; i += 3) {\n    if (not i % 3)\n        break;\n    cout << i << \"-\";\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "执行如下 C++ 代码，将从小到大依次输出 `abs(N)` 个整数，并在最后输出 `1`。\n\n```cpp\nint N;\ncin >> N;\nint start_num = 1, end_num = N + 1, i;\n\nif (N < 0)\n    start_num = N, end_num = 0;\n\nfor (i = start_num; i < end_num; i++)\n    cout << i << \" \";\n\ncout << endl << ((i - 1) == abs(N)) << endl;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "如下 C++ 代码执行后，输出值为 `9`。\n\n```cpp\nint cnt = 0, i;\nfor (i = 0; i < 10; i++) {\n    for (int j = 0; j < i; j++)\n        cnt += 1;\n    break;\n}\ncout << i;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "如下 C++ 代码执行时如输入 `10`，输出将是 `100`。\n\n```cpp\nint cnt = 0, N;\ncout << \"请输入正整数：\";\ncin >> N;\nfor (int i = 0; i < N; i++)\n    for (int j = -i; j < i; j++)\n        cnt += 1;\ncout << cnt;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "如下 C++ 代码执行其输出是 `3`。\n\n```cpp\nint count = 0;\nint i = 0;\nwhile (i < 3) {\n    int j = 0;\n    while (j < 3) {\n        if (i + j >= 3)\n            count += 1;\n        j += 1;\n    }\n    i += 1;\n}\ncout << count;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "如下 C++ 代码执行时如果输入正整数，其输出将是输入的正整数。\n\n```cpp\nint N;\ncin >> N;\nint i = 0, Nbase = 1;\nint rst = 0;\nwhile (N != 0) {\n    rst = rst + N % 10 * Nbase;\n    N /= 10, Nbase *= 10;\n    i += 1;\n}\ncout << rst;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "如下 C++ 代码执行时如输入 `5`，将输出代码后的字符图形。\n\n```cpp\nint n;\ncin >> n;\nfor (int i = 1; i < n + 1; i++) {\n    for (int j = 1; j < n - i + 1; j++)\n        cout << 0;\n    for (int k = 1; k < 2 * i; k++) {\n        if (k <= i)\n            cout << k;\n        else\n            cout << 2 * i - k;\n    }\n    for (int j = 1; j < n - i + 1; j++)\n        cout << 0;\n    cout << endl;\n}\n```\n\n```text\n000010000\n000121000\n001232100\n012343210\n123454321\n```",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "完全平方数计数",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨同学正在研究**完全平方数**。\n\n**平方**：一个数的平方等于这个数乘以这个数本身。\n\n**完全平方数**：指可以恰好表示为某个正整数的平方的数。\n\n例如，$9$ 是完全平方数，因为 $9 = 3^2 = 3 \\times 3$；但 $27$ 不是，因为 $27$ 不能表示为任何正整数的平方。\n\n给定两个正整数 $l$ 和 $r$（保证 $l \\le r$），小杨同学想知道 $l$ 到 $r$ 之间的所有正整数中（包含 $l$ 和 $r$），有多少个数是**完全平方数**。",
+      "inputFormat": "输入两行，第一行为一个正整数 $l$，第二行为一个正整数 $r$。",
+      "outputFormat": "输出一个非负整数，表示 $l$ 到 $r$ 中，有多少个正整数是**完全平方数**。如果 $l$ 到 $r$ 中没有完全平方数，则输出 `0`。",
+      "samples": [
+        {
+          "input": "1\n21",
+          "output": "4",
+          "explanation": "在 $1$ 到 $21$ 中，有以下 $4$ 个整数是**完全平方数**：\n\n$1, 4, 9, 16$"
+        }
+      ],
+      "dataRange": "$1 \\le l \\le r \\le 2000$。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int ans = 0, l, r;\n    cin >> l >> r;\n    for (int i = 1; i * i <= r; ++i)\n    {\n        if (i * i >= l)\n            ans++;\n    }\n    cout << ans << endl;\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "菱形",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "给定正整数 $n$，在 $(2n-1) \\times (2n-1)$ 个网格的画布中，使用字符画一个边长为 $n$ 个网格的菱形。其中，空白网格使用 `.` 表示，菱形边所在的网格用 `+` 表示。\n\n例如当 $n = 3$ 时，图形如下：\n\n```text\n..+..\n.+.+.\n+...+\n.+.+.\n..+..\n```",
+      "inputFormat": "输入一个正整数 $n$；",
+      "outputFormat": "输出 $2n-1$ 行，表示按要求画的菱形。",
+      "samples": [
+        {
+          "input": "4",
+          "output": "...+...\n..+.+..\n.+...+.\n+.....+\n.+...+.\n..+.+..\n...+..."
+        }
+      ],
+      "dataRange": "$3 \\le n \\le 15$。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    for (int i = 1; i <= 2 * n - 1; ++i) {\n        for (int j = 1; j <= 2 * n - 1; ++j) {\n            if (i + j == n + 1 || i + j == 3 * n - 1)\n                cout << '+';\n            else if (i - j == n - 1 || j - i == n - 1)\n                cout << '+';\n            else\n                cout << '.';\n        }\n        cout << '\\n';\n    }\n    return 0;\n}\n"
+    }
+  ]
+}

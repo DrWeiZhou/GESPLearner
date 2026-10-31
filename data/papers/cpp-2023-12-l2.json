@@ -1,0 +1,506 @@
+{
+  "id": "cpp-2023-12-l2",
+  "language": "cpp",
+  "level": 2,
+  "exam": {
+    "id": "2023-12",
+    "title": "2023年12月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10119.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1601261860290592.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "以下不可以做为 C++ 变量的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`FiveStar`"
+        },
+        {
+          "label": "B",
+          "content": "`fiveStar`"
+        },
+        {
+          "label": "C",
+          "content": "`5Star`"
+        },
+        {
+          "label": "D",
+          "content": "`Star5`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "在 C++ 中，与 `for(int i = 10; i < 20; i +=2) cout << i;` 输出结果相同的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`for(int i = 10; i < 19; i +=2) cout << i;`"
+        },
+        {
+          "label": "B",
+          "content": "`for(int i = 11; i < 19; i +=2) cout << i;`"
+        },
+        {
+          "label": "C",
+          "content": "`for(int i = 10; i < 21; i +=2) cout << i;`"
+        },
+        {
+          "label": "D",
+          "content": "以上均不对"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "以下 C++ 代码实现从小到大的顺序输出能整除 `N` 的数（`N` 的因子），例如 `N=18` 时输出 `1 2 3 6 9 18`，横线处应填入（ ）。\n\n```cpp\ncin >> N;\nfor(_____)\n    if(N % i == 0)\n        cout << i << \" \";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`int i = 0; i < N; i++`"
+        },
+        {
+          "label": "B",
+          "content": "`int i = 1; i < N; i++`"
+        },
+        {
+          "label": "C",
+          "content": "`int i = 0; i < N+1; i++`"
+        },
+        {
+          "label": "D",
+          "content": "`int i = 1; i < N+1; i++`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下面 C++ 代码用于判断输入的整数是否为对称数，如 `1221`、`12321` 是对称数，但 `123`、`972` 不是对称数。下面对该题对应代码的说法，正确的是（ ）。\n\n```cpp\ncin >> N;\nnewNum = 0;\nwhile(N){\n    newNum = newNum * 10 + N % 10;\n    N = N / 10;\n}\nif(newNum == N)\n    cout << N << \"为对称数\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "代码没有语法错误，如果 `N` 为对称数，第 8 行将能正确输出。"
+        },
+        {
+          "label": "B",
+          "content": "代码没有语法错误，但如果 `N` 为负数，将导致死循环。"
+        },
+        {
+          "label": "C",
+          "content": "代码存在语法错误，程序不能被执行。"
+        },
+        {
+          "label": "D",
+          "content": "代码没有语法错误，但不能达到预期目标，因为循环结束 `N` 总为 `0`。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面 C++ 代码用于判断 `N`（大于等于 $2$ 的正整数）是否为质数（素数）。下面对如下代码的说法，正确的是（ ）。\n\n```cpp\ncin >> N;\nfor(i = 2; i < N/2; i++)\n    if(N % i == 0){\n        cout << N << \" 不是质数\";\n        break;\n    }\nif(i >= N/2)\n    cout << N << \" 是质数\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "代码能正确判断 `N` 是否为质数。"
+        },
+        {
+          "label": "B",
+          "content": "代码总是不能判断 `N` 是否质数。"
+        },
+        {
+          "label": "C",
+          "content": "删除第 5 行 `break`，将能正确判断 `N` 是否质数。"
+        },
+        {
+          "label": "D",
+          "content": "代码存在漏洞，边界存在问题，应将第 2 行和第 7 行的 `N / 2` 改为 `N / 2 + 1`。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\nN =4;\nfor(int i =0; i < N; i++){\n    for(int j =1; j < i; j++)\n        if (i* j % 2 ==0)\n            cout <<i << \"#\";\n    continue;\n}\ncout << \"0\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`2#3#0`"
+        },
+        {
+          "label": "B",
+          "content": "`1#2#0`"
+        },
+        {
+          "label": "C",
+          "content": "`1#0#`"
+        },
+        {
+          "label": "D",
+          "content": "`2#3#`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\ncnt =0;\nfor(i =1; i < 10; i++)\n    for(j = 1; j < i; j += 2)\n        if (i* j % 2 ==0){\n            cnt++;\n            break;\n        }\nif(i>=10) cout << cnt << \"#\";\ncout << cnt ;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0`"
+        },
+        {
+          "label": "B",
+          "content": "`8#8`"
+        },
+        {
+          "label": "C",
+          "content": "`4`"
+        },
+        {
+          "label": "D",
+          "content": "`4#4`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\nN=100;\nwhile (N > 0)\n    if (N % 2)\n        break;\nelse if (N % 3 == 0)\n    N -= 5;\nelse\n    N -= 20;\ncout << N;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`100`"
+        },
+        {
+          "label": "B",
+          "content": "`95`"
+        },
+        {
+          "label": "C",
+          "content": "`55`"
+        },
+        {
+          "label": "D",
+          "content": "`0`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\nx= 1;\nwhile (x<100){\n    if (x % 3 != 0)\n        cout << x << \",\";\n    else if (x / 10)\n        break;\n    else\n        x+=5;\n    x += 2;\n}\ncout << x;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1`"
+        },
+        {
+          "label": "B",
+          "content": "`1,3`"
+        },
+        {
+          "label": "C",
+          "content": "`15,17`"
+        },
+        {
+          "label": "D",
+          "content": "`1,10,12`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\ncnt = 0;\nfor (i=0; i<5; i++)\n    for (j=0; j<i; j++)\n        cnt += 1;\ncout << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`5`"
+        },
+        {
+          "label": "B",
+          "content": "`10`"
+        },
+        {
+          "label": "C",
+          "content": "`20`"
+        },
+        {
+          "label": "D",
+          "content": "`30`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "以下 C++ 代码用于输出 $1 \\sim 100$（含）的整数平方数（完全平方数），如 $16$ 是 $4$ 的平方，横线处应填写（ ）。\n\n```cpp\nfor (i=1; i < 100+1; i++)\n    if(_____)\n        cout << i << \" \";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`int(sqrt(i)) * int(sqrt(i)) = i`"
+        },
+        {
+          "label": "B",
+          "content": "`int(sqrt(i)) == sqrt(i)`"
+        },
+        {
+          "label": "C",
+          "content": "`int(sqrt(i)) * int(sqrt(i)) == i`"
+        },
+        {
+          "label": "D",
+          "content": "`int(sqrt(i)) = sqrt(i)`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面的 C++ 代码用于实现如下左图所示的效果，应在以下右图 C++ 代码中填入（ ）。\n\n左图（第一行 `12` 为输入的 `N`，其后为输出效果）：\n\n```text\n12\n0\n01\n012\n0123\n01234\n012345\n0123456\n01234567\n012345678\n0123456789\n01234567890\n012345678901\n```\n\n右图：\n\n```cpp\ncin >> N;\nfor (i = 0; i < N; i++){\n    nowNum = 0;\n    for (j = 0; j < i+1; j++){\n        cout << nowNum << \"\";\n        nowNum += 1;\n        if (nowNum == 10)\n            nowNum = 0;\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "与第 8 行下面填入一行：`cout << nowNum;`"
+        },
+        {
+          "label": "B",
+          "content": "与第 2 行下面填入一行：`cout << endl;`"
+        },
+        {
+          "label": "C",
+          "content": "与第 7 行下面填入一行：`cout << nowNum;`"
+        },
+        {
+          "label": "D",
+          "content": "与第 9 行下面填入一行：`cout << endl;`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "某公司新出了一款无人驾驶的小汽车，通过声控智能驾驶系统，乘客只要告诉汽车目的地，车子就能自动选择一条优化路线，告诉乘客后驶达那里。请问下面哪项不是驾驶系统完成选路所必须的。（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "麦克风"
+        },
+        {
+          "label": "B",
+          "content": "扬声器"
+        },
+        {
+          "label": "C",
+          "content": "油量表"
+        },
+        {
+          "label": "D",
+          "content": "传感器"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "现代计算机是指电子计算机，它所基于的是（ ）体系结构。",
+      "options": [
+        {
+          "label": "A",
+          "content": "艾伦·图灵"
+        },
+        {
+          "label": "B",
+          "content": "冯·诺依曼"
+        },
+        {
+          "label": "C",
+          "content": "阿塔纳索夫"
+        },
+        {
+          "label": "D",
+          "content": "埃克特-莫克利"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "输入一个正整数 `N`，想找出它所有相邻的因数对，比如，输入 `12`，因数对有 `(1,2)`、`(2,3)`、`(3,4)`。下面哪段代码找不到所有的因数对？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`for(i=1;i<N;i++) if(!(N%i) && !(N%(i+1))) printf(\"(%d,%d)\\n\", i, i+1);`"
+        },
+        {
+          "label": "B",
+          "content": "`for(i=2;i<N;i++) if(!(N%i) && !(N%(i+1))) printf(\"(%d,%d)\\n\", i, i+1);`"
+        },
+        {
+          "label": "C",
+          "content": "`for(i=2;i<N/2;i++) if(!(N%(i-1)) && !(N%i)) printf(\"(%d,%d)\\n\", i-1, i);`"
+        },
+        {
+          "label": "D",
+          "content": "`for(i=1;i<N/2;i++) if(!(N%i) && !(N%(i+1))) printf(\"(%d,%d)\\n\", i, i+1);`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "C++ 表达式 `-7/2` 的值为整数 `-3`。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "C++ 表达式 `2*int('9')*2` 的值为 `36`。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "C++ 表达式 `3+2 && 5-5` 的值为 `false`。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "在 C++ 代码中，执行 `srand(0)` 后连续两次执行 `rand()` 的结果相等。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "C++ 代码中 `while(1){...}` 的判断条件不是逻辑值，将导致语法错误。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "执行以下 C++ 代码后将输出 `0`。（ ）\n\n```cpp\nSum = 0;\nfor (i = -500; i < 500; i++)\n    Sum += i;\ncout << Sum;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "在 C++ 代码中，运算符只能处理相同的数据类型，不同类型之间必须转换为相同的数据类型。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "在 C++ 代码中，虽然变量都有数据类型，但同一个变量也可以先后用不同类型的值赋值。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "小杨最近在准备考 GESP，他用的 Dev C++ 来练习和运行程序，所以 Dev C++ 也是一个小型操作系统。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "任何一个 `while` 循环都可以转化为等价的 `for` 循环（ ）。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "小杨做题",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "为了准备考试，小杨每天都要做题。第 $1$ 天，小杨做了 $a$ 道题；第 $2$ 天，小杨做了 $b$ 道题；从第 $3$ 天起，小杨每天做的题目数量是前两天的总和。\n\n此外，小杨还规定，当自己某一天做了大于或等于 $m$ 题时，接下来的所有日子里，他就再也不做题了。\n\n请问，到了第 $N$ 天，小杨总共做了多少题呢？",
+      "inputFormat": "总共 $4$ 行。第一行一个整数 $a$，第二行一个整数 $b$，第三行一个整数 $m$，第四行一个整数 $N$。",
+      "outputFormat": "一行一个整数，表示小杨 $N$ 天里总共做了多少题目。\n\n**特别提醒**：在常规程序中，输入、输出时提供提示是好习惯。但在本场考试中，由于系统限定，请不要在输入、输出中附带任何提示信息。",
+      "samples": [
+        {
+          "input": "1\n2\n10\n5",
+          "output": "19",
+          "explanation": "小杨第一天做 $1$ 题，第二天做 $2$ 题，第三天做 $1+2=3$ 题，第四天做 $2+3=5$ 题，第五天做 $3+5=8$ 题。因此他总共做了 $1+2+3+5+8=19$ 题。"
+        },
+        {
+          "input": "1\n1\n5\n8",
+          "output": "12",
+          "explanation": "小杨前 $5$ 天分别做了 $1, 1, 2, 3, 5$ 题，由于第 $5$ 天小杨做了 $5$ 题，而 $m=5$，于是小杨从此以后不再做题。因此小杨总共做了 $1+1+2+3+5=12$ 题。"
+        }
+      ],
+      "dataRange": "保证 $0 \\le a, b \\le 10$；$a, b < M \\le 1{,}000{,}000$；$3 \\le N \\le 364$。",
+      "referenceSolution": "#include <stdio.h>\n\nint main(int argc, char **argv)\n{\n    long long a=0, b=0, m=0, n=0, ans=0, c=0, i;\n    scanf(\"%lld%lld%lld%lld\", &a, &b, &m, &n);\n\n    ans = a+b;\n    for(i=3; i<=n; i++)\n    {\n        c = a+b;\n        ans += c;\n        a = b;\n        b = c;\n        if(c>=m) break;\n    }\n\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "小杨的 H 字矩阵",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "小杨想要构造一个 $N \\times N$ 的 H 字矩阵（$N$ 为奇数），具体来说，这个矩阵共有 $N$ 行，每行 $N$ 个字符，其中最左列、最右列都是 `|`，而中间一行（即第 $\\frac{N+1}{2}$ 行）的第 $2 \\sim N-1$ 个字符都是 `-`，其余所有字符都是半角小写字母 `a`。例如，一个 $N=5$ 的 H 字矩阵如下：\n\n```text\n|aaa|\n|aaa|\n|---|\n|aaa|\n|aaa|\n```\n\n请你帮小杨根据给定的 $N$ 打印出对应的“H 字矩阵”。",
+      "inputFormat": "一行一个整数 $N$（$5 \\le N \\le 49$，保证 $N$ 为奇数）。",
+      "outputFormat": "输出对应的“H 字矩阵”。\n\n请严格按格式要求输出，不要擅自添加任何空格、标点、空行等任何符号。你应该恰好输出 $N$ 行，每行除了换行符外恰好包含 $N$ 个字符，这些字符要么是 `-`，要么是 `|`，要么是 `a`。**你的输出必须和标准答案完全一致才能得分，请在提交前仔细检查。**\n\n**特别提醒**：在常规程序中，输入、输出时提供提示是好习惯。但在本场考试中，由于系统限定，请不要在输入、输出中附带任何提示信息。",
+      "samples": [
+        {
+          "input": "5",
+          "output": "|aaa|\n|aaa|\n|---|\n|aaa|\n|aaa|"
+        },
+        {
+          "input": "7",
+          "output": "|aaaaa|\n|aaaaa|\n|aaaaa|\n|-----|\n|aaaaa|\n|aaaaa|\n|aaaaa|"
+        }
+      ],
+      "referenceSolution": "#include <stdio.h>\n\nint main(int argc, char **argv)\n{\n    int n, i, j;\n    scanf(\"%d\", &n);\n    for(i=1; i<=(n+1)/2-1; i++)\n    {\n        printf(\"|\");\n        for(j=2; j<=n-1; j++)\n        {\n            printf(\"a\");\n        }\n        printf(\"|\\n\");\n    }\n\n    printf(\"|\");\n    for(j=2; j<=n-1; j++)\n    {\n        printf(\"-\");\n    }\n    printf(\"|\\n\");\n\n    for(i=(n+1)/2+1; i<=n; i++)\n    {\n        printf(\"|\");\n        for(j=2; j<=n-1; j++)\n        {\n            printf(\"a\");\n        }\n        printf(\"|\\n\");\n    }\n    return 0;\n}\n"
+    }
+  ]
+}

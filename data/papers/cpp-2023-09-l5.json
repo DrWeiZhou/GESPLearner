@@ -1,0 +1,531 @@
+{
+  "id": "cpp-2023-09-l5",
+  "language": "cpp",
+  "level": 5,
+  "exam": {
+    "id": "2023-09",
+    "title": "2023年9月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10100.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1580976341778464.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "近年来，线上授课变得普遍，很多有助于改善教学效果的设备也逐渐流行，其中包括比较常用的手写板，那么它属于哪类设备？（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "输入"
+        },
+        {
+          "label": "B",
+          "content": "输出"
+        },
+        {
+          "label": "C",
+          "content": "控制"
+        },
+        {
+          "label": "D",
+          "content": "记录"
+        }
+      ],
+      "answer": "A",
+      "explanation": "手写板是输入信息的设备，选 A。"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "如果 `a` 和 `b` 均为 `int` 类型的变量，且 `b` 的值不为 `0`，那么下列能正确判断“`a` 是 `b` 的 3 倍”的表达式是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(a >> 3 == b)`"
+        },
+        {
+          "label": "B",
+          "content": "`(a - b) % 3 == 0`"
+        },
+        {
+          "label": "C",
+          "content": "`(a / b == 3)`"
+        },
+        {
+          "label": "D",
+          "content": "`(a == 3 * b)`"
+        }
+      ],
+      "answer": "D",
+      "explanation": "A 选项中，`a` 右移 3 位，相当于除以 8；B 是取余运算；如果 `a=7, b=2`，`a/b` 的结果也等于 3（整型除法），C 选项也不正确；选 D。"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "如果变量 `a` 和 `b` 分别为 `double` 类型和 `int` 类型，则表达式 `(a = 6, b = 3 * (7 + 8) / 2, b += a)` 的计算结果为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`6`"
+        },
+        {
+          "label": "B",
+          "content": "`21`"
+        },
+        {
+          "label": "C",
+          "content": "`28`"
+        },
+        {
+          "label": "D",
+          "content": "不确定"
+        }
+      ],
+      "answer": "C",
+      "explanation": "逗号表达式从左到右依次计算每一个表达式，整个逗号表达式的结果是最后一个表达式的计算结果：`a=6`，`b=3*15/2=22`，`b=6+22=28`，选 C。"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "有关下面 C++ 代码说法错误的是（ ）。\n\n```cpp\n// sumA()和sumB()用于求从1到N之和\n#include <iostream>\nusing namespace std;\nint sumA(int n) {\n    int sum = 0;\n    for (int i = 1; i < n + 1; i++)\n        sum += i;\n    return sum;\n}\nint sumB(int n) {\n    if (n == 1)\n        return 1;\n    else\n        return n + sumB(n - 1);\n}\nint main() {\n    int n = 0;\n    cin >> n;\n    cout << sumA(n) << \" \" << sumB(n) << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`sumA()` 用循环方式求从 1 到 N 之和，`sumB()` 用递归方式求从 1 到 N 之和。"
+        },
+        {
+          "label": "B",
+          "content": "默认情况下，如果输入正整数 `1000`，能实现求从 1 到 1000 之和。"
+        },
+        {
+          "label": "C",
+          "content": "默认情况下，如果输入正整数 `100000`，能实现求从 1 到 100000 之和。"
+        },
+        {
+          "label": "D",
+          "content": "一般说来，`sumA()` 的效率高于 `sumB()`。"
+        }
+      ],
+      "answer": "C",
+      "explanation": "`sumA` 用循环求 1 到 n 的总和，`sumB` 用递归求 1 到 n 的总和。1 加到 100000 的和大于 `int` 类型最大值 2147483647，会溢出，选 C。"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面 C++ 代码以递归方式实现字符串反序，横线处应填上代码是（ ）。\n\n```cpp\n//字符串反序\n#include <iostream>\n#include <string>\nusing namespace std;\nstring sReverse(string sIn) {\n    if (sIn.length() <= 1) {\n        return sIn;\n    } else {\n        return _________ // 此处填写代码\n    }\n}\nint main() {\n    string sIn;\n    cin >> sIn;\n    cout << sReverse(sIn) << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`sIn[sIn.length() - 1] + sReverse(sIn.substr(0, sIn.length() - 1));`"
+        },
+        {
+          "label": "B",
+          "content": "`sIn[0] + sReverse(sIn.substr(1, sIn.length() - 1));`"
+        },
+        {
+          "label": "C",
+          "content": "`sReverse(sIn.substr(0, sIn.length() - 1)) + sIn[sIn.length() - 1];`"
+        },
+        {
+          "label": "D",
+          "content": "`sReverse(sIn.substr(1, sIn.length() - 1)) + sIn[sIn.length() - 1];`"
+        }
+      ],
+      "answer": "A",
+      "explanation": "要倒序输出字符串，先输出字符串中的最后一个字符（下标为长度 $-1$），然后翻转除了最后一个字符之外的字符串，该子串从 0 开始，取 `sIn.length()-1` 个字符，选 A。"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "印度古老的汉诺塔传说：创世时有三根金刚柱，其中一柱从下往上按照大小顺序摞着 64 片黄金圆盘，当圆盘逐一从一柱借助另外一柱全部移动到另外一柱时，宇宙毁灭。移动规则：在小圆盘上不能放大圆盘，在三根柱子之间一次只能移动一个圆盘。下面的 C++ 代码以递归方式实现汉诺塔，横线处应填入代码是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n// 递归实现汉诺塔，将N个圆盘从A通过B移动C\n// 圆盘从底到顶，半径必须从大到小\nvoid Hanoi(string A, string B, string C, int N) {\n    if (N == 1) {\n        cout << A << \" -> \" << C << endl;\n    } else {\n        Hanoi(A, C, B, N - 1);\n        cout << A << \" -> \" << C << endl;\n        _________; // 此处填写代码\n    }\n}\nint main() {\n    Hanoi(\"甲\", \"乙\", \"丙\", 3);\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`Hanoi(B, C, A, N - 2)`"
+        },
+        {
+          "label": "B",
+          "content": "`Hanoi(B, A, C, N - 1)`"
+        },
+        {
+          "label": "C",
+          "content": "`Hanoi(A, B, C, N - 2)`"
+        },
+        {
+          "label": "D",
+          "content": "`Hanoi(C, B, A, N - 1)`"
+        }
+      ],
+      "answer": "B",
+      "explanation": "汉诺塔是经典的递归问题，第 11 行代码意味着剩下的 $N-1$ 块圆盘现在在 B 柱上，借助 A 柱挪到 C 柱上，选 B。"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "根据下面 C++ 代码的注释，两个横线处应分别填入（ ）。\n\n```cpp\n#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nbool isOdd(int N) {\n    return N % 2 == 1;\n}\nbool compare(int a, int b) {\n    if (a % 2 == 0 && b % 2 == 1)\n        return true;\n    return false;\n}\nint main() {\n    vector<int> lstA; // lstA是一个整型向量\n    for (int i = 1; i < 100; i++)\n        lstA.push_back(i);\n    // 对lstA成员按比较函数执行结果排序\n    sort(lstA.begin(), lstA.end(), _________); // 此处填写代码1\n\n    vector<int> lstB;\n    for (int i = 0; i < lstA.size(); i++) // lstB成员全为奇数\n        if (___________) // 此处填写代码2\n            lstB.push_back(lstA[i]);\n\n    cout << \"lstA: \";\n    for (int i = 0; i < lstA.size(); i++)\n        cout << lstA[i] << \" \";\n    cout << endl;\n\n    cout << \"lstB: \";\n    for (int i = 0; i < lstB.size(); i++)\n        cout << lstB[i] << \" \";\n    cout << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`compare` 和 `isOdd(lstA[i])`"
+        },
+        {
+          "label": "B",
+          "content": "`compare(x1,y1)` 和 `isOdd`"
+        },
+        {
+          "label": "C",
+          "content": "`compare` 和 `isOdd`"
+        },
+        {
+          "label": "D",
+          "content": "`compare(x1,y1)` 和 `isOdd(lstA[i])`"
+        }
+      ],
+      "answer": "A",
+      "explanation": "`sort` 的第三个参数是排序规则函数，代码 1 处只需传递函数名 `compare`，不需要写成调用形式，排除 B 和 D。代码 2 处要调用 `isOdd` 判断当前的 `lstA[i]` 是否为奇数，需使用函数调用语法 `isOdd(lstA[i])`，正确答案为 A。"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "有关下面代码正确的是（ ）。\n\n```cpp\n// 在C++语言中，可以通过函数指针的形式，将一个函数作为另一个函数的参数。\n// 具体来说：bool checkNum(bool (*Fx)(int), int N); 声明了一个函数，\n// 其第一个参数是函数指针类型，指向一个接收一个int参数且返回值为bool的函数。\n#include <iostream>\nusing namespace std;\n\nbool isEven(int N) {\n    return N % 2 == 0;\n}\nbool checkNum(bool (*Fx)(int), int N) {\n    return Fx(N);\n}\nint main() {\n    cout << checkNum(isEven, 10) << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`checkNum()` 函数定义错误。"
+        },
+        {
+          "label": "B",
+          "content": "将 `isEven` 作为 `checkNum()` 参数将导致错误。"
+        },
+        {
+          "label": "C",
+          "content": "执行后将输出 `1`。"
+        },
+        {
+          "label": "D",
+          "content": "运行时触发异常。"
+        }
+      ],
+      "answer": "C",
+      "explanation": "`checkNum` 的第一个参数是函数指针类型，要求传入返回值为 `bool`、有一个 `int` 参数的函数，`isEven` 符合要求；执行 `Fx(N)` 即调用 `isEven(10)`，10 是偶数，结果为 1，选 C。"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "有关下面 C++ 代码正确的是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nbool isOdd(int N) {\n    return N % 2 == 1;\n}\nint Square(int N) {\n    return N * N;\n}\nbool checkNum(bool (*Fx)(int), int x) {\n    return Fx(x);\n}\nint main() {\n    cout << checkNum(isOdd, 10) << endl;   // 输出行A\n    cout << checkNum(Square, 10) << endl;  // 输出行B\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`checkNum()` 函数定义错误。"
+        },
+        {
+          "label": "B",
+          "content": "输出行 A 的语句将导致编译错误。"
+        },
+        {
+          "label": "C",
+          "content": "输出行 B 的语句将导致编译错误。"
+        },
+        {
+          "label": "D",
+          "content": "该代码没有编译错误。"
+        }
+      ],
+      "answer": "C",
+      "explanation": "`checkNum` 的第一个参数需要返回值为 `bool`、参数为 `int` 的函数，`isOdd` 符合要求，不会导致编译错误；`Square` 的返回值是 `int`，不符合要求，传递 `Square` 会导致编译错误，选 C。"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面代码执行后的输出是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint jumpFloor(int N) {\n    cout << N << \"#\";\n    if (N == 1 || N == 2) {\n        return N;\n    } else {\n        return jumpFloor(N - 1) + jumpFloor(N - 2);\n    }\n}\nint main() {\n    cout << jumpFloor(4) << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`4#3#2#2#4`"
+        },
+        {
+          "label": "B",
+          "content": "`4#3#2#2#1#5`"
+        },
+        {
+          "label": "C",
+          "content": "`4#3#2#1#2#4`"
+        },
+        {
+          "label": "D",
+          "content": "`4#3#2#1#2#5`"
+        }
+      ],
+      "answer": "D",
+      "explanation": "调用 `jumpFloor(4)` 先输出 `4#`，返回 `jumpFloor(3) + jumpFloor(2)`；`jumpFloor(3)` 输出 `3#`，再递归调用 `jumpFloor(2) + jumpFloor(1)`，依次输出 `2#1#` 并返回 3；`jumpFloor(2)` 输出 `2#` 返回 2，最终返回 $3+2=5$。输出为 `4#3#2#1#2#5`，选 D。"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面代码中的 `isPrimeA()` 和 `isPrimeB()` 都用于判断参数 `N` 是否素数，有关其时间复杂度的正确说法是（ ）。\n\n```cpp\n#include <iostream>\n#include <cmath>\nusing namespace std;\n\nbool isPrimeA(int N) {\n    if (N < 2)\n        return false;\n    for (int i = 2; i < N; i++)\n        if (N % i == 0)\n            return false;\n    return true;\n}\nbool isPrimeB(int N) {\n    if (N < 2)\n        return false;\n    int endNum = int(sqrt(N));\n    for (int i = 2; i <= endNum; i++)\n        if (N % i == 0)\n            return false;\n    return true;\n}\nint main() {\n    cout << boolalpha;\n    cout << isPrimeA(13) << \" \" << isPrimeB(13) << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`isPrimeA()` 的最坏时间复杂度是 $O(N)$，`isPrimeB()` 的最坏时间复杂度是 $O(\\log N)$，`isPrimeB()` 优于 `isPrimeA()`。"
+        },
+        {
+          "label": "B",
+          "content": "`isPrimeA()` 的最坏时间复杂度是 $O(N)$，`isPrimeB()` 的最坏时间复杂度是 $O(N^{\\frac{1}{2}})$，`isPrimeB()` 优于 `isPrimeA()`。"
+        },
+        {
+          "label": "C",
+          "content": "`isPrimeA()` 的最坏时间复杂度是 $O(N^{\\frac{1}{2}})$，`isPrimeB()` 的最坏时间复杂度是 $O(N)$，`isPrimeA()` 优于 `isPrimeB()`。"
+        },
+        {
+          "label": "D",
+          "content": "`isPrimeA()` 的最坏时间复杂度是 $O(\\log N)$，`isPrimeB()` 的最坏时间复杂度是 $O(N)$，`isPrimeA()` 优于 `isPrimeB()`。"
+        }
+      ],
+      "answer": "B",
+      "explanation": "`isPrimeA` 的最坏时间复杂度是 $O(N)$，`isPrimeB` 的最坏时间复杂度是 $O(\\sqrt{N})$，$O(\\sqrt{N})$ 优于 $O(N)$，选 B。"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面代码用于归并排序，其中 `merge()` 函数被调用次数为（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nvoid mergeSort(int * listData, int start, int end);\nvoid merge(int * listData, int start, int middle, int end);\n\nvoid mergeSort(int * listData, int start, int end) {\n    if (start >= end)\n        return;\n    int middle = (start + end) / 2;\n    mergeSort(listData, start, middle);\n    mergeSort(listData, middle + 1, end);\n    merge(listData, start, middle, end);\n}\nvoid merge(int * listData, int start, int middle, int end) {\n    int leftSize = middle - start + 1;\n    int rightSize = end - middle;\n\n    int * left = new int[leftSize];\n    int * right = new int[rightSize];\n    for (int i = 0; i < leftSize; i++)\n        left[i] = listData[start + i];\n    for (int j = 0; j < rightSize; j++)\n        right[j] = listData[middle + 1 + j];\n\n    int i = 0, j = 0, k = start;\n    while (i < leftSize && j < rightSize) {\n        if (left[i] <= right[j]) {\n            listData[k] = left[i];\n            i++;\n        } else {\n            listData[k] = right[j];\n            j++;\n        }\n        k++;\n    }\n\n    while (i < leftSize) {\n        listData[k] = left[i];\n        i++;\n        k++;\n    }\n    while (j < rightSize) {\n        listData[k] = right[j];\n        j++;\n        k++;\n    }\n    delete[] left;\n    delete[] right;\n}\nint main() {\n    int lstA[] = {1, 3, 2, 7, 11, 5, 3};\n    int size = sizeof(lstA) / sizeof(lstA[0]);\n\n    mergeSort(lstA, 0, size - 1); // 对lstA执行归并排序\n\n    for (int i = 0; i < size; i++)\n        cout << lstA[i] << \" \";\n    cout << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0`"
+        },
+        {
+          "label": "B",
+          "content": "`1`"
+        },
+        {
+          "label": "C",
+          "content": "`6`"
+        },
+        {
+          "label": "D",
+          "content": "`7`"
+        }
+      ],
+      "answer": "C",
+      "explanation": "`lstA` 的长度为 7，根据递归返回的条件 `start >= end`，`merge` 函数会被调用 6 次，选 C。"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "在上题的归并排序算法中，`mergeSort(listData, start, middle);` 和 `mergeSort(listData, middle + 1, end);` 涉及到的算法为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "搜索算法"
+        },
+        {
+          "label": "B",
+          "content": "分治算法"
+        },
+        {
+          "label": "C",
+          "content": "贪心算法"
+        },
+        {
+          "label": "D",
+          "content": "递推算法"
+        }
+      ],
+      "answer": "B",
+      "explanation": "归并排序采用的是分治算法思想，选 B。"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "归并排序算法的基本思想是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "将数组分成两个子数组，分别排序后再合并。"
+        },
+        {
+          "label": "B",
+          "content": "随机选择一个元素作为枢轴，将数组划分为两个部分。"
+        },
+        {
+          "label": "C",
+          "content": "从数组的最后一个元素开始，依次与前一个元素比较并交换位置。"
+        },
+        {
+          "label": "D",
+          "content": "比较相邻的两个元素，如果顺序错误就交换位置。"
+        }
+      ],
+      "answer": "A",
+      "explanation": "归并排序的基本思想就是将数组分成两个子数组，分别排序后再合并，选 A。"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "有关下面代码的说法正确的是（ ）。\n\n```cpp\n#include <iostream>\n\nclass Node {\npublic:\n    int Value;\n    Node * Next;\n\n    Node(int Val, Node * Nxt = nullptr) {\n        Value = Val;\n        Next = Nxt;\n    }\n};\n\nint main() {\n    Node * firstNode = new Node(10);\n    firstNode->Next = new Node(100);\n    firstNode->Next->Next = new Node(111, firstNode);\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "上述代码构成单向链表。"
+        },
+        {
+          "label": "B",
+          "content": "上述代码构成双向链表。"
+        },
+        {
+          "label": "C",
+          "content": "上述代码构成循环链表。"
+        },
+        {
+          "label": "D",
+          "content": "上述代码构成指针链表。"
+        }
+      ],
+      "answer": "C",
+      "explanation": "第 15～17 行创建了三个链表节点：第一个节点的 `Next` 指向第二个节点，第二个节点的 `Next` 指向第三个节点，第三个节点的 `Next` 又指向第一个节点，形成了一个环，所以是循环链表，选 C。"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "TCP/IP 的传输层的两个不同的协议分别是 UDP 和 TCP。",
+      "answer": "T",
+      "explanation": "传输层的两个协议就是 UDP 和 TCP。"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "在特殊情况下流程图中可以出现三角框和圆形框。",
+      "answer": "F",
+      "explanation": "流程图中没有三角框。"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "找出自然数 $N$ 以内的所有质数，常用算法有埃氏筛法和线性筛法，其中埃氏筛法效率更高。",
+      "answer": "F",
+      "explanation": "线性筛法是在埃氏筛法基础上的改进，效率更高。"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "在 C++ 中，可以使用二分法查找链表中的元素。",
+      "answer": "F",
+      "explanation": "使用二分法查找元素，元素必须是顺序存储的；链表不是顺序存储数据，因此不能使用二分法。"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "在 C++ 中，通过恰当的实现，可以将链表首尾相接，形成循环链表。",
+      "answer": "T",
+      "explanation": "链表的最后一个节点的 `next` 指针指向头结点就能形成循环链表。"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "贪心算法的解可能不是最优解。",
+      "answer": "T",
+      "explanation": "贪心算法找到的不一定是最优解。"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "一般说来，冒泡排序算法优于归并排序。",
+      "answer": "F",
+      "explanation": "冒泡排序的时间复杂度为 $O(N^2)$，归并排序的时间复杂度为 $O(N\\log N)$，因此归并优于冒泡，说法错误。"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "C++ 语言中的 `qsort` 库函数是不稳定排序。",
+      "answer": "T",
+      "explanation": "`qsort` 函数内部使用的是不稳定的排序算法。"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "质数的判定和筛法的目的并不相同，质数判定旨在判断特定的正整数是否为质数，而质数筛法意在筛选出范围内的所有质数。",
+      "answer": "T",
+      "explanation": "说法正确。"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "下面的 C++ 代码执行后将输出 `0 5 1 6 2 3 4`。\n\n```cpp\n#include <iostream>\n#include <algorithm>\nusing namespace std;\n\nbool compareModulo5(int a, int b) {\n    return a % 5 < b % 5;\n}\nint main() {\n    int lst[7];\n    for (int i = 0; i < 7; i++)\n        lst[i] = i;\n\n    // 对序列所有元素按compareModulo5结果排序\n    sort(lst, lst + 7, compareModulo5);\n\n    for (int i = 0; i < 7; i++)\n        cout << lst[i] << \" \";\n    cout << endl;\n    return 0;\n}\n```",
+      "answer": "T",
+      "explanation": "排序规则函数 `compareModulo5` 按除以 5 的余数升序排序，所以对 0～6 的整数排序之后的结果就是 `0 5 1 6 2 3 4`。"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "因数分解",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "每个正整数都可以分解成素数的乘积，例如：$6=2\\times 3$、$20=2^2\\times 5$。\n\n现在，给定一个正整数 $N$，请按要求输出它的因数分解式。",
+      "inputFormat": "输入第一行，包含一个正整数 $N$。约定 $2 \\le N \\le 10^{12}$。",
+      "outputFormat": "输出一行，为 $N$ 的因数分解式。要求按质因数由小到大排列，乘号用星号 `*` 表示，且左右各空一格。当且仅当一个素数出现多次时，将它们合并为指数形式，用上箭头 `^` 表示，且左右不空格。",
+      "samples": [
+        {
+          "input": "6",
+          "output": "2 * 3"
+        },
+        {
+          "input": "20",
+          "output": "2^2 * 5"
+        },
+        {
+          "input": "23",
+          "output": "23"
+        }
+      ],
+      "dataRange": "$2 \\le N \\le 10^{12}$。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\nint main() {\n    long long N = 0;\n    cin >> N;\n    bool first = true;\n    for (long long p = 2; p * p <= N; p++) {\n        if (N % p != 0)\n            continue;\n        int cnt = 0;\n        while (N % p == 0) {\n            cnt++;\n            N /= p;\n        }\n        if (first) {\n            first = false;\n        } else {\n            cout << \" * \";\n        }\n        cout << p;\n        if (cnt > 1)\n            cout << \"^\" << cnt;\n    }\n    if (N > 1) {\n        if (first) {\n            first = false;\n        } else {\n            cout << \" * \";\n        }\n        cout << N;\n    }\n    cout << endl;\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "巧夺大奖",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小明参加了一个巧夺大奖的游戏节目。主持人宣布了游戏规则：\n\n1. 游戏分为 $n$ 个时间段，参加者每个时间段可以选择一个小游戏。\n2. 游戏中共有 $n$ 个小游戏可供选择。\n3. 每个小游戏有规定的时限和奖励。对于第 $i$ 个小游戏，参加者必须在第 $T_i$ 个时间段结束前完成才能得到奖励 $R_i$。\n\n小明发现，这些小游戏都很简单，不管选择哪个小游戏，他都能在一个时间段内完成。关键问题在于，如何安排每个时间段分别选择哪个小游戏，才能使得总奖励最高？",
+      "inputFormat": "输入第一行，包含一个正整数 $n$。$n$ 既是游戏时间段的个数，也是小游戏的个数。约定 $1 \\le n \\le 500$。\n\n输入第二行，包含 $n$ 个正整数。第 $i$ 个正整数为 $T_i$，即第 $i$ 个小游戏的完成期限。约定 $1 \\le T_i \\le n$。\n\n输入第三行，包含 $n$ 个正整数。第 $i$ 个正整数为 $R_i$，即第 $i$ 个小游戏的完成奖励。约定 $1 \\le R_i \\le 1000$。",
+      "outputFormat": "输出一行，包含一个正整数 $C$，为最高可获得的奖励。",
+      "samples": [
+        {
+          "input": "7\n4 2 4 3 1 4 6\n70 60 50 40 30 20 10",
+          "output": "230",
+          "explanation": "7 个时间段可分别安排完成第 4、2、3、1、6、7、5 个小游戏，其中第 4、2、3、1、7 个小游戏在期限内完成。因此，可以获得总计 $40+60+50+70+10=230$ 的奖励。"
+        }
+      ],
+      "dataRange": "$1 \\le n \\le 500$，$1 \\le T_i \\le n$，$1 \\le R_i \\le 1000$。",
+      "referenceSolution": "#include <iostream>\n#include <algorithm>\nusing namespace std;\nint n = 0;\nstruct game_t {\n    int T, R;\n} games[500];\nbool game_cmp(game_t x, game_t y){\n    return x.R > y.R;\n}\nbool arrange[500];\nint main() {\n    cin >> n;\n    for (int i = 0; i < n; i++)\n        arrange[i] = false;\n    for (int i = 0; i < n; i++)\n        cin >> games[i].T;\n    for (int i = 0; i < n; i++)\n        cin >> games[i].R;\n    sort(games, games + n, game_cmp);\n    int sum = 0;\n    for (int i = 0; i < n; i++) {\n        for (int t = games[i].T - 1; t >= 0; t--)\n            if (!arrange[t]) {\n                arrange[t] = true;\n                sum += games[i].R;\n                break;\n            }\n    }\n    cout << sum << endl;\n    return 0;\n}\n"
+    }
+  ]
+}

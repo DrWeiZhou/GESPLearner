@@ -1,0 +1,499 @@
+{
+  "id": "cpp-2025-03-l4",
+  "language": "cpp",
+  "level": 4,
+  "exam": {
+    "id": "2025-03",
+    "title": "2025年3月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10200.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1669256863285280.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "关于下述代码，说法错误的是（ ）。\n\n```cpp\nint multiply(int x, int y);\n\nint main() {\n    int a = 4;\n    int b = 5;\n    int result = multiply(a, b);\n    std::cout << \"The result is: \" << result << std::endl;\n    return 0;\n}\n\nint multiply(int x, int y) {\n    return x * y;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "函数 `multiply` 的定义应该放到函数 `main` 之前。"
+        },
+        {
+          "label": "B",
+          "content": "函数声明 `int multiply(int x, int y);` 中明确指定了函数 `multiply()` 的返回值为整数类型。"
+        },
+        {
+          "label": "C",
+          "content": "在 `main` 函数中，函数 `multiply` 通过 `multiply(a, b)` 被调用，其中 `a` 和 `b` 是定义在 `main` 函数中的变量，它们作为实参传递给了 `multiply` 函数的形参 `x` 和 `y`。"
+        },
+        {
+          "label": "D",
+          "content": "运行上述代码，将输出 `The result is: 20`。"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "执行下述代码将输出（ ）。\n\n```cpp\nint x = 10;\nvoid func() { int x = 20; std::cout << x; }\nint main() {\n    func();\n    std::cout << x;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`2020`"
+        },
+        {
+          "label": "B",
+          "content": "`2010`"
+        },
+        {
+          "label": "C",
+          "content": "`1010`"
+        },
+        {
+          "label": "D",
+          "content": "编译错误"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "执行下述代码后，变量 `a` 的值为（ ）。\n\n```cpp\nint a = 10;\nint* p = &a;\n*p = 20\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`10`"
+        },
+        {
+          "label": "B",
+          "content": "`20`"
+        },
+        {
+          "label": "C",
+          "content": "随机值"
+        },
+        {
+          "label": "D",
+          "content": "编译错误"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "以下哪种参数传递方式可以避免拷贝大型对象？",
+      "options": [
+        {
+          "label": "A",
+          "content": "只能用值传递"
+        },
+        {
+          "label": "B",
+          "content": "只能用引用传递"
+        },
+        {
+          "label": "C",
+          "content": "只能用指针传递"
+        },
+        {
+          "label": "D",
+          "content": "引用传递和指针传递均可"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "执行下述代码，将输出（ ）。\n\n```cpp\nvoid swap(int a, int &b) {\n    int temp = a;\n    a = b;\n    b = temp;\n}\nint main() {\n    int x = 1, y = 2;\n    swap(x, y);\n    std::cout << x << y;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`12`"
+        },
+        {
+          "label": "B",
+          "content": "`21`"
+        },
+        {
+          "label": "C",
+          "content": "`22`"
+        },
+        {
+          "label": "D",
+          "content": "`11`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下面的描述中，（ ）正确定义一个名为 `Person` 的结构体并正确初始化了一个 `Person` 结构体的变量 `p`。",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nstruct Person {\n    string name;\n    int age;\n};\nPerson p(\"Yang\", 10);\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nstruct Person {\n    string name,\n    int age;\n};\nPerson p;\np.name = \"Yang\";\np.age = 10;\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nstruct Person {\n    string name;\n    int age;\n};\nPerson p = { \"Yang\", 10 };\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nstruct Person {\n    string name;\n    int age;\n};\nPerson p = new Person(\"Yang\", 10);\n```"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "给定如下代码，\n\n```cpp\nstruct Person {\n    std::string name;\n    int age;\n    struct Address {\n        std::string street;\n        std::string city;\n    };\n    Address address;\n};\n```\n\n下面描述错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "结构 `Person` 内嵌套结构 `Address`"
+        },
+        {
+          "label": "B",
+          "content": "`Person` 有一个 `Address` 类型的 `address` 成员"
+        },
+        {
+          "label": "C",
+          "content": "一个 `Person` 类型的变量 `p` 的 `address` 的初始化可以写成：`p.address.street = \"123 Main St\"; p.address.city = \"Anytown\";`"
+        },
+        {
+          "label": "D",
+          "content": "结构的嵌套可以减少命名冲突，因此可以不必控制嵌套层次"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "假设 `int arr[2][3] = {{1,2,3},{4,5,6}};`，则 `arr[1][2]` 的值是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`2`"
+        },
+        {
+          "label": "B",
+          "content": "`3`"
+        },
+        {
+          "label": "C",
+          "content": "`5`"
+        },
+        {
+          "label": "D",
+          "content": "`6`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面（ ）正确定义了二维数组。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`int arr[3,4];`"
+        },
+        {
+          "label": "B",
+          "content": "`int arr[3][4];`"
+        },
+        {
+          "label": "C",
+          "content": "`int arr(3,4);`"
+        },
+        {
+          "label": "D",
+          "content": "`int a[3-4];`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "小杨正在爬楼梯，需要爬 $n$ 阶才能到达楼顶。如果每次可以爬 $1$ 个或 $2$ 个台阶，下面代码采用递推算法来计算一共有多少种不同的方法可以爬到楼顶，则横线上应填写（ ）。\n\n```cpp\nint f(int n) {\n    if (n == 1 || n == 2)\n        return n;\n\n    int f1 = 1;\n    int f2 = 2;\n    int res = 0;\n    for (int i = 3; i <= n; i++) {\n        _____ // 在此处填入代码\n    }\n    return res;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nres += f1 + f2;\nf1 = f2;\nf2 = res;\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nres = f1 + f2;\nf1 = f2;\nf2 = res;\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nres += f1 + f2;\nf2 = res;\nf1 = f2;\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nres = f1 + f2;\nf2 = res;\nf1 = f2;\n```"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "给定如下算法，其时间复杂度为（ ）。\n\n```cpp\nbool f(int arr[], int n, int target) {\n    for (int i = 0; i < (1 << n); i++) {\n        int sum = 0;\n        for (int j = 0; j < n; j++) {\n            if (i & (1 << j)) {\n                sum += arr[j];\n            }\n        }\n        if (sum == target) return true;\n    }\n    return false;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n^2)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n \\times 2^n)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(1)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(n^3)$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面关于排序稳定性的描述，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "稳定性指算法的时间复杂度恒定"
+        },
+        {
+          "label": "B",
+          "content": "稳定排序保证相同元素的相对顺序不变"
+        },
+        {
+          "label": "C",
+          "content": "选择排序是稳定排序"
+        },
+        {
+          "label": "D",
+          "content": "插入排序不是稳定排序"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "对数组 `arr[]={5, 3, 8, 1}` 进行升序排序，执行第一轮冒泡排序后数组 `arr` 中的内容为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3, 5, 1, 8`"
+        },
+        {
+          "label": "B",
+          "content": "`3, 1, 5, 8`"
+        },
+        {
+          "label": "C",
+          "content": "`3, 5, 8, 1`"
+        },
+        {
+          "label": "D",
+          "content": "`5, 3, 8, 1`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "运行下面的代码，将出现（ ）。\n\n```cpp\ndouble hmean(double a, double b) {\n    if (a == -b )\n        throw runtime_error(\"Runtime error occurred.\");\n    return 2.0*a*b/(a + b);\n}\n\nint main() {\n    double x = 10;\n    double y = -10;\n\n    try {\n        int result = hmean(x, y);\n        cout << \"hmean: \" << result << endl;\n    }\n    catch (const runtime_error& e) {\n        cout << \"Caught: \" << e.what() << endl;\n    } catch (...) {\n        cout << \"Caught an unknown exception.\" << endl;\n    }\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "屏幕上输出 `Caught: Runtime error occurred.`"
+        },
+        {
+          "label": "B",
+          "content": "屏幕上输出 `Caught an unknown exception.`"
+        },
+        {
+          "label": "C",
+          "content": "程序调用 `std::terminate()`"
+        },
+        {
+          "label": "D",
+          "content": "编译错误"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下面哪种方式不能实现将字符串 `\"Happy Spring!\"` 输出重定向到文件 `log.txt`（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nfreopen(\"log.txt\", \"w\", stdout);\ncout << \"Happy Spring!\" << endl;\nfclose(stdout);\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nstd::ofstream outFile(\"log.txt\");\noutFile << \"Happy Spring!\" << endl;\noutFile.close();\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nstd::ofstream outFile(\"log.txt\");\ncout << \"Happy Spring!\" << endl;\noutFile.close();\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nofstream log_file(\"log.txt\");\nstreambuf* org_cout = cout.rdbuf();\ncout.rdbuf(log_file.rdbuf());\ncout << \"Happy Spring!\" << endl;\ncout.rdbuf(org_cout);\n```"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "函数是 C++ 中的核心概念，用于封装可重用的代码块。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "在 C++ 中，函数的返回类型可以省略，默认为 `int`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "结构体的成员默认是 `public` 访问权限。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "假设整数数组 `arr[4]= {0, 1, 2, 3};` 的第一个元素在内存中的地址为 `0x7ffee4065820`，经过 `int* p = arr; p += 1;` 后，指针 `p` 的值是 `1`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "二维数组作为函数参数时，必须显式指定所有维度的大小。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "递推是一种通过已知的初始值和递推公式，逐步求解目标值的算法。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "考虑最坏情况下冒泡排序算法的时间复杂度，$T(n)$ 为待排序数字的数目为 $n$ 的复杂度，则其递推关系式为 $T(n) = T(n-1) + n$，$T(0) = 1$。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "插入排序在最好情况（已有序）下的时间复杂度是 $O(n^2)$。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "对数组 `arr[]={4, 3, 1, 5, 2}` 进行升序排序，执行第一轮选择排序后数组 `arr` 中的内容是 `{1, 4, 3, 5, 2}`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "未捕获异常会调用 `std::terminate` 终止程序。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "荒地开垦",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨有一大片荒地，可以表示为一个 $n$ 行 $m$ 列的网格图。\n\n小杨想要开垦这块荒地，但荒地中一些位置存在杂物，对于一块不存在杂物的荒地，该荒地可以开垦当且仅当其上下左右四个方向相邻的格子均不存在杂物。\n\n小杨可以选择**至多一个**位置，清除该位置的杂物，移除杂物后该位置变为荒地。小杨想知道在清除**至多一个**位置的杂物的情况下，最多能够开垦多少块荒地。",
+      "inputFormat": "第一行包含两个正整数 $n, m$，含义如题面所示。\n\n之后 $n$ 行，每行包含一个长度为 $m$ 且仅包含字符 `.` 和 `#` 的字符串。如果为 `.`，代表该位置为荒地，如果为 `#`，代表该位置为杂物。",
+      "outputFormat": "输出一个整数，代表在清除至多一个位置的杂物的情况下，最多能够开垦的荒地块数。",
+      "samples": [
+        {
+          "input": "3 5\n.....\n.#..#\n.....",
+          "output": "11",
+          "explanation": "移除第二行从左数第二块空地的杂物后：\n\n```text\n.....\n....#\n.....\n```\n\n第一行从左数前 $4$ 块荒地，第二行从左数前 $3$ 块荒地，第三行从左数前 $4$ 块荒地，均可开垦，$4+3+4=11$。"
+        }
+      ],
+      "dataRange": "对于全部数据，保证有 $1 \\le n, m \\le 1000$。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\nconst int N = 1005;\nchar mat[N][N];\nint a[N][N];\nconst int d[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};\nint main() {\n\n    int n, m, ans = 0;\n    scanf(\"%d%d\", &n, &m);\n    assert(1 <= n && n <= 1000);\n    assert(1 <= m && m <= 1000);\n\n    for (int i = 1; i <= n; i ++)\n        scanf(\"%s\", mat[i] + 1);\n    for (int i = 1; i <= n; i ++)\n        for (int j = 1; j <= m; j ++) {\n            int num = 0, p = -1;\n            for (int k = 0; k < 4; k ++)\n                if (mat[i + d[k][0]][j + d[k][1]] == '#')\n                    num ++, p = k;\n            if (mat[i][j] == '.' && num == 1)\n                a[i + d[p][0]][j + d[p][1]] ++;\n            else if (mat[i][j] == '.' && num == 0)\n                ans ++;\n            else if (mat[i][j] == '#' && num == 0)\n                a[i][j] ++;\n        }\n    int mx = 0;\n    for (int i = 1; i <= n; i ++)\n        for (int j = 0; j <= m; j ++)\n            mx = max(mx, a[i][j]);\n    cout << ans + mx << endl;\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "二阶矩阵",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小 A 有一个 $n$ 行 $m$ 列的矩阵 $A$。\n\n小 A 认为一个 $2 \\times 2$ 的矩阵 $D$ 是好的，当且仅当 $D_{1,1} \\times D_{2,2} = D_{1,2} \\times D_{2,1}$。其中 $D_{i,j}$ 表示矩阵 $D$ 的第 $i$ 行第 $j$ 列的元素。\n\n小 A 想知道 $A$ 中有多少个好的子矩阵。",
+      "inputFormat": "第一行，两个正整数 $n, m$。\n\n接下来 $n$ 行，每行 $m$ 个整数 $A_{i,1}, A_{i,2}, \\ldots, A_{i,m}$。",
+      "outputFormat": "一行，一个整数，表示 $A$ 中好的子矩阵的数量。",
+      "samples": [
+        {
+          "input": "3 4\n1 2 1 0\n2 4 2 1\n0 3 3 0",
+          "output": "2",
+          "explanation": "样例中的好的子矩阵如下（图中高亮部分）：\n\n- 第 $1 \\sim 2$ 行、第 $1 \\sim 2$ 列构成的子矩阵：$\\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix}$，$1 \\times 4 = 2 \\times 2$；\n- 第 $1 \\sim 2$ 行、第 $2 \\sim 3$ 列构成的子矩阵：$\\begin{pmatrix} 2 & 1 \\\\ 4 & 2 \\end{pmatrix}$，$2 \\times 2 = 1 \\times 4$。"
+        }
+      ],
+      "dataRange": "对于所有测试点，保证 $1 \\le n \\le 500$，$1 \\le m \\le 500$，$-100 \\le A_{i,j} \\le 100$。",
+      "referenceSolution": "#include <bits/stdc++.h>\nusing namespace std;\n\nconst int N = 505;\n\nint n, m;\nint a[N][N];\nint ans;\n\nint main() {\n    scanf(\"%d%d\", &n, &m);\n    assert(1 <= n && n <= 500 && 1 <= m && m <= 500);\n    for (int i = 1; i <= n; i++)\n        for (int j = 1; j <= m; j++) {\n            scanf(\"%d\", &a[i][j]);\n            assert(-100 <= a[i][j] && a[i][j] <= 100);\n        }\n    for (int i = 1; i < n; i++)\n        for (int j = 1; j < m; j++)\n            if (a[i][j] * a[i + 1][j + 1] == a[i + 1][j] * a[i][j + 1])\n                ans++;\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n"
+    }
+  ]
+}

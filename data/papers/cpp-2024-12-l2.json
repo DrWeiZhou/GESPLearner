@@ -1,0 +1,497 @@
+{
+  "id": "cpp-2024-12-l2",
+  "language": "cpp",
+  "level": 2,
+  "exam": {
+    "id": "2024-12",
+    "title": "2024年12月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10178.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1650239656165408.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "2024年10月8日，诺贝尔物理学奖“意外地”颁给了两位计算机科学家约翰·霍普菲尔德（John J. Hopfield）和杰弗里·辛顿（Geoffrey E. Hinton）。这两位科学家的主要研究方向是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "天体物理"
+        },
+        {
+          "label": "B",
+          "content": "流体力学"
+        },
+        {
+          "label": "C",
+          "content": "人工智能"
+        },
+        {
+          "label": "D",
+          "content": "量子理论"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "计算机系统中存储的基本单位用 B 来表示，它代表的是（ ），比如某个照片大小为 3MB。",
+      "options": [
+        {
+          "label": "A",
+          "content": "Byte"
+        },
+        {
+          "label": "B",
+          "content": "Block"
+        },
+        {
+          "label": "C",
+          "content": "Bulk"
+        },
+        {
+          "label": "D",
+          "content": "Bit"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "C++ 语句 `cout << (3 + 3 % 3 * 2 - 1)` 执行后输出的值是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`-1`"
+        },
+        {
+          "label": "B",
+          "content": "`4`"
+        },
+        {
+          "label": "C",
+          "content": "`56`"
+        },
+        {
+          "label": "D",
+          "content": "`2`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后其输出是（ ）。\n\n```cpp\nfor (int i=0; i<10; i++)\n    printf(\"%d\",i);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`123456789`"
+        },
+        {
+          "label": "B",
+          "content": "`0123456789`"
+        },
+        {
+          "label": "C",
+          "content": "`12345678910`"
+        },
+        {
+          "label": "D",
+          "content": "`012345678910`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面 C++ 代码的相关说法中，正确的是（ ）。\n\n```cpp\nint tnt;\nfor (int i=0; i<10; i++)\n    tnt += i;\ncout << tnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "上述代码执行后其输出相当于求 1-10 的和（包含 10）"
+        },
+        {
+          "label": "B",
+          "content": "上述代码执行后其输出相当于求 1-10 的和（不包含 10）"
+        },
+        {
+          "label": "C",
+          "content": "上述代码执行后其输出相当于求 0-10 的和（不包含 10）"
+        },
+        {
+          "label": "D",
+          "content": "上述代码执行后将输出不确定的值"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后输出是（ ）。\n\n```cpp\nint i;\n\nfor (i=1; i<10; i++)\n    if (i % 2)\n        continue;\n    else\n        break;\n\ncout << i;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1`"
+        },
+        {
+          "label": "B",
+          "content": "`2`"
+        },
+        {
+          "label": "C",
+          "content": "`9`"
+        },
+        {
+          "label": "D",
+          "content": "`10`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\nfor (i=0; i<10; i++){\n    if (i % 3)\n        continue;\n    printf(\"0#\");\n}\nif(i>=10)\n    printf(\"1#\");\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0#0#0#0#0#0#0#1#`"
+        },
+        {
+          "label": "B",
+          "content": "`0#0#0#0#0#0#1#`"
+        },
+        {
+          "label": "C",
+          "content": "`0#0#0#0#1#`"
+        },
+        {
+          "label": "D",
+          "content": "`0#0#0#0#`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面 C++ 代码用于输出 0-100 之前（包含 100）能被 7 整除但不能被 3 整除的数，横线处**不能**填入的代码是（ ）。\n\n```cpp\nfor (i=0; i<100; i++)\n    if(_____________)\n        cout << i << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`i % 7 == 0 && i % 3 != 0`"
+        },
+        {
+          "label": "B",
+          "content": "`!(i % 7) && i % 3 != 0`"
+        },
+        {
+          "label": "C",
+          "content": "`i % 7 && i % 3`"
+        },
+        {
+          "label": "D",
+          "content": "`i % 7 == 0 && !(i % 3 == 0)`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面 C++ 代码用于求正整数各位数字之和，横线处**不应**填入代码是（ ）。\n\n```cpp\nint tnt, N;\nprintf(\"请输入正整数：\");\ncin >> N;\ntnt = 0;\nwhile (N != 0){\n    ________________\n    N /= 10;\n}\ncout <<tnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`tnt = tnt + N % 10`"
+        },
+        {
+          "label": "B",
+          "content": "`tnt += N % 10`"
+        },
+        {
+          "label": "C",
+          "content": "`tnt = N % 10 + tnt`"
+        },
+        {
+          "label": "D",
+          "content": "`tnt = N % 10`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下图的 C++ 程序执行后的输出是（ ）。\n\n```cpp\nfor (i=0; i<5; i++)\n    for (j=0; j<i; j++)\n        cout <<j;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0010120123`"
+        },
+        {
+          "label": "B",
+          "content": "`01012012301234`"
+        },
+        {
+          "label": "C",
+          "content": "`001012012301234`"
+        },
+        {
+          "label": "D",
+          "content": "`01012012301234012345`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面 C++ 代码用于实现图示的九九乘法表。相关说法**错误**的是（ ）。\n\n```cpp\n/*\n1*1=1\n1*2=2  2*2=4\n1*3=3  2*3=6  3*3=9\n1*4=4  2*4=8  3*4=12 4*4=16\n1*5=5  2*5=10 3*5=15 4*5=20 5*5=25\n1*6=6  2*6=12 3*6=18 4*6=24 5*6=30 6*6=36\n1*7=7  2*7=14 3*7=21 4*7=28 5*7=35 6*7=42 7*7=49\n1*8=8  2*8=16 3*8=24 4*8=32 5*8=40 6*8=48 7*8=56 8*8=64\n1*9=9  2*9=18 3*9=27 4*9=36 5*9=45 6*9=54 7*9=63 8*9=72 9*9=81\n*/\n\nfor (int Hang=1; Hang<10; Hang++){\n    for (int Lie=1; Lie<Hang+1; Lie++){\n        if (Lie * Hang > 9)\n            printf(\"%d*%d=%d \", Lie, Hang, Lie*Hang);\n        else\n            printf(\"%d*%d=%d  \", Lie, Hang, Lie*Hang);\n        // L2\n    }\n\n    printf(\"\\n\"); // L1\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "将 L1 注释的 `printf(\"\\n\")` 移到 L2 注释所在行，效果相同"
+        },
+        {
+          "label": "B",
+          "content": "将 L1 注释的 `printf(\"\\n\")` 修改为 `print(\"%c\", '\\n')` 效果相同"
+        },
+        {
+          "label": "C",
+          "content": "将 `Lie * Hang > 9` 修改为 `Lie * Hang >= 10` 效果相同"
+        },
+        {
+          "label": "D",
+          "content": "将 `Lie * Hang > 9` 修改为 `Hang * Lie > 9` 效果相同"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "在数学中 $N!$ 表示 $N$ 的阶乘，即 $1$ 到 $N$ 的乘积，如 `3!=1*2*3`。下面的 C++ 用于求 1-N 的阶乘之和，如 $N$ 为 $3$，则是 `1!+2!+3!`。下面代码段补充选项后用于实现上述功能，**其中不能**实现阶乘和的选项是（ ）。\n\n```cpp\nint N;\n\ncin >> N;\n\nint tnt=0, nowNum = 1; //tnt保存求和之值，当前N的阶乘\n\nfor (int i=1; i < N + 1; i++){\n    ______________ // 基于上一个计算出当前数的阶乘\n    ______________ // 从1到i每个数阶乘之和\n}\n\ncout << tnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nnowNum *= i;\ntnt += nowNum;\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nnowNum = nowNum * i;\ntnt = tnt + nowNum;\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nnowNum *= i;\ntnt = nowNum + tnt;\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nnowNum = nowNum + i;\ntnt *= nowNum;\n```"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下面 C++ 代码用于输出 $N$ 和 $M$ 之间（可以包括 $N$ 和 $M$）的孪生素数。孪生素数是指间隔为 $2$ 的两个数均为素数，如 $11$ 和 $13$ 分别是素数，且间隔为 $2$。`isPrime(N)` 用于判断 $N$ 是否为素数的函数。为完成上述功能，横线处应填上的代码是（ ）。\n\n```cpp\nint N,M;\n\n//本题假设N小于M\ncin >> N >> M;\n\nfor (int i = N; i < __________; i++)\n    if (isPrime(i) && isPrime(i + 2))\n        printf(\"%d %d\\n\",i, i + 2);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`M - 2`"
+        },
+        {
+          "label": "B",
+          "content": "`M - 1`"
+        },
+        {
+          "label": "C",
+          "content": "`M`"
+        },
+        {
+          "label": "D",
+          "content": "`M + 1`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "下面 C++ 代码实现输出如下图形，横线应填入的代码是（ ）。\n\n```cpp\n/*\n高度:5\n    *\n   ***\n  *****\n *******\n*********\n*/\n\nint height;\ncout << \"高度: \";\n\n//获取用户输入的高度\ncin >> height;\nfor (i=0; i<height; i++){\n    //打印每行前面的空格\n    for (j = 0; j < _______________; j++)\n        cout << \" \";\n    //打印每行的星号\n    for (k = 0; k < _______________; k++)\n        cout << \"*\";\n    //输出一行后，换行\n    cout << endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nheight - i\n2 * i\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nheight\n2 * i\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nheight - i\n2 * i + 1\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nheight - i - 1\n2 * i + 1\n```"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是 $30$，则横线处不能填入（ ）。\n\n```cpp\nint a=10,b=20,c=30;\n\ncout << _____________________ << endl;\n\ncout << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`max(max(a, b), c)`"
+        },
+        {
+          "label": "B",
+          "content": "`min(a+b, c)`"
+        },
+        {
+          "label": "C",
+          "content": "`sqrt(a+b+c)`"
+        },
+        {
+          "label": "D",
+          "content": "`(a+b+c)/2`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "在 Windows 的资源管理器中为已有文件 A 建立副本的操作是 Ctrl+C，然后 Ctrl+V。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "在 C++ 代码中，假设 N 为正整数，则 `cout << (N - N / 10 * 10)` 将获得 N 的个位数。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "在 C++ 语句 `cout << (10 <= N <= 12)` 中，假设 N 为 12，则其输出为 1。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "如果 C++ 表达式 `int(sqrt(N))*int(sqrt(N)) == N` 的值为 True，则说明 N 为完全平方数，如 4、9、25 等。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后将输出 `2*3=6`。（ ）\n\n```cpp\nint a = 2, b = 3;\nprintf(\"%%a*%%b=%d\",a*b);\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "以下 C++ 代码因为循环变量为 `_` 将导致错误，即 `_` 不能作为变量名称，不符合 C++ 变量命名规范。（ ）\n\n```cpp\nfor (int _ = 0; _ < 10; _++)\n    continue;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后因为有 `break`，将输出 0。（ ）\n\n```cpp\nint i;\nfor (i = 0; i < 10; i++){\n    continue;\n    break;\n}\ncout << i;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "下面的 C++ 代码执行后将输出 18 行“OK”。（ ）\n\n```cpp\nint i,j;\nfor (i = 8; i > 2; i-=2)\n    for (j =0; j < i; j++)\n        printf(\"OK\\n\");\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "将下面 C++ 代码中的 `i = 1` 调整为 `i = 0` 的输出结果相同。（ ）\n\n```cpp\nint i;\nint cnt = 0;\nfor (i = 1; i < 5; i++)\n   if(i%2) cnt += 1;\ncout << cnt;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "下面两段 C++ 代码都是用于求 1-10 的和，其运行结果相同。通常说来，for 循环都可以用 while 循环实现。（ ）\n\n```cpp\nint tnt;\nint i;\n\ntnt = 0;\nfor (i = 1; i < 10 + 1; i++)\n    tnt += i;\ncout << tnt << endl;\n```\n\n```cpp\nint tnt;\nint i;\n\ntnt = 0;\ni = 1;\nwhile (i <= 10){\n    tnt += i;\n    i += 1;\n}\ncout << tnt << endl;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "寻找数字",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨有一个正整数 $a$，小杨想知道是否存在一个正整数 $b$ 满足 $a = b^4$。",
+      "inputFormat": "第一行包含一个正整数 $t$，代表测试数据组数。\n\n对于每组测试数据，第一行包含一个正整数代表 $a$。",
+      "outputFormat": "对于每组测试数据，如果存在满足条件的正整数 $b$，则输出 $b$，否则输出 $-1$。",
+      "samples": [
+        {
+          "input": "3\n16\n81\n10",
+          "output": "2\n3\n-1"
+        }
+      ],
+      "dataRange": "对于全部数据，保证有 $1 \\le t \\le 10^5$，$1 \\le a \\le 10^8$。",
+      "referenceSolution": "#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main() {\n    int t;\n    cin >> t;\n    while (t--) {\n        int a;\n        cin >> a;\n        int b = (int)(sqrt(sqrt(a)));\n        if (b * b * b * b == a) {\n            cout << b << endl;\n        } else {\n            cout << -1 << endl;\n        }\n    }\n\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "数位和",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨有 $n$ 个正整数，小杨想知道这些正整数的数位和中最大值是多少。\n\n“数位和”指的是一个数字中所有数位的和。例如：\n\n对于数字 $12345$，它的各个数位分别是 $1, 2, 3, 4, 5$。将这些数位相加，得到：\n\n$$1 + 2 + 3 + 4 + 5 = 15$$\n\n因此，$12345$ 的数位和是 $15$。",
+      "inputFormat": "第一行包含一个正整数 $n$，代表正整数个数。\n\n之后 $n$ 行，每行包含一个正整数。",
+      "outputFormat": "输出这些正整数的数位和的最大值。",
+      "samples": [
+        {
+          "input": "3\n16\n81\n10",
+          "output": "9"
+        }
+      ],
+      "dataRange": "对于全部数据，保证有 $1 \\le n \\le 10^5$，每个正整数不超过 $10^{12}$。",
+      "referenceSolution": "#include <bits/stdc++.h>\nusing namespace std;\n#define ll long long\nint main() {\n    int n;\n    cin >> n;\n    int x = 0;\n\n    for (int i = 0; i < n; i++) {\n        int smu = 0;\n        ll tmp;\n        cin >> tmp;\n        while (tmp > 0) {\n            smu += tmp % 10;\n            tmp /= 10;\n        }\n\n        x = max(x, smu);\n    }\n\n    cout << x << endl;\n\n    return 0;\n}\n"
+    }
+  ]
+}

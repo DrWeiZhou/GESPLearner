@@ -1,0 +1,505 @@
+{
+  "id": "cpp-2025-09-l2",
+  "language": "cpp",
+  "level": 2,
+  "exam": {
+    "id": "2025-09",
+    "title": "2025年9月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10229.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1703973006344224.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "人工智能现在非常火，小杨就想多了解一下，其中就经常听人提到“大模型”。那么请问这里说的“大模型”最贴切是指（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "大电脑模型"
+        },
+        {
+          "label": "B",
+          "content": "大规模智能"
+        },
+        {
+          "label": "C",
+          "content": "智能的单位"
+        },
+        {
+          "label": "D",
+          "content": "大语言模型"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "在 TCP 协议中，完成连接建立需要通过（ ）握手。",
+      "options": [
+        {
+          "label": "A",
+          "content": "一次"
+        },
+        {
+          "label": "B",
+          "content": "二次"
+        },
+        {
+          "label": "C",
+          "content": "三次"
+        },
+        {
+          "label": "D",
+          "content": "四次"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下面的 C++ 代码用于输入姓名，然后输出姓名，正确的说法是（ ）。\n\n```cpp\nstring XingMing;\ncout << \"请输入您的姓名：\";\ncin >> XingMing;\ncout << XingMing;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`XingMing` 是汉语拼音，不能作为变量名称"
+        },
+        {
+          "label": "B",
+          "content": "可以将 `XingMing` 改为 `Xing Ming`"
+        },
+        {
+          "label": "C",
+          "content": "可以将 `XingMing` 改为 `xingming`"
+        },
+        {
+          "label": "D",
+          "content": "可以将 `XingMing` 改为 `Xing-Ming`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下面 C++ 代码用于获得正整数 N 的第 M 位数，如 N 等于 1234，M 等于 2，则输出 `3`。此题假设 M 的值大于等于 1 且小于等于 N 的位数。横线处应填入的代码是（ ）。\n\n```cpp\nint N, M, div=1;\ncout << \"请输入一个正整数：\";\ncin >> N;\ncout <<\"请输入从右到左取第几位数：\";\ncin >> M;\n\nfor (int i =0; i < (M - 1); i++) div *= 10;\n\ncout << (______________);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`N % div / 10`"
+        },
+        {
+          "label": "B",
+          "content": "`N / div / 10`"
+        },
+        {
+          "label": "C",
+          "content": "`N % div % 10`"
+        },
+        {
+          "label": "D",
+          "content": "`N / div % 10`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面 C++ 代码执行，其输出是（ ）。\n\n```cpp\na, b = 3, 4;\nc = a == b;\ncout << a << ' ' << b << ' ' << c;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3 4 0`"
+        },
+        {
+          "label": "B",
+          "content": "`3 3 3`"
+        },
+        {
+          "label": "C",
+          "content": "`4 4 4`"
+        },
+        {
+          "label": "D",
+          "content": "以上都不对"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "某种编号的规则是“XX-Y”，其中 XX 从 00 到 11，Y 从 0 到 9。第 1 个编号是 00-0，第 2 个编号是 01-1，…，第 12 个编号 11-1，第 13 个编号 00-2，即其编码规则是 XX 和 Y 同时增 1，到 XX 到 11 时下一个变为 00，Y 到 9 时，下一个变为 0。下面的 C++ 代码用于生成第 N 个编号，横线处应填上的代码是（ ）。\n\n```cpp\ncout << \"请输入编号位置：\";\ncin >> N;\n\npart1 = N % _____;\npart2 = N % _____;\n\nif (part1 < 10)\n    printf(\"0%d-%d\\n\", part1, part2);\nelse\n    printf(\"%d-%d\\n\", part1, part2);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`12 10`"
+        },
+        {
+          "label": "B",
+          "content": "`10 10`"
+        },
+        {
+          "label": "C",
+          "content": "`11 9`"
+        },
+        {
+          "label": "D",
+          "content": "`9 9`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下面的 C++ 代码执行后其输出是（ ）。\n\n```cpp\ncnt = 0;\nfor (int i = -10; i < 10; i++)\n    for (int j =0; j < i; j++)\n        cnt += 1;\ncout << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`145`"
+        },
+        {
+          "label": "B",
+          "content": "`125`"
+        },
+        {
+          "label": "C",
+          "content": "`55`"
+        },
+        {
+          "label": "D",
+          "content": "`45`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后其输出是（ ）。\n\n```cpp\nfor (i =1; i < 12; i++){\n    if (i % 2 == 0)\n        continue;\n\n    for (j = 0; j < i; j++)\n        if (i * j % 2)\n            break;\n}\nif(i>= 12)\n    cout << (i * j);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`110`"
+        },
+        {
+          "label": "B",
+          "content": "`12`"
+        },
+        {
+          "label": "C",
+          "content": "不确定"
+        },
+        {
+          "label": "D",
+          "content": "无输出"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "阅读下面的 C++ 代码，其中变量都是整型，则说法正确的是（ ）。\n\n```cpp\ncin >>a >> b;\n\nwhile (b != 0){\n    remainder = a % b;\n    a = b;\n    b = remainder;\n}\ncout << a;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`b` 不能为 `0`，因为 `a % b` 将导致错误"
+        },
+        {
+          "label": "B",
+          "content": "`a` 必须小于 `b`，否则 `a % b` 将导致错误"
+        },
+        {
+          "label": "C",
+          "content": "`a` 和 `b` 都必须为正整数，否则 `a % b` 将导致错误"
+        },
+        {
+          "label": "D",
+          "content": "如果 `a` 输入为 `0`，则不管 `b` 的输入值是什么，输出值的绝对值都是 `abs(b)`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后输出是（ ）。\n\n```cpp\nnum = 0;\nwhile (num <= 5){\n    num += 1;\n    if (num == 3)\n        continue;\n    printf(\"%d#\", num);\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1#2#4#5#6#`"
+        },
+        {
+          "label": "B",
+          "content": "`1#2#4#5#6`"
+        },
+        {
+          "label": "C",
+          "content": "`1#2#3#4#5#6#`"
+        },
+        {
+          "label": "D",
+          "content": "`1#2#3#4#5#6`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面 C++ 代码用于记录多个输入数中的最大数和最小数（输入 `-999` 则输入结束），相关说法错误的是（ ）。\n\n```cpp\ncin >> now_num;\nmin_num = max_num = now_num;\n\nwhile (now_num != -999){\n    if (max_num < now_num)\n        max_num = now_num;\n\n    if (min_num > now_num)\n        min_num = now_num;\n\n    cin >> now_num;\n}\ncout << min_num << ' ' << max_num;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "程序运行时如果第一个数输入 `-999`，则输出将是 `-999 -999`"
+        },
+        {
+          "label": "B",
+          "content": "程序输入过程中，如果输入的第一个数不是 `-999`，则如果待输入的数据中没有 `-999`，则程序能求出已输入整数中的最大数和最小数"
+        },
+        {
+          "label": "C",
+          "content": "如果用于输入考试成绩，即成绩中不可能有 `-999`，则程序能求出已输入成绩中的最高成绩和最低成绩"
+        },
+        {
+          "label": "D",
+          "content": "可以将 `cin >> now_num;` 移动到 `while (now_num != -999){` 下面，结果不变"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后输出与 5 有关数的数量。“与 5 有关的数”定义为含有 5 或者能被 5 整除的数。相关说法正确的是（ ）。\n\n```cpp\ncnt = 0;\nfor (i = 1; i < 1000; i++){\n    if (i % 5 == 0){\n        cnt += 1;\n        continue;\n    }\n    j = i;\n    while (j > 0)\n        if (j % 10 == 5){\n            cnt += 1;\n            break;\n        }\n        else\n            j /= 10;\n}\ncout << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "删除代码中 `continue` 不影响程序执行结果"
+        },
+        {
+          "label": "B",
+          "content": "删除 `j = i` 并将 `while` 循环内的 j 修改为 `i`，不影响程序执行结果"
+        },
+        {
+          "label": "C",
+          "content": "代码中 `break` 修改为 `j = 0`，不影响程序执行结果"
+        },
+        {
+          "label": "D",
+          "content": "将 `while (j > 0)` 修正为 `while (j >= 0)` 不影响程序执行的结果"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下面 C++ 代码实现输出如下图形，应该在横线处填入的代码是（ ）。\n\n```text\n请输入层数：10\n         1\n        23\n       456\n      7891\n     23456\n    789123\n   4567891\n  23456789\n 123456789\n1234567891\n```\n\n```cpp\ncout << \"请输入层数：\";\ncin >> N;\n\nK = 1;\n\nfor (i = 1; i < N + 1; i++){\n    for (int _ = 1; _ < ___________; _++)\n        cout << \" \";\n\n    for (int _ = 1; _ < ________; _++){\n        cout << K;\n\n        K += 1;\n        if (K == 10)\n            K = 1;\n    }\n    cout << '\\n';\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nN - i + 1\ni + 1\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nN - i\ni\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nN\ni\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nN - i\ni + 1\n```"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "下面 C++ 代码执行，其输出是（ ）。\n\n```cpp\nint a=9, b=27;\na = 'a' + 'b';\nb = 'a' - 'b';\na = a - b;\ncout << a << ' ' << b << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`196 -1`"
+        },
+        {
+          "label": "B",
+          "content": "`27 9`"
+        },
+        {
+          "label": "C",
+          "content": "`98 97`"
+        },
+        {
+          "label": "D",
+          "content": "不确定"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "有个无限长的链，由 3 种外形相同但材质不同的环链成。3 种环的重量分别是 3、4、6 克，相同材质的多个环每 12 克一组，分别记为 G3、G4、G6。链依次 G3、G4、G6、G3、G4、G6、…。同时对链上所有环从头依次编号 1、2、3、4……。输入正整数代表环编号，求该编号前所有环（不含该环本身）的重量。下面是 C++ 代码是实现，正确说法是（ ）。\n\n```cpp\ni int N, G, R;\nint wc = 0;\n\ncin >> N;  // 输入正整数\nG = (N - 1) / 9; // L1\nR = (N - 1) % 9; // L2: 保存余数\nwc += 36*G;\n\nif((1 <= R) && (R <= 4))\n    wc += 3*R; // L3\nelse if ((5 <= R) &&  (R <= 7))\n    wc += 4*R; // L4\nelse if(R == 8)\n    wc += 6*(R - 1); // L5\ncout << wc << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "必须同时修改 `L1` 和 `L2` 代码行才能实现功能"
+        },
+        {
+          "label": "B",
+          "content": "必须同时修改 `L3` 和 `L4` 代码行才能实现功能"
+        },
+        {
+          "label": "C",
+          "content": "必须同时修改 `L3` 和 `L5` 代码行才能实现功能"
+        },
+        {
+          "label": "D",
+          "content": "其他说法都不对"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "在集成开发环境里调试程序时，要注意不能修改源程序，因为如果修改，就要终止调试、关闭该文件并重新打开，才能再次开始调试。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "在 C++ 代码中，假设 N 为正整数且大于 100，则 `N / 100` 将舍弃个位和十位，如 N 为 1234 则 `cout << (N / 100)` 将输出 `12`。如果 N 小于 100，则其值为 `0`。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "下列 C++ 代码执行后将输出 `1`，因为 `a` 确实小于 20 和 10。（ ）\n\n```cpp\na = 5;\ncout << (a < 10 and 20);\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "下面的 C++ 代码中变量都是整型，则执行后将输出 `1`。（ ）\n\n```cpp\nx, y, z = 5, 10, 15;\nresult = x < y < z;\ncout << result;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "下面 C++ 代码执行时如输入 `99.99`，将输出 **及格** 两个汉字。（ ）\n\n```cpp\nint score;\ncout << \"请输入学生成绩：\";\ncin >> score;\nif (score >= 60)\n    printf(\"及格\");\nelse\n    printf(\"不及格\");\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "执行下面的 C++ 代码时输入 `123`，则输出是 `DCB`。（ ）\n\n```cpp\nint a;\ncin >> a;\nwhile(a){\n    cout << 'A'+a%10;\n    a /= 10;\n}\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "下面的 C++ 代码执行后将输出 `+#+#3#`。（ ）\n\n```cpp\nint i;\nfor (i = 0; i < 3; i++){\n    if (i == 2)\n        continue;\n    printf(\"+#\");\n}\ncout << i << '#';\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "下列 C++ 代码用于求斐波那契数列，即第 1 个数 0，第 2 个数 1，从第三个数开始，是前两个数之和。如果输入的值为大于 1 的正整数，该代码能实现。（ ）\n\n```cpp\ncin >> n;\na = 0, b = 1;\nfor (int j = 0; j < n; j++){\n    cout << a << \" \";\n    b = b + a;\n    a = b - a;\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "下面的 C++ 不能实现如下输出，但如果将 L1 标记的 `cout << 0` 行移动 `if` 块外面，或者说移动到 `L2` 标记行，则可以。（ ）\n\n```text\n请输入矩阵大小n: 9\n100000000\n020000000\n003000000\n000400000\n000050000\n000006000\n000000700\n000000080\n000000009\n```\n\n```cpp\nint n, i, j;\ncout << \"请输入矩阵大小n: \";\ncin >> n;\n\nfor (i = 0; i < n; i++){\n    for  (j = 0; j < n; j++){\n        if (i == j){\n            cout << i + 1;\n            continue;\n            cout << 0; // L1\n        }\n        // L2\n    }\n    printf(\"\\n\");\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "C++ 代码 `cout << ('5'+4);` 执行后的输出为 `9`。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "优美的数字",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "如果一个正整数在十进制下的所有数位都相同，小 A 就会觉得这个正整数很优美。例如，正整数 $6$ 的数位都是 $6$，所以 $6$ 是优美的。正整数 $99$ 的数位都是 $9$，所以 $99$ 是优美的。正整数 $123$ 的数位不都相同，所以 $123$ 并不优美。\n\n小 A 想知道不超过 $n$ 的正整数中有多少优美的数字。你能帮他数一数吗？",
+      "inputFormat": "一行，一个正整数 $n$。",
+      "outputFormat": "一行，一个正整数，表示不超过 $n$ 的优美正整数的数量。",
+      "samples": [
+        {
+          "input": "6",
+          "output": "6"
+        },
+        {
+          "input": "2025",
+          "output": "28"
+        }
+      ],
+      "dataRange": "对于所有测试点，保证 $1 \\le n \\le 2025$。",
+      "referenceSolution": "#include <algorithm>\n#include <cstdio>\n\nusing namespace std;\n\nint n, ans;\n\nint main() {\n    scanf(\"%d\", &n);\n    for (int i = 1; i <= n; i++) {\n        int v = i % 10, t = i / 10, chk = 1;\n        while (t) {\n            if (t % 10 != v) chk = 0;\n            t /= 10;\n        }\n        ans += chk;\n    }\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "菱形",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小 A 想绘制一个菱形。具体来说，需要绘制的菱形是一个 $n$ 行 $n$ 列的字符画，$n$ 是一个大于 $1$ 的奇数。菱形的四个顶点依次位于第 $1$ 行、第 $1$ 列、第 $n$ 行、第 $n$ 列的正中间，使用 `#` 绘制。相邻顶点之间也用 `#` 连接。其余位置都是 `.`。例如，一个 $5$ 行 $5$ 列的菱形字符画是这样的：\n\n```text\n..#..\n.#.#.\n#...#\n.#.#.\n..#..\n```\n\n给定 $n$，请你帮小 A 绘制对应的菱形。",
+      "inputFormat": "一行，一个正整数 $n$。",
+      "outputFormat": "输出共 $n$ 行，表示对应的菱形。",
+      "samples": [
+        {
+          "input": "3",
+          "output": ".#.\n#.#\n.#."
+        },
+        {
+          "input": "9",
+          "output": "....#....\n...#.#...\n..#...#..\n.#.....#.\n#.......#\n.#.....#.\n..#...#..\n...#.#...\n....#...."
+        }
+      ],
+      "dataRange": "对于所有测试点，保证 $3 \\le n \\le 29$ 并且 $n$ 为奇数。",
+      "referenceSolution": "#include <algorithm>\n#include <cstdio>\n\nusing namespace std;\n\nint main() {\n    int n, i, j, k;\n    scanf(\"%d\", &n);\n    k = n / 2;\n    for (i = 1; i <= n; i++) {\n        for (j = 1; j <= n; j++) {\n            if (abs(k - i + 1) + abs(k - j + 1) == k)\n                printf(\"#\");\n            else\n                printf(\".\");\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}\n"
+    }
+  ]
+}

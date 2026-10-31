@@ -1,0 +1,497 @@
+{
+  "id": "cpp-2025-03-l2",
+  "language": "cpp",
+  "level": 2,
+  "exam": {
+    "id": "2025-03",
+    "title": "2025年3月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10200.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1669256796176416.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "2025年春节有两件轰动全球的事件，一个是DeepSeek横空出世，另一个是贺岁片《哪吒2》票房惊人，入了全球票房榜。下面关于DeepSeek与《哪吒2》的描述成立的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "《哪吒2》是一款新型操作系统"
+        },
+        {
+          "label": "B",
+          "content": "DeepSeek是深海钻探软件"
+        },
+        {
+          "label": "C",
+          "content": "《哪吒2》可以生成新的软件"
+        },
+        {
+          "label": "D",
+          "content": "DeepSeek可以根据《哪吒2》的场景生成剧情脚本"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "对整型变量 N，如果它能够同时被 3 和 5 整除，则输出 N 是含有至少两个质因数。如果用流程图来描述处理过程，则输出语句应该在哪种图形框中（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "圆形框"
+        },
+        {
+          "label": "B",
+          "content": "椭圆形框"
+        },
+        {
+          "label": "C",
+          "content": "平行四边形框"
+        },
+        {
+          "label": "D",
+          "content": "菱形框"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下面 C++ 代码执行，其输出是（ ）。\n\n```cpp\nint a=3, b = 4;\na == b;\nb == a;\ncout << a << ' ' << b << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3 4`"
+        },
+        {
+          "label": "B",
+          "content": "`3 3`"
+        },
+        {
+          "label": "C",
+          "content": "`4 4`"
+        },
+        {
+          "label": "D",
+          "content": "`4 3`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "求三色彩球的颜色。有数量无限的红(Red)绿(Green)蓝(Blue)三种彩球排成一行，每组先为 5 个红色球，随后 3 个绿色，最后为 2 个蓝色。每个球都有编号，从左到右依次为 1,2,3……。输入整数代表编号，求该编号球的颜色。下面是 C++ 代码是实现，正确说法是（ ）。\n\n```cpp\nint N, remainder;\ncin >> N;\nremainder = N % 10; // remainder变量保存余数\n\nif((1 <= remainder) && (remainder<= 5))\n    cout << \"Red\";\nelse if ((6 <= remainder) &&  (remainder <= 8))\n    cout << \"Green\";\nelse if ((remainder == 9) || (remainder == 0))\n    cout << \"Blue\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "将 `else if ((remainder == 9) || (remainder == 0))` 修改为 `else` 效果相同"
+        },
+        {
+          "label": "B",
+          "content": "将 `((1 <= remainder) && (remainder<= 5))` 修改为 `(remainder <= 5)` 效果相同"
+        },
+        {
+          "label": "C",
+          "content": "`else if ((6 <= remainder) &&  (remainder <= 8))` 写法错误，应修改为 `else if (6 <= remainder <= 8)`"
+        },
+        {
+          "label": "D",
+          "content": "根据题意 `remainder = N % 10` 应修改为 `remainder = N / 10`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后其输出是（ ）。\n\n```cpp\nint tnt = 0;\nfor (int i = 0; i < 10;i ++)\n    if (i % 3)\n        tnt += 1;\n    else\n        tnt += 2;\ncout << tnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`18`"
+        },
+        {
+          "label": "B",
+          "content": "`17`"
+        },
+        {
+          "label": "C",
+          "content": "`16`"
+        },
+        {
+          "label": "D",
+          "content": "`14`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后输出是（ ）。\n\n```cpp\nint i;\nfor (i = 10; i > 0; i -= 2)\n    break;\ncout << i;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`10`"
+        },
+        {
+          "label": "B",
+          "content": "`8`"
+        },
+        {
+          "label": "C",
+          "content": "`0`"
+        },
+        {
+          "label": "D",
+          "content": "因为循环执行时会执行 `break` 语句而终止循环，所以 `i` 的值不确定"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后输出是（ ）。\n\n```cpp\nint i;\nfor (i =0; i < 10; i++){\n    if (i % 3 == 0)\n        continue;\n    cout << \"0\" << \"#\";\n}\nif (i >= 10)\n    cout << \"1\" << \"#\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0#0#0#0#0#0#`"
+        },
+        {
+          "label": "B",
+          "content": "`0#0#0#0#0#0#0#1#`"
+        },
+        {
+          "label": "C",
+          "content": "`0#0#0#0#1#`"
+        },
+        {
+          "label": "D",
+          "content": "`0#0#0#0#0#0#1#`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\nint i,j;\nfor (i = 0; i < 5; i++)\n    for (j = i; j > 0; j -= 1)\n        printf(\"%d-\",j);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1-2-1-3-2-1-4-3-2-1-`"
+        },
+        {
+          "label": "B",
+          "content": "`1-2-1-3-2-1-4-3-2-1`"
+        },
+        {
+          "label": "C",
+          "content": "`0-0-1-0-1-2-0-1-2-3-`"
+        },
+        {
+          "label": "D",
+          "content": "`0-0-1-0-1-2-0-1-2-3`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后，将输出能被 2 整除且除以 7 余数为 2 的数。下列选项不能实现的是（ ）。\n\n```cpp\nfor (int i = 0; i < 100; i++)\n    if _______________________\n        cout << i << \"  \";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`((i % 2 == 0) && (i % 7 == 2))`"
+        },
+        {
+          "label": "B",
+          "content": "`((!(i % 2)) && (i % 7 == 2))`"
+        },
+        {
+          "label": "C",
+          "content": "`((!(i % 2)) && (!(i % 7)))`"
+        },
+        {
+          "label": "D",
+          "content": "`((i % 2 != 1) && (i % 7 == 2))`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面 C++ 代码用于求 1 到 N 之间正整数中含有 3 的数的个数，比如 123 和 32 都是符合条件的数。则前后两处横线应填入代码分别是（ ）。\n\n```cpp\nint i,j;\nint cnt = 0, N;\ncout << \"请输入正整数N：\";\ncin >> N;\nfor (i = 1; (j=i) < N; i++)\n    while (j != 0)\n        if (j % 10 == 3){\n            cnt +=1;\n            __________;\n        }\n        else\n            __________;\ncout << cnt << \"  \";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\ncontinue\nj /= 10\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nbreak\nj /= 10\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\ncontinue\nj %= 10\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nbreak\nj %= 10\n```"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "在数学中 N! 表示 N 的阶乘，即 1 到 N 的乘积，如 `3!=1*2*3`，且 `0! = 1`。下面的两段 C++ 代码用于求 1 到 N 的阶乘之和，如 N 为 3，则结果是 9（`1!+2!+3!` 的值）。选项中的说法正确的是（ ）。\n\n```cpp\n// 实现1\nint i,N;\ncin >> N;\nint tnt = 0, last = 1;\nfor (i = 1; i < N + 1; i++){\n    last *= i;\n    tnt += last;\n}\ncout << tnt << endl;\n```\n\n```cpp\n// 实现2\nint i,N;\ncin >> N;\nint tnt = 0, tmp;\nfor (i = 1; i < N + 1; i++){\n    tmp = 1;\n    for (int j = 1; j < i + 1; j++)\n        tmp *= j;\n    tnt += tmp;\n}\ncout << tnt << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "虽然实现1的代码短小，但效率并不高"
+        },
+        {
+          "label": "B",
+          "content": "实现2的代码效率更高，且更易于理解"
+        },
+        {
+          "label": "C",
+          "content": "实现1因为应用了前项计算结果，计算量更小，因此效率高"
+        },
+        {
+          "label": "D",
+          "content": "两种实现，效率几乎一致"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "哥德巴赫猜想是指大于 2 的偶数都可以分解为两个质数之和，下面的代码用于验证 4-1000 之内的偶数能否分解为两个质数之和。下面 C++ 代码中假设 `isPrime()` 是已经定义好用于判断正整数 N 是否为质数，返回 `bool` 值。对该段代码，**错误**的说法是（ ）。\n\n```cpp\nfor (i = 4; i < 1000; i += 2)\n    for (j = 2; j < i; j++)\n        if (isPrime(j) && isPrime(i-j)){\n            printf(\"%d=%d+%d\\n\", i, j, i-j);\n            break;\n        }\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "将代码 `isPrime(j) && isPrime(i-j)` 修改为 `isPrime(j) == true && isPrime(i-j) == true` 效果相同"
+        },
+        {
+          "label": "B",
+          "content": "代码执行后，输出的一对质数，一定是小的数在前"
+        },
+        {
+          "label": "C",
+          "content": "即便将外层循环中 `i` 的上界 1000 修改为很大的整数，也不能说从数学上证明了哥德巴赫猜想"
+        },
+        {
+          "label": "D",
+          "content": "根据题意，`break` 语句应该移到 `if` 语句块之外"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "已知 C++ 代码和执行后的期望输出如下，相关说法正确的是（ ）。\n\n```cpp\nint i,j;\nint last, N;\n\ncout << \"请输入层数N：\";\ncin >> N;\n\nlast = 1;\nfor (i = 1; i < N; i++){\n    for (j = 1; j < i + 1; j++){ // L1\n        if (last > 9)\n            last = 1;\n\n        cout << last << \" \";\n        last += 1;\n    }\n    printf(\"\\n\");\n}\n```\n\n期望输出：\n\n```text\n请输入层数N：10\n1\n2 3\n4 5 6\n7 8 9 1\n2 3 4 5 6\n7 8 9 1 2 3\n4 5 6 7 8 9 1\n2 3 4 5 6 7 8 9\n1 2 3 4 5 6 7 8 9\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "倒数第二行的 `printf(\"\\n\")` 有错，应该修改为 `cout << endl;`，`printf( )` 函数不能输出换行"
+        },
+        {
+          "label": "B",
+          "content": "`last += 1` 修改为 `last = last + 1` 执行效果相同"
+        },
+        {
+          "label": "C",
+          "content": "代码中 L1 标记行中的 `j < i + 1` 应修改为 `j < i`"
+        },
+        {
+          "label": "D",
+          "content": "外层 `for` 循环前的 `last = 1` 修改为 `last = 0` 执行效果相同"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "在 C++ 中，（ ）最适合填入横线处连续 5 次正确生成 1 到 10 之间的随机整数？\n\n```cpp\nfor(int i=0; i<5; i++)\n    __________________;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`rand( ) % 11`"
+        },
+        {
+          "label": "B",
+          "content": "`rand( ) % 10`"
+        },
+        {
+          "label": "C",
+          "content": "`rand( ) % 10 + 1`"
+        },
+        {
+          "label": "D",
+          "content": "`rand() % 9 + 1`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "在 C++ 中，如果 `a` 和 `b` 均为 `float` 类型的变量，那么二者如果相差足够小（比如 0.000001），就可以视作相等。比如 `2.2345676` 和 `2.2345677` 就可以视作相等。下列哪个表达式能用来正确判断“a 等于 b”（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`((b-a) < 0.000001 )`"
+        },
+        {
+          "label": "B",
+          "content": "`((b-a) <= 0.000001 )`"
+        },
+        {
+          "label": "C",
+          "content": "`(abs(b-a) <= 0.000001 )`"
+        },
+        {
+          "label": "D",
+          "content": "`(sqrt(b-a) <= 0.000001 )`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "C++、Python 都是高级编程语言，它们的每条语句最终都要通过机器指令来完成。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "在 C++ 代码中，假设 N 为正整数，则 `N - N / 10 * 10` 与 `N % 10` 都将获得 N 的个位数。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "C++ 语句 `cout << ((10 <= N <= 12)? \"true\":\"false\")` 中，假设整型变量 N 为 12，则其输出为 `true`。原因是执行 `10 <= N` 后其值为 `true`，`true` 与 `12` 相比仍然是 `true`。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "C++ 表达式 `(sqrt(N) * sqrt(N)) == N` 中的 N 如果为正整数，则表达式的值为 true，相当于开平方后平方是本身。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "下面 C++ 执行后将输出 `3*2=6`。（ ）\n\n```cpp\nint a=2, b = 3;\na=a-b;\nb=a+b;\na=b-a;\nprintf(\"%d*%d=%d\\n\", a, b, a*b);\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后将输出 10。（ ）\n\n```cpp\nint i;\nfor (i = 0; i < 10; i++)\n    continue;\ncout << i << endl;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后将输出 1。（ ）\n\n```cpp\nint i;\nfor (i = 1; i < 10; i++){\n    break;\n    continue;\n}\ncout << i << endl;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "下面的 C++ 代码执行后将输出 10 行 \"OK\"。（ ）\n\n```cpp\nfor (int i = 0; i < 5; i++)\n    for(int j = 0; j < i; j++)\n        printf(\"OK\\n\");\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "将下面 C++ 代码中的 for 循环中的 `i = 1` 调整为 `i = 0` 的输出结果相同。（ ）\n\n```cpp\nint tnt = 0;\nfor (int i = 1; i < 5; i++) // i=1\n    tnt += i;\ncout << tnt;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后将输出 `0123`。（ ）\n\n```cpp\nfor (i = 0; i < 5; i++)\n    for (i = 0; i < i; i++)\n            continue;\n    printf(\"%d\\n\", i);\n```",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "等差矩阵",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小 A 想构造一个 $n$ 行 $m$ 列的矩阵，使得矩阵的每一行与每一列均是等差数列。小 A 发现，在矩阵的第 $i$ 行第 $j$ 列填入整数 $i \\times j$，得到的矩阵能满足要求。你能帮小 A 输出这个矩阵吗？",
+      "inputFormat": "一行，两个正整数 $n, m$。",
+      "outputFormat": "共 $n$ 行，每行 $m$ 个由空格分割的整数，表示小 A 需要构造的矩阵。",
+      "samples": [
+        {
+          "input": "3 4",
+          "output": "1 2 3 4\n2 4 6 8\n3 6 9 12"
+        }
+      ],
+      "dataRange": "对于所有测试点，保证 $1 \\le n \\le 50$，$1 \\le m \\le 50$。",
+      "referenceSolution": "#include <bits/stdc++.h>\n\nusing namespace std;\n\nint n, m;\n\nint main() {\n    scanf(\"%d%d\", &n, &m);\n    assert(1 <= n && n <= 50 && 1 <= m && m <= 50);\n    for (int i = 1; i <= n; i++)\n        for (int j = 1; j <= m; j++)\n            printf(\"%d%c\", i * j, \" \\n\"[j == m]);\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "时间跨越",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "假设现在是 $y$ 年 $m$ 月 $d$ 日 $h$ 时而 $k$ 小时后是 $y'$ 年 $m'$ 月 $d'$ 日 $h'$ 时，对于给定的 $y, m, d, h, k$，小杨想请你帮他计算出对应的 $y', m', d', h'$ 是多少。",
+      "inputFormat": "输入包含五行，每行一个正整数，分别代表 $y, m, d, h, k$。",
+      "outputFormat": "输出四个正整数，代表 $y', m', d', h'$。",
+      "samples": [
+        {
+          "input": "2008\n2\n28\n23\n1",
+          "output": "2008 2 29 0"
+        }
+      ],
+      "dataRange": "对于全部数据，保证有 $2000 \\le y \\le 3000$，$1 \\le m \\le 12$，$1 \\le d \\le 31$，$0 \\le h \\le 23$，$1 \\le k \\le 24$。数据保证为合法时间。\n\n**提示**\n\n闰年判断规则：\n\n- 普通闰年：年份能被 4 整除，但不能被 100 整除。\n- 世纪闰年：年份能被 400 整除。\n\n满足以上任意一条规则的年份就是闰年，否则是平年。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int y, m, d, h, k;\n    cin >> y >> m >> d >> h >> k;\n    h += k;\n    if (h >= 24) {\n        h -= 24;\n        d += 1;\n        int days = 0;\n        if (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) {\n            days = 31;\n        } else if (m == 4 || m == 6 || m == 9 || m == 11) {\n            days = 30;\n        } else if (m == 2) {\n            if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0)) {\n                days = 29;\n            } else {\n                days = 28;\n            }\n        }\n        if (d > days) {\n            d -= days;\n            m += 1;\n            if (m > 12) {\n                m = 1;\n                y += 1;\n            }\n        }\n    }\n    cout << y << \" \" << m << \" \" << d << \" \" << h << \"\\n\";\n\n    return 0;\n}\n"
+    }
+  ]
+}

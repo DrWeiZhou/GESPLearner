@@ -1,0 +1,505 @@
+{
+  "id": "cpp-2023-12-l1",
+  "language": "cpp",
+  "level": 1,
+  "exam": {
+    "id": "2023-12",
+    "title": "2023年12月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10119.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1585703601307680.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "以下 C++ 不可以作为变量的名称的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`CCF GESP`"
+        },
+        {
+          "label": "B",
+          "content": "`ccfGESP`"
+        },
+        {
+          "label": "C",
+          "content": "`CCFgesp`"
+        },
+        {
+          "label": "D",
+          "content": "`CCF_GESP`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "C++ 表达式 `10 - 3 * (2 + 1) % 10` 的值是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0`"
+        },
+        {
+          "label": "B",
+          "content": "`1`"
+        },
+        {
+          "label": "C",
+          "content": "`2`"
+        },
+        {
+          "label": "D",
+          "content": "`3`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "假设现在是上午十点，求出 N 小时（正整数）后是第几天几时，如输入 20 小时则为第 2 天 6 点，如 N 输入 4 则为今天 14 点。为实现相应功能，应在横线处填写代码是（ ）。\n\n```cpp\nint N, dayX, hourX;\n\ncin >> N;\n\ndayX = _____, hourX = _____;\nif (dayX == 0)\n    cout << \"今天\" << hourX << \"点\";\nelse\n    cout << \"第\" << (dayX + 1) << \"天\" << hourX << \"点\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(10 + N) % 24`, `(10 + N) / 24`"
+        },
+        {
+          "label": "B",
+          "content": "`(10 + N) / 24`, `(10 + N) % 24`"
+        },
+        {
+          "label": "C",
+          "content": "`N % 24`, `N / 24`"
+        },
+        {
+          "label": "D",
+          "content": "`10 / 24`, `10 % 24`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下面的程序用于判断 N 是否为偶数，横线处应填写代码是（ ）。\n\n```cpp\ncin >> N;\nif (_____)\n    cout << \"偶数\";\nelse\n    cout << \"奇数\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`N % 2 == 0`"
+        },
+        {
+          "label": "B",
+          "content": "`N % 2 = 0`"
+        },
+        {
+          "label": "C",
+          "content": "`N % 2`"
+        },
+        {
+          "label": "D",
+          "content": "`N % 2 != 0`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面对 C++ 代码执行后输出的描述，正确的是（ ）。\n\n```cpp\ncin >> N;\ncnt = 0;\nfor(int i = 1; i < N; i++)\n    cnt += 1;\ncout << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "如果输入的 N 是小于等于 2 整数，第 5 行将输出 0。"
+        },
+        {
+          "label": "B",
+          "content": "如果输入的 N 是大于等于 2 整数，第 5 行将输出 N-1。"
+        },
+        {
+          "label": "C",
+          "content": "如果输入的 N 是大于等于 2 整数，第 5 行将输出 N。"
+        },
+        {
+          "label": "D",
+          "content": "以上说法均不正确。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\ncnt = 0;\nfor(int i = 1; i < 10; i++){\n    cnt += 1;\n    i +=2;\n}\ncout << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`10`"
+        },
+        {
+          "label": "B",
+          "content": "`9`"
+        },
+        {
+          "label": "C",
+          "content": "`3`"
+        },
+        {
+          "label": "D",
+          "content": "`1`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\ncnt = 0;\nfor(int i = 1; i < 20; i++){\n    if(i%2)\n        continue;\n    else if(i%3==0 && i%5==0)\n        break;\n    cnt += i;\n}\ncout << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`90`"
+        },
+        {
+          "label": "B",
+          "content": "`44`"
+        },
+        {
+          "label": "C",
+          "content": "`20`"
+        },
+        {
+          "label": "D",
+          "content": "`10`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\nN = 10;\ncnt = 0;\nwhile(1){\n    if(N == 0) break;\n    cnt += 1;\n    N -= 2;\n}\ncout << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`11`"
+        },
+        {
+          "label": "B",
+          "content": "`10`"
+        },
+        {
+          "label": "C",
+          "content": "`5`"
+        },
+        {
+          "label": "D",
+          "content": "`4`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面 C++ 代码用于判断一个数是否为质数（素数），在横线处应填入代码是（ ）。\n\n```cpp\ncin >> N;\ncnt = 0;\nfor (int i = 1; i < N + 1; i++)\n    if (N % i == 0)\n        _____;\nif (cnt == 2)\n    cout << N << \"是质数。\";\nelse\n    cout << N << \"不是质数。\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`cnt = 1`"
+        },
+        {
+          "label": "B",
+          "content": "`cnt = 2`"
+        },
+        {
+          "label": "C",
+          "content": "`cnt =+ 1`"
+        },
+        {
+          "label": "D",
+          "content": "`cnt += 1`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "对下面的代码，描述正确的是（ ）。\n\n```cpp\n#include <stdlib.h>\n\nusing namespace std;\n\nint main(){\n    int arr[] = {2,6,3,5,4,8,1,0,9,10};\n    for(int i = 0;i < 10;i++)\n        cout << arr[i] << \" \";\n    cout << i << endl;\n\n    cout << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "输出 `2 6 3 5 4 8 1 0 9 10 10`"
+        },
+        {
+          "label": "B",
+          "content": "输出 `2 6 3 5 4 8 1 0 9 9`"
+        },
+        {
+          "label": "C",
+          "content": "输出 `2 6 3 5 4 8 1 0 9 10`"
+        },
+        {
+          "label": "D",
+          "content": "提示有编译错误"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "执行下面 C++ 代码后输出是（ ）。\n\n```cpp\ncnt =  0;\nfor (i = 10; i > 3; i -= 3)\n    cnt = cnt + i;\ncout << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3`"
+        },
+        {
+          "label": "B",
+          "content": "`21`"
+        },
+        {
+          "label": "C",
+          "content": "`27`"
+        },
+        {
+          "label": "D",
+          "content": "`49`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "定义变量 `char c`，下面对 `c` 赋值的语句，不符合语法的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`c = (char)66;`"
+        },
+        {
+          "label": "B",
+          "content": "`c = (char)(66);`"
+        },
+        {
+          "label": "C",
+          "content": "`c = char(66);`"
+        },
+        {
+          "label": "D",
+          "content": "`c = char 66;`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下图所示 C++ 代码对大写字母 `'A'` 到 `'Z'` 分组，对每个字母输出所属的组号，那么输入 `'C'` 时将输出的组号是？（ ）。\n\n```cpp\nchar c;\nwhile(1){\n    cin >> c;\n    if(c=='q') break;\n    switch(c){\n        case 'A': cout << \"1 \"; break;\n        case 'B': cout << \"3 \";\n        case 'C': cout << \"3 \";\n        case 'D': cout << \"5 \"; break;\n        case 'E': cout << \"5 \"; break;\n        default: cout << \"9 \";\n    }\n    cout << endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3`"
+        },
+        {
+          "label": "B",
+          "content": "`3 5`"
+        },
+        {
+          "label": "C",
+          "content": "`3 5 9`"
+        },
+        {
+          "label": "D",
+          "content": "以上都不对"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "某公司新出了一款无人驾驶的小汽车，通过声控智能驾驶系统，乘客只要告诉汽车目的地，车子就能自动选择一条优化路线，告诉乘客后驶达那里。请问下面哪项不是驾驶系统完成选路所必须的。（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "麦克风"
+        },
+        {
+          "label": "B",
+          "content": "扬声器"
+        },
+        {
+          "label": "C",
+          "content": "油量表"
+        },
+        {
+          "label": "D",
+          "content": "传感器"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "现代计算机是指电子计算机，它所基于的是（ ）体系结构。",
+      "options": [
+        {
+          "label": "A",
+          "content": "艾伦·图灵"
+        },
+        {
+          "label": "B",
+          "content": "冯·诺依曼"
+        },
+        {
+          "label": "C",
+          "content": "阿塔纳索夫"
+        },
+        {
+          "label": "D",
+          "content": "埃克特-莫克利"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "C++ 表达式 `int(3.14)` 的值为 3。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "C++ 语句 `cout << (2 * 3, 3 % 10, 2+3)` 的输出为 `6,3,5`。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "`for(int i = 1; i < 10; i += 3;) ;` 表示 i 从 1 开始到 10 结束间隔为 3，相当于 1、4、7、10。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "C++ 表达式 `010+100+001` 的值为 111。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "`if` 语句中的条件表达式的结果可以为 `int` 类型。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "在下面的 C++ 代码 `while(1) continue;` 中，由于循环中的 `continue` 是无条件被执行，因此将导致死循环。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "C++ 表达式 `('1'+'1'=='2'? flag=1:flag=2)` 的结果值和表达式 `(flag==2)` 的相同。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "在 C++ 的程序中，不能用 `scanf` 作为变量名。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "小杨最近在准备考 GESP，他用的 Dev C++ 来练习和运行程序，所以 Dev C++ 也是一个小型操作系统。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "任何一个 `while` 循环都可以转化为等价的 `for` 循环（ ）。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "小杨的考试",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "今天是星期 $X$，小杨还有 $N$ 天就要考试了，你能推算出小杨考试那天是星期几吗？（本题中使用 7 表示星期日）",
+      "inputFormat": "输入 2 行，第一行一个整数 $X$（$1 \\le X \\le 7$）；第二行一个整数 $N$（$1 \\le N \\le 364$）。",
+      "outputFormat": "输出一个整数，表示小杨考试那天是星期几。",
+      "samples": [
+        {
+          "input": "1\n6",
+          "output": "7",
+          "explanation": "今天是星期 1，那么 6 天后就是星期日，星期日在本题中用 7 表示。"
+        },
+        {
+          "input": "5\n3",
+          "output": "1",
+          "explanation": "今天是星期 5，那么 3 天后就是星期 1。"
+        }
+      ],
+      "referenceSolution": "#include <stdio.h>\n\nint main(int argc, char **argv)\n{\n    int x, n;\n    scanf(\"%d%d\", &x, &n);\n    printf(\"%d\\n\", (x-1+n%7)%7+1);\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "小杨报数",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "小杨需要从 1 到 $N$ 报数。在报数过程中，小杨希望跳过 $M$ 的倍数。例如，如果 $N = 5$，$M = 2$，那么小杨就需要依次报出 1、3、5。\n\n现在，请你依次输出小杨报的数。",
+      "inputFormat": "输入 2 行，第一行一个整数 $N$（$1 \\le N \\le 1,000$）；第二行一个整数 $M$（$2 \\le M \\le 100$）。",
+      "outputFormat": "输出若干行，依次表示小杨报的数。",
+      "samples": [
+        {
+          "input": "5\n2",
+          "output": "1\n3\n5"
+        },
+        {
+          "input": "10\n3",
+          "output": "1\n2\n4\n5\n7\n8\n10"
+        }
+      ],
+      "referenceSolution": "#include <stdio.h>\n\nint main(int argc, char **argv)\n{\n    int n, m, i;\n    scanf(\"%d%d\", &n, &m);\n    for(i=1; i<=n; i++)\n    {\n        if(i%m!=0) printf(\"%d\\n\", i);\n    }\n    return 0;\n}\n"
+    }
+  ]
+}

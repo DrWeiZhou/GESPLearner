@@ -1,0 +1,500 @@
+{
+  "id": "cpp-2023-09-l2",
+  "language": "cpp",
+  "level": 2,
+  "exam": {
+    "id": "2023-09",
+    "title": "2023年9月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10105.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1570611195281440.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "我国第一台大型通用电子计算机使用的逻辑部件是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "集成电路"
+        },
+        {
+          "label": "B",
+          "content": "大规模集成电路"
+        },
+        {
+          "label": "C",
+          "content": "晶体管"
+        },
+        {
+          "label": "D",
+          "content": "电子管"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "下列流程图的输出结果是（ ）？\n\n```text\n开始\n  ↓\nx=5, y=12\n  ↓\n◇ x>y ?\n  ├─ 是 → a=x, b=y ─┐\n  └─ 否 → a=y, b=x ─┤\n                     ↓\n                 输出 a, b\n                     ↓\n                    结束\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`5 12`"
+        },
+        {
+          "label": "B",
+          "content": "`12 5`"
+        },
+        {
+          "label": "C",
+          "content": "`5 5`"
+        },
+        {
+          "label": "D",
+          "content": "`12 12`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "如果要找出整数 `a`、`b` 中较大一个，通常要用下面哪种程序结构？（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "顺序结构"
+        },
+        {
+          "label": "B",
+          "content": "循环结构"
+        },
+        {
+          "label": "C",
+          "content": "分支结构"
+        },
+        {
+          "label": "D",
+          "content": "跳转结构"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "以下不是 C++ 关键字的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`continue`"
+        },
+        {
+          "label": "B",
+          "content": "`cout`"
+        },
+        {
+          "label": "C",
+          "content": "`break`"
+        },
+        {
+          "label": "D",
+          "content": "`goto`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "C++ 表达式 `int(-123.123 / 10)` 的值是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`-124`"
+        },
+        {
+          "label": "B",
+          "content": "`-123`"
+        },
+        {
+          "label": "C",
+          "content": "`-13`"
+        },
+        {
+          "label": "D",
+          "content": "`-12`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "以下 C++ 代码实现从大到小的顺序输出 `N` 的所有因子。例如，输入 `N = 18` 时输出 `18 9 6 3 2 1`，横线处应填入（ ）。\n\n```cpp\nint N = 0;\ncin >> N;\nfor (_____) // 此处填写代码\n    if (!(N % i))\n        cout << i << ' ';\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`; ;`"
+        },
+        {
+          "label": "B",
+          "content": "`int i = 1; i < N; i++`"
+        },
+        {
+          "label": "C",
+          "content": "`int i = N; i > 0; i--`"
+        },
+        {
+          "label": "D",
+          "content": "`int i = N; i > 1; i--`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "如下图所示，输出 `N` 行 `N` 列的矩阵，对角线为 1，横线处应填入（ ）。\n\n```text\n请输入行列数量:9\n1 0 0 0 0 0 0 0 0\n0 1 0 0 0 0 0 0 0\n0 0 1 0 0 0 0 0 0\n0 0 0 1 0 0 0 0 0\n0 0 0 0 1 0 0 0 0\n0 0 0 0 0 1 0 0 0\n0 0 0 0 0 0 1 0 0\n0 0 0 0 0 0 0 1 0\n0 0 0 0 0 0 0 0 1\n```\n\n```cpp\nint N = 0;\ncout << \"请输入行列数量:\";\ncin >> N;\nfor (int i = 1; i < N + 1; i++) {\n    for (int j = 1; j < N + 1; j++)\n        if (_____) // 此处填写代码\n            cout << 1 << \" \";\n        else\n            cout << 0 << \" \";\n    cout << endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`i = j`"
+        },
+        {
+          "label": "B",
+          "content": "`j != j`"
+        },
+        {
+          "label": "C",
+          "content": "`i >= j`"
+        },
+        {
+          "label": "D",
+          "content": "`i == j`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面 C++ 代码用于判断 `N` 是否为质数（素数），约定输入 `N` 为大于等于 2 的正整数，请在横线处填入合适的代码（ ）。\n\n```cpp\nint N = 0, i = 0;\ncout << \"请输入一个大于等于2的正整数：\";\ncin >> N;\n\nfor (i = 2; i < N; i++)\n    if (N % i == 0) {\n        cout << \"非质数\";\n        _____; // 此处填写代码\n    }\nif (i == N)\n    cout << \"是质数\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`break`"
+        },
+        {
+          "label": "B",
+          "content": "`continue`"
+        },
+        {
+          "label": "C",
+          "content": "`exit`"
+        },
+        {
+          "label": "D",
+          "content": "`return`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\nint N = 9;\nfor (int i = 2; i < N; i++)\n    if (N % i)\n        cout << \"1#\";\ncout << \"0\" << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1#0`"
+        },
+        {
+          "label": "B",
+          "content": "`1#`"
+        },
+        {
+          "label": "C",
+          "content": "`1#1#1#1#1#1`"
+        },
+        {
+          "label": "D",
+          "content": "`1#1#1#1#1#1#0`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\nint cnt = 0;\nfor (int i = 1; i < 9; i++)\n    for (int j = 1; j < i; j += 2)\n        cnt += 1;\ncout << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`16`"
+        },
+        {
+          "label": "B",
+          "content": "`28`"
+        },
+        {
+          "label": "C",
+          "content": "`35`"
+        },
+        {
+          "label": "D",
+          "content": "`36`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\nint cnt = 0;\nfor (int i = 1; i < 13; i += 3)\n    for (int j = 1; j < i; j += 2)\n        if (i * j % 2 == 0)\n            break;\n        else\n            cnt += 1;\ncout << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1`"
+        },
+        {
+          "label": "B",
+          "content": "`3`"
+        },
+        {
+          "label": "C",
+          "content": "`15`"
+        },
+        {
+          "label": "D",
+          "content": "没有输出"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\nint x = 1;\nwhile (x < 100) {\n    if (!(x % 3))\n        cout << x << \",\";\n    else if (x / 10)\n        break;\n    x += 2;\n}\ncout << x;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1`"
+        },
+        {
+          "label": "B",
+          "content": "`3,9,11`"
+        },
+        {
+          "label": "C",
+          "content": "`3,6,9,10`"
+        },
+        {
+          "label": "D",
+          "content": "`1,5,7,11,13,15`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下面图形每一行从字母 A 开始，以 ABC 方式重复。行数为输入的整数。请在 C++ 代码段横线处填入合适代码（ ）。\n\n```text\n请输入字母行数：7\nA\nAB\nABC\nABCA\nABCAB\nABCABC\nABCABCA\n```\n\n```cpp\nint N = 0;\ncout << \"请输入行列数量:\";\ncin >> N;\nfor (int i = 1; i < N + 1; i++) {\n    for (int j = 0; j < i; j++)\n        cout << _____; // 此处填写代码\n    cout << endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`'A' + j / 3`"
+        },
+        {
+          "label": "B",
+          "content": "`(char)('A' + j / 3)`"
+        },
+        {
+          "label": "C",
+          "content": "`'A' + j % 3`"
+        },
+        {
+          "label": "D",
+          "content": "`(char)('A' + j % 3)`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "输入行数，约定 $1 \\le lineCount \\le 9$，输出以下图形。应在 C++ 代码横线处填入（ ）。\n\n```text\n输入行数量：9\n                1\n              1 2 1\n            1 2 3 2 1\n          1 2 3 4 3 2 1\n        1 2 3 4 5 4 3 2 1\n      1 2 3 4 5 6 5 4 3 2 1\n    1 2 3 4 5 6 7 6 5 4 3 2 1\n  1 2 3 4 5 6 7 8 7 6 5 4 3 2 1\n1 2 3 4 5 6 7 8 9 8 7 6 5 4 3 2 1\n```\n\n```cpp\nint lineCount = 0;\ncout << \"请输入行数量:\";\ncin >> lineCount;\nfor (int i = 0; i < lineCount; i++) {\n    for (int j = 0; j < _____; j++) // 此处填写代码\n        cout << ' ';\n    for (int j = 1; j < i + 1; j++)\n        cout << j << \" \";\n    for (int j = i + 1; j > 0; j--)\n        cout << j << \" \";\n    cout << endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(lineCount - i - 1) * 2`"
+        },
+        {
+          "label": "B",
+          "content": "`(lineCount - i) * 2`"
+        },
+        {
+          "label": "C",
+          "content": "`lineCount - i - 1`"
+        },
+        {
+          "label": "D",
+          "content": "`lineCount - i`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "某班级人数不知，连续输入成绩直到输入负数停止，输入结束后求出平均成绩。在以下 C++ 代码横线处应填入是（ ）。\n\n```cpp\ndouble totalScore = 0; // 总分\nint studCount = 0;  // 总人数\nwhile (_____) { // 此处填写代码\n    cin >> score;\n    if (score < 0)\n        break;\n    totalScore += score;\n    studCount += 1;\n}\ncout << \"平均分=\" << totalScore / studCount;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`true`"
+        },
+        {
+          "label": "B",
+          "content": "`false`"
+        },
+        {
+          "label": "C",
+          "content": "`True`"
+        },
+        {
+          "label": "D",
+          "content": "`False`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "我们常说的互联网（Internet）是一个覆盖全球的广域网络，它不属于任何一个国家。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "神威·太湖之光超级计算机是中国自主研制的超级计算机，在全球超级计算机 TOP500 排行榜中多次荣膺榜首。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "C++ 表达式 `7.8 / 2` 的值为 `3.9`，类型为 `float`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "C++ 表达式 `(2 * 3) || (2 + 5)` 的值为 `67`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "如果 `m` 和 `n` 为 `int` 类型变量，则执行 `for (m = 0, n = 1; n < 9; ) n = ((m = 3 * n, m + 1), m - 1);` 之后 `n` 的值为偶数。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "如果 `a` 为 `int` 类型的变量，则表达式 `(a >= 5 && a <= 10)` 与 `(5 <= a <= 10)` 的值总是相同的。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出为 `10`。\n\n```cpp\nint cnt = 0;\nfor (int i = 1; i < 10; i++) {\n    cnt += 1;\n    i += 1;\n}\ncout << cnt;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "执行以下 C++ 代码后的输出为 `0`。\n\n```cpp\nint rst = 0;\nfor (int i = -100; i < 100; i += 2)\n    rst += i;\ncout << rst;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "执行以下 C++ 代码后的输出为 `30`。\n\n```cpp\nint rst = 0;\nfor (int i = 0; i < 10; i += 2)\n    rst += i;\ncout << rst;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "C++ 是一种高级程序设计语言。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "小杨的 X 字矩阵",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "小杨想要构造一个 $N \\times N$ 的 X 字矩阵（$N$ 为奇数），这个矩阵的两条对角线都是半角加号 `+`，其余都是半角减号 `-`。例如，一个 $5 \\times 5$ 的 X 字矩阵如下：\n\n```text\n+---+\n-+-+-\n--+--\n-+-+-\n+---+\n```\n\n请你帮小杨根据给定的 $N$ 打印出对应的“X 字矩阵”。",
+      "inputFormat": "一行一个整数 $N$（$5 \\le N \\le 49$，保证 $N$ 为奇数）。",
+      "outputFormat": "输出对应的“X 字矩阵”。\n\n请严格按格式要求输出，不要擅自添加任何空格、标点、空行等任何符号。你应该恰好输出 $N$ 行，每行除了换行符外恰好包含 $N$ 个字符，这些字符要么是 `+`，要么是 `-`。",
+      "samples": [
+        {
+          "input": "5",
+          "output": "+---+\n-+-+-\n--+--\n-+-+-\n+---+"
+        },
+        {
+          "input": "7",
+          "output": "+-----+\n-+---+-\n--+-+--\n---+---\n--+-+--\n-+---+-\n+-----+"
+        }
+      ],
+      "dataRange": "$5 \\le N \\le 49$，保证 $N$ 为奇数。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n = 0;\n    cin >> n;\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            if (i == j || i + j == n - 1) {\n                cout << \"+\";\n            } else {\n                cout << \"-\";\n            }\n        }\n        cout << endl;\n    }\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "数字黑洞",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "给定一个三位数，要求各位不能相同。例如，$352$ 是符合要求的，$112$ 是不符合要求的。将这个三位数的三个数字重新排列，得到的最大的数，减去得到的最小的数，形成一个新的三位数。对这个新的三位数可以重复上述过程。神奇的是，最终一定会得到 $495$！\n\n试试看，重新排列 $352$，得到的最大数为 $532$，最小数为 $235$，它们的差是 $297$；变换 $297$，得到 $972 - 279 = 693$；变换 $693$，$963 - 369 = 594$；变换 $594$，$954 - 459 = 495$。因此，$352$ 经过 $4$ 次变换得到了 $495$。\n\n现在，输入的三位数，你能通过编程得出，这个三位数经过多少次变换能够得到 $495$ 吗？",
+      "inputFormat": "输入一行，包含一个符合要求的三位数 $N$。",
+      "outputFormat": "输出一行，包含一个整数 $C$，表示经过 $C$ 次变换得到 $495$。",
+      "samples": [
+        {
+          "input": "352",
+          "output": "4"
+        }
+      ],
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n = 0;\n    cin >> n;\n    for (int t = 0; ; t++) {\n        if (n == 495) {\n            cout << t << endl;\n            break;\n        }\n        int m0 = n % 10, m1 = n / 10 % 10, m2 = n / 100;\n        int tmax = 0, tmin = 0;\n        if (m0 >= m1 && m1 >= m2) {\n            tmax = m0 * 100 + m1 * 10 + m2;\n            tmin = m2 * 100 + m1 * 10 + m0;\n        } else if (m0 >= m2 && m2 >= m1) {\n            tmax = m0 * 100 + m2 * 10 + m1;\n            tmin = m1 * 100 + m2 * 10 + m0;\n        } else if (m1 >= m0 && m0 >= m2) {\n            tmax = m1 * 100 + m0 * 10 + m2;\n            tmin = m2 * 100 + m0 * 10 + m1;\n        } else if (m1 >= m2 && m2 >= m0) {\n            tmax = m1 * 100 + m2 * 10 + m0;\n            tmin = m0 * 100 + m2 * 10 + m1;\n        } else if (m2 >= m0 && m0 >= m1) {\n            tmax = m2 * 100 + m0 * 10 + m1;\n            tmin = m1 * 100 + m0 * 10 + m2;\n        } else { // m2 >= m1 && m1 >= m0\n            tmax = m2 * 100 + m1 * 10 + m0;\n            tmin = m0 * 100 + m1 * 10 + m2;\n        }\n        n = tmax - tmin;\n    }\n    return 0;\n}\n"
+    }
+  ]
+}

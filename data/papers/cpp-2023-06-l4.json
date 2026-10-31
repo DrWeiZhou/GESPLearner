@@ -1,0 +1,498 @@
+{
+  "id": "cpp-2023-06-l4",
+  "language": "cpp",
+  "level": 4,
+  "exam": {
+    "id": "2023-06",
+    "title": "2023年6月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10092.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1553241699516448.pdf",
+  "durationMinutes": 90,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "高级语言编写的程序需要经过以下（ ）操作，可以生成在计算机上运行的可执行代码。",
+      "options": [
+        {
+          "label": "A",
+          "content": "编辑"
+        },
+        {
+          "label": "B",
+          "content": "保存"
+        },
+        {
+          "label": "C",
+          "content": "调试"
+        },
+        {
+          "label": "D",
+          "content": "编译"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "排序算法是稳定的（Stable Sorting），就是指排序算法可以保证，在待排序数据中有两个相等记录的关键字 R 和 S（R 出现在 S 之前），在排序后的列表中 R 也一定在 S 前。下面关于排序稳定性的描述，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "冒泡排序是不稳定的。"
+        },
+        {
+          "label": "B",
+          "content": "插入排序是不稳定的。"
+        },
+        {
+          "label": "C",
+          "content": "选择排序是不稳定的。"
+        },
+        {
+          "label": "D",
+          "content": "以上都不正确。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下列关于 C++ 语言中指针的叙述，不正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "指针变量中存储的是内存地址。"
+        },
+        {
+          "label": "B",
+          "content": "定义指针变量时必须指定其指向的类型。"
+        },
+        {
+          "label": "C",
+          "content": "指针变量只能指向基本类型变量，不能指向指针变量。"
+        },
+        {
+          "label": "D",
+          "content": "指针变量指向的内存地址不一定能够合法访问。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下列关于 C++ 语言中数组的叙述，不正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "一维数组在内存中一定是连续存放的。"
+        },
+        {
+          "label": "B",
+          "content": "二维数组是一维数组的一维数组。"
+        },
+        {
+          "label": "C",
+          "content": "二维数组中的每个一维数组在内存中都是连续存放的。"
+        },
+        {
+          "label": "D",
+          "content": "二维数组在内存中可以不是连续存放的。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下列关于 C++ 语言中函数的叙述，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "函数必须有名字。"
+        },
+        {
+          "label": "B",
+          "content": "函数必须有参数。"
+        },
+        {
+          "label": "C",
+          "content": "函数必须有返回值。"
+        },
+        {
+          "label": "D",
+          "content": "函数定义必须写在函数调用前。"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下列关于 C++ 语言中变量的叙述，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "变量定义后可以一直使用。"
+        },
+        {
+          "label": "B",
+          "content": "两个变量的变量名不能是相同的。"
+        },
+        {
+          "label": "C",
+          "content": "两个变量的变量名可以相同，但它们的类型必须是不同的。"
+        },
+        {
+          "label": "D",
+          "content": "两个变量的变量名可以相同，但它们的作用域必须是不同的。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "一个二维数组定义为 `double array[3][10];`，则这个二维数组占用内存的大小为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`30`"
+        },
+        {
+          "label": "B",
+          "content": "`60`"
+        },
+        {
+          "label": "C",
+          "content": "`120`"
+        },
+        {
+          "label": "D",
+          "content": "`240`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "一个变量定义为 `int *p = nullptr;`，则下列说法正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "该指针变量的类型为 `int`。"
+        },
+        {
+          "label": "B",
+          "content": "该指针变量指向的类型为 `int`。"
+        },
+        {
+          "label": "C",
+          "content": "该指针变量指向的内存地址是随机的。"
+        },
+        {
+          "label": "D",
+          "content": "访问该指针变量指向的内存会出现编译错误。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "一个二维数组定义为 `int array[5][3];`，则 `array[1][2]` 和 `array[2][1]` 在内存中的位置相差多少字节？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "2 字节。"
+        },
+        {
+          "label": "B",
+          "content": "4 字节。"
+        },
+        {
+          "label": "C",
+          "content": "8 字节。"
+        },
+        {
+          "label": "D",
+          "content": "无法确定。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "如果 `a` 为 `int` 类型的变量，且 `a` 的值为 `6`，则执行 `a &= 3;` 之后，`a` 的值会是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3`"
+        },
+        {
+          "label": "B",
+          "content": "`9`"
+        },
+        {
+          "label": "C",
+          "content": "`2`"
+        },
+        {
+          "label": "D",
+          "content": "`7`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "一个数组定义为 `int a[5] = {1, 2, 3, 4, 5};`，一个指针定义为 `int * p = &a[2];`，则执行 `a[1] = *p;` 后，数组 `a` 中的值会变为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`{1, 3, 3, 4, 5}`"
+        },
+        {
+          "label": "B",
+          "content": "`{2, 2, 3, 4, 5}`"
+        },
+        {
+          "label": "C",
+          "content": "`{1, 2, 2, 4, 5}`"
+        },
+        {
+          "label": "D",
+          "content": "`{1, 2, 3, 4, 5}`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "以下哪个函数声明在调用时可以传递二维数组的名字作为参数？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`void BubbleSort(int a[][4]);`"
+        },
+        {
+          "label": "B",
+          "content": "`void BubbleSort(int a[3][]);`"
+        },
+        {
+          "label": "C",
+          "content": "`void BubbleSort(int a[][]);`"
+        },
+        {
+          "label": "D",
+          "content": "`void BubbleSort(int ** a);`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "在下列代码的横线处填写（ ），可以使得输出是“20 10”。\n\n```cpp\n#include <iostream>\nusing namespace std;\nvoid xchg(_________________) { // 在此处填入代码\n    int t = *x;\n    *x = *y;\n    *y = t;\n}\nint main() {\n    int a = 10, b = 20;\n    xchg(&a, &b);\n    cout << a << \" \" << b << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`int x, int y`"
+        },
+        {
+          "label": "B",
+          "content": "`int * x, int * y`"
+        },
+        {
+          "label": "C",
+          "content": "`int a, int b`"
+        },
+        {
+          "label": "D",
+          "content": "`int & a, int & b`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "执行以下 C++ 语言程序后，输出结果是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int array[3][3];\n    for (int i = 0; i < 3; i++)\n        for (int j = 0; j < 3; j++)\n            array[i][j] = i * 10 + j;\n    int sum;\n    for (int i = 0; i < 3; i++)\n        sum += array[i][i];\n    cout << sum << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3`"
+        },
+        {
+          "label": "B",
+          "content": "`30`"
+        },
+        {
+          "label": "C",
+          "content": "`33`"
+        },
+        {
+          "label": "D",
+          "content": "无法确定。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "在下列代码的横线处填写（ ），完成对有 `n` 个 `int` 类型元素的数组 `array` 由小到大排序。\n\n```cpp\nvoid SelectionSort(int array[], int n) {\n    int i, j, min, temp;\n    for (i = 0; i < n - 1; i++) {\n        min = i;\n        for (j = i + 1; j < n; j++)\n            if (_________________) // 在此处填入代码\n                min = j;\n        temp = array[min];\n        array[min] = array[i];\n        array[i] = temp;\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`array[min] > array[j]`"
+        },
+        {
+          "label": "B",
+          "content": "`array[min] > array[i]`"
+        },
+        {
+          "label": "C",
+          "content": "`min > array[j]`"
+        },
+        {
+          "label": "D",
+          "content": "`min > array[i]`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "域名是由一串用点分隔的名字来标识互联网上一个计算机或计算机组的名称，CCF 编程能力等级认证官方网站的域名是 gesp.ccf.org.cn，其中顶级域名是 gesp。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "数列 $1, 1, 2, 3, 5, 8, \\ldots$ 是以意大利数学家列昂纳多·斐波那契命名的数列，从第三个数开始，每个数是前面两项之和。如果计算该数列的第 $n$ 项（其中 $n>3$）`fib(n)`，我们采用如下方法：① 令 `fib(1)=fib(2)=1`；② 用循环 `for i=3 to n` 分别计算 `f(i)`；③ 输出 `fib(n)`。这体现了递推的编程思想。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "在 C++ 语言中，函数的参数默认以引用传递方式进行传递。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "在 C++ 语言中，可以定义四维数组，但在解决实际问题时不可能用到，因为世界是三维的。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "在 C++ 语言中，一个函数没有被调用时，它的参数不占用内存。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "在 C++ 语言中，如果一个函数可能抛出异常，那么一定要在 `try` 子句里调用这个函数。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "如果希望记录 10 个最长为 99 字节的字符串，可以将字符串数组定义为 `char s[100][10];`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "字符常量 `'0'` 和 `'\\0'` 是等价的。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "`>=` 和 `>>=` 都是 C++ 语言的运算符。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "由于文件重定向操作，程序员在使用 C++ 语言编写程序时无法确定通过 `cout` 输出的内容是否会被输出到屏幕上。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "幸运数",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小明发明了一种“幸运数”。一个正整数，其偶数位不变（个位为第 $1$ 位，十位为第 $2$ 位，以此类推），奇数位做如下变换：将数字乘以 $7$，如果不大于 $9$ 则作为变换结果，否则把结果的各位数相加，如果结果不大于 $9$ 则作为变换结果，否则（结果仍大于 $9$）继续把各位数相加，直到结果不大于 $9$，作为变换结果。变换结束后，把变换结果的各位数相加，如果得到的和是 $8$ 的倍数，则称一开始的正整数为幸运数。\n\n例如，$16347$：第 $1$ 位为 $7$，乘以 $7$ 结果为 $49$，大于 $9$，各位数相加为 $13$，仍大于 $9$，继续各位数相加，最后结果为 $4$；第 $3$ 位为 $3$，变换结果为 $3$；第 $5$ 位为 $1$，变换结果为 $7$。最后变化结果为 $76344$，对于结果 $76344$ 其各位数之和为 $24$，是 $8$ 的倍数。因此 $16347$ 是幸运数。",
+      "inputFormat": "输入第一行为正整数 $N$，表示有 $N$ 个待判断的正整数。约定 $1 \\le N \\le 20$。\n\n从第 $2$ 行开始的 $N$ 行，每行一个正整数，为待判断的正整数。约定这些正整数小于 $10^{12}$。",
+      "outputFormat": "输出 $N$ 行，对应 $N$ 个正整数是否为幸运数，如是则输出 `'T'`，否则输出 `'F'`。\n\n提示：不需要等到所有输入结束在依次输出，可以输入一个数就判断一个数并输出，再输入下一个数。",
+      "samples": [
+        {
+          "input": "2\n16347\n76344",
+          "output": "T\nF"
+        }
+      ],
+      "dataRange": "$1 \\le N \\le 20$；待判断的正整数均小于 $10^{12}$。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\n// 奇数位要做的数字变换\nint trans(int t) {\n    if (t == 0)\n        return 0;\n    return (t * 7 - 1) % 9 + 1;\n}\n// 判断是否为幸运数\nbool judge(long long x) {\n    int sum = 0;\n    for (int d = 1; x > 0; d++, x /= 10) {\n        int t = (int)(x % 10);\n        if (d % 2 == 0)\n            sum += t;\n        else\n            sum += trans(t);\n    }\n    return (sum % 8 == 0);\n}\nint main() {\n    int N = 0;\n    cin >> N;\n    for (int n = 0; n < N; n++) {\n        long long x = 0;\n        cin >> x;\n        if (judge(x))\n            cout << \"T\" << endl;\n        else\n            cout << \"F\" << endl;\n    }\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "图像压缩",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "图像是由很多的像素点组成的。如果用 $0$ 表示黑，$255$ 表示白，$0$ 和 $255$ 之间的值代表不同程度的灰色，则可以用一个字节表达一个像素（取值范围为十进制 0-255、十六进制 00-FF）。这样的像素组成的图像，称为 $256$ 级灰阶的灰度图像。\n\n现在希望将 $256$ 级灰阶的灰度图像压缩为 $16$ 级灰阶，即每个像素的取值范围为十进制 0-15、十六进制 0-F。压缩规则为：统计出每种灰阶的数量，取数量最多的前 $16$ 种灰阶（如某种灰阶的数量与另外一种灰阶的数量相同，则以灰阶值从小到大为序），分别编号 0-F（最多的编号为 $0$，以此类推）。其他灰阶转换到最近的 $16$ 种灰阶之一，将某个点灰阶数与 $16$ 种灰阶种的一种相减，绝对值最小即为最近，如果绝对值相等，则编号较小的灰阶更近。",
+      "inputFormat": "输入第 $1$ 行为一个正整数 $N$，表示接下来有 $N$ 行数据组成一副 $256$ 级灰阶的灰度图像。约定 $10 \\le N \\le 20$。\n\n第 $2$ 行开始的 $N$ 行，每行为长度相等且为偶数的字符串，每两个字符用十六进制表示一个像素。约定输入的灰度图像至少有 $16$ 种灰阶。约定每行最多 $20$ 个像素。",
+      "outputFormat": "第一行输出压缩选定的 $16$ 种灰阶的十六进制编码，共计 $32$ 个字符。\n\n第二行开始的 $N$ 行，输出压缩后的图像，每个像素一位十六进制数表示压缩后的灰阶值。",
+      "samples": [
+        {
+          "input": "10\n00FFCFAB00FFAC09071B5CCFAB76\n00AFCBAB11FFAB09981D34CFAF56\n01BFCEAB00FFAC0907F25FCFBA65\n10FBCBAB11FFAB09981DF4CFCA67\n00FFCBFB00FFAC0907A25CCFFC76\n00FFCBAB1CFFCB09FC1AC4CFCF67\n01FCCBAB00FFAC0F071A54CFBA65\n10EFCBAB11FFAB09981B34CFCF67\n01FFCBAB00FFAC0F071054CFAC76\n1000CBAB11FFAB0A981B84CFCF66",
+          "output": "ABCFFF00CB09AC07101198011B6776FC\n321032657CD10E\n36409205ACC16D\nB41032657FD16D\n8F409205ACF14D\n324F326570D1FE\n3240C245FC411D\nBF4032687CD16D\n8F409205ACC11D\nB240326878D16E\n83409205ACE11D",
+          "explanation": "灰阶 `AB`、`CF` 和 `FF` 出现 $14$ 次，`00` 出现 $10$ 次，`CB` 出现 $9$ 次，`09` 出现 $7$ 次，`AC` 出现 $6$ 次，`07` 出现 $5$ 次，`10`、`11` 和 `98` 出现 $4$ 次，`01`、`1B`、`67`、`76` 和 `FC` 出现 $3$ 次。"
+        }
+      ],
+      "dataRange": "$10 \\le N \\le 20$；每行最多 $20$ 个像素；输入的灰度图像至少有 $16$ 种灰阶。",
+      "referenceSolution": "#include <iostream>\n#include <cstring>\nusing namespace std;\n\nint image[20][20];\nint cpimg[20][20];\nint his[256];\nint color[16];\n// 一位十六进制字符转换为数字\nint trans(char a) {\n    if (a <= '9')\n        return (a - '0');\n    return (a - 'A' + 10);\n}\n// 一位十六进制数字转换为字符\nchar itrans(int n) {\n    if (n >= 10)\n        return (char)(n - 10 + 'A');\n    return (char)(n + '0');\n}\n// 寻找离 c 最近的灰阶\nint compress(int c) {\n    int dis = 256, res = -1;\n    for (int i = 0; i < 16; i++) {\n        int d = c - color[i];\n        if (d < 0)\n            d = -d;\n        if (d < dis) {\n            dis = d;\n            res = i;\n        }\n    }\n    return res;\n}\nint main() {\n    int N = 0, M = 0;\n    cin >> N;\n    // 灰阶计数，初始化为 0\n    for (int i = 0; i < 256; i++)\n        his[i] = 0;\n    // 输入图像，并对灰阶计数\n    for (int i = 0; i < N; i++) {\n        char line[50];\n        cin >> line;\n        M = strlen(line) / 2;\n        for (int j = 0; j < M; j++) {\n            int c = trans(line[j * 2]) * 16 + trans(line[j * 2 + 1]);\n            image[i][j] = c;\n            his[c]++;\n        }\n    }\n    // 选取出现次数最多的 16 个灰阶\n    for (int c = 0; c < 16; c++) {\n        int max = -1, max_id = -1;\n        for (int i = 0; i < 256; i++)\n            if (his[i] > max) {\n                max = his[i];\n                max_id = i;\n            }\n        color[c] = max_id;\n        his[max_id] = -1;\n    }\n    // 将 image 的灰阶压缩为 cpimg\n    for (int i = 0; i < N; i++)\n        for (int j = 0; j < M; j++)\n            cpimg[i][j] = compress(image[i][j]);\n    // 输出选取的 16 个灰阶\n    for (int c = 0; c < 16; c++)\n        cout << itrans(color[c] / 16) << itrans(color[c] % 16);\n    cout << endl;\n    // 输出压缩后的图像\n    for (int i = 0; i < N; i++) {\n        for (int j = 0; j < M; j++)\n            cout << itrans(cpimg[i][j]);\n        cout << endl;\n    }\n    return 0;\n}\n"
+    }
+  ]
+}

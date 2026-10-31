@@ -1,0 +1,499 @@
+{
+  "id": "cpp-2024-06-l4",
+  "language": "cpp",
+  "level": 4,
+  "exam": {
+    "id": "2024-06",
+    "title": "2024年6月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10147.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1621071528722464.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "下列代码中，输出结果是（ ）\n\n```cpp\n#include<iostream>\nusing namespace std;\nint func(int x,int y)\n{\n    int a=x,b=y;\n    int t;\n    t=a;\n    a=b;\n    b=t;\n    cout<<a<<\"  \"<<b<<\"  \";\n}\nint main()\n{\n    int c,d;\n    c=12;\n    d=24;\n    func(12,24);\n    cout<<c<<\"  \"<<d<<endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`12  24  24  12`"
+        },
+        {
+          "label": "B",
+          "content": "`24  12  12  24`"
+        },
+        {
+          "label": "C",
+          "content": "`12  12  24  24`"
+        },
+        {
+          "label": "D",
+          "content": "`24  24  12  12`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "下面函数不能正常执行的是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\n#include<iostream>\nusing namespace std;\nint func()\n{\n    //...\n}\nint main()\n{\n    //...\n}\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n    func();\n}\nint func()\n{\n    //...\n}\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\n#include<iostream>\nusing namespace std;\nint func()\n{\n    //...\n}\nint main()\n{\n    func();\n}\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\n#include<iostream>\nusing namespace std;\nint func();\nint main()\n{\n    func();\n}\nint func()\n{\n    //...\n}\n```"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下面程序输出的是（ ）\n\n```cpp\n#include<iostream>\nusing namespace std;\nint func();\nint main()\n{\n    int i=2;\n    cout<<i<<endl;\n    for(int x=0;x<1;x++)\n    {\n        int i=10;\n        cout<<i<<endl;\n    }\n    i=i+1;\n    cout<<i<<endl;\n    {\n        i=i*i;\n        cout<<i<<endl;\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`2 2 3 9`"
+        },
+        {
+          "label": "B",
+          "content": "`2 10 3 9`"
+        },
+        {
+          "label": "C",
+          "content": "`2 10 11 121`"
+        },
+        {
+          "label": "D",
+          "content": "`2 10 3 100`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "假设变量 `a` 的地址是 `0x6ffe14`，下面程序的输出是（ ）。\n\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n    int *p;\n    int a=10;\n    p=&a;\n    p++;\n    cout<<p<<endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`10`"
+        },
+        {
+          "label": "B",
+          "content": "`0x6ffe14`"
+        },
+        {
+          "label": "C",
+          "content": "`0x6ffe15`"
+        },
+        {
+          "label": "D",
+          "content": "`0x6ffe18`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "如果下列程序输出的地址是 `0x6ffe00`，则 `cout<<a+1<<endl;` 输出的是（ ）\n\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n    int a[2][3]={0};\n    cout<<a<<endl;\n\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0x6ffe04`"
+        },
+        {
+          "label": "B",
+          "content": "`0x6ffe0C`"
+        },
+        {
+          "label": "C",
+          "content": "`0x6ffe08`"
+        },
+        {
+          "label": "D",
+          "content": "`0x6ffe00`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "C++ 中，关于文件路径说法错误的是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`\"GESP.txt\"`：指定与当前工作目录中的程序文件相同目录中的 `GESP.txt` 文件"
+        },
+        {
+          "label": "B",
+          "content": "`\"../data/GESP.txt\"`：指定与当前工作目录中的程序文件上一级目录下的 `data` 目录中的 `GESP.txt` 文件"
+        },
+        {
+          "label": "C",
+          "content": "`\"./data/GESP.txt\"`：指定与当前工作目录中的程序文件同级目录下的 `data` 目录中的 `GESP.txt` 文件"
+        },
+        {
+          "label": "D",
+          "content": "`\"GESP.txt\"` 是绝对路径"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "关于直接插入排序，下列说法错误的是（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "插入排序的最好情况是数组已经有序，此时只需要进行 $n-1$ 次比较，时间复杂度为 $O(n)$"
+        },
+        {
+          "label": "B",
+          "content": "最坏情况是数组逆序排序，此时需要进行 $n(n-1)/2$ 次比较以及 $n-1$ 次赋值操作（插入）"
+        },
+        {
+          "label": "C",
+          "content": "平均来说插入排序算法的复杂度为 $O(n^2)$"
+        },
+        {
+          "label": "D",
+          "content": "空间复杂度上，直接插入法是就地排序，空间复杂度为 $O(n)$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下列程序横线处，应该输入的是（ ）。\n\n```cpp\n#include<iostream>\nusing namespace std;\nint n,a[10001];\nvoid swap(int &a,int &b)\n{\n    int t=a;\n    a=b;\n    b=t;\n}\nint main()\n{\n    cin>>n;\n    for(int i=1;i<=n;i++)\n        cin>>a[i];\n    for(int i=n;i>1;i--)\n        for(int j=1;j<i;j++)\n            if(a[j]>a[j+1])\n                _____________________;\n    for(int i=1;i<=n;i++)\n        cout<<a[i]<<\" \";\n    cout<<endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`swap(a[j],a[j+1]);`"
+        },
+        {
+          "label": "B",
+          "content": "`swap(a[j-1],a[j]);`"
+        },
+        {
+          "label": "C",
+          "content": "`swap(a[j-1],a[j+1]);`"
+        },
+        {
+          "label": "D",
+          "content": "`swap(&a[j-1],&a[j+1]);`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面关于递推的说法不正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "递推表现为自己调用自己"
+        },
+        {
+          "label": "B",
+          "content": "递推是从简单问题出发，一步步的向前发展，最终求得问题。是正向的"
+        },
+        {
+          "label": "C",
+          "content": "递推中，问题的 $n$ 要求是在计算中确定，不要求计算前就知道 $n$"
+        },
+        {
+          "label": "D",
+          "content": "斐波那契数列可以用递推实现求解"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "关于几种排序算法的说法，下面说法错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "选择排序不是一个稳定的排序算法"
+        },
+        {
+          "label": "B",
+          "content": "冒泡排序算法不是一种稳定的排序算法"
+        },
+        {
+          "label": "C",
+          "content": "插入排序是一种稳定的排序算法"
+        },
+        {
+          "label": "D",
+          "content": "如果排序前 2 个相等的数在序列中的前后位置顺序和排序后它们 2 个的前后位置顺序相同，则称为一种稳定的排序算法"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "数组 `{45,66,23,1,10,97,52,88,5,33}` 进行从小到大冒泡排序过程中，第一遍冒泡过后的序列是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`{45,23,1,10,66,52,88,5,33,97}`"
+        },
+        {
+          "label": "B",
+          "content": "`{45,66,1,23,10,97,52,88,5,33}`"
+        },
+        {
+          "label": "C",
+          "content": "`{45,66,23,1,10,52,88,5,33,97}`"
+        },
+        {
+          "label": "D",
+          "content": "`{45,66,23,1,10,97,52,88,33,5}`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面的排序算法程序中，横线处应该填入的是（ ）。\n\n```cpp\nint a[8]={ 2,3, 4, 5, 6,2,3,1};\nfor (int i=1;i<8;i++)\n{\n\n    int key = a[i];\n    int j=i-1;\n    while(a[j]>key && j>=0)\n    {\n        ________;\n        j -= 1;\n\n    }\n    a[j + 1]= key;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`a[j]=a[j-1];`"
+        },
+        {
+          "label": "B",
+          "content": "`a[j]=a[j+1];`"
+        },
+        {
+          "label": "C",
+          "content": "`a[j+1]=a[j-1];`"
+        },
+        {
+          "label": "D",
+          "content": "`a[j+1]=a[j];`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下面的程序中，如果输入 `10 0`，会输出（ ）。\n\n```cpp\n#include<iostream>\nusing namespace std;\n\ndouble Division(int a, int b)\n{\n\n    if (b == 0)\n        throw \"Division by zero condition!\";\n\n    else\n        return ((double)a / (double)b);\n}\n\nvoid func()\n{\n    int len, time;\n    cin >> len >> time;\n    cout << Division(len, time) << endl;\n}\n\nint main()\n{\n    try {\n        func();\n    }\n    catch (const char* errmsg)\n    {\n        cout << errmsg << endl;\n    }\n    catch (const int errmsg)\n    {\n        cout << errmsg << endl;\n    }\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`Division by zero condition!`"
+        },
+        {
+          "label": "B",
+          "content": "`0`"
+        },
+        {
+          "label": "C",
+          "content": "`10`"
+        },
+        {
+          "label": "D",
+          "content": "`100`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "10 条直线，最多可以把平面分为多少个区域（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`55`"
+        },
+        {
+          "label": "B",
+          "content": "`56`"
+        },
+        {
+          "label": "C",
+          "content": "`54`"
+        },
+        {
+          "label": "D",
+          "content": "`58`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下面程序中，如果语句 `cout<<p<<endl;` 输出的是 `0x6ffe00`，则 `cout<<++p<<endl;` 输出的是（ ）\n\n```cpp\nint x[10][10][10]={{0}};\nint *p;\np=&x[0][0][0];\ncout<<p<<endl;\ncout<<++p<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0x6ffe0c`"
+        },
+        {
+          "label": "B",
+          "content": "`0x6ffe09`"
+        },
+        {
+          "label": "C",
+          "content": "`0x6ffe06`"
+        },
+        {
+          "label": "D",
+          "content": "`0x6ffe04`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "`int& a` 和 `&a` 是一样的，都是取 `a` 的地址。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "以下代码不能够正确执行。\n\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n    int a=20;\n    int& ra;\n    ra=&a;\n    cout<<ra<<endl;\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "引用是一个指针常量。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "下面程序两个输出结果是一样的。\n\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n    int a[2][3]={0};\n    cout<<a<<endl;\n    cout<<&a[0][0]<<endl;\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "函数不可以调用自己。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "函数参数传递过程中，如果传常量值、常量引用和常量指针都是不能被修改的，它们可以防止函数对实参的值或地址进行修改。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "下面代码输出的值等于 `0`。\n\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n    int *p=NULL;\n    cout<<p<<endl;\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "在下面这个程序里，`a[i][j]` 和一个普通的整型变量一样使用。\n\n```cpp\n#include<iostream>\nusing namespace std;\nint main()\n{\n    int a[10][10]={0};\n    for(int i=0;i<10;i++)\n    {\n        for(int j=0;j<10;j++)\n        {\n            if(i==j)\n            {\n                a[i][j]=1;\n            }\n\n        }\n    }\n```\n\n（原卷代码图片在此处截断，未显示后续部分。）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "一个一维数组，至少含有一个自然数 $N$，是一个合法的数列。可以在一维数组末尾加入一个自然数 $M$，$M$ 不能超过一维数组末尾元素的一半，形成一个新的合法的一维数组，如果 $N=6$，那么可以有 $6$ 个不同的合法数组。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "插入排序算法中，平均时间复杂度是 $O(n^2)$，最坏的情况逆序情况下，达到最大时间复杂度。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "黑白方块",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨有一个 $n$ 行 $m$ 列的网格图，其中每个格子要么是白色，要么是黑色。\n\n对于网格图中的一个子矩形，小杨认为它是平衡的当且仅当其中黑色格子与白色格子数量相同。\n\n小杨想知道最大的平衡子矩形包含了多少个格子。",
+      "inputFormat": "第一行包含两个正整数 $n, m$，含义如题面所示。\n\n之后 $n$ 行，每行一个长度为 $m$ 的 `01` 串，代表网格图第 $i$ 行格子的颜色，如果为 $0$，则对应格子为白色，否则为黑色。",
+      "outputFormat": "输出一个整数，代表最大的平衡子矩形包含格子的数量，如果不存在则输出 $0$。",
+      "samples": [
+        {
+          "input": "4 5\n00000\n01111\n00011\n00011",
+          "output": "16",
+          "explanation": "对于样例 1，假设 $(i, j)$ 代表第 $i$ 行第 $j$ 列，最大的平衡子矩形的四个顶点分别为 $(1, 2)$、$(1, 5)$、$(4, 2)$、$(4, 5)$。"
+        }
+      ],
+      "dataRange": "对于全部数据，保证有 $1 \\le n, m \\le 10$。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\nconst int N = 55;\nint w[N][N];\nint n,m;\nbool check(int xa,int ya,int xb,int yb){\n    int a[2]={0,0};\n    for(int i = xa;i<=xb;i++){\n        for(int j=ya;j<=yb;j++){\n            a[w[i][j]]++;\n        }\n    }\n\n    return a[0]==a[1];\n}\nint main(){\n    cin>>n>>m;\n    for(int i=1;i<=n;i++){\n        string s;\n        cin>>s;\n        for(int j=1;j<=m;j++){\n            w[i][j]=s[j-1]-'0';\n        }\n    }\n    int ans = 0;\n    for(int i=1;i<=n;i++){\n        for(int j=1;j<=m;j++){\n            for(int ii=i;ii<=n;ii++){\n                for(int jj=j;jj<=m;jj++){\n                    if(check(i,j,ii,jj)){\n                        ans = max(ans,(ii-i+1)*(jj-j+1));\n                    }\n                }\n            }\n        }\n    }\n    cout<<ans<<\"\\n\";\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "宝箱",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨发现了 $n$ 个宝箱，其中第 $i$ 个宝箱的价值是 $a_i$。\n\n小杨可以选择一些宝箱放入背包并带走，但是小杨的背包比较特殊，假设小杨选择的宝箱中最大价值为 $x$，最小价值为 $y$，小杨需要保证 $x - y \\le k$，否则小杨的背包会损坏。\n\n小杨想知道背包不损坏的情况下，自己能够带走宝箱的总价值最大是多少。",
+      "inputFormat": "第一行包含两个正整数 $n, k$，含义如题面所示。\n\n第二行包含 $n$ 个正整数 $a_1, a_2, \\ldots, a_n$，代表宝箱的价值。",
+      "outputFormat": "输出一个整数，代表带走宝箱的最大总价值。",
+      "samples": [
+        {
+          "input": "5 1\n1 2 3 1 2",
+          "output": "7",
+          "explanation": "在背包不损坏的情况下，小杨可以拿走两个价值为 $2$ 的宝箱和一个价值为 $3$ 的宝箱。"
+        }
+      ],
+      "dataRange": "对于全部数据，保证有 $1 \\le n \\le 1000$，$0 \\le k \\le 1000$，$1 \\le a_i \\le 1000$。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\nconst int N = 1010;\nint a[N];\nint n,k;\nint main(){\n    cin>>n>>k;\n    for(int i=1;i<=n;i++){\n        cin>>a[i];\n    }\n    sort(a+1,a+n+1);\n    int ans=0;\n    for(int i=1;i<=n;i++){\n        int sum=0;\n        for(int j=i;j>=1;j--){\n            if(a[i]-a[j]<=k){\n                sum+=a[j];\n            }else break;\n        }\n        ans=max(ans,sum);\n    }\n    cout<<ans<<\"\\n\";\n}\n"
+    }
+  ]
+}

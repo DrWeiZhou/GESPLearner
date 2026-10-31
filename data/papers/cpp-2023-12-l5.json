@@ -1,0 +1,508 @@
+{
+  "id": "cpp-2023-12-l5",
+  "language": "cpp",
+  "level": 5,
+  "exam": {
+    "id": "2023-12",
+    "title": "2023年12月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10119.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1599969567965216.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "下面 C++ 代码用于求斐波那契数列，该数列第 1、2 项为 1，以后各项均是前两项之和。下面有关说法错误的是（ ）。\n\n```cpp\nint fiboA(int N)\n{\n    if (N == 1 || N == 2)\n        return 1;\n    return fiboA(N - 1) + fiboA(N - 2);\n}\nint fiboB(int N)\n{\n    if (N == 1 || N == 2)\n        return 1;\n    int last2 = 1, last1 = 1;\n    int nowVal = 0;\n    for (int i = 2; i < N; i++)\n    {\n        nowVal = last1 + last2;\n        last2 = last1;\n        last1 = nowVal;\n    }\n    return nowVal;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`fiboA( )` 用递归方式，`fiboB()` 循环方式"
+        },
+        {
+          "label": "B",
+          "content": "`fiboA( )` 更加符合斐波那契数列的数学定义，直观易于理解，而 `fiboB()` 需要将数学定义转换为计算机程序实现"
+        },
+        {
+          "label": "C",
+          "content": "`fiboA( )` 不仅仅更加符合数学定义，直观易于理解，且因代码量较少执行效率更高"
+        },
+        {
+          "label": "D",
+          "content": "`fiboB( )` 虽然代码量有所增加，但其执行效率更高"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "下面 C++ 代码以递归方式实现合并排序，并假设 `merge (int T[], int R[], int s, int m, int t)` 函数将有序（同样排序规则）的 `T[s..m]` 和 `T[m+1..t]` 归并到 `R[s..t]` 中。横线处应填上代码是（ ）。\n\n```cpp\nvoid mergeSort(int SList[], int TList[], int s, int t, int len)\n{\n    if (s == t){\n        TList[s] = SList[s];\n        return;\n    }\n    int *T2 = new int[len]; // 保存中间结果\n    int m = (s + t) / 2;\n    _____;\n    merge(T2, SList, s, m, t);\n    delete T2;\n    return ;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`mergeSort(SList, T2, s, m,len), mergeSort(SList, T2, m,t,len)`"
+        },
+        {
+          "label": "B",
+          "content": "`mergeSort(SList, T2, s, m-1,len), mergeSort(SList, T2, m+1,t,len)`"
+        },
+        {
+          "label": "C",
+          "content": "`mergeSort(SList, T2, s, m,len), mergeSort(SList, T2, m+1,t,len)`"
+        },
+        {
+          "label": "D",
+          "content": "`mergeSort(SList, T2, s, m-1,len), mergeSort(SList, T2, m-1,t,len)`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "阅读下面的 C++ 代码，执行后其输出是（ ）。\n\n```cpp\nint stepCount = 0;\nint fracA(int N)\n{\n    stepCount += 1;\n    cout << stepCount << \"->\";\n    int rtn = 1;\n    for (int i = 1; i <= N; i++)\n        rtn *= i;\n    return rtn;\n}\nint fracB(int N)\n{\n    stepCount += 1;\n    cout << stepCount << \"->\";\n    if (N == 1)\n        return 1;\n    return N * fracB(N - 1);\n}\nint main()\n{\n    cout << fracA(5);\n    cout << \"<===>\";\n    cout << fracB(5);\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1->120<===>2->120`"
+        },
+        {
+          "label": "B",
+          "content": "`1->120<===>1->120`"
+        },
+        {
+          "label": "C",
+          "content": "`1->120<===>1->2->3->4->5->120`"
+        },
+        {
+          "label": "D",
+          "content": "`1->120<===>2->3->4->5->6->120`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下面的 C++ 用于对 `lstA` 排序，使得偶数在前奇数在后，横线处应填入（ ）。\n\n```cpp\nbool isEven(int N)\n{\n    return N % 2 == 0;\n}\n\nvoid swap(int &a, int &b)\n{\n    int t;\n    t=a,a=b,b=t;\n    return;\n}\n\nvoid sortA(int lstA[], int n)\n{\n    int i,j,t;\n    for (i = n-1; i > 0; i--)\n        for(j = 0; j < i; j++)\n            if(_____)\n                swap(lstA[j], lstA[j+1]);\n\n    return;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`!isEven(lstA[j]) && isEven(lstA[j+1])`"
+        },
+        {
+          "label": "B",
+          "content": "`isEven(lstA[j]) && !isEven(lstA[j+1])`"
+        },
+        {
+          "label": "C",
+          "content": "`lstA[j] > lstA[j+1]`"
+        },
+        {
+          "label": "D",
+          "content": "`lstA[j] < lstA[j+1]`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面的 C++ 代码用于将字符串保存到带头节点的双向链表中，并对重复的串计数，然后将最新访问的串的节点放在链头便于查找。横线处应填入代码是（ ）。\n\n```cpp\ntypedef struct Node{\n    string str;\n    int ref;\n    struct Node *next, *prev;\n}Node;\nNode * Insert(Node *pHead, string s)\n{\n    Node *p = pHead->next;\n    Node *q;\n    while(p){\n        if(p->str == s){\n            p->ref++;\n            p->next->prev = p->prev;\n            p->prev->next = p->next;\n            break;\n        }\n        p=p->next;\n    }\n    if(!p) {\n        p = new Node;\n        p->str = s;\n        p->ref=0;\n        p->next = p->prev = NULL;\n    }\n    _____\n    pHead->next = p, p->prev = pHead;\n    return pHead;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`if(pHead) {p->next = pHead->next, pHead->next->prev = p;}`"
+        },
+        {
+          "label": "B",
+          "content": "`if(pHead->next) {p->next = pHead->next, pHead->next->prev = p;}`"
+        },
+        {
+          "label": "C",
+          "content": "`p->next = pHead->next, pHead->next->prev = p;`"
+        },
+        {
+          "label": "D",
+          "content": "触发异常，不能对空指针进行操作。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "有关下面 C++ 代码说法正确的是（ ）。\n\n```cpp\nint rc;\nint foo(int x, int y)\n{\n    int r;\n    if(y == 0)\n        r = x;\n    else{\n        r = foo(y, x % y);\n        rc++;\n    }\n    return r;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "如果 `x` 小于 $10$，`rc` 值也不会超过 $20$"
+        },
+        {
+          "label": "B",
+          "content": "`foo` 可能无限递归"
+        },
+        {
+          "label": "C",
+          "content": "`foo` 可以求出 `x` 和 `y` 的最大公共质因子"
+        },
+        {
+          "label": "D",
+          "content": "`foo` 能够求出 `x` 和 `y` 的最小公倍数"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下面的 C++ 代码实现对 list 的快速排序，有关说法，错误的是（ ）。\n\n```cpp\nvector<int> operator +(vector<int>lA,vector<int>lB)\n{\n    vector<int>lst;\n\n    for (int i = 1; i < lA.size(); i++)\n        lst.push_back(lA[i]);\n    for (int i = 1; i < lB.size(); i++)\n        lst.push_back(lB[i]);\n\n    return lst;\n}\n\nvector<int>qSort(vector<int>lst)\n{\n    if (lst.size() < 2)\n        return lst;\n    int pivot = lst[0];\n    vector<int>less, greater;\n    for (int i = 1; i < lst.size(); i++)\n        if (lst[i] <= pivot) less.push_back(lst[i]);\n        else greater.push_back(lst[i]);\n    for (int i = 1; i < lst.size(); i++)\n        if (lst[i] <= pivot) less.push_back(lst[i]);\n        else greater.push_back(lst[i]);\n\n    return _____;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`qSort(less) + qSort(greater) + (vector<int>)pivot`"
+        },
+        {
+          "label": "B",
+          "content": "`(vector<int>)pivot + (qSort(less) + qSort(greater))`"
+        },
+        {
+          "label": "C",
+          "content": "`(qSort(less) + (vector<int>)pivot + qSort(greater))`"
+        },
+        {
+          "label": "D",
+          "content": "`qSort(less) + pivot + qSort(greater)`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面 C++ 代码中的 `isPrimeA()` 和 `isPrimeB()` 都用于判断参数 N 是否素数，有关其时间复杂度的正确说法是（ ）。\n\n```cpp\nbool isPrimeA(int N)\n{\n    if (N < 2)\n        return false;\n    for (int i = 2; i <= N / 2 ; i++)\n        if (N % i == 0)\n            return false;\n    return true;\n}\nbool isPrimeB(int N)\n{\n    if (N < 2)\n        return false;\n    for (int i = 2; i <= sqrt(N); i++)\n        if (N % i == 0)\n            return false;\n    return true;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`isPrimeA( )` 的最坏时间复杂度是 $O(\\frac{N}{2})$，`isPrimeB( )` 的最坏时间复杂度是 $O(\\log N)$，`isPrimeA()` 优于 `isPrimeB()`"
+        },
+        {
+          "label": "B",
+          "content": "`isPrimeA()` 的最坏时间复杂度是 $O(\\frac{N}{2})$，`isPrimeB( )` 的最坏时间复杂度是 $O(N^{\\frac{1}{2}})$，`isPrimeB()` 绝大多数情况下优于 `isPrimeA()`"
+        },
+        {
+          "label": "C",
+          "content": "`isPrimeA()` 的最坏时间复杂度是 $O(N^{\\frac{1}{2}})$，`isPrimeB( )` 的最坏时间复杂度是 $O(N)$，`isPrimeA( )` 优于 `isPrimeB( )`"
+        },
+        {
+          "label": "D",
+          "content": "`isPrimeA()` 的最坏时间复杂度是 $O(\\log N)$，`isPrimeB( )` 的最坏时间复杂度是 $O(N)$，`isPrimeA()` 优于 `isPrimeB( )`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面 C++ 代码用于有序 `list` 的二分查找，有关说法错误的是（ ）。\n\n```cpp\nint _binarySearch(vector<int>lst, int Low, int High,int Target)\n{\n    if (Low > High)\n        return -1;\n    int Mid = (Low + High) / 2;\n    if (Target == lst[Mid])\n        return Mid;\n    else if (Target < lst[Mid])\n        return _binarySearch(lst, Low, Mid - 1, Target);\n    else\n        return _binarySearch(lst, Mid + 1, High, Target);\n}\nint bSearch(vector<int>lst, int Val)\n{\n    return _binarySearch(lst, 0, lst.size(), Val);\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "代码采用二分法实现有序 `list` 的查找"
+        },
+        {
+          "label": "B",
+          "content": "代码采用分治算法实现有序 `list` 的查找"
+        },
+        {
+          "label": "C",
+          "content": "代码采用递归方式实现有序 `list` 的查找"
+        },
+        {
+          "label": "D",
+          "content": "代码采用动态规划算法实现有序 `list` 的查找"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "在上题的 `_binarySearch` 算法中，如果 `lst` 中有 `N` 个元素，其时间复杂度是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(N)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(\\log N)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(N \\log N)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(N^2)$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面的 C++ 代码使用数组模拟整数加法，可以处理超出大整数范围的加法运算。横线处应填入代码是（ ）。\n\n```cpp\nvector<int> operator +(vector<int> a, vector<int> b)\n{\n    vector<int> c;\n    int t = 0;\n\n    for(int i = 0; i < a.size() || i < b.size(); i ++ )\n    {\n        if(i < a.size()) t = t + a[i];\n        if(i < b.size()) t = t + b[i];\n        _____\n    }\n\n    if(t) c.push_back(t);\n\n    return c;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`c.push_back(t % 10), t = t % 10;`"
+        },
+        {
+          "label": "B",
+          "content": "`c.push_back(t / 10), t = t % 10;`"
+        },
+        {
+          "label": "C",
+          "content": "`c.push_back(t / 10), t = t / 10;`"
+        },
+        {
+          "label": "D",
+          "content": "`c.push_back(t % 10), t = t / 10;`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "有关下面 C++ 代码的说法正确的是（ ）。\n\n```cpp\nclass Node\n{\npublic:\n    int Value;\n    Node* Prev;\n    Node* Next;\n    Node(int Val, Node* Prv = NULL, Node* Nxt = NULL);\n};\n\nNode::Node(int Val,Node*Prv,Node* Nxt)\n{\n    this->Value = Val;\n    this->Prev = Prv;\n    this->Next = Nxt;\n}\n\nint main()\n{\n    Node firstNode = Node(10);\n    firstNode.Next = new Node(100, &firstNode);\n    firstNode.Next->Next = new Node(111, firstNode.Next);\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "上述代码构成单向链表"
+        },
+        {
+          "label": "B",
+          "content": "上述代码构成双向链表"
+        },
+        {
+          "label": "C",
+          "content": "上述代码构成循环链表"
+        },
+        {
+          "label": "D",
+          "content": "上述代码构成指针链表"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "通讯卫星在通信网络系统中主要起到（ ）的作用。",
+      "options": [
+        {
+          "label": "A",
+          "content": "信息过滤"
+        },
+        {
+          "label": "B",
+          "content": "信号中继"
+        },
+        {
+          "label": "C",
+          "content": "避免攻击"
+        },
+        {
+          "label": "D",
+          "content": "数据加密"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "小杨想编写一个判断任意输入的整数 N 是否为素数的程序，下面哪个方法不合适？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "埃氏筛法"
+        },
+        {
+          "label": "B",
+          "content": "线性筛法"
+        },
+        {
+          "label": "C",
+          "content": "二分答案"
+        },
+        {
+          "label": "D",
+          "content": "枚举法"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下面的排序算法都要处理多趟数据，哪种排序算法不能保证在下一趟处理时从待处理数据中选出最大或最小的数据？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "选择排序"
+        },
+        {
+          "label": "B",
+          "content": "快速排序"
+        },
+        {
+          "label": "C",
+          "content": "堆排序"
+        },
+        {
+          "label": "D",
+          "content": "冒泡排序"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "归并排序的时间复杂度是 $O(N \\log N)$。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "小杨在生日聚会时拿一块 $H \\times W$ 的巧克力招待来的 $K$ 个小朋友，保证每位小朋友至少能获得一块相同大小的巧克力。那么小杨想分出来最大边长的巧克力可以使用二分法。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "以下 C++ 代码能以递归方式实现斐波那契数列，该数列第 1、2 项为 1，以后各项均是前两项之和。（ ）\n\n```cpp\nint Fibo(int N)\n{\n    if (N == 1 || N == 2)\n        return 1;\n    else\n    {\n        int m = fiboA(N - 1);\n        int n = fiboB(N - 2);\n        return m + n;\n    }\n}\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "贪心算法可以达到局部最优，但可能不是全局最优解。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "小杨设计了一个拆数程序，它能够将任意的非质数自然数 N 转换成若干个质数的乘积，这个程序是可以设计出来的。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "插入排序有时比快速排序时间复杂度更低。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "下面的 C++ 代码能实现十进制正整数 N 转换为八进制并输出。（ ）\n\n```cpp\nchar s[10];\nint main()\n{\n    int N;\n    cin >> N;\n    string rst = \"\";\n    while (N != 0)\n    {\n        s[0]=N % 8 + '0';\n        rst += string(s);\n        N /= 8;\n    }\n    cout << rst << endl;\n\n    return 0;\n}\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "对数组 `int arr[] = {2, 6, 3, 5, 4, 8, 1, 0, 9, 10}` 执行 `sort(arr, arr+10)`，则执行后 `arr` 中的数据调整为 `{0, 1, 2, 3, 4, 5, 6, 8,9, 10}`。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "小杨想写一个程序来算出正整数 N 有多少个因数，经过思考他写出了一个重复没有超过 N/2 次的循环就能够算出来了。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "同样的整数序列分别保存在单链表和双向链中，这两种链表上的简单冒泡排序的复杂度相同。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "小杨的幸运数",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "小杨认为，所有大于等于 $a$ 的完全平方数都是他的超级幸运数。\n\n小杨还认为，所有超级幸运数的倍数都是他的幸运数。自然地，小杨的所有超级幸运数也都是幸运数。\n\n对于一个非幸运数，小杨规定，可以将它一直 $+1$，直到它变成一个幸运数。我们把这个过程叫做幸运化。例如，如果 $a=4$，那么 $4$ 是最小的幸运数，而 $1$ 不是，但我们可以连续对 $1$ 做 $3$ 次 $+1$ 操作，使其变为 $4$，所以我们可以说，$1$ 幸运化后的结果是 $4$。\n\n现在，小样给出 $N$ 个数，请你首先判断它们是不是幸运数；接着，对于非幸运数，请你将它们幸运化。",
+      "inputFormat": "第一行 2 个正整数 $a, N$。\n\n接下来 $N$ 行，每行一个正整数 $x$，表示需要判断（幸运化）的数。",
+      "outputFormat": "输出 $N$ 行，对于每个给定的 $x$，如果它是幸运数，请输出 `lucky`，否则请输出将其幸运化后的结果。",
+      "samples": [
+        {
+          "input": "2 4\n1\n4\n5\n9",
+          "output": "4\nlucky\n8\nlucky",
+          "explanation": "$1$ 虽然是完全平方数，但它小于 $a$，因此它并不是超级幸运数，也不是幸运数。将其进行 $3$ 次 $+1$ 操作后，最终得到幸运数 $4$。\n\n$4$ 是幸运数，因此直接输出 `lucky`。\n\n$5$ 不是幸运数，将其进行 $3$ 次 $+1$ 操作后，最终得到幸运数 $8$。\n\n$9$ 是幸运数，因此直接输出 `lucky`。"
+        },
+        {
+          "input": "16 11\n1\n2\n4\n8\n16\n32\n64\n128\n256\n512\n1024",
+          "output": "16\n16\n16\n16\nlucky\nlucky\nlucky\nlucky\nlucky\nlucky\nlucky"
+        }
+      ],
+      "dataRange": "对于 $30\\%$ 的测试点，保证 $a, x \\le 100$，$N \\le 100$。\n\n对于 $60\\%$ 的测试点，保证 $a, x \\le 10^6$。\n\n对于所有测试点，保证 $a \\le 1,000,001$；保证 $N \\le 2 \\times 10^5$；保证 $1 \\le x \\le 1,000,001$。",
+      "referenceSolution": "#include <cstdio>\n#include <cstdlib>\n#include <cstring>\n#include <algorithm>\n#include <string>\n#include <map>\n#include <iostream>\n#include <cmath>\nusing namespace std;\nconst int N = 1001 * 1001;\nconst double eps = 1e-8;\nbool is_lucky[N + 5];\nint next_lucky[N + 5];\nvoid init() {\n\n}\nint main() {\n    int a, T;\n    scanf(\"%d%d\", &a, &T);\n    for (int i = 1; i <= N; i ++) {\n        int t = int(sqrt(i) + eps);\n        if (i >= a && t * t == i)\n            is_lucky[i] = 1;\n        if (! is_lucky[i])\n            continue ;\n\n        for (int j = i + i; j <= N; j += i)\n            is_lucky[j] = 1;\n    }\n    for(int i = N; i; i --)\n        next_lucky[i] = is_lucky[i] ? i : next_lucky[i + 1];\n\n    while(T --) {\n        int x;\n        scanf(\"%d\", &x);\n        if (is_lucky[x])\n            cout << \"lucky\" << endl;\n        else\n            cout << next_lucky[x] << endl;\n    }\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "烹饪问题",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "有 $N$ 种食材，编号从 $0$ 至 $N-1$，其中第 $i$ 种食材的美味度为 $a_i$。\n\n不同食材之间的组合可能产生奇妙的化学反应。具体来说，如果两种食材的美味度分别为 $x$ 和 $y$，那么它们的契合度为 $x \\text{ and } y$。\n\n其中，$\\text{and}$ 运算为按位与运算，需要先将两个运算数转换为二进制，然后在高位补足 $0$，再逐位进行与运算。例如，$12$ 与 $6$ 的二进制表示分别为 `1100` 和 `0110`，将它们逐位进行与运算，得到 `0100`，转换为十进制得到 $4$，因此 $12 \\text{ and } 6 = 4$。**在 C++ 或 Python 中，可以直接使用 `&` 运算符表示与运算。**\n\n现在，请你找到契合度最高的两种食材，并输出它们的契合度。",
+      "inputFormat": "第一行一个整数 $N$，表示食材的种数。\n\n接下来一行 $N$ 个用空格隔开的整数，依次为 $a_0, \\dots, a_{N-1}$，表示各种食材的美味度。",
+      "outputFormat": "输出一行一个整数，表示最高的契合度。",
+      "samples": [
+        {
+          "input": "3\n1 2 3",
+          "output": "2",
+          "explanation": "可以编号为 $1, 2$ 的食材之间的契合度为 $2 \\text{ and } 3 = 2$，是所有食材两两之间最高的契合度。"
+        },
+        {
+          "input": "5\n5 6 2 10 13",
+          "output": "8",
+          "explanation": "可以编号为 $3, 4$ 的食材之间的契合度为 $10 \\text{ and } 13 = 8$，是所有食材两两之间最高的契合度。"
+        }
+      ],
+      "dataRange": "对于 $40\\%$ 的测试点，保证 $N \\le 1,000$；\n\n对于所有测试点，保证 $N \\le 10^6$，$0 \\le a_i \\le 2,147,483,647$。",
+      "referenceSolution": "#include<cstdio>\n#include<iostream>\n#include<algorithm>\n#include<cstdlib>\n#include<cstring>\nusing namespace std;\n\nconst int MAX_N = int(1e6) + 100;\n\nint a[MAX_N];\n\nint sort(int l,int r,int k) {\n    while(l <= r) {\n        while ((l <= r) && (a[l] >> k & 1)) l++;\n        while ((l <= r) && (!(a[r] >> k & 1))) r--;\n        if (l <= r) swap(a[l++], a[r--]);\n    }\n    return r;\n}\n\nint main() {\n    int n, j, ans=0;\n    scanf(\"%d\", &n);\n    for (int i = 1; i <= n; i++) scanf(\"%d\", &a[i]);\n    for (int i = 31; i >= 0; i--)\n        if ((j = sort(1, n, i)) >= 2) {\n            ans = ans | 1 << i;\n            n = j;\n        }\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n"
+    }
+  ]
+}

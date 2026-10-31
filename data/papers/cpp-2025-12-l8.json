@@ -1,0 +1,505 @@
+{
+  "id": "cpp-2025-12-l8",
+  "language": "cpp",
+  "level": 8,
+  "exam": {
+    "id": "2025-12",
+    "title": "2025年12月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10242.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1723013038866464.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "某平台生成“取件码”由6个字符组成：前4位为数字（`0`–`9`），后2位为大写字母（`A`–`Z`），其中字母不能为 `I`、`O`。假设数字和字母均可重复使用，要求整个取件码中恰好有2个数字为奇数。共有多少种不同取件码？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "1,440,000"
+        },
+        {
+          "label": "B",
+          "content": "2,160,000"
+        },
+        {
+          "label": "C",
+          "content": "2,535,000"
+        },
+        {
+          "label": "D",
+          "content": "8,640,000"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "下列代码实现了归并排序（Merge Sort）的分治部分。为了正确地将数组 `a` 的 `[left, right]` 区间进行排序，横线处应该填入的是（ ）。\n\n```cpp\nvoid merge_sort(int a[], int left, int right) {\n    if (left >= right) return;\n    int mid = (left + right) / 2;\n    merge_sort(a, left, mid);\n    ________; // 在此处填入选项\n    merge(a, left, mid, right); // 合并操作\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`merge_sort(a, mid, right)`"
+        },
+        {
+          "label": "B",
+          "content": "`merge_sort(a, mid + 1, right)`"
+        },
+        {
+          "label": "C",
+          "content": "`merge_sort(a, left, mid + 1)`"
+        },
+        {
+          "label": "D",
+          "content": "`merge_sort(a, mid - 1, right)`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "某社团有男生8人、女生7人。现需选出1名队长（性别不限）、1名副队长（性别不限）、2名宣传委员（两人无角色区别，且必须**至少1名女生**）。假如一人不能兼任多职，共有多少种不同选法？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "$12012$"
+        },
+        {
+          "label": "B",
+          "content": "$11844$"
+        },
+        {
+          "label": "C",
+          "content": "$12474$"
+        },
+        {
+          "label": "D",
+          "content": "$11025$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "二项式 $(2x-y)^8$ 的展开式中 $x^5y^3$ 项的系数为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$-7168$"
+        },
+        {
+          "label": "B",
+          "content": "$7168$"
+        },
+        {
+          "label": "C",
+          "content": "$-1792$"
+        },
+        {
+          "label": "D",
+          "content": "$1792$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面是使用邻接矩阵实现的Dijkstra算法的核心片段，用于求单源最短路径。在找到当前距离起点最近的顶点 `u` 后，需要更新其邻接点 `j` 的距离。横线处应填入的代码是（ ）。\n\n```cpp\nfor (int j = 1; j <= n; j++) {\n    if (!visited[j] && graph[u][j] < INF) {\n        if (________) { // 在此处填入选项\n            dis[j] = dis[u] + graph[u][j];\n        }\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`dis[j] < dis[u] + graph[u][j]`"
+        },
+        {
+          "label": "B",
+          "content": "`dis[j] > dis[u] + graph[u][j]`"
+        },
+        {
+          "label": "C",
+          "content": "`graph[u][j] > dis[u] + dis[j]`"
+        },
+        {
+          "label": "D",
+          "content": "`dis[j] > graph[u][j]`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下面程序使用动态规划求两个字符串的最长公共子序列（LCS）长度，横线处应填入的是（ ）。\n\n```cpp\n#include <algorithm>\n#include <string>\n#include <vector>\nusing namespace std;\n\nint lcs_len(const string &a, const string &b) {\n    int n = (int)a.size(), m = (int)b.size();\n    vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));\n    for (int i = 1; i <= n; i++)\n        for (int j = 1; j <= m; j++)\n            if (a[i - 1] == b[j - 1])\n                dp[i][j] = dp[i - 1][j - 1] + 1;\n            else\n                ________; // 在此处填入选项\n    return dp[n][m];\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`dp[i][j] = dp[i - 1][j] + dp[i][j - 1];`"
+        },
+        {
+          "label": "B",
+          "content": "`dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]);`"
+        },
+        {
+          "label": "C",
+          "content": "`dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);`"
+        },
+        {
+          "label": "D",
+          "content": "`dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]) + 1;`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "已知两个点 $A(x_1, y_1)$ 和 $B(x_2, y_2)$ 在平面直角坐标系中的坐标。下列C++表达式中，能正确计算这两点之间直线距离的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`sqrt((x1 - x2) ^ 2 + (y1 - y2) ^ 2)`"
+        },
+        {
+          "label": "B",
+          "content": "`sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2))`"
+        },
+        {
+          "label": "C",
+          "content": "`pow(x1 - x2, 2) + pow(y1 - y2, 2)`"
+        },
+        {
+          "label": "D",
+          "content": "`abs(x1 - x2) + abs(y1 - y2)`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "已知 `int a = 10;`，执行 `int &b = a; b = 20;` 后，变量 `a` 的值是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`10`"
+        },
+        {
+          "label": "B",
+          "content": "`20`"
+        },
+        {
+          "label": "C",
+          "content": "`30`"
+        },
+        {
+          "label": "D",
+          "content": "编译错误"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下列代码的时间复杂度（以 $n$ 为自变量，忽略常数与低阶项）是（ ）。\n\n```cpp\nlong long s = 0;\nfor (int i = 1; i <= n; i++) {\n    for (int j = 1; j * j <= i; j++) {\n        s += j;\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n\\log n)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n\\sqrt{n})$"
+        },
+        {
+          "label": "D",
+          "content": "$O(n^2)$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下列程序实现了线性筛法（欧拉筛），用于在 $O(n)$ 时间内求出 $1 \\sim n$ 之间的所有质数。为了保证每个合数只被其最小质因子筛掉，横线处应填入的语句是（ ）。\n\n```cpp\nfor (int i = 2; i <= n; i++) {\n    if (!not_prime[i]) primes[++cnt] = i;\n    for (int j = 1; j <= cnt && i * primes[j] <= n; j++) {\n        not_prime[i * primes[j]] = true;\n        if (________) break; // 在此处填入选项\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`i + primes[j] == n`"
+        },
+        {
+          "label": "B",
+          "content": "`primes[j] > i`"
+        },
+        {
+          "label": "C",
+          "content": "`i % primes[j] == 0`"
+        },
+        {
+          "label": "D",
+          "content": "`i % primes[j] != 0`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "在C++语言中，关于类的**继承和访问权限**，下列说法正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "派生类可以访问基类的 `private` 成员。"
+        },
+        {
+          "label": "B",
+          "content": "基类的 `protected` 成员在私有继承（private inheritance）后，在派生类中变为 `public`。"
+        },
+        {
+          "label": "C",
+          "content": "派生类对象在创建时，会先调用基类的构造函数，再调用派生类自己的构造函数。"
+        },
+        {
+          "label": "D",
+          "content": "派生类对象在销毁时，会先调用基类的析构函数，再调用派生类自己的析构函数。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "当输入 `6` 时，下列程序的输出结果为（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint f(int n) {\n    if (n <= 3) return n;\n    return f(n - 1) + f(n - 2) + 2 * f(n - 3);\n}\nint main() {\n    int n;\n    cin >> n;\n    cout << f(n) << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`14`"
+        },
+        {
+          "label": "B",
+          "content": "`27`"
+        },
+        {
+          "label": "C",
+          "content": "`28`"
+        },
+        {
+          "label": "D",
+          "content": "`15`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "从1到999这999个正整数中，十进制表示中数字 `5` **恰好出现一次**的数有多少个？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`243`"
+        },
+        {
+          "label": "B",
+          "content": "`271`"
+        },
+        {
+          "label": "C",
+          "content": "`300`"
+        },
+        {
+          "label": "D",
+          "content": "`333`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "当输入 `2023` 时，下列程序的输出结果为（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int x, ans = 0;\n    cin >> x;\n    while (x != 0) {\n        x -= x & -x;\n        ans++;\n    }\n    cout << ans << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`7`"
+        },
+        {
+          "label": "B",
+          "content": "`8`"
+        },
+        {
+          "label": "C",
+          "content": "`9`"
+        },
+        {
+          "label": "D",
+          "content": "`11`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "对连通无向图执行Kruskal算法。已按边权从小到大依次扫描到某条边 $e = (u, v)$。此时在已经构建的部分MST结构中，$(u, v)$ 已在同一连通块内。关于边 $e$ 的处理，下列说法正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "必须选入MST，否则可能不连通。"
+        },
+        {
+          "label": "B",
+          "content": "一定不能选入MST（在此扫描顺序下）。"
+        },
+        {
+          "label": "C",
+          "content": "若后续出现更大的边权，可以回溯改选 $e$。"
+        },
+        {
+          "label": "D",
+          "content": "只有当 $e$ 是当前最小边时才能舍弃。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "若一项任务可用两种互斥方案完成：方案A有 $m$ 种做法，方案B有 $n$ 种做法，则总做法数为 $m + n$。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "在C++语言中，引用一旦被初始化，就不能再改为引用另一个变量。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "快速排序和归并排序的平均时间复杂度都是 $O(n\\log n)$，但快速排序是不稳定的排序算法，归并排序是稳定的排序算法。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "使用 `math.h` 或 `cmath` 头文件中的函数，表达式 `sqrt(4)` 的结果类型为 `double`。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "在杨辉三角形中，第 $n$ 行（从0开始计数，即第 $n$ 行有 $n+1$ 个数）的所有数字之和等于 $2^n$。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "使用二叉堆优化的Dijkstra最短路算法，在某些特殊情况下时间复杂度不如朴素实现的 $O(V^2)$。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "$n$ 个不同元素依次入栈的出栈序列数与将 $n$ 个不同元素划分成若干非空子集的方案数相等。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "快速排序在最坏情况下的时间复杂度为 $O(n\\log n)$，可以通过随机化选择基准值（pivot）的方法完全避免退化。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "在C++语言中，一个类可以拥有多个构造函数，也可以拥有多个析构函数。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "求两个序列的最长公共子序列（LCS）时，使用滚动数组优化空间后，仍然可以还原出具体的LCS序列。",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "猫和老鼠",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "猫和老鼠所在的庄园可以视为一张由 $n$ 个点和 $m$ 条带权无向边构成的连通图。结点依次以 $1, 2, \\ldots, n$ 编号，结点 $i$（$1 \\le i \\le n$）有价值为 $c_i$ 的奶酪。在 $m$ 条带权无向边中，第 $i$（$1 \\le i \\le m$）条无向边连接结点 $u_i$ 与结点 $v_i$，边权 $w_i$ 表示猫和老鼠通过这条边所需的时间。\n\n猫窝位于结点 $a$，老鼠洞位于结点 $b$。对于老鼠而言，结点 $u$ 是**安全的**当且仅当：\n\n- 老鼠能规划一条从结点 $u$ 出发逃往老鼠洞的路径，使得对于路径上任意结点 $x$（包括结点 $u$ 与老鼠洞）都有：猫从猫窝出发到结点 $x$ 的最短时间**严格大于**老鼠从结点 $u$ **沿这条路径**前往结点 $x$ 所需的时间。\n\n老鼠在拿取安全结点的奶酪时不存在被猫抓住的可能，但在拿取不是安全结点的奶酪时则不一定。为了确保万无一失，老鼠决定只拿取安全结点放置的奶酪。请你计算老鼠所能拿到的奶酪价值之和。",
+      "inputFormat": "第一行，两个正整数 $n, m$，分别表示图的结点数与边数。\n\n第二行，两个正整数 $a, b$，分别表示猫窝的结点编号，以及老鼠洞的结点编号。\n\n第三行，$n$ 个正整数 $c_1, c_2, \\ldots, c_n$，表示各个结点的奶酪价值。\n\n接下来 $m$ 行中的第 $i$ 行（$1 \\le i \\le m$）包含三个正整数 $u_i, v_i, w_i$，表示图中连接结点 $u_i$ 与结点 $v_i$ 的边，边权为 $w_i$。",
+      "outputFormat": "输出一行，一个整数，表示老鼠所能拿到的奶酪价值之和。",
+      "samples": [
+        {
+          "input": "5 5\n1 2\n1 2 4 8 16\n1 2 4\n2 3 3\n3 4 1\n2 5 2\n3 1 8",
+          "output": "22"
+        },
+        {
+          "input": "6 10\n3 4\n1 1 1 1 1 1\n1 2 6\n2 3 3\n3 1 4\n3 4 5\n4 5 8\n5 6 2\n6 4 1\n3 2 4\n5 4 4\n3 3 6",
+          "output": "3"
+        }
+      ],
+      "dataRange": "对于 $40\\%$ 的测试点，保证 $1 \\le n \\le 500$，$1 \\le m \\le 500$。\n\n对于所有测试点，保证 $1 \\le n \\le 10^5$，$1 \\le m \\le 10^5$，$1 \\le a, b \\le n$ 且 $a \\ne b$，$1 \\le u_i, v_i \\le n$，$1 \\le w_i \\le 10^9$。",
+      "referenceSolution": "#include <cstdio>\n#include <algorithm>\n#include <vector>\n#include <queue>\n\nusing namespace std;\n\nconst int N = 1e5 + 5;\nconst long long oo = 1e18;\n\nint n, m;\nint a, b;\nint c[N];\nvector<pair<int, int>> e[N];\nlong long dis[N];\npriority_queue<pair<long long, int>> q;\nlong long ans;\n\nint main() {\n    scanf(\"%d%d\", &n, &m);\n    scanf(\"%d%d\", &a, &b);\n    for (int i = 1; i <= n; i++)\n        scanf(\"%d\", &c[i]);\n    for (int i = 1; i <= m; i++) {\n        int u, v, w;\n        scanf(\"%d%d%d\", &u, &v, &w);\n        e[u].emplace_back(make_pair(v, w));\n        e[v].emplace_back(make_pair(u, w));\n    }\n    for (int i = 1; i <= n; i++)\n        dis[i] = oo;\n    dis[b] = 0;\n    q.push(make_pair(-dis[b], b));\n    while (!q.empty()) {\n        auto p = q.top();\n        q.pop();\n        if (dis[p.second] != -p.first)\n            continue;\n        int u = p.second;\n        for (auto r : e[u]) {\n            int v = r.first, w = r.second;\n            if (dis[v] > dis[u] + w) {\n                dis[v] = dis[u] + w;\n                q.push(make_pair(-dis[v], v));\n            }\n        }\n    }\n    for (int i = 1; i <= n; i++)\n        if (dis[i] < dis[a])\n            ans += c[i];\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "宝石项链",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小 A 有一串包含 $n$ 枚宝石的宝石项链，这些宝石按照在项链中的顺序依次以 $1, 2, \\ldots, n$ 编号，第 $n$ 枚宝石与第 $1$ 枚宝石相邻。项链由 $m$ 种宝石组成，其中第 $i$ 枚宝石种类为 $t_i$。\n\n小 A 想将宝石项链分给他的好朋友们。具体而言，小 A 会将项链划分为若干**连续段**，并且需要保证每段都包含全部 $m$ 种宝石。请帮小 A 计算在满足条件的前提下，宝石项链最多可以划分为多少段。",
+      "inputFormat": "第一行，两个正整数 $n, m$，分别表示宝石项链中的宝石的数量与种类数。\n\n第二行，$n$ 个正整数 $t_1, t_2, \\ldots, t_n$，表示每枚宝石的种类。",
+      "outputFormat": "输出一行，一个整数，表示宝石项链最多可以划分的段数。",
+      "samples": [
+        {
+          "input": "6 2\n1 2 1 2 1 2",
+          "output": "3"
+        },
+        {
+          "input": "7 3\n3 1 3 1 2 1 2",
+          "output": "2"
+        }
+      ],
+      "dataRange": "对于 $40\\%$ 的测试点，保证 $2 \\le n \\le 1000$。\n\n对于所有测试点，保证 $2 \\le n \\le 10^5$，$2 \\le m \\le n$，$1 \\le t_i \\le m$，保证 $1, 2, \\ldots, m$ 均在 $t_1, t_2, \\ldots, t_n$ 中出现。",
+      "referenceSolution": "#include <cstdio>\n#include <algorithm>\n\nusing namespace std;\n\nconst int L = 20;\nconst int N = 2e5 + 5;\nconst int oo = 1e9;\n\nint n, m;\nint t[N], jump[L][N];\nint cnt[N], tot;\nint ans;\n\nint go(int u) {\n    int cnt = 0, ans = 0;\n    for (int i = L - 1; i >= 0; i--)\n        if (cnt + jump[i][u] <= n) {\n            cnt += jump[i][u];\n            ans += 1 << i;\n            u = (u + jump[i][u] - 1) % n + 1;\n        }\n    return ans;\n}\n\nint main() {\n    scanf(\"%d%d\", &n, &m);\n    for (int i = 1; i <= n; i++) {\n        scanf(\"%d\", &t[i]);\n        t[i + n] = t[i];\n    }\n    for (int i = 1, r = 0; i <= n; i++) {\n        while (tot < m) {\n            r++;\n            if (!cnt[t[r]]++)\n                tot++;\n        }\n        jump[0][i] = r - i + 1;\n        if (!--cnt[t[i]])\n            tot--;\n    }\n    for (int i = 1; i < L; i++)\n        for (int j = 1; j <= n; j++) {\n            int tar = (j + jump[i - 1][j] - 1) % n + 1;\n            jump[i][j] = min(jump[i - 1][j] + jump[i - 1][tar], oo);\n        }\n    for (int i = 1; i <= n; i++)\n        ans = max(ans, go(i));\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,508 @@
+{
+  "id": "cpp-2023-12-l6",
+  "language": "cpp",
+  "level": 6,
+  "exam": {
+    "id": "2023-12",
+    "title": "2023年12月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10119.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1584918408724512.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "关于 C++ 类和对象的说法，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "在 C++ 中，一切皆对象，即便是字面量如整数 $5$ 等也是对象"
+        },
+        {
+          "label": "B",
+          "content": "在 C++ 中，可以自定义新的类，并实例化为新的对象"
+        },
+        {
+          "label": "C",
+          "content": "在 C++ 中，内置函数和自定义函数，都是类或者对象"
+        },
+        {
+          "label": "D",
+          "content": "在 C++ 中，可以在自定义函数中嵌套定义新的函数"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "有关下面 C++ 代码的说法，错误的是（ ）。\n\n```cpp\nclass Rectangle\n{\nprivate:\n    class Point\n    {\n    public:\n        double x;\n        double y;\n    };\n    Point a, b, c, d;\n    double length;\n    double width;\npublic:\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "C++ 中类内部可以嵌套定义类"
+        },
+        {
+          "label": "B",
+          "content": "在类中定义的类被称为内部类，定义类的类被称为外部类"
+        },
+        {
+          "label": "C",
+          "content": "内部类可以随便访问，不需要通过外部类来访问"
+        },
+        {
+          "label": "D",
+          "content": "代码中 `Point` 被称为内部类，可以通过外部类 `Rectangle` 来访问，`Rectangle::Point`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "有关下面 C++ 代码的说法，正确的是（ ）。（代码中以注释标出了选项所指的行号）\n\n```cpp\nusing namespace std;\nclass newClass\n{\n    public:\n    static  int objCounter;  // 第6行\n\n};\nint newClass::objCounter=2;\nint main()\n{\n    newClass classA;\n    newClass classB;\n    cout<<newClass::objCounter<<endl;  // 第14行\n    cout<<classB.objCounter<<endl;  // 第15行\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "第 14 行代码错误，第 15 行正确"
+        },
+        {
+          "label": "B",
+          "content": "第 15 行代码错误，第 14 行代码正确"
+        },
+        {
+          "label": "C",
+          "content": "第 14、15 两行代码都正确"
+        },
+        {
+          "label": "D",
+          "content": "第 6 行代码可修改为 `objCounter += 1`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "有关下面 C++ 代码的说法，错误的是（ ）。\n\n```cpp\nstruct BiNode {\n    char data;\n    BiNode* lchid,*rchid;\n};\nclass BiTree {\nprivate:\n    BiNode* Creat();\n    void Release(BiNode* bt);\n    BiNode* root;\npublic:\n    BiTree() {\n        root = Creat();\n    }\n    ~BiTree() {\n        Release(root);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "上列 C++ 代码适用于构造各种二叉树"
+        },
+        {
+          "label": "B",
+          "content": "代码 `struct BiNode` 用于构造二叉树的节点"
+        },
+        {
+          "label": "C",
+          "content": "代码 `BiTree(){root=Creat();}` 用于构造二叉树"
+        },
+        {
+          "label": "D",
+          "content": "析构函数不可以省略"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "基于第 4 题的定义，有关下面 C++ 代码的说法正确的是（ ）。\n\n```cpp\nvoid Order(BiNode* bt) {\n    if (bt == nullptr)\n        return;\n    else {\n        cout << bt->data;\n        Order(bt->lchid);\n        Order(bt->rchid);\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "代码中 `Order( )` 函数是中序遍历二叉树的方法"
+        },
+        {
+          "label": "B",
+          "content": "代码中 `Order( )` 先访问根节点，然后对左子树进行前序遍历，再对右子树前序遍历"
+        },
+        {
+          "label": "C",
+          "content": "代码中 `Order( )` 先访问中序遍历左子树，然后访问根节点，最后则是中序遍历右子树"
+        },
+        {
+          "label": "D",
+          "content": "代码中 `Order( )` 先后序遍历左子树，然后后序遍历右子树，最后访问根节点"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "有关下面 C++ 代码的说法正确的是（ ）。\n\n```cpp\ntypedef struct LinkList {\n\n    int data;\n\n    LinkList* next;\n\n    LinkList* prev;\n\n}LinkList,LinkNode;\nbool ListInit(LinkList* &L) {\n\n    L = new LinkNode;\n    if (!L)return false;\n\n    L->next = NULL;\n    L->prev = NULL;\n    L->data = -1;\n\n    return true;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "上述代码构成单向链表"
+        },
+        {
+          "label": "B",
+          "content": "上述代码构成双向链表"
+        },
+        {
+          "label": "C",
+          "content": "上述代码构成循环链表"
+        },
+        {
+          "label": "D",
+          "content": "上述代码构成指针链表"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "对 `hello world` 使用霍夫曼编码（Huffman Coding），最少 bit（比特）为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$4$"
+        },
+        {
+          "label": "B",
+          "content": "$32$"
+        },
+        {
+          "label": "C",
+          "content": "$64$"
+        },
+        {
+          "label": "D",
+          "content": "$88$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面的 `fiboA()` 和 `fiboB()` 两个函数分别实现斐波那契数列，该数列第 $1$、第 $2$ 项值为 $1$，其余各项分别为前两项之和。下面有关说法错误的是（ ）。\n\n```cpp\nint fiboA(int n)\n{\n    if(n==0)\n        return 1;\n    if(n==1)\n        return 1;\n    else\n    {\n        return fiboA(n-1)+fiboA(n-2);\n    }\n}\nint fiboB(int n)\n{\n    if( (n==0) || (n==1) ){\n        fiboB[n]=n;\n        return n;\n    }\n    else{\n        if(fiboB[n] == 0){\n            fiboB[n]=FiboB(n-1)+FiboB(n-2);\n        }\n        return fiboB[n];\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`fiboA()` 采用递归方式实现斐波那契数列"
+        },
+        {
+          "label": "B",
+          "content": "`fiboB()` 采用动态规划算法实现斐波那契数列"
+        },
+        {
+          "label": "C",
+          "content": "当 $N$ 值较大时，`fiboA()` 存在大量重复计算"
+        },
+        {
+          "label": "D",
+          "content": "由于 `fiboA()` 代码较短，其执行效率较高"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "有关下面 C++ 代码不正确的说法是（ ）。\n\n```cpp\nint Depth(BiTree T)\n{\n    if (T == NULL)\n    {\n        return 0;\n    }\n    else\n    {\n        int m = Depth(T->lchild);\n        int n = Depth(T->rchild);\n        if (m > n)\n        {\n            return m + 1;\n        }\n        else\n        {\n            return n + 1;\n        }\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "该代码可用于求解二叉树的深度"
+        },
+        {
+          "label": "B",
+          "content": "代码中函数 `Depth( )` 的参数 `T` 表示根节点，非根节点不可以作为参数"
+        },
+        {
+          "label": "C",
+          "content": "代码中函数 `Depth( )` 采用了递归方法"
+        },
+        {
+          "label": "D",
+          "content": "代码中函数 `Depth( )` 可用于求解各种形式的二叉树深度，要求该二叉树节点至少有 `left` 和 `right` 属性"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面有关树的存储，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "完全二叉树可以用 `list` 存储"
+        },
+        {
+          "label": "B",
+          "content": "一般二叉树都可以用 `list` 存储，空子树位置可以用 `None` 表示"
+        },
+        {
+          "label": "C",
+          "content": "满二叉树可以用 `list` 存储"
+        },
+        {
+          "label": "D",
+          "content": "树数据结构，都可以用 `list` 存储"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "构造二叉树 `[1,2,3,null,4]`（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1(2()(4))(3)`"
+        },
+        {
+          "label": "B",
+          "content": "`1(2(3)())(4)`"
+        },
+        {
+          "label": "C",
+          "content": "`(1,2(3),(4))`"
+        },
+        {
+          "label": "D",
+          "content": "`(1,(2)(3),(4))`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面有关布尔类型的函数的说法，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`bool` 类型函数只能返回 $0$ 或者 $1$ 两种值"
+        },
+        {
+          "label": "B",
+          "content": "`bool` 类型函数可以返回任何整数值"
+        },
+        {
+          "label": "C",
+          "content": "`bool` 类型函数必须有参数传递"
+        },
+        {
+          "label": "D",
+          "content": "`bool` 类型函数没有返回值"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "通讯卫星在通信网络系统中主要起到（ ）的作用。",
+      "options": [
+        {
+          "label": "A",
+          "content": "信息过滤"
+        },
+        {
+          "label": "B",
+          "content": "信号中继"
+        },
+        {
+          "label": "C",
+          "content": "避免攻击"
+        },
+        {
+          "label": "D",
+          "content": "数据加密"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "小杨想编写一个判断任意输入的整数 $N$ 是否为素数的程序，下面哪个方法不合适？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "埃氏筛法"
+        },
+        {
+          "label": "B",
+          "content": "线性筛法"
+        },
+        {
+          "label": "C",
+          "content": "二分答案"
+        },
+        {
+          "label": "D",
+          "content": "枚举法"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "内排序有不同的类别，下面哪种排序算法和冒泡排序是同一类？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "希尔排序"
+        },
+        {
+          "label": "B",
+          "content": "快速排序"
+        },
+        {
+          "label": "C",
+          "content": "堆排序"
+        },
+        {
+          "label": "D",
+          "content": "插入排序"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "在面向对象中，方法在 C++ 的 `class` 中表现为 `class` 内定义的函数。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "C++ 类的定义中，可以没有构造函数，会给出默认的构造函数。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "如果某个 C++ 对象（object）支持下标运算符（方括号运算符），则该对象在所对应 `class` 中以成员函数的形式进行了重载。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "深度优先搜索（DFS，Depth First Search 的简写）属于图算法，其过程是对每一个可能的分支路径深入到不能再深入为止，而且每个节点只能访问一次。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "哈夫曼编码（Huffman Coding）具有唯一性，因此有确定的压缩率。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "在下面 C++ 代码中，由于删除了变量 `ptr`，因此 `ptr` 所对应的数据也随之删除，故第 8 行代码被执行时，将报错。（ ）\n\n```cpp\n    int * ptr=new int(10);  // 第5行\n    cout<<*ptr<<endl;  // 第6行\n    delete ptr;  // 第7行\n    cout<<*ptr<<endl;  // 第8行\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "二叉搜索树查找的平均时间复杂度为 $O(\\log N)$。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "二叉搜索树可以是空树（没有任何节点）或者单节点树（只有一个节点），或者多节点。如果是多节点，则左节点的值小于父节点的值，右节点的值大于父节点的值，由此推理，右节点树的值都大于根节点的值，左节点树的值都小于根节点的值。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "小杨想写一个程序来算出正整数 $N$ 有多少个因数，经过思考他写出了一个重复没有超过 $N/2$ 次的循环就能够算出来了。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "同样的整数序列分别保存在单链表和双向链中，这两种链表上的简单冒泡排序的复杂度相同。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "闯关游戏",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "你来到了一个闯关游戏。\n\n这个游戏总共有 $N$ 关，每关都有 $M$ 个通道，你需要选择一个通道并通往后续关卡。其中，第 $i$ 个通道可以让你前进 $a_i$ 关，也就是说，如果你现在在第 $x$ 关，那么选择第 $i$ 个通道后，你将直接来到第 $x+a_i$ 关（特别地，如果 $x+a_i \\ge N$，那么你就通关了）。此外，当你顺利离开第 $s$ 关时，你还将获得 $b_s$ 分。\n\n游戏开始时，你在第 $0$ 关。请问，你通关时最多能获得多少总分？",
+      "inputFormat": "第一行两个整数 $N, M$，分别表示关卡数量和每关的通道数量。\n\n接下来一行 $M$ 个用单个空格隔开的整数 $a_0, a_1, \\ldots, a_{M-1}$。保证 $1 \\le a_i \\le N$。\n\n接下来一行 $N$ 个用单个空格隔开的整数 $b_0, b_1, \\ldots, b_{N-1}$。保证 $|b_i| \\le 10^5$。",
+      "outputFormat": "一行一个整数，表示你通关时最多能够获得的分数。",
+      "samples": [
+        {
+          "input": "6 2\n2 3\n1 0 30 100 30 30",
+          "output": "131",
+          "explanation": "你可以在第 $0$ 关选择第 $1$ 个通道，获得 $1$ 分并来到第 $3$ 关；随后再选择第 $0$ 个通道，获得 $100$ 分并来到第 $5$ 关；最后任选一个通道，都可以获得 $30$ 分并通关。如此，总得分为 $1+100+30=131$。"
+        },
+        {
+          "input": "6 2\n2 3\n1 0 30 100 30 -1",
+          "output": "101",
+          "explanation": "请注意，一些关卡的得分可能是负数。"
+        }
+      ],
+      "dataRange": "对于 $20\\%$ 的测试点，保证 $M=1$。\n\n对于 $40\\%$ 的测试点，保证 $N \\le 20$；保证 $M \\le 2$。\n\n对于所有测试点，保证 $N \\le 10^4$；保证 $M \\le 100$。",
+      "referenceSolution": "#include <cstdio>\n#include <cstdlib>\n#include <cstring>\n#include <algorithm>\n#include <string>\n#include <map>\n#include <iostream>\n#include <cmath>\nusing namespace std;\nconst int N = 10005;\nconst int M = 105;\nconst int inf = 0x3f3f3f3f;\nint a[M], b[N], f[N];\nint main() {\n    // freopen(\"data/1.in\", \"r\", stdin);\n    int n, m;\n    scanf(\"%d%d\", &n, &m);\n    for (int i = 1; i <= m; i ++)\n        scanf(\"%d\", &a[i]);\n    for (int i = 0; i < n; i ++)\n        scanf(\"%d\", &b[i]);\n\n    memset(f, -0x3f, sizeof(f));\n    f[0] = 0;\n    for (int i = 1; i < n; i ++)\n        for (int j = 1; j <= m; j ++)\n            if (i - a[j] >= 0)\n                f[i] = max(f[i], f[i - a[j]] + b[i - a[j]]);\n\n    int ans = -inf;\n    for (int i = 0; i < n; i ++)\n        for (int j = 1; j <= m; j ++)\n            if (i + a[j] >= n) {\n                ans = max(ans, f[i] + b[i]);\n                break ;\n            }\n\n    cout << ans << endl;\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "工作沟通",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "某公司有 $N$ 名员工，编号从 $0$ 至 $N-1$。其中，除了 $0$ 号员工是老板，其余每名员工都有一个直接领导。我们假设编号为 $i$ 的员工的直接领导是 $f_i$。\n\n该公司有严格的管理制度，每位员工只能受到本人或本人直接领导或间接领导的管理。具体来说，规定员工 $x$ 可以管理员工 $y$，当且仅当 $x=y$，或 $x=f_y$，或 $x$ 可以管理 $f_y$。特别地，$0$ 号员工老板只能自我管理，无法由其他任何员工管理。\n\n现在，有一些同事要开展合作，他们希望找到一位同事来主持这场合作，这位同事必须能够管理参与合作的所有同事。如果有多名满足这一条件的员工，他们希望找到编号最大的员工。你能帮帮他们吗？",
+      "inputFormat": "第一行一个整数 $N$，表示员工的数量。\n\n第二行 $N-1$ 个用空格隔开的正整数，依次为 $f_1, f_2, \\ldots, f_{N-1}$。\n\n第三行一个整数 $Q$，表示共有 $Q$ 场合作需要安排。\n\n接下来 $Q$ 行，每行描述一场合作：开头是一个整数 $m$（$2 \\le m \\le N$），表示参与本次合作的员工数量；接着是 $m$ 个整数，依次表示参与本次合作的员工编号（保证编号合法且不重复）。\n\n保证公司结构合法，即不存在任意一名员工，其本人是自己的直接或间接领导。",
+      "outputFormat": "输出 $Q$ 行，每行一个整数，依次为每场合作的主持人选。",
+      "samples": [
+        {
+          "input": "5\n0 0 2 2\n3\n2 3 4\n3 2 3 4\n2 1 4",
+          "output": "2\n2\n0",
+          "explanation": "对于第一场合作，员工 $3, 4$ 有共同领导 $2$，可以主持合作。\n\n对于第二场合作，员工 $2$ 本人即可以管理所有参与者。\n\n对于第三场合作，只有 $0$ 号老板才能管理所有员工。"
+        },
+        {
+          "input": "7\n0 1 0 2 1 2\n5\n2 4 6\n2 4 5\n3 4 5 6\n4 2 4 5 6\n2 3 4",
+          "output": "2\n1\n1\n1\n0"
+        }
+      ],
+      "dataRange": "对于 $50\\%$ 的测试点，保证 $N \\le 50$。\n\n对于所有测试点，保证 $3 \\le N \\le 300$；$Q \\le 100$。",
+      "referenceSolution": "#include <cstdio>\n#include <cstdlib>\n#include <cstring>\n#include <algorithm>\n#include <string>\n#include <map>\n#include <iostream>\n#include <cmath>\n#include <vector>\nusing namespace std;\nconst int N = 305;\nint fa[N], dep[N];\nbool vis[N];\nvector<int> ch[N];\nint getdep(int x) {\n    return x == 0 ? 0 : getdep(fa[x]) + 1;\n}\nvoid dfs(int x) {\n    vis[x] = 1;\n    for (int y : ch[x])\n        dfs(y);\n}\nbool check(int x, int n, const vector<int> &vec) {\n    for(int i = 0; i <= n; i ++)\n        vis[i] = 0;\n    dfs(x);\n    for (int y : vec)\n        if(! vis[y])\n            return 0;\n    return 1;\n}\nint main() {\n    // freopen(\"data/1.in\", \"r\", stdin);\n    // freopen(\"tmp.txt\", \"w\", stdout);\n    int n;\n    scanf(\"%d\", &n);\n    for(int i = 1; i < n; i ++) {\n        scanf(\"%d\", &fa[i]);\n        ch[fa[i]].push_back(i);\n    }\n    for(int i = 1; i < n; i ++)\n        dep[i] = getdep(i);\n\n    int q;\n    scanf(\"%d\", &q);\n    while(q --) {\n        int m, mnd = n + 1;\n        scanf(\"%d\", &m);\n        vector<int> vec(m);\n        for(int i = 0; i < m; i ++) {\n            scanf(\"%d\", &vec[i]);\n            mnd = min(mnd, dep[vec[i]]);\n        }\n        for (int i = n - 1; i >= 0; i --)\n            if (dep[i] <= mnd && check(i, n, vec)) {\n                printf(\"%d\\n\", i);\n                break ;\n            }\n    }\n    return 0;\n}\n"
+    }
+  ]
+}

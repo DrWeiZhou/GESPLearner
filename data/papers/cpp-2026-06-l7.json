@@ -1,0 +1,501 @@
+{
+  "id": "cpp-2026-06-l7",
+  "language": "cpp",
+  "level": 7,
+  "exam": {
+    "id": "2026-06",
+    "title": "2026年6月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10284.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1753295385264160.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "下列 C++ 代码的输出结果是（ ）。\n\n```cpp\n#include <iostream>\n#include <cmath>\nusing namespace std;\nint main() {\n    cout << (int)(sqrt(50) + log2(8));\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`9`"
+        },
+        {
+          "label": "B",
+          "content": "`10`"
+        },
+        {
+          "label": "C",
+          "content": "`11`"
+        },
+        {
+          "label": "D",
+          "content": "`12`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "下列关于 `<cmath>` 或 `<math.h>` 中的数学库函数的说法，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`sqrt(49)` 的返回值可以参与浮点运算。"
+        },
+        {
+          "label": "B",
+          "content": "`log2(32)` 的返回值类型为 `int`。"
+        },
+        {
+          "label": "C",
+          "content": "`pow(2, 5)` 的返回值类型一定为 `int`。"
+        },
+        {
+          "label": "D",
+          "content": "`sin(90)` 的参数 `90` 表示 `90` 度。"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下列关于 C++ 函数参数传递的说法，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "函数形参一定和实参使用同一块内存。"
+        },
+        {
+          "label": "B",
+          "content": "值传递时，在函数内修改形参一定会修改实参。"
+        },
+        {
+          "label": "C",
+          "content": "引用形参绑定到实参后，在函数内修改引用形参通常会影响实参。"
+        },
+        {
+          "label": "D",
+          "content": "指针形参不能用于修改实参指向的数据。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "有 $5$ 个字符，它们出现的次数分别为 $3$、$4$、$7$、$8$、$9$。使用哈夫曼编码时，最小的带权路径长度 WPL 为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$62$"
+        },
+        {
+          "label": "B",
+          "content": "$64$"
+        },
+        {
+          "label": "C",
+          "content": "$67$"
+        },
+        {
+          "label": "D",
+          "content": "$69$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "已知网格上每个网格点有一个数字，`a[i][j]` 表示第 `i` 行第 `j` 列处网格点上的数字。若 `dp[i][j]` 表示从网格左上角（第 `0` 行第 `0` 列）走到第 `i` 行第 `j` 列时能取得的最大数字和，且每次只能向右或向下移动。对于 `i > 0` 且 `j > 0` 的位置，正确的状态转移代码为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`dp[i][j] = a[i][j] + min(dp[i - 1][j], dp[i][j - 1])`"
+        },
+        {
+          "label": "B",
+          "content": "`dp[i][j] = max(dp[i - 1][j - 1], dp[i][j])`"
+        },
+        {
+          "label": "C",
+          "content": "`dp[i][j] = a[i][j] + max(dp[i - 1][j], dp[i][j - 1])`"
+        },
+        {
+          "label": "D",
+          "content": "`dp[i][j] = a[i][j] + dp[i - 1][j - 1]`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "已知 `f[0] = 0`，`f[1] = 2`，并且对 `i >= 2` 有 `f[i] = max(f[i - 1], f[i - 2] + a[i])`。若 `a[1 .. 5] = {2, 7, 9, 3, 1}`，则 `f[5]` 的值为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$10$"
+        },
+        {
+          "label": "B",
+          "content": "$11$"
+        },
+        {
+          "label": "C",
+          "content": "$12$"
+        },
+        {
+          "label": "D",
+          "content": "$22$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下面代码是一维数组优化 0/1 背包的核心片段，其中 `w[i]` 表示第 `i` 件物品的重量，`v[i]` 表示第 `i` 件物品的价值。横线处应填入（ ）。\n\n```cpp\nfor (int i = 1; i <= n; i++) {\n    for (int c = W; c >= w[i]; c--) {\n        __________;\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`dp[c] = max(dp[c], dp[c + w[i]] + v[i])`"
+        },
+        {
+          "label": "B",
+          "content": "`dp[c] = min(dp[c], dp[c - w[i]] + v[i])`"
+        },
+        {
+          "label": "C",
+          "content": "`dp[c] = dp[c - w[i]] + v[i]`"
+        },
+        {
+          "label": "D",
+          "content": "`dp[c] = max(dp[c], dp[c - w[i]] + v[i])`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面程序片段主要体现的算法思想是（ ）。\n\n```cpp\nvoid dfs(int x, int y) {\n    vis[x][y] = true;\n    for (int k = 0; k < 4; k++) {\n        int nx = x + dx[k], ny = y + dy[k];\n        if (inside(nx, ny) && a[nx][ny] == 1 && !vis[nx][ny])\n            dfs(nx, ny);\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "泛洪算法"
+        },
+        {
+          "label": "B",
+          "content": "二分查找"
+        },
+        {
+          "label": "C",
+          "content": "贪心算法"
+        },
+        {
+          "label": "D",
+          "content": "归并排序"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下列关于排序稳定性的说法，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "冒泡排序在只交换相邻逆序元素时是稳定排序"
+        },
+        {
+          "label": "B",
+          "content": "选择排序一定是稳定排序"
+        },
+        {
+          "label": "C",
+          "content": "快速排序一定是稳定排序"
+        },
+        {
+          "label": "D",
+          "content": "稳定排序一定会改变相等元素的相对顺序"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "无向图的边为 `(1, 2), (1, 3), (2, 4), (3, 4), (4, 5)`。从顶点 `1` 开始进行 BFS，每轮根据出队顶点，将与其相邻顶点按编号从小到大入队，则顶点 `4` 第一次入队时，队列的状态为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$1, 2, 3, 4$"
+        },
+        {
+          "label": "B",
+          "content": "$2, 3, 4$"
+        },
+        {
+          "label": "C",
+          "content": "$3, 4$"
+        },
+        {
+          "label": "D",
+          "content": "$3, 4, 5$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "一个长度为 `11`、下标为 `0` 到 `10` 的哈希表采用线性探测法处理冲突，哈希函数为 `h(x) = x % 11`。依次插入 `22`、`33`、`4`、`15`、`26`，则 `26` 最终存放在下标（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$0$"
+        },
+        {
+          "label": "B",
+          "content": "$4$"
+        },
+        {
+          "label": "C",
+          "content": "$5$"
+        },
+        {
+          "label": "D",
+          "content": "$6$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "关于哈希表处理冲突的方法，下列说法正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "线性探测法发生冲突后，只能放弃插入该元素。"
+        },
+        {
+          "label": "B",
+          "content": "链地址法可以把哈希到同一位置的多个元素组织在同一个桶中。"
+        },
+        {
+          "label": "C",
+          "content": "只要哈希表长度是素数，就一定不会发生冲突。"
+        },
+        {
+          "label": "D",
+          "content": "开放定址法查找元素时不需要考虑冲突位置。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "某算法需要枚举 $n$ 个对象；对每个对象，还需要进行一次二分查找。若二分查找的对象规模也是 $n$，则该算法的时间复杂度通常为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n \\log n)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n^2)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(\\log n)$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "在升序数组中用二分查找第一个大于等于 `x` 的位置。若当前中点 `mid` 满足 `a[mid] < x`，下一步应（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "令闭区间右边界变为 `mid - 1`"
+        },
+        {
+          "label": "B",
+          "content": "令闭区间左边界变为 `mid + 1`"
+        },
+        {
+          "label": "C",
+          "content": "立即返回 `mid`"
+        },
+        {
+          "label": "D",
+          "content": "交换 `a[mid]` 与 `x`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "在如下网格中，`#` 表示不能经过的格子，`.` 表示可以经过的格子。从左上角走到右下角，每次只能向右或向下移动，不同路径共有（ ）条。\n\n```text\n. . . . .\n. # . # .\n. . . . .\n# . # . .\n. . . . .\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$5$"
+        },
+        {
+          "label": "B",
+          "content": "$6$"
+        },
+        {
+          "label": "C",
+          "content": "$7$"
+        },
+        {
+          "label": "D",
+          "content": "$8$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "使用 `cmath` 或 `math.h` 中的三角函数时，角度参数默认采用角度制。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "使用 `cmath` 或 `math.h` 中的 `pow(2, 10)` 计算 $2^{10}$ 时，由于参数均为整型 `int`，返回值类型也为整型 `int`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "0/1 背包使用一维数组优化时，容量从小到大枚举也能保证每件物品最多被选一次。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "哈希表采用开放定址法时，即使哈希函数设计合理，也仍然可能发生冲突。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "同一个图从同一个起点进行深度优先搜索，访问序列一定与邻接点的枚举顺序无关。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "泛洪算法可以用递归 DFS 实现，但地图很大时可能由于递归层数过深导致调用栈溢出等运行时错误。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "哈夫曼树中不存在度为 $1$ 的结点。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "冒泡排序的常见实现是稳定排序，选择排序也是。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "在无权图中从起点执行 BFS 时，某个顶点第一次被访问到的层数等于起点到该顶点经过的最少边数。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "在二维动态规划中，状态 `dp[i][j]` 的计算常常依赖其他状态，这些状态的计算必须在完成 `dp[i][j]` 的计算前完成。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "染色",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨同学有一张包含 $n$ 个结点的无向图 $G$，$G$ 中的结点依次以 $1, 2, \\dots, n$ 编号。\n\n小杨同学发现 $G$ 中每个结点的度数都是 $2$。显然 $G$ 中恰好有 $n$ 条边。\n\n小杨同学想为 $G$ 中的结点染色，使得任意一条边两端的结点都有不同的颜色。\n\n小杨同学想知道最少需要多少种颜色才能在满足条件的前提下为 $G$ 染色。",
+      "inputFormat": "**本题包含多组数据。**\n\n第一行，一个正整数 $t$，表示数据组数。\n\n对于每组数据：\n\n第一行，一个正整数 $n$，表示无向图 $G$ 中的结点数。\n\n接下来 $n$ 行，每行两个正整数 $u_i, v_i$，表示一条连接结点 $u_i$ 与 $v_i$ 的无向边，整数之间以空格分隔。\n\n保证 $G$ 中没有重边与自环。",
+      "outputFormat": "对于每组数据：输出一行，一个整数，表示在满足条件的前提下为 $G$ 染色需要的最少颜色数。",
+      "samples": [
+        {
+          "input": "4\n6\n1 6\n2 1\n3 2\n4 3\n5 4\n6 5\n6\n1 3\n3 5\n5 1\n2 4\n4 6\n6 2\n3\n1 2\n2 3\n3 1\n5\n1 4\n2 5\n3 1\n4 2\n5 3",
+          "output": "2\n3\n3\n3"
+        }
+      ],
+      "dataRange": "对于 $40\\%$ 的测试点，保证 $\\sum n \\le 500$，$\\sum n$ 指每个输入中多组数据的 $n$ 的总和。\n\n对于所有测试点，保证 $1 \\le t \\le 100$，$3 \\le n \\le 10^5$，$\\sum n \\le 10^5$。保证 $G$ 中没有重边与自环。",
+      "referenceSolution": "#include <iostream>\n#include <algorithm>\nusing namespace std;\n\nint n;\nint a[100010], b[100010], cnt[100010];\n\nvoid solve() {\n    cin >> n;\n    for (int i = 1; i <= n; i++)\n        a[i] = b[i] = cnt[i] = 0;\n    for (int i = 1; i <= n; i++) {\n        int u, v;\n        cin >> u >> v;\n        b[u] = a[u];\n        a[u] = v;\n        b[v] = a[v];\n        a[v] = u;\n    }\n    bool flag = false;\n    for (int i = 1; i <= n; i++) {\n        if (cnt[i])\n            continue;\n        int u = i, last = a[u];\n        int v = a[u] + b[u] - last;\n        while (!cnt[v]) {\n            cnt[v] = cnt[u] + 1;\n            last = u;\n            u = v;\n            v = a[u] + b[u] - last;\n        }\n        if (cnt[i] % 2 != 0)\n            flag = true;\n    }\n    if (flag)\n        cout << 3 << endl;\n    else\n        cout << 2 << endl;\n}\n\nint main() {\n    int t;\n    cin >> t;\n    while (t--)\n        solve();\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "消消乐",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "给定一个由 $n$ 个整数构成的数组 $a = [a_1, \\dots, a_n]$。每次你可以对数组 $a$ 进行以下操作，直到数组 $a$ 变为空：\n\n- 指定 $a$ 中的一个元素，获得该元素两侧相邻元素之和的分数，并将该元素从 $a$ 中删去。\n\n特别地，如果相邻元素不存在则该元素的值视为 $0$。例如，对于 $a = [1, 2, 3]$ 可以进行以下操作：\n\n- 指定元素 $2$，获得分数 $1 + 3$，删去 $2$ 后 $a = [1, 3]$；\n- 指定元素 $1$，获得分数 $0 + 3$，删去 $1$ 后 $a = [3]$；\n- 指定元素 $3$，获得分数 $0 + 0$，删去 $3$ 后 $a$ 变为空。\n\n请问你能获得的分数总和最大是多少？",
+      "inputFormat": "第一行，一个正整数 $n$，表示数组长度。\n\n第二行，$n$ 个非负整数 $a_1, \\dots, a_n$，表示数组 $a$ 中的整数。",
+      "outputFormat": "输出一行，一个整数，表示能获得的最大分数总和。",
+      "samples": [
+        {
+          "input": "6\n1 6 3 2 9 1",
+          "output": "55"
+        },
+        {
+          "input": "5\n3 1415 926 53 58",
+          "output": "5771"
+        }
+      ],
+      "dataRange": "对于 $40\\%$ 的测试点，保证 $1 \\le n \\le 50$，$0 \\le a_i \\le 10^3$。\n\n对于所有测试点，保证 $1 \\le n \\le 100$，$0 \\le a_i \\le 10^9$。",
+      "referenceSolution": "#include <iostream>\n#include <algorithm>\nusing namespace std;\n\nint n;\nint a[110];\nlong long f[110][110];\n\nint main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++)\n        cin >> a[i];\n    for (int i = 1; i <= n; i++)\n        for (int l = 1, r = i; r <= n; l++, r++)\n            for (int k = l; k <= r; k++)\n                f[l][r] = max(f[l][r], f[l][k - 1] + f[k + 1][r] + a[l - 1] + a[r + 1]);\n    cout << f[1][n] << endl;\n    return 0;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,509 @@
+{
+  "id": "cpp-2024-03-l2",
+  "language": "cpp",
+  "level": 2,
+  "exam": {
+    "id": "2024-03",
+    "title": "2024年3月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10134.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1613037396033568.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "下列流程图的输出结果是？（ ）\n\n流程图：开始 → `cj=75` → 判断 `cj>=60`：若 NO，输出“不及格”后结束；若 YES，再判断 `cj>=90`：若 YES，输出“成绩优秀”后结束；若 NO，输出“良好”后结束。\n\n```text\n开始 → cj=75 → ◇ cj>=60?\n                ├─ YES → ◇ cj>=90?\n                │         ├─ YES → 输出 成绩优秀 → 结束\n                │         └─ NO  → 输出 良好 → 结束\n                └─ NO  → 输出 不及格 → 结束\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "优秀"
+        },
+        {
+          "label": "B",
+          "content": "良好"
+        },
+        {
+          "label": "C",
+          "content": "不及格"
+        },
+        {
+          "label": "D",
+          "content": "没有输出"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "以下选项中不符合 C++ 变量命名规则的是？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`student`"
+        },
+        {
+          "label": "B",
+          "content": "`2_from`"
+        },
+        {
+          "label": "C",
+          "content": "`_to`"
+        },
+        {
+          "label": "D",
+          "content": "`Text`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "以下选项中，不能用于表示分支结构的 C++ 保留字是？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`switch`"
+        },
+        {
+          "label": "B",
+          "content": "`return`"
+        },
+        {
+          "label": "C",
+          "content": "`else`"
+        },
+        {
+          "label": "D",
+          "content": "`if`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下列说法错误的是？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`while` 循环满足循环条件时不断地运行，直到指定的条件不满足为止"
+        },
+        {
+          "label": "B",
+          "content": "`if` 语句通常用于执行条件判断"
+        },
+        {
+          "label": "C",
+          "content": "在 C++ 中可以使用 `foreach` 循环"
+        },
+        {
+          "label": "D",
+          "content": "`break` 和 `continue` 语句都可以用在 `for` 循环和 `while` 循环中"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下列 4 个表达式中，答案不是整数 8 的是？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`abs(-8)`"
+        },
+        {
+          "label": "B",
+          "content": "`min(max(8, 9), 10)`"
+        },
+        {
+          "label": "C",
+          "content": "`int(8.88)`"
+        },
+        {
+          "label": "D",
+          "content": "`sqrt(64)`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是？（ ）\n\n```cpp\nint n,a,m,i;\n\nn=3, a = 5;\nm = (a - 1) * 2;\nfor (i=0; i<n-1; i++)\n    m = (m - 1) * 2;\n\ncout << m;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`8`"
+        },
+        {
+          "label": "B",
+          "content": "`14`"
+        },
+        {
+          "label": "C",
+          "content": "`26`"
+        },
+        {
+          "label": "D",
+          "content": "`50`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是？（ ）\n\n```cpp\nint n,i,result;\n\nn = 81;\ni = 1, result = 1;\nwhile (i * i <= n){\n    if (n % (i * i) == 0)\n        result = i * i;\n    i += 1;\n}\n\ncout << result;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`16`"
+        },
+        {
+          "label": "B",
+          "content": "`36`"
+        },
+        {
+          "label": "C",
+          "content": "`49`"
+        },
+        {
+          "label": "D",
+          "content": "`81`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是？（ ）\n\n```cpp\nint s,t,ans;\ns = 2, t = 10;\nans = 0;\nwhile (s != t){\n    if (t % 2 == 0 && t / 2 >= s)\n        t /= 2;\n    else\n        t -= 1;\n    ans += 1;\n}\ncout << ans;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`2`"
+        },
+        {
+          "label": "B",
+          "content": "`3`"
+        },
+        {
+          "label": "C",
+          "content": "`4`"
+        },
+        {
+          "label": "D",
+          "content": "`5`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是？（ ）\n\n```cpp\nint n, masks, days,cur;\nn = 17, masks = 10, days = 0;\ncur = 2;\nwhile (masks != n){\n    if (cur == 0 || cur == 1)\n        masks += 7;\n    masks -= 1;\n    days += 1;\n    cur = (cur + 1) % 7;\n}\n\ncout << days;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`5`"
+        },
+        {
+          "label": "B",
+          "content": "`6`"
+        },
+        {
+          "label": "C",
+          "content": "`7`"
+        },
+        {
+          "label": "D",
+          "content": "`8`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "以下 C++ 代码判断一个正整数 `N` 的各个数位是否都是偶数。如果都是，则输出“是”，否则输出“否”。例如 `N=2024` 时输出“是”。则横线处应填入（ ）。\n\n```cpp\nint N,Flag;\ncin >> N;\nFlag = true;\nwhile (N != 0){\n    if (N %2 != 0){\n        Flag = false;\n        _____________\n    }\n    else\n        N /= 10;\n}\nif(Flag == true)\n    cout << \"是\";\nelse\n    cout << \"否\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`break`"
+        },
+        {
+          "label": "B",
+          "content": "`continue`"
+        },
+        {
+          "label": "C",
+          "content": "`N = N / 10`"
+        },
+        {
+          "label": "D",
+          "content": "`N = N % 10`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "有句俗话叫“三天打渔，两天晒网”。如果小杨前三天打渔，后两天晒网，一直重复这个过程，以下程序代码用于判断，第 $n$ 天小杨是在打鱼还是晒网，横线处应填写？（ ）\n\n```cpp\nint n,i;\ncin >> n;\ni = n % 5;\nif (__________________) // 在此处填写代码\n    cout << \"晒网\";\nelse\n    cout << \"打鱼\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`i == 0`"
+        },
+        {
+          "label": "B",
+          "content": "`i == 4`"
+        },
+        {
+          "label": "C",
+          "content": "`i == 0 && i == 4`"
+        },
+        {
+          "label": "D",
+          "content": "`i == 0 || i == 4`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "一个数的所有数字倒序排列后这个数的大小保持不变，这个数就是回文数，比如 $101$ 与 $6886$ 都是回文数，而 $100$ 不是回文数。以下程序代码用于判断一个数是否为回文数，横线处应填写？（ ）\n\n```cpp\nint n,a,k;\ncin >> n;\na = 0;\nk = n;\nwhile (n > 0){\n    a = __________;  // 在此处填写代码\n    n /= 10;\n}\nif (a == k)\n    cout << \"是回文数\";\nelse\n    cout << \"不是回文数\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`10 * a + n % 10`"
+        },
+        {
+          "label": "B",
+          "content": "`a + n % 10`"
+        },
+        {
+          "label": "C",
+          "content": "`10 * a + n / 10`"
+        },
+        {
+          "label": "D",
+          "content": "`a + n / 10`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "给定两个整数 $n$ 与 $k$，打印出一个栅栏图形，这个栅栏应该分成 $n$ 段，段与段之间的间隔为 `+`，段内的填充为 $k$ 个 `-`。形如 $n = 5$，$k = 6$ 时，图形如下：\n\n```text\n+------+------+------+------+------+\n```\n\n以下程序代码用于绘制该图形，横线处应填写？（ ）\n\n```cpp\nint n, k, i, j;\nn = 5, k = 6;\nfor (i = 0; i < n; i++){\n    __________ // 在此处填写代码\n    for (j = 1; j < k; j++)\n        cout << '-' ;\n}\ncout << '+';\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`cout << '+' << endl;`"
+        },
+        {
+          "label": "B",
+          "content": "`cout << '+' << ' ' << endl;`"
+        },
+        {
+          "label": "C",
+          "content": "`cout << '+';`"
+        },
+        {
+          "label": "D",
+          "content": "`cout << '+' << ' ';`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "小杨的父母最近刚刚给他买了一块华为手表，他说手表上跑的是鸿蒙，这个鸿蒙是。（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "小程序"
+        },
+        {
+          "label": "B",
+          "content": "计时器"
+        },
+        {
+          "label": "C",
+          "content": "操作系统"
+        },
+        {
+          "label": "D",
+          "content": "神话人物"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "中国计算机学会（CCF）在 2024 年 1 月 27 日的颁奖典礼上颁布了王选奖，王选先生的重大贡献是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "制造自动驾驶汽车"
+        },
+        {
+          "label": "B",
+          "content": "创立培训学校"
+        },
+        {
+          "label": "C",
+          "content": "发明汉字激光照排系统"
+        },
+        {
+          "label": "D",
+          "content": "成立方正公司"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "如果有以下 C++ 代码：\n\n```cpp\ndouble s;\nint t;\ns = 18.5;\nt = int(s) + 10;\n```\n\n那么 `cout << t` 的结果为 `28.5`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "`Xyz`、`xYz`、`xyZ` 是三个不同的变量。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "`cout << (8< 9< 10)` 的输出结果为 `true`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "`for (i = 0; i < 100; i+=2) ;` 语句中变量 `i` 的取值范围是 $0$ 到 $99$。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "C++ 中 `cout << float(2022)` 与 `cout << float('2022')` 运行后的输出结果均为 `2022`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "已知 `A` 的 ASCII 码值为 $65$，表达式 `int('C')+abs(-5.8)` 的值为 $72.8$。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "`bool()` 函数用于将给定参数或表达式转换为布尔类型。语句 `bool(-1)` 返回的是 `false` 值。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "如果变量 `a` 的值使得 C++ 表达式 `sqrt(a)==abs(a)`，则 `a` 的值为 $0$。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "小杨今年春节回奶奶家了，奶奶家的数字电视要设置 ip 地址并接入到 WIFI 盒子才能收看节目，那这个 WIFI 盒子具有路由器的功能。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "任何一个 `for` 循环都可以转化为等价的 `while` 循环（ ）。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "乘法问题",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小 A 最近刚刚学习了乘法，为了帮助他练习，我们给他若干个正整数，并要求他将这些数乘起来。\n\n对于大部分题目，小 A 可以精准地算出答案，不过，如果这些数的乘积超过 $10^6$，小 A 就不会做了。\n\n请你写一个程序，告诉我们小 A 会如何作答。",
+      "inputFormat": "第一行一个整数 $n$，表示正整数的个数。\n\n接下来 $n$ 行，每行一个整数 $a$。小 A 需要将所有的 $a$ 乘起来。\n\n保证 $n \\le 50$，$a \\le 100$。",
+      "outputFormat": "输出一行，如果乘积超过 $10^6$，则输出 `>1000000`；否则输出所有数的乘积。",
+      "samples": [
+        {
+          "input": "2\n3\n5",
+          "output": "15"
+        },
+        {
+          "input": "3\n100\n100\n100",
+          "output": "1000000"
+        },
+        {
+          "input": "4\n100\n100\n100\n2",
+          "output": ">1000000"
+        }
+      ],
+      "dataRange": "$n \\le 50$，$a \\le 100$。",
+      "referenceSolution": "#include <iostream>\n\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n\n    long long product = 1;\n    for (int i = 0; i < n; ++i) {\n        int a;\n        cin >> a;\n        if (product * a > 1000000) {\n            cout << \">1000000\" << endl;\n            return 0;\n        }\n        product *= a;\n    }\n\n    cout << product << endl;\n\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "小杨的日字矩阵",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨想要构造一个 $N \\times N$ 的日字矩阵（$N$ 为奇数），具体来说，这个矩阵共有 $N$ 行，每行 $N$ 个字符，其中最左列、最右列都是 `|`，而第一行、最后一行、以及中间一行（即第 $\\frac{N+1}{2}$ 行）的第 $2 \\sim N-1$ 个字符都是 `-`，其余所有字符都是半角小写字母 `x`。例如，一个 $N = 5$ 的日字矩阵如下：\n\n```text\n|---|\n|xxx|\n|---|\n|xxx|\n|---|\n```\n\n请你帮小杨根据给定的 $N$ 打印出对应的“日字矩阵”。",
+      "inputFormat": "一行一个整数 $N$（$5 \\le N \\le 49$，保证 $N$ 为奇数）。",
+      "outputFormat": "输出对应的“日字矩阵”。\n\n请严格按格式要求输出，不要擅自添加任何空格、标点、空行等任何符号。你应该恰好输出 $N$ 行，每行除了换行符外恰好包含 $N$ 个字符，这些字符要么是 `-`，要么是 `|`，要么是 `x`。**你的输出必须和标准答案完全一致才能得分，请在提交前仔细检查。**",
+      "samples": [
+        {
+          "input": "5",
+          "output": "|---|\n|xxx|\n|---|\n|xxx|\n|---|"
+        },
+        {
+          "input": "7",
+          "output": "|-----|\n|xxxxx|\n|xxxxx|\n|-----|\n|xxxxx|\n|xxxxx|\n|-----|"
+        }
+      ],
+      "dataRange": "$5 \\le N \\le 49$，保证 $N$ 为奇数。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n\n    for (int i = 0; i < n; ++i) {\n        for (int j = 0; j < n; ++j) {\n            char ch;\n            if (j == 0 || j == n - 1) {\n                ch = '|';\n            } else if (i == 0 || i == n - 1 || i == n / 2) {\n                ch = '-';\n            } else {\n                ch = 'x';\n            }\n            cout << ch;\n        }\n        cout << endl;\n    }\n\n    return 0;\n}\n"
+    }
+  ]
+}

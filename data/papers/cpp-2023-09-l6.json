@@ -1,0 +1,513 @@
+{
+  "id": "cpp-2023-09-l6",
+  "language": "cpp",
+  "level": 6,
+  "exam": {
+    "id": "2023-09",
+    "title": "2023年9月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10105.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1752529614405696.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "近年来，线上授课变得普遍，很多有助于改善教学效果的设备也逐渐流行，其中包括比较常用的手写板，那么它属于哪类设备？（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "输入"
+        },
+        {
+          "label": "B",
+          "content": "输出"
+        },
+        {
+          "label": "C",
+          "content": "控制"
+        },
+        {
+          "label": "D",
+          "content": "记录"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "如果 `a` 和 `b` 均为 `int` 类型的变量，且 `b` 的值不为 `0`，那么下列能正确判断“`a` 是 `b` 的 3 倍”的表达式是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(a >> 3 == b)`"
+        },
+        {
+          "label": "B",
+          "content": "`(a - b) % 3 == 0`"
+        },
+        {
+          "label": "C",
+          "content": "`(a / b == 3)`"
+        },
+        {
+          "label": "D",
+          "content": "`(a == 3 * b)`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "以下不属于面向对象程序设计语言的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "C++"
+        },
+        {
+          "label": "B",
+          "content": "Python"
+        },
+        {
+          "label": "C",
+          "content": "Java"
+        },
+        {
+          "label": "D",
+          "content": "C"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下面有关 C++ 类定义的说法，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "C++ 类实例化时，会执行构造函数。"
+        },
+        {
+          "label": "B",
+          "content": "C++ 自定义类可以通过定义构造函数实现自动类型转换。"
+        },
+        {
+          "label": "C",
+          "content": "C++ 自定义类可以通过重载 `>`、`<` 等运算符实现大小比较。"
+        },
+        {
+          "label": "D",
+          "content": "C++ 自定义类可以包含任意类型的成员。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "有关下面 C++ 代码的说法，错误的是（ ）。\n\n```cpp\n#include <iostream>\n#include <string>\nusing namespace std;\n\nclass MyStr {\n    string data;\npublic:\n    MyStr(string _data): data(_data) {}\n};\n\nint main() {\n    MyStr st(\"ABC\");\n    cout << st << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "代码 `cout << st << endl;` 会报错，因为没有为 `MyStr` 类重载 `<<` 运算符。"
+        },
+        {
+          "label": "B",
+          "content": "第 6 行代码的 `data` 是 `MyStr` 类的成员变量。"
+        },
+        {
+          "label": "C",
+          "content": "代码 `MyStr st(\"ABC\");` 不会报错，将执行构造函数。"
+        },
+        {
+          "label": "D",
+          "content": "代码 `cout<< st.data <<endl;` 可输出 `ABC`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下列关于命名空间的说法错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "命名空间可以嵌套，例如 `namespace A { namespace B { int i;}}`。"
+        },
+        {
+          "label": "B",
+          "content": "命名空间只可以在全局定义。"
+        },
+        {
+          "label": "C",
+          "content": "命名空间中可以存放变量和函数。"
+        },
+        {
+          "label": "D",
+          "content": "如果程序中使用了 `using` 命令同时引用了多个命名空间，并且命名空间中存在相同的函数，会出现程序运行错误。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "有关下面 C++ 代码的说法，正确的是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nclass ManyData {\n    int * __data;\n    int head, tail, capacity;\npublic:\n    ManyData(int cap) {\n        capacity = cap;\n        __data = new int[capacity];\n        head = tail = 0;\n    }\n    void push(int val) {\n        __data[tail++] = val;\n    }\n    int pop() {\n        return __data[--tail];\n    }\n    int size() {\n        return tail - head;\n    }\n};\nint main() {\n    auto myData = ManyData(100);\n    myData.push(1);\n    myData.push(2);\n    myData.push(3);\n    myData.push(100);\n    cout << myData.size() << endl;\n    cout << myData.pop() << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "这段代码不能正常运行。"
+        },
+        {
+          "label": "B",
+          "content": "`ManyData` 类可用于构造队列（Queue）数据结构。"
+        },
+        {
+          "label": "C",
+          "content": "在上面代码环境，代码 `cout<< myData.__data[0] << endl;` 可以增加到代码 `main` 函数末尾（`return 0;` 之前），且不会导致报错。"
+        },
+        {
+          "label": "D",
+          "content": "可以为 `ManyData` 类的 `push()`、`pop()` 函数增加异常处理代码，否则在使用 `ManyData` 类时可能导致运行时错误或逻辑错误（不一定局限于上述代码中的 `main` 函数）。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "有关下面 C++ 代码的说法，错误的是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nclass MoreData {\n    int * __data;\n    int head, tail, capacity;\npublic:\n    MoreData(int cap) {\n        capacity = cap;\n        __data = new int[capacity];\n        head = tail = 0;\n    }\n    MoreData & push(int val) {\n        __data[tail++] = val;\n        return *this;\n    }\n    int pop() {\n        return __data[head++];\n    }\n    int size() {\n        return tail - head;\n    }\n};\nint main() {\n    auto myData = MoreData(100);\n    myData.push(1);\n    myData.push(2);\n    myData.push(3);\n    myData.push(11).push(12).push(13);\n    cout << myData.pop() << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`MoreData` 类可用于构造队列（Queue）数据结构。"
+        },
+        {
+          "label": "B",
+          "content": "代码第 29 行，连续 `push()` 的用法将导致编译错误。"
+        },
+        {
+          "label": "C",
+          "content": "`__data` 是 `MoreData` 类的私有成员，只能在类内访问。"
+        },
+        {
+          "label": "D",
+          "content": "以上说法均没有错误。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "某内容仅会出现 `ABCDEFG`，其对应的出现概率为 0.40、0.30、0.15、0.05、0.04、0.03、0.03，如下图所示。按照哈夫曼编码规则，假设 `B` 的编码为 `11`，则 `D` 的编码为（ ）。\n\n哈夫曼树如下（圆括号内为叶子的概率，其余为内部结点的概率之和）：\n\n```text\n              1.00\n            /      \\\n       A(0.40)     0.60\n                  /     \\\n               0.30     B(0.30)\n              /    \\\n           0.15    C(0.15)\n          /    \\\n       0.06     0.09\n      /   \\     /   \\\n G(0.03) F(0.03) E(0.04) D(0.05)\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`10010`"
+        },
+        {
+          "label": "B",
+          "content": "`10011`"
+        },
+        {
+          "label": "C",
+          "content": "`10111`"
+        },
+        {
+          "label": "D",
+          "content": "`10001`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面有关格雷码的说法，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "在格雷码中，任意两个相邻的代码只有一位二进制数不同。"
+        },
+        {
+          "label": "B",
+          "content": "格雷码是一种唯一性编码。"
+        },
+        {
+          "label": "C",
+          "content": "在格雷码中，最大数和最小数只有一位二进制数不同。"
+        },
+        {
+          "label": "D",
+          "content": "格雷码是一种可靠性编码。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "有关下图的二叉树，说法正确的是（ ）。\n\n```text\n            5\n          /   \\\n         2     17\n        / \\   /  \\\n      -4   3 9    21\n                 /  \\\n               19    25\n```\n\n即：根为 5，左孩子 2，右孩子 17；2 的左右孩子为 -4、3；17 的左右孩子为 9、21；21 的左右孩子为 19、25。",
+      "options": [
+        {
+          "label": "A",
+          "content": "既是完全二叉树也是满二叉树。"
+        },
+        {
+          "label": "B",
+          "content": "既是二叉搜索树也是平衡二叉树。"
+        },
+        {
+          "label": "C",
+          "content": "非平衡二叉树。"
+        },
+        {
+          "label": "D",
+          "content": "以上说法都不正确。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "$N$ 个节点的二叉搜索树，其查找的平均时间复杂度为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(1)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(N)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(\\log N)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(N^2)$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "青蛙每次能跳 1 或 2 步。下面是青蛙跳到第 `N` 步台阶 C++ 实现代码。该段代码采用的算法是（ ）。\n\n```cpp\nint jumpFrog(int N) {\n    if (N <= 3)\n        return N;\n    return jumpFrog(N - 1) + jumpFrog(N - 2);\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "递推算法"
+        },
+        {
+          "label": "B",
+          "content": "贪心算法"
+        },
+        {
+          "label": "C",
+          "content": "动态规划算法"
+        },
+        {
+          "label": "D",
+          "content": "分治算法"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "$N$ 个节点的双向循环链，在其中查找某个节点的平均时间复杂度是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(1)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(N)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(\\log N)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(N^2)$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "关于 C++ 语言，以下说法不正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "若对象被定义为常量，则它只能调用以 `const` 修饰的成员函数。"
+        },
+        {
+          "label": "B",
+          "content": "所有的常量静态变量都只能在类外进行初始化。"
+        },
+        {
+          "label": "C",
+          "content": "若类 `A` 的对象 `a` 是类 `B` 的静态成员变量，则 `a` 在 `main()` 函数调用之前应被初始化。"
+        },
+        {
+          "label": "D",
+          "content": "静态全局对象、常量全局对象都是在 `main` 函数调用之前完成初始化，执行完 `main` 函数后被析构。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "TCP/IP 的传输层的两个不同的协议分别是 UDP 和 TCP。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "5G 网络中，5G 中的 G 表示 Gigabytes/s，其中 1 GB = 1024 MB。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "在面向对象中，类是对象的实例。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "在 C++ 类的定义中，使用 `static` 修饰符定义的静态成员被该类的所有对象共享。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "在 C++ 类的定义中，可以定义初始化函数或运算符函数等。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "`DFS` 是深度优先算法的英文简写。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "哈夫曼编码是一种有损压缩算法。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "有些算法或数据结构在 C/C++ 语言中使用指针实现，一个典型的例子就是链表。因此，链表这一数据结构在 C/C++ 语言中只能使用指针来实现。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "如果节点数为 $N$，广度搜索算法的最差时间复杂度为 $O(N)$。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "二叉搜索树的左右子树也是二叉搜索树。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "小杨买饮料",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "小杨来到了一家商店，打算购买一些饮料。这家商店总共出售 $N$ 种饮料，编号从 $0$ 至 $N-1$，其中编号为 $i$ 的饮料售价 $c_i$ 元，容量 $l_i$ 毫升。\n\n小杨的需求有如下几点：\n\n1. 小杨想要尽可能尝试不同种类的饮料，因此他希望每种饮料至多购买 1 瓶；\n2. 小杨很渴，所以他想要购买总容量不低于 $L$ 的饮料；\n3. 小杨勤俭节约，所以在 1 和 2 的前提下，他希望使用尽可能少的费用。\n\n方便起见，你只需要输出最少花费的费用即可。特别地，如果不能满足小杨的要求，则输出 `no solution`。",
+      "inputFormat": "第一行两个整数 $N, L$。\n\n接下来 $N$ 行，依次描述第 $i = 0, 1, \\ldots, N-1$ 种饮料：每行两个整数 $c_i, l_i$。",
+      "outputFormat": "输出一行一个整数，表示最少需要花费多少钱，才能满足小杨的要求。特别地，如果不能满足要求，则输出 `no solution`。",
+      "samples": [
+        {
+          "input": "5 100\n100 2000\n2 50\n4 40\n5 30\n3 20",
+          "output": "9",
+          "explanation": "小杨可以购买 $1, 2, 4$ 号饮料，总计获得 $50 + 40 + 20 = 110$ 毫升饮料，花费 $2 + 4 + 3 = 9$ 元。\n\n如果只考虑前两项需求，小杨也可以购买 $1, 3, 4$ 号饮料，它们的容量总和为 $50 + 30 + 20 = 100$ 毫升，恰好可以满足需求。但遗憾的是，这个方案需要花费 $2 + 5 + 3 = 10$ 元。"
+        },
+        {
+          "input": "5 141\n100 2000\n2 50\n4 40\n5 30\n3 20",
+          "output": "100",
+          "explanation": "$1, 2, 3, 4$ 号饮料总计 $140$ 毫升，如每种饮料至多购买 1 瓶，则恰好无法满足需求，因此只能花费 $100$ 元购买 $0$ 号饮料。"
+        },
+        {
+          "input": "4 141\n2 50\n4 40\n5 30\n3 20",
+          "output": "no solution"
+        }
+      ],
+      "dataRange": "对于 $40\\%$ 的测试点，保证 $N \\le 20$；$1 \\le L \\le 100$；$l_i \\le 100$。\n\n对于 $70\\%$ 的测试点，保证 $l_i \\le 100$。\n\n对于所有测试点，保证 $1 \\le N \\le 500$；$1 \\le L \\le 2000$；$1 \\le c_i, l_i \\le 10^6$。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nconst int INF = 1000000000;\nint cost[2001];\nint main() {\n    int N = 0, L = 0;\n    cin >> N >> L;\n    cost[0] = 0;\n    for (int i = 1; i <= L; i++)\n        cost[i] = INF;\n    for (int i = 0; i < N; i++) {\n        int c = 0, l = 0;\n        cin >> c >> l;\n        for (int j = L; j >= 0; j--)\n            cost[j] = min(cost[j], cost[max(j - l, 0)] + c);\n    }\n    if (cost[L] == INF)\n        cout << \"no solution\" << endl;\n    else\n        cout << cost[L] << endl;\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "小杨的握手问题",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "小杨的班级里共有 $N$ 名同学，学号从 $0$ 至 $N-1$。\n\n某节课上，老师安排全班同学进行一次握手游戏，具体规则如下：老师安排了一个顺序，让全班 $N$ 名同学依次进入教室。每位同学进入教室时，需要和**已经在教室内**且**学号小于自己**的同学握手。\n\n现在，小杨想知道，整个班级总共会进行多少次握手。\n\n**提示：可以考虑使用归并排序进行降序排序，并在此过程中求解。**",
+      "inputFormat": "输入包含 2 行。第一行一个整数 $N$，表示同学的个数；第二行 $N$ 个用单个空格隔开的整数，依次描述同学们进入教室的顺序，每个整数在 $0 \\sim N-1$ 之间，表示该同学的学号。\n\n保证每位同学会且只会进入教室一次。",
+      "outputFormat": "输出一行一个整数，表示全班握手的总次数。",
+      "samples": [
+        {
+          "input": "4\n2 1 3 0",
+          "output": "2",
+          "explanation": "$2$ 号同学进入教室，此时教室里没有其他同学。\n\n$1$ 号同学进入教室，此时教室里有 $2$ 号同学。$1$ 号同学的学号小于 $2$ 号同学，因此他们之间不需要握手。\n\n$3$ 号同学进入教室，此时教室里有 $1, 2$ 号同学。$3$ 号同学的学号比他们都大，因此 $3$ 号同学需要分别和另外两位同学握手。\n\n$0$ 号同学进入教室，此时教室里有 $1, 2, 3$ 号同学。$0$ 号同学的学号比他们都小，因此 $0$ 号同学不需要与其他同学握手。\n\n综上所述全班一共握手 $0 + 0 + 2 + 0 = 2$ 次。"
+        },
+        {
+          "input": "6\n0 1 2 3 4 5",
+          "output": "15",
+          "explanation": "全班所有同学之间都会进行握手，因为每位同学来到教室时，都会发现他的学号是当前教室里最大的，所以他需要和教室里的每位其他同学进行握手。"
+        }
+      ],
+      "dataRange": "对于 $30\\%$ 的测试点，保证 $N \\le 100$。\n\n对于所有测试点，保证 $2 \\le N \\le 3 \\times 10^5$。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nint num[300000];\nint tmp[300000];\nlong long merge(int l, int r) {\n    if (l + 1 == r)\n        return 0;\n    int m = (l + r) / 2;\n    long long res = merge(l, m) + merge(m, r);\n\n    for (int i = l, j = m, k = l; k < r; k++) {\n        if (j == r || (i < m && num[i] > num[j])) {\n            tmp[k] = num[i];\n            i++;\n        } else {\n            tmp[k] = num[j];\n            j++;\n            res += m - i;\n        }\n    }\n    for (int k = l; k < r; k++)\n        num[k] = tmp[k];\n    return res;\n}\n\nint main() {\n    int n = 0;\n    cin >> n;\n    for (int i = 0; i < n; i++)\n        cin >> num[i];\n    cout << merge(0, n) << endl;\n    return 0;\n}\n"
+    }
+  ]
+}

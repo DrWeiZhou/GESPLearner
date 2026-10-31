@@ -1,0 +1,506 @@
+{
+  "id": "cpp-2023-06-l2",
+  "language": "cpp",
+  "level": 2,
+  "exam": {
+    "id": "2023-06",
+    "title": "2023年6月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10092.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1553039846539296.pdf",
+  "durationMinutes": 90,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "高级语言编写的程序需要经过以下（ ）操作，可以生成在计算机上运行的可执行代码。",
+      "options": [
+        {
+          "label": "A",
+          "content": "编辑"
+        },
+        {
+          "label": "B",
+          "content": "保存"
+        },
+        {
+          "label": "C",
+          "content": "调试"
+        },
+        {
+          "label": "D",
+          "content": "编译"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "能够实现下面流程图功能的伪代码是（ ）。\n\n```text\n入口 → ◇ 条件判断\n        ├─ 否 → [语句块] → 回到 ◇ 条件判断\n        └─ 是 → 出口（结束）\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`if` 条件判断 `then` 语句块"
+        },
+        {
+          "label": "B",
+          "content": "`if` 条件判断 `then` 什么也不做 `else` 语句块"
+        },
+        {
+          "label": "C",
+          "content": "`while` 条件判断 `do` 语句块"
+        },
+        {
+          "label": "D",
+          "content": "`while not` 条件判断 `do` 语句块"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下列关于 C++ 语言的叙述，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`char` 类型变量不能赋值给 `int` 类型的变量。"
+        },
+        {
+          "label": "B",
+          "content": "两个 `int` 类型变量相乘，计算结果还是 `int` 类型。"
+        },
+        {
+          "label": "C",
+          "content": "计算两个 `int` 类型变量相乘时，如果乘积超出了 `int` 类型的取值范围，程序会报错崩溃。"
+        },
+        {
+          "label": "D",
+          "content": "计算两个 `double` 类型变量相除时，如果除数的值为 `0.0`，程序会报错崩溃。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下列关于 C++ 语言的叙述，不正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`if` 语句中的判断条件必须用小括号‘`(`’和‘`)`’括起来。"
+        },
+        {
+          "label": "B",
+          "content": "`for` 语句中两个‘`;`’之间的循环条件可以省略，表示循环继续执行的条件一直满足。"
+        },
+        {
+          "label": "C",
+          "content": "循环体包含多条语句时，可以用缩进消除二义性。"
+        },
+        {
+          "label": "D",
+          "content": "除了“先乘除、后加减”，还有很多运算符优先级。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "以下哪个是 C++ 语言的关键字？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`main`"
+        },
+        {
+          "label": "B",
+          "content": "`max`"
+        },
+        {
+          "label": "C",
+          "content": "`double`"
+        },
+        {
+          "label": "D",
+          "content": "`sqrt`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "以下哪个不是 C++ 语言的运算符？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`>=`"
+        },
+        {
+          "label": "B",
+          "content": "`/=`"
+        },
+        {
+          "label": "C",
+          "content": "`||`"
+        },
+        {
+          "label": "D",
+          "content": "`<>`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "如果 `a` 为 `int` 类型的变量，`b` 为 `char` 类型的变量，则下列哪个语句不符合 C++ 语法？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`a = a + 1.0;`"
+        },
+        {
+          "label": "B",
+          "content": "`a = (int)(b - '0');`"
+        },
+        {
+          "label": "C",
+          "content": "`b = (char)(a + '0');`"
+        },
+        {
+          "label": "D",
+          "content": "`(int)b = a;`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "如果用两个 `int` 类型的变量 `a` 和 `b` 分别表达平行四边形的两条边长，用 `int` 类型的变量 `h` 表达 `a` 边对应的高，则下列哪个表达式不能用来计算 `b` 边对应的高？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`a / b * (0.0 + h)`"
+        },
+        {
+          "label": "B",
+          "content": "`(0.0 + a * h) / b`"
+        },
+        {
+          "label": "C",
+          "content": "`a * h / (b + 0.0)`"
+        },
+        {
+          "label": "D",
+          "content": "`(a + 0.0) * h / b`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "以下哪个循环语句会无限次执行？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`for (int a = 0; a; a++) ;`"
+        },
+        {
+          "label": "B",
+          "content": "`for (bool b = false; b <= true; b++) ;`"
+        },
+        {
+          "label": "C",
+          "content": "`for (char c = 'A'; c < 'z'; c++) ;`"
+        },
+        {
+          "label": "D",
+          "content": "`for (double d = 0.0; d < 10.0; d += 0.001) ;`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "如果 `a` 为 `char` 类型的变量，且 `a` 的值为 `'C'`（已知 `'C'` 的 ASCII 码为 $67$），则执行 `cout << (a + 2);` 会输出（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`E`"
+        },
+        {
+          "label": "B",
+          "content": "`C+2`"
+        },
+        {
+          "label": "C",
+          "content": "`C2`"
+        },
+        {
+          "label": "D",
+          "content": "`69`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "如果 `a` 和 `b` 均为 `int` 类型的变量，下列表达式能正确判断“`a` 等于 $1$ 且 `b` 等于 $1$”的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(a == b) && (b == 1)`"
+        },
+        {
+          "label": "B",
+          "content": "`(a && b)`"
+        },
+        {
+          "label": "C",
+          "content": "`(a == b == 1)`"
+        },
+        {
+          "label": "D",
+          "content": "`(a * b == 1)`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "如果 `a` 为 `char` 类型的变量，下列哪个表达式可以正确判断“`a` 是数字”？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`'0' <= a && a <= '9'`"
+        },
+        {
+          "label": "B",
+          "content": "`'1' <= a && a <= '0'`"
+        },
+        {
+          "label": "C",
+          "content": "`'0' <= a <= '9'`"
+        },
+        {
+          "label": "D",
+          "content": "`'1' <= a <= '0'`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "在下列代码的横线处填写（ ），使得输出是 `9`。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    char a = '3', b = '6';\n    cout << ________; // 在此处填入代码\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(a + b)`"
+        },
+        {
+          "label": "B",
+          "content": "`(a + b - '0')`"
+        },
+        {
+          "label": "C",
+          "content": "`(char)(a + b)`"
+        },
+        {
+          "label": "D",
+          "content": "`(char)(a + b - '0')`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "在下列代码的横线处填写（ ），可以使得输出是 `42`。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int sum = 0;\n    for (int i = 1; i <= 20; i++)\n        if (________) // 在此处填入代码\n            sum += i;\n    cout << sum << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`i % 3 == 0`"
+        },
+        {
+          "label": "B",
+          "content": "`20 % i == 0`"
+        },
+        {
+          "label": "C",
+          "content": "`i <= 8`"
+        },
+        {
+          "label": "D",
+          "content": "`i >= 18`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "执行以下 C++ 语言程序后，输出结果是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    for (char x = 'A'; x <= 'D'; x++)\n        if ((x != 'A') + (x == 'C') + (x == 'D') + (x != 'D') == 3)\n            cout << x;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`A`"
+        },
+        {
+          "label": "B",
+          "content": "`B`"
+        },
+        {
+          "label": "C",
+          "content": "`C`"
+        },
+        {
+          "label": "D",
+          "content": "`D`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "诞生于 1986 年的中华学习机 CEC-I 入选了 2021 年的 CCF 计算机历史记忆（一类），它的内存只有 64KB。当时的汉字编码字符集 GB2312 中共有 6763 个汉字，假如每个汉字用 2 个字节编码，将整个 GB2312 汉字字符集都放入 CEC-I 的内存，也只占用了不超过 $1/5$ 的内存空间。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "域名是由一串用点分隔的名字来标识互联网上一个计算机或计算机组的名称，CCF 编程能力等级认证官方网站的域名是 gesp.ccf.org.cn，其中顶级域名是 gesp。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "在使用 C++ 语言编写程序时，不能使用 `sqrt`、`abs` 等数学函数，包含 `<cmath>` 或 `<math.h>` 头文件后就能够使用了。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "在 C++ 语言中，标识符中可以有下划线‘`_`’。同时，‘`_`’也是 C++ 语言的运算符。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "如果 `a` 是 `double` 类型的变量，而且值为 `3.5`，则表达式 `a * 10` 的计算结果为 `35`，且结果类型为 `int`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "在 `if` 语句中，如果条件成立时需要执行多条语句，可以使用大括号‘`{`’和‘`}`’将这些语句括起来。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "循环语句的循环体有可能无限制地执行下去。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "`++` 和 `==` 都是 C++ 语言的运算符，但 `+=` 不是。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "如果 `a` 为 `char` 类型的变量，且取值为大写字母 `'F'`，则执行语句 `a = a + 1;` 后，`a` 的值会变为大写字母 `'G'`。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "表达式 `sqrt(9.0)` 的计算结果为 `3`，且结果类型为 `int`。",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "找素数",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小明刚刚学习了素数的概念：如果一个大于 $1$ 的正整数，除了 $1$ 和它自身外，不能被其他正整数整除，则这个正整数是素数。现在，小明想找到两个正整数 $A$ 和 $B$ 之间（包括 $A$ 和 $B$）有多少个素数？",
+      "inputFormat": "输入 $2$ 行，第一行包含正整数 $A$，第二行包含正整数 $B$。约定 $2 \\le A \\le B \\le 1000$。",
+      "outputFormat": "输出一行，包含一个整数 $C$，表示找到 $C$ 个素数。",
+      "samples": [
+        {
+          "input": "2\n10",
+          "output": "4",
+          "explanation": "在 $2$ 和 $10$ 之间有 $4$ 个素数，分别为：$2$、$3$、$5$、$7$。"
+        },
+        {
+          "input": "98\n100",
+          "output": "0"
+        }
+      ],
+      "dataRange": "$2 \\le A \\le B \\le 1000$。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\nint main() {\n    int a = 0, b = 0, cnt = 0;\n    cin >> a >> b;\n    for (int n = a; n <= b; n++) {\n        bool isPrime = true;\n        for (int i = 2; i * i <= n; i++) {\n            if (n % i == 0) {\n                isPrime = false;\n                break;\n            }\n        }\n        if (isPrime)\n            cnt++;\n    }\n    cout << cnt << endl;\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "自幂数判断",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "自幂数是指，一个 $N$ 位数，满足各位数字 $N$ 次方之和是本身。例如，$153$ 是 $3$ 位数，其每位数的 $3$ 次方之和，$1^3 + 5^3 + 3^3 = 153$，因此 $153$ 是自幂数；$1634$ 是 $4$ 位数，其每位数的 $4$ 次方之和，$1^4 + 6^4 + 3^4 + 4^4 = 1634$，因此 $1634$ 是自幂数。\n\n现在，输入若干个正整数，请判断它们是否是自幂数。",
+      "inputFormat": "输入第一行是一个正整数 $M$，表示有 $M$ 个待判断的正整数。约定 $1 \\le M \\le 100$。\n\n从第 $2$ 行开始的 $M$ 行，每行一个待判断的正整数。约定这些正整数均小于 $10^8$。",
+      "outputFormat": "输出 $M$ 行，如果对应的待判断正整数为自幂数，则输出英文大写字母 `'T'`，否则输出英文大写字母 `'F'`。\n\n提示：不需要等到所有输入结束在依次输出，可以输入一个数就判断一个数并输出，再输入下一个数。",
+      "samples": [
+        {
+          "input": "3\n152\n111\n153",
+          "output": "F\nF\nT"
+        },
+        {
+          "input": "5\n8208\n548834\n88593477\n12345\n5432",
+          "output": "T\nT\nT\nF\nF"
+        }
+      ],
+      "dataRange": "$1 \\le M \\le 100$；待判断的正整数均小于 $10^8$。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\nint main() {\n    int m = 0;\n    cin >> m;\n    for (int i = 0; i < m; i++) {\n        int n = 0;\n        cin >> n;\n        // 数一下 n 有多少位数，记为 l\n        int t = n, l = 0;\n        while (t > 0) {\n            t /= 10;\n            l++;\n        }\n        // 每位数 l 次方求和，记为 sum\n        int sum = 0;\n        t = n;\n        while (t > 0) {\n            int d = t % 10;\n            t /= 10;\n            int mul = 1;\n            for (int j = 0; j < l; j++)\n                mul *= d;\n            sum += mul;\n        }\n        // 根据 sum 和 n 是否相等，判断是否为自幂数\n        if (sum == n)\n            cout << \"T\" << endl;\n        else\n            cout << \"F\" << endl;\n    }\n    return 0;\n}\n"
+    }
+  ]
+}

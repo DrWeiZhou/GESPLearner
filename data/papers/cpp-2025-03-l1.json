@@ -1,0 +1,501 @@
+{
+  "id": "cpp-2025-03-l1",
+  "language": "cpp",
+  "level": 1,
+  "exam": {
+    "id": "2025-03",
+    "title": "2025年3月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10200.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1669256632598560.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "2025年春节有两件轰动全球的事件，一个是DeepSeek横空出世，另一个是贺岁片《哪吒2》票房惊人，入了全球票房榜。下面关于DeepSeek与《哪吒2》的描述成立的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "《哪吒2》是一款新型操作系统"
+        },
+        {
+          "label": "B",
+          "content": "DeepSeek是深海钻探软件"
+        },
+        {
+          "label": "C",
+          "content": "《哪吒2》可以生成新的软件"
+        },
+        {
+          "label": "D",
+          "content": "DeepSeek可以根据《哪吒2》的场景生成剧情脚本"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "在某集成开发环境中编辑一个源代码文件时不可以执行下面（ ）操作。",
+      "options": [
+        {
+          "label": "A",
+          "content": "修改变量定义"
+        },
+        {
+          "label": "B",
+          "content": "保存代码修改"
+        },
+        {
+          "label": "C",
+          "content": "撤销代码修改"
+        },
+        {
+          "label": "D",
+          "content": "插入执行截图"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "在C++中，下列可以做变量的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`Var-1`"
+        },
+        {
+          "label": "B",
+          "content": "`$1`"
+        },
+        {
+          "label": "C",
+          "content": "`%%1`"
+        },
+        {
+          "label": "D",
+          "content": "`_Var_1`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "以下哪个是C++语言的关键字？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`abs`"
+        },
+        {
+          "label": "B",
+          "content": "`cin`"
+        },
+        {
+          "label": "C",
+          "content": "`do`"
+        },
+        {
+          "label": "D",
+          "content": "`endl`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面的框架在L1和L2标记的两行处分别填写选项中的代码，哪组**不能**通过编译（ ）。\n\n```cpp\nint main() {\n    int i = 0;\n    ______________ // L1\n        break;\n    ______________ // L2\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\ndo {\n} while (i != 0);\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nfor (; i < 10; i++) {\n}\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nif (i == 0) {\n}\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nswitch (i) {\n}\n```"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下面C++语句（ ）执行后的输出是 `__ 0322$$` 。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`printf(\"__ %2d%02d$$\", 3, 22)`"
+        },
+        {
+          "label": "B",
+          "content": "`printf(\"__ %02d%2d$$\", 3, 22)`"
+        },
+        {
+          "label": "C",
+          "content": "`printf(\"__ %02d%02d$$$$\", 3, 22)`"
+        },
+        {
+          "label": "D",
+          "content": "`printf(\"____ %02d%02d$$$$\", 3, 22)`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "有关下列C++代码的说法，**错误**的是（ ）。\n\n```cpp\nprintf(\"我爱码代码！\");\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "配对双引号内的汉字改为英文 `Hello`，C++代码能正确执行"
+        },
+        {
+          "label": "B",
+          "content": "配对双引号内的汉字改为 `Hello代码！`，C++代码能正确执行"
+        },
+        {
+          "label": "C",
+          "content": "代码中的每个双引号，都可以改为两个单引号"
+        },
+        {
+          "label": "D",
+          "content": "代码中的每个双引号，都可以改为三个双引号"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "C++表达式 `16 / 4 % 2` 的值是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "8"
+        },
+        {
+          "label": "B",
+          "content": "4"
+        },
+        {
+          "label": "C",
+          "content": "2"
+        },
+        {
+          "label": "D",
+          "content": "0"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "N是C++的正整数，值为12，则 `cout << (N % 3 + N / 5)` 的输出是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "6.4"
+        },
+        {
+          "label": "B",
+          "content": "2.4"
+        },
+        {
+          "label": "C",
+          "content": "6"
+        },
+        {
+          "label": "D",
+          "content": "2"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面C++代码执行后的输出是（ ）。\n\n```cpp\nint N = 10;\nprintf(\"{N}*{N}={%d*%d}\", N, N, N * N);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`10*10={10*10}`"
+        },
+        {
+          "label": "B",
+          "content": "`100=10`"
+        },
+        {
+          "label": "C",
+          "content": "`N*N=100`"
+        },
+        {
+          "label": "D",
+          "content": "`{N}*{N}={10*10}`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "执行下面的C++代码，在键盘上先后输入100和200，输出是（ ）。\n\n```cpp\nint first,second;\ncout << \"请输入第1个正整数：\";\ncin >> first;\ncout << \"请输入第2个正整数：\";\ncin >> second;\ncout << (first / second * second) << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "200"
+        },
+        {
+          "label": "B",
+          "content": "100"
+        },
+        {
+          "label": "C",
+          "content": "1"
+        },
+        {
+          "label": "D",
+          "content": "0"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面C++代码执行后，将输出能被2整除且除以7余数为2的数。下列选项不能实现的是（ ）。\n\n```cpp\nfor (int i = 0; i < 100; i++)\n    if _______________________\n        cout << i << \" \";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`((i % 2 == 0) && (i % 7 == 2))`"
+        },
+        {
+          "label": "B",
+          "content": "`((!(i % 2)) && (i % 7 == 2))`"
+        },
+        {
+          "label": "C",
+          "content": "`((!(i % 2)) && (!(i % 7)))`"
+        },
+        {
+          "label": "D",
+          "content": "`((i % 2 != 1) && (i % 7 == 2))`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下面C++代码执行后输出是（ ）。\n\n```cpp\nint tnt = 0;\nfor (int i = -1000; i < 1000; i++)\n    tnt += i;\ncout << tnt << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "-1000"
+        },
+        {
+          "label": "B",
+          "content": "0"
+        },
+        {
+          "label": "C",
+          "content": "999"
+        },
+        {
+          "label": "D",
+          "content": "1000"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "下面C++代码执行后输出的是（ ）。\n\n```cpp\nint i;\nfor (i = 1; i < 100; i += 5)\n    continue;\ncout << i << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "101"
+        },
+        {
+          "label": "B",
+          "content": "100"
+        },
+        {
+          "label": "C",
+          "content": "99"
+        },
+        {
+          "label": "D",
+          "content": "96"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下面C++代码执行后输出的是（ ）。\n\n```cpp\nint tnt = 0;\nfor (int i = 5; i < 100; i += 5){\n    if (i % 2 == 0)\n        continue;\n    tnt += 1;\n    if (i % 3 == 0 && i % 7 == 0)\n        break;\n}\ncout << tnt << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "500"
+        },
+        {
+          "label": "B",
+          "content": "450"
+        },
+        {
+          "label": "C",
+          "content": "10"
+        },
+        {
+          "label": "D",
+          "content": "1"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "C++、Python都是高级编程语言，它们的每条语句最终都要通过机器指令来完成。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "在C++中表达式 `N * 2 % N` 中如果 `N` 的值为正整数，则其值为2。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "执行如下C++代码如果在键盘上输入10，执行后将输出20。（ ）\n\n```cpp\nchar N;\nprintf(\"请输入正整数：\");\ncin >> N;\nprintf(\"%d\\n\", N * 2);\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "删除下面C++代码中的continue不影响程序的执行效果。（ ）\n\n```cpp\nfor (int i = 0; i < 100; i++){\n    if (i % 2 == 0){\n        printf(\"偶数\");\n        continue;\n    }\n    else\n        printf(\"奇数\");\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "下面C++代码执行时将报错，因为 `_` 所在位置应该是变量名，而 `_` 不可以做变量名。（ ）\n\n```cpp\nfor (int _ = 0; _ < 100; _++)\n    cout << \"*\" << endl;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "下面C++代码被执行后，将先后输出3和5。（ ）\n\n```cpp\nfor (int i = 3; i < 5; i += 2)\n    printf(\"%d \", i);\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "下面的C++代码执行后将先后输出7个 `true` 。（ ）\n\n```cpp\nfor (int i = 0; i < 10; i++)\n    cout << (i * 2 < i * i) << \" \";\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "在C++代码中，`user_Name`、`_userName`、`user-Name`、`userName_` 都是合法的变量名。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "C++语言中 `continue` 语句可以来提前结束循环。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "C++中定义整型变量N，执行语句 `scanf(\"%d\", &N); cout << N / 3 * 5;` 时输入 `3.6`，则输出是6。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "图书馆里的老鼠",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "图书馆里有 $n$ 本书，不幸的是，还混入了一只老鼠，老鼠每 $x$ 小时能啃光一本书，假设老鼠在啃光一本书之前，不会啃另一本。请问 $y$ 小时后图书馆里还剩下多少本完整的书。",
+      "inputFormat": "三行，第一行一个正整数 $n$，表示图书馆里书的数量；\n\n第二行，一个正整数 $x$，表示老鼠啃光一本书需要的时间；\n\n第三行，一个正整数 $y$，表示经过的总时间；\n\n输入数据保证 $y$ 小时后至少会剩下一本完整的书。",
+      "outputFormat": "一行，一个整数，表示 $y$ 小时后图书馆里还剩下多少本完整的书。",
+      "samples": [
+        {
+          "input": "10\n2\n3",
+          "output": "8"
+        },
+        {
+          "input": "5\n2\n4",
+          "output": "3"
+        }
+      ],
+      "dataRange": "对于所有测试点，保证 $1 \\le n, x, y \\le 1{,}000$，保证 $y$ 小时后至少会剩下一本完整的书。",
+      "referenceSolution": "#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n\n    int n, x, y, ans;\n    cin >> n >> x >> y;\n    assert(1 <= n && n <= 1000 && 1 <= x && x <= 1000 && 1 <= y && y <= 1000);\n    ans = n - y / x - 1 + (y % x == 0);\n    assert(ans >= 1);\n    cout << ans << '\\n';\n\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "四舍五入",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "四舍五入是一种常见的近似计算方法。现在，给定 $n$ 个整数，你需要将每个整数四舍五入到最接近的整十数。例如，$43$ 四舍五入后为 $40$，$58$ 四舍五入后为 $60$。",
+      "inputFormat": "共 $n+1$ 行，第一行，一个整数 $n$，表示接下来输入的整数个数。\n\n接下来 $n$ 行，每行一个整数 $a_1, \\cdots, a_n$，表示需要四舍五入的整数。",
+      "outputFormat": "$n$ 行，每行一个整数，表示每个整数四舍五入后的结果。",
+      "samples": [
+        {
+          "input": "5\n43\n58\n25\n67\n90",
+          "output": "40\n60\n30\n70\n90"
+        }
+      ],
+      "dataRange": "对于所有测试点，保证 $1 \\le n \\le 100$，$1 \\le a_i \\le 10000$。",
+      "referenceSolution": "#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n\n    int n; cin >> n; assert(1 <= n && n <= 100);\n    for (int i = 1, x; i <= n; i ++) {\n        cin >> x; assert(1 <= x && x <= 10000);\n        cout << (x + 5) / 10 * 10 << '\\n';\n    }\n\n    return 0;\n}\n"
+    }
+  ]
+}

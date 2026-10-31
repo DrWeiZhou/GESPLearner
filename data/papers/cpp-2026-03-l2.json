@@ -1,0 +1,498 @@
+{
+  "id": "cpp-2026-03-l2",
+  "language": "cpp",
+  "level": 2,
+  "exam": {
+    "id": "2026-03",
+    "title": "2026年3月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10269.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1734124601606176.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "2026年春节联欢晚会上一个武术表演节目《武BOT》。节目中多个人形机器人会表演空翻，它们落地可能会有微微踉跄，但都会迅速调整姿态站稳，并适当移动来和前后左右的其他机器人保持原来队列。如果将机器人视作一个计算机系统，那么在该计算机系统中下面哪一项不能作为输入设备（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "检测重心的重力传感器"
+        },
+        {
+          "label": "B",
+          "content": "预装的AI算法程序"
+        },
+        {
+          "label": "C",
+          "content": "接收动作指令的遥控器"
+        },
+        {
+          "label": "D",
+          "content": "拍摄其他机器人的摄像头"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "下面代码用来找出输入的N个正整数中最大的一个。如果将代码段用流程图来表示，则 `L1` 标记的代码行应该使用的图形是（ ）。\n\n```cpp\nint N, max=0, val;\ncin >> N;\n\nwhile(N){\n    cin >> val;\n    if(val > max) // L1\n        max = val;\n    N--;\n}\n\ncout << max;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "圆形框"
+        },
+        {
+          "label": "B",
+          "content": "椭圆形框"
+        },
+        {
+          "label": "C",
+          "content": "平行四边形框"
+        },
+        {
+          "label": "D",
+          "content": "菱形框"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下面C++代码可以执行，有关说法正确的是（ ）。\n\n```cpp\ndouble PI = 3.1415926;\ncout << (PI);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "为了方便初学者，`cout << (PI)` 和 `cout << (pi)` 效果相同，即变量的大小写不敏感"
+        },
+        {
+          "label": "B",
+          "content": "`cout << (PI)` 修改为 `cout << (Pi)` 能正常执行"
+        },
+        {
+          "label": "C",
+          "content": "不能用 `PI` 做变量名，因为要保存圆周率这个常量"
+        },
+        {
+          "label": "D",
+          "content": "将程序中全部 `PI` 都改写为 `Pai`，将能正常执行，不会报错"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下面选择项中，与C++表达式 `!(x > 5 && y <= 10)` 等价的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`x <= 5 && y > 10`"
+        },
+        {
+          "label": "B",
+          "content": "`x > 5 || y <= 10`"
+        },
+        {
+          "label": "C",
+          "content": "`x <= 5 || y > 10`"
+        },
+        {
+          "label": "D",
+          "content": "`! x > 5 && ! y <= 10`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "某同学执行C++代码 `cout << ((0.1 + 0.2) == 0.3)` 时输出 `0`，下面最可能的原因是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "C++的 `+` 运算符在处理小数时存在bug"
+        },
+        {
+          "label": "B",
+          "content": "`0.1`、`0.2` 和 `0.3` 在计算机中无法用二进制浮点数精确表示，导致 `0.1 + 0.2` 的结果与 `0.3` 存在微小误差"
+        },
+        {
+          "label": "C",
+          "content": "`==` 运算符不能用于比较浮点数，只能用于整数"
+        },
+        {
+          "label": "D",
+          "content": "因为 `0.1 + 0.2` 的数学结果不等于 `0.3`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下面的C++代码段执行后其输出是（ ）。\n\n```cpp\ntnt = 0;\nfor (int i = 0; i < 5; i++){\n    for (int j = 0; j < i; j++)\n        tnt += 1;\n    cout << tnt << \"#\";\n}\ncout << tnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0#1#3#6#10#10`"
+        },
+        {
+          "label": "B",
+          "content": "`1#2#3#4#5#6#7#8#9#10#10`"
+        },
+        {
+          "label": "C",
+          "content": "`10#10`"
+        },
+        {
+          "label": "D",
+          "content": "`10`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下面的C++代码执行之后的输出是（ ）。\n\n```cpp\nfor ( int i = -2; i < 2; i++)\n    if (not i % 3)\n        cout << i << \"#\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0#`"
+        },
+        {
+          "label": "B",
+          "content": "`-2#-1#1#`"
+        },
+        {
+          "label": "C",
+          "content": "`-1#0#`"
+        },
+        {
+          "label": "D",
+          "content": "`-2#0#1#`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面的C++代码执行后其输出是（ ）。\n\n```cpp\nint cnt = 0, i, j;\nfor (i =1; i < 5; i++){\n    for (j =0; j < i; j++)\n       cout << j << \"#\";\n    break;\n}\nif(i >= 5)\n    cout << (i*j);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0#0#1#0#1#2#0#1#2#3#12`"
+        },
+        {
+          "label": "B",
+          "content": "`0#0#1#0#1#2#0#1#2#3#`"
+        },
+        {
+          "label": "C",
+          "content": "`0#`"
+        },
+        {
+          "label": "D",
+          "content": "`1#`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面C++代码执行后其输出是（ ）。\n\n```cpp\nint count = 0;\nfor (int i = 1; i < 4; i++)\n    for (int j = 1; j < 5; j++){\n        if (j == 3)\n            continue;\n        if (i == 2)\n            break;\n        count += 1;\n    }\ncout << (count);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "2"
+        },
+        {
+          "label": "B",
+          "content": "4"
+        },
+        {
+          "label": "C",
+          "content": "6"
+        },
+        {
+          "label": "D",
+          "content": "8"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面4个选项中，与下面C++代码段具有相同效果的是（ ）。\n\n```cpp\ni = 0;\nwhile (i < 5){\n    cout << i;\n    i += 1;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nfor (i = 0; i < 5; i++)\n    cout << i;\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nfor (i = 1; i < 5; i++)\n    cout << i;\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nfor (i = 0; i < 6; i++)\n    cout << i;\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nfor (i = 1; i < 6; i++)\n    cout << i;\n```"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面C++代码执行后输出是（ ）。\n\n```cpp\nint n = 10;\nwhile (n > 0){\n    n -= 1;\n    if (n % 3 == 0)\n        continue;\n    if (n == 5)\n        break;\n}\ncout << n;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "0"
+        },
+        {
+          "label": "B",
+          "content": "5"
+        },
+        {
+          "label": "C",
+          "content": "6"
+        },
+        {
+          "label": "D",
+          "content": "7"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面C++代码段执行后，其输出是（ ）。\n\n```cpp\nint i, j, cnt;\ncnt = 0;\nfor (i = 0; i < 5; i++){\n    i = -i;\n    for (j = i; j < -i; j++)\n        cnt += 1;\n    i = -i;\n}\ncout << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "5"
+        },
+        {
+          "label": "B",
+          "content": "15"
+        },
+        {
+          "label": "C",
+          "content": "20"
+        },
+        {
+          "label": "D",
+          "content": "30"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "某学校图书馆的借阅卡号由6位整数组成。前5位是顺序编号，第6位是校验码，用于防止输错。校验码规则如下：将前5位数字相加，然后除以10的余数，就是第6位数字。如卡号 `123455` 的前5位之和为 `15`，除以 `10` 的余数是5，故第6位为5。下面的C++代码段用于判断卡号是否正确，横线处应填入的代码是（ ）。\n\n```cpp\ncout << \"请输入卡号：\";\ncin >> N;\norder_num = N / 10; // 获得前5位顺序号,假设录入一定为6位正整数\ncheck_num = N % 10; // 获得最后一位\n\ntnt = 0; // 保存前5位之和\nfor (i = 0; i < 5; i++){\n    ________________;\n    order_num /= 10;\n}\n\nif (__________________)\n    cout << \"符合校验规则\";\nelse\n    cout << \"不符合校验规则\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\ntnt += order_num / 10\ntnt / 10 == check_num\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\ntnt += order_num % 10\ntnt % 10 == check_num\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\ntnt = order_num / 10 + tnt\ntnt % 10 == check_num\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\ntnt = order_num % 10\ntnt / 10 == check_num\n```"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "下面的C++代码段正常执行后其输出的数字图形是（ ）。\n\n```cpp\nfor (i = 1; i < 5; i++){\n    for (j = 1; j < i+1; j++)\n        cout << j;\n    cout << endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```text\n1\n12\n123\n1234\n```"
+        },
+        {
+          "label": "B",
+          "content": "```text\n1\n22\n333\n4444\n```"
+        },
+        {
+          "label": "C",
+          "content": "```text\n1\n21\n321\n4321\n```"
+        },
+        {
+          "label": "D",
+          "content": "```text\n4\n34\n234\n1234\n```"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "某学校举办“校园演讲比赛”，每位选手由8位评委打分（分数为0~10的整数），且每位评委必须打分。计分规则：若至少有5位评委给出大于等于6分，则成绩有效，最终得分为所有8位评委的总分；如给出低于6分的评委数量超过5位，则记为0分。以下核心程序段依次输入8个分数，并计算最终得分。横线处应填入（ ）。\n\n```cpp\ntotal_score = 0; // 所有分数之和\nhigh_count = 0;  // ≥6分的评委数量\n\nfor (i = 0; i < 8; i++){\n    cout << \"请输入评委分数：\";\n    cin >> score;\n    ____________________;\n    if (score >= 6)\n        ________________;\n}\n\nif (high_count >= 5)\n    cout << total_score;\nelse\n    cout << 0;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\ntotal_score += score\nhigh_count += 1\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\ntotal_score += score\nhigh_count += score\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nhigh_count += 1\ntotal_score += score\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\ntotal_score *= score\nhigh_count *= 1\n```"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "小明的妈妈最近刚刚给他买了一块电话手表，除了可以看时间，小明也可以用它和妈妈打电话、收发信息，那么可以推测这块手表中装有一款特定操作系统。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "C++语句 `cout << ('4' % '2' == '2' * '2' % 2);` 执行后的输出是1。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "下面的C++代码段执行时将报错，因为10是整数类型，`a` 是布尔类型。由于类型不同，不能进行加法运算。（ ）\n\n```cpp\nbool a = true;\ncout << (10 + a);\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "下面C++代码段执行后将输出 `0-3-6-9-`。（ ）\n\n```cpp\nfor (int i = 0; i < 10; i++){\n    if (i % 3)\n        continue;\n    cout << i <<  \"-\";\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "执行下面的C++代码段，如果N是基本数据类型，则语句 `cout << (N);` 将被执行0次或无数次（即死循环）。（ ）\n\n```cpp\ncin >> N;\nwhile (N)\n    cout << (N);\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "下面的C++代码段可正常执行，删除 `continue` 不影响执行效果。（ ）\n\n```cpp\nfor (i = 0; i < 10; i++){\n    i += 1;\n    continue;\n}\ncout << (i);\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "下面的C++代码段用于计算1到N之间且包含N的所有数字中含有的3的个数，如1到40含有14个3，而1到20则只含有2个3。如果将 `while (i != 0)` 改为 `while (abs(i))`，则执行结果相同。（ ）\n\n```cpp\ncout << \"请输入正整数N：\";\ncin >> N;\ncnt = 0; // 保存3的个数\nfor  (k = 1; k < N + 1; k++){\n    i = k;\n    while (i != 0){\n        if (i % 10 == 3)\n            cnt += 1;\n        i /= 10;\n     }\n}\ncout << cnt;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "下面的C++代码段执行将不会有输出，因为内层循环 `j` 总是0开始，`i * j % 10 == 0` 将会被满足，执行 `break`，故而 `i` 小于 `10`，不会满足 `if` 判断条件。（ ）\n\n```cpp\nfor (i = 1; i < 10; i++)\n    for (j = 0; j < i; j++)\n        if (i * j % 10 == 0)\n            break;\nif(i >= 10)\n    cout << (i*j);\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "下列C++代码执行后将输出 `1#4#9#16#16`。（ ）\n\n```cpp\ncnt = 0;\nfor  (i = 1; i < 5; i++){\n    for (j = 1; j < i + 1; j++)\n        if (i * j % 10 == 0)\n            break;\n    if (j >= i + 1)\n        cout << (i * j) << \"#\";\n}\nif(i >= 5)\n    cout << (i * j);\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "下面C++代码执行后输出如左图所示，将 `\" %d\"` 修改为 `\"%3d\"` 即可实现右图输出。（ ）\n\n```cpp\n/*\n  // 左图                         // 右图\n 1 2 3 4 5 6 7 8 9                1   2   3   4   5   6   7   8   9\n 2 4 6 8 10 12 14 16 18           2   4   6   8  10  12  14  16  18\n 3 6 9 12 15 18 21 24 27          3   6   9  12  15  18  21  24  27\n 4 8 12 16 20 24 28 32 36         4   8  12  16  20  24  28  32  36\n 5 10 15 20 25 30 35 40 45        5  10  15  20  25  30  35  40  45\n 6 12 18 24 30 36 42 48 54        6  12  18  24  30  36  42  48  54\n 7 14 21 28 35 42 49 56 63        7  14  21  28  35  42  49  56  63\n 8 16 24 32 40 48 56 64 72        8  16  24  32  40  48  56  64  72\n 9 18 27 36 45 54 63 72 81        9  18  27  36  45  54  63  72  81\n*/\n\nfor (i = 1; i < 10; i++){\n    for (j = 1; j < 10; j++)\n        printf(\" %d\", i*j);\n    printf(\"\\n\");\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "数数",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "对于正整数 $n$，如果 $n$ 的所有数位中包含**恰好** $3$ 个 $2$，Alice 会认为这个正整数是美丽的。例如，正整数 $24122$ 中包含 $3$ 个 $2$，所以 $24122$ **是**美丽的；正整数 $132$ 中包含 $1$ 个 $2$，所以 $132$ **不是**美丽的；正整数 $212322$ 中包含 $4$ 个 $2$，所以 $212322$ **不是**美丽的。\n\nAlice 想知道正整数 $L$ 到正整数 $R$（包括 $L$ 和 $R$）中有多少美丽的正整数，你能帮她数一数吗？",
+      "inputFormat": "输入共 $2$ 行，第一行为正整数 $L$，第二行为正整数 $R$。",
+      "outputFormat": "输出一行，包含一个整数 $C$，表示 $L$ 到 $R$ 中 $C$ 美丽数的数量。",
+      "samples": [
+        {
+          "input": "2221\n2223",
+          "output": "2",
+          "explanation": "$2221$ 到 $2223$ 中，$2221$ 与 $2223$ 是美丽的，$2222$ 不是美丽的。"
+        }
+      ],
+      "dataRange": "保证 $1 \\le L \\le R \\le 10^6$。",
+      "referenceSolution": "#include <iostream>\n\nusing namespace std;\n\nint main() {\n    int l, r, ans = 0;\n    cin >> l >> r;\n    for(int i = l; i <= r; i++) {\n        int c = 0, t = i;\n        while(t) {\n            if(t % 10 == 2)\n                c++;\n            t /= 10;\n        }\n        if(c == 3)\n            ans++;\n    }\n    cout << ans;\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "画画",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "输入一个正整数 $n$，你需要绘制一个 $n$ 行 $n$ 列的正方形，绘制规则如下：\n\n- 正方形的四个顶点使用 `+` 绘制；\n- 除顶点外，第 $1$ 行与第 $n$ 行使用 `-` 绘制；\n- 除顶点外，第 $1$ 列与第 $n$ 列使用 `|` 绘制；\n- 正方形内部使用 `*` 绘制。",
+      "inputFormat": "一行，一个正整数 $n$。",
+      "outputFormat": "输出共 $n$ 行，表示对应的正方形。",
+      "samples": [
+        {
+          "input": "5",
+          "output": "+---+\n|***|\n|***|\n|***|\n+---+"
+        }
+      ],
+      "dataRange": "保证 $3 \\le n \\le 100$。",
+      "referenceSolution": "#include <iostream>\n\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    for(int i = 0; i < n; i++) {\n        for(int j = 0; j < n; j++) {\n            if(j == 0 || j == n - 1) {\n                if(i == 0 || i == n - 1)\n                    cout << '+';\n                else\n                    cout << '|';\n            } else {\n                if(i == 0 || i == n - 1)\n                    cout << '-';\n                else\n                    cout << '*';\n            }\n        }\n        if(i + 1 != n)\n            cout << endl;\n    }\n    return 0;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,508 @@
+{
+  "id": "cpp-2023-12-l4",
+  "language": "cpp",
+  "level": 4,
+  "exam": {
+    "id": "2023-12",
+    "title": "2023年12月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10119.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1601236293910560.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "下面有关函数参数的说法，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "函数参数传递时，主函数当中采用值传递方式将参数传递给子函数时，若子函数将参数值改变，主函数当中的参数值不变。"
+        },
+        {
+          "label": "B",
+          "content": "函数参数传递时，主函数当中采用值传递方式将参数传递给子函数时，若子函数将参数值改变，主函数当中的参数值将随子函数一样改变而改变。"
+        },
+        {
+          "label": "C",
+          "content": "函数参数传递时，主函数如果将参数的地址传递给子函数，若子函数将参数值改变，主函数当中的参数值将不改变。"
+        },
+        {
+          "label": "D",
+          "content": "函数参数传递可以不满足子函数的参数个数要求。"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后，输出的是（ ）。\n\n```cpp\nint arr[10]={1};\nstring strArr=\"chen a dai\";\ncout<<strArr[arr[1]]<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`chen`"
+        },
+        {
+          "label": "B",
+          "content": "`c`"
+        },
+        {
+          "label": "C",
+          "content": "`chen a dai`"
+        },
+        {
+          "label": "D",
+          "content": "`dai`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下面 C++ 代码最后执行后输出是（ ）。\n\n```cpp\nint fun1(int *n)\n{\n    return *n**n;\n}\nint main()\n{\n    int arr[10]={2};\n    arr[1]=fun1(arr);\n    cout<<arr[1]<<endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1`"
+        },
+        {
+          "label": "B",
+          "content": "`2`"
+        },
+        {
+          "label": "C",
+          "content": "`3`"
+        },
+        {
+          "label": "D",
+          "content": "`4`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的结果是（ ）。\n\n```cpp\nint arr[3][3]={{1,2,3},{4,5,6},{7,8,9}};\nfor(int i=0;i<3;i++)\n{\n    for(int j=2;j>=0;j--)\n    {\n        cout<<arr[i][j]<<\" \";\n    }\n    cout<<endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```text\n1 2 3\n4 5 6\n7 8 9\n```"
+        },
+        {
+          "label": "B",
+          "content": "`1 2 3 4 5 6 7 8 9`"
+        },
+        {
+          "label": "C",
+          "content": "```text\n3 2 1\n6 5 4\n9 8 7\n```"
+        },
+        {
+          "label": "D",
+          "content": "`9 8 7 6 5 4 3 2 1`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后输出是（ ）。\n\n```cpp\nint arr[3]={1,2,3};\nint *p=NULL;\np=arr;\np++;\ncout<<*p<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1,2,3`"
+        },
+        {
+          "label": "B",
+          "content": "`1`"
+        },
+        {
+          "label": "C",
+          "content": "`2`"
+        },
+        {
+          "label": "D",
+          "content": "`3`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "如果变量 `x` 的地址是 `0x6ffe14`，下面 C++ 代码执行以后输出的是（ ）。\n\n```cpp\nint *p=NULL;\nint x=2;\np=&x;\np++;\ncout<<p<<endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0x6ffe11`"
+        },
+        {
+          "label": "B",
+          "content": "`0x6ffe14`"
+        },
+        {
+          "label": "C",
+          "content": "`0x6ffe18`"
+        },
+        {
+          "label": "D",
+          "content": "`0x6ffe15`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "在 C++ 中，执行下面代码后，输出的是（ ）。\n\n```cpp\nint point(int *p)\n{\n    return *p**p;\n}\nint main()\n{\n    int a=20;\n    int *p=&a;\n    *p=point(p);\n    cout<<*p<<endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`400`"
+        },
+        {
+          "label": "B",
+          "content": "`200`"
+        },
+        {
+          "label": "C",
+          "content": "`20`"
+        },
+        {
+          "label": "D",
+          "content": "`100`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下列 C++ 语句执行以后结果是 `true` 的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3&&false`"
+        },
+        {
+          "label": "B",
+          "content": "`5&&2`"
+        },
+        {
+          "label": "C",
+          "content": "`101&&000`"
+        },
+        {
+          "label": "D",
+          "content": "`4&true`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "在如下的 C++ 代码中实现了对字符串中出现的 26 个字母的个数统计，横线处应填入是（ ）。\n\n```cpp\nstring str=\"HELLO CHEN A DAI\";\nint strlen=str.length();\nchar alpha[26]={65};\nint cnt[26]={0};\nfor(int i=1;i<26;i++)\n{\n    _____;\n}\nfor(int i=0;i<26;i++)\n{\n    cout<<alpha[i]<<\" \";\n}\ncout<<endl;\nfor(int i=0;i<26;i++)\n{\n    for(int j=0;j<strlen;j++)\n    {\n        if(alpha[i]==str[j])\n        {\n            cnt[i]++;\n        }\n    }\n}\nfor(int i=0;i<26;i++)\n{\n    cout<<cnt[i]<<\" \";\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`alpha[i]=alpha[i-1]+1;`"
+        },
+        {
+          "label": "B",
+          "content": "`alpha[i]=alpha[i]+1;`"
+        },
+        {
+          "label": "C",
+          "content": "`alpha[i+1]=alpha[i]+1;`"
+        },
+        {
+          "label": "D",
+          "content": "`alpha[i-1]=alpha[i]+1;`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后生成的文件其字节数为（ ）。\n\n```cpp\nofstream fout;\nfout.open(\"1.txt\");\nfor(int i=1;i<=10;i++)\n{\n    if(i%5==0)\n    {\n        int x=6;\n        fout<<x;\n    }\n    else\n    {\n        char ch='A';\n        fout<<ch;\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`10`"
+        },
+        {
+          "label": "B",
+          "content": "`16`"
+        },
+        {
+          "label": "C",
+          "content": "`40`"
+        },
+        {
+          "label": "D",
+          "content": "`24`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下列 C++ 代码输入 `1,2,3,4`，执行后，将输出的是（ ）。\n\n```cpp\nstring str=\"\";\ncin>>str;\nint strlen=str.length();\nfor(int i=0;i<strlen;i++)\n{\n    if(str[i]<='9'&&str[i]>='0')\n    {\n        cout<<str[i];\n    }\n    else\n    {\n        cout<<\"#\";\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1#4#`"
+        },
+        {
+          "label": "B",
+          "content": "`1#3#`"
+        },
+        {
+          "label": "C",
+          "content": "`1#2#3#4#`"
+        },
+        {
+          "label": "D",
+          "content": "`1#2#3#4`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "以下 C++ 代码用于实现每个整数对应的因数，如输入 `12`，则输出 `1 2 3 4 6 12`；如输入 `18`，则输出 `1 2 3 6 9 18`。横线处应填入代码是（ ）。\n\n```cpp\nint n;\ncin>>n;\nfor(int i=1;i<=n;i++)\n{\n    _____\n    {\n        cout<<i<<\" \";\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`if(n%i==0)`"
+        },
+        {
+          "label": "B",
+          "content": "`if(n/i==0)`"
+        },
+        {
+          "label": "C",
+          "content": "`if(n%i!=0)`"
+        },
+        {
+          "label": "D",
+          "content": "`if(n/i!=0)`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "某公司新出了一款无人驾驶的小汽车，通过声控智能驾驶系统，乘客只要告诉汽车目的地，车子就能自动选择一条优化路线，告诉乘客后驶达那里。请问下面哪项不是驾驶系统完成选路所必须的。（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "麦克风"
+        },
+        {
+          "label": "B",
+          "content": "扬声器"
+        },
+        {
+          "label": "C",
+          "content": "油量表"
+        },
+        {
+          "label": "D",
+          "content": "传感器"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "现代计算机是指电子计算机，它所基于的是（ ）体系结构。",
+      "options": [
+        {
+          "label": "A",
+          "content": "艾伦·图灵"
+        },
+        {
+          "label": "B",
+          "content": "冯·诺依曼"
+        },
+        {
+          "label": "C",
+          "content": "阿塔纳索夫"
+        },
+        {
+          "label": "D",
+          "content": "埃克特-莫克利"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "输入一个正整数 $N$（$N \\ge 7$），想找出它所有相邻的因数对，例如，输入 `12`，因数对有 `(1,2)`、`(2,3)`、`(3,4)`。下面哪段代码找不到所有的因数对？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nfor(i=1;i<N;i++) if(!(N%i) && !(N%(i+1))) printf(\"(%d,%d)\\n\", i, i+1);\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nfor(i=2;i<N;i++) if(!(N%i) && !(N%(i+1))) printf(\"(%d,%d)\\n\", i, i+1);\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nfor(i=2;i<N/2;i++) if(!(N%(i-1)) && !(N%i)) printf(\"(%d,%d)\\n\", i-1, i);\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nfor(i=1;i<N/2;i++) if(!(N%i) && !(N%(i+1))) printf(\"(%d,%d)\\n\", i, i+1);\n```"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "C++ 的内置函数 `sort()` 支持数组的局部排序。例如 `int a={10,9,8,7,6,5,4,3,2,1}`，可以用 `sort(a,a+5)`，排序成 `{6,7,8,9,10,5,4,3,2,1}`。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "用递归法求 $n$ 的阶乘，时间复杂度是 $O(n)$。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "`[(1,2)*2]*3` 在 C++ 中是合法的表达式。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "在下面的 C++ 代码中，将对 `1.txt` 文件写入 `hello`。（ ）\n\n```cpp\nifstream filein;\nofstream fileout;\nfilein.open(\"1.txt\");\nfileout<<\"hello\";\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "文本文件 `1.txt` 第 1 行由 `01234` 共 5 个字符组成其间没有空格，当用 C++ 代码正常打开文件成功并执行如下代码以后，第 1 行长度为 5。（ ）\n\n```cpp\nifstream filein;\nint buff;\nfilein.open(\"1.txt\");\nfilein>>buff;\ncout<<buff<<endl;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "执行 C++ 代码 `cout<<(5||2);` 后将输出 `1`。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "在 C++ 中，两个字符串相加的运算符为 `+` 相当于字符串的合并运算。下面 C++ 代码执行后，将输出 `chenadai`。（ ）\n\n```cpp\nstring a=\"chen\";\nstring b=\"a\";\nstring c=\"dai\";\nstring name=a+b+c;\ncout<<name<<endl;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "C++ 内置函数 `sort()` 可以对整数、浮点数、字符数组进行从大到小，从小到大，局部排序。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "小杨最近在准备考 GESP，他用的 Dev C++ 来练习和运行程序，所以 Dev C++ 也是一个小型操作系统。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "任何一个 `while` 循环都可以转化为等价的 `for` 循环。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "小杨的字典",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "在遥远的星球，有两个国家 A 国和 B 国，他们使用着不同的语言：A 语言和 B 语言。小杨是 B 国的翻译官，他的工作是将 A 语言的文章翻译成 B 语言的文章。\n\n为了顺利完成工作，小杨制作了一本字典，里面记录了 $N$ 个 A 语言单词对应的 B 语言单词，巧合的是，这些单词都由地球上的 26 个小写英文字母组成。\n\n小杨希望你写一个程序，帮助他根据这本字典翻译一段 A 语言文章。这段文章由标点符号 `!()-[]{}\\|;:'\",./?<>` 和一些 A 语言单词构成，每个单词之间必定由至少一个标点符号分割，你的程序需要把这段话中的所有 A 语言单词替换成它的 B 语言翻译。特别地，如果遇到不在字典中的单词，请使用大写 `UNK` 来替换它。\n\n例如，小杨的字典中包含 2 个 A 语言单词 `abc` 和 `d`，它们的 B 语言翻译分别为 `a` 和 `def`，那么我们可以把 A 语言文章 `abc.d.d.abc.abcd.` 翻译成 B 语言文章 `a.def.def.a.UNK.`，其中，单词 `abcd` 不在词典内，因此我们需要使用 `UNK` 来替换它。",
+      "inputFormat": "第一行一个整数 $N$，表示词典中的条目数。保证 $N \\le 100$。\n\n接下来 $N$ 行，每行两个用单个空格隔开的字符串 $A, B$，分别表示字典中的一个 A 语言单词以及它对应的 B 语言翻译。保证所有 $A$ 不重复；保证 $A$ 和 $B$ 的长度不超过 $10$。\n\n最后一行一个字符串 $S$，表示需要翻译的 A 语言文章。保证字符串 $S$ 的长度不超过 $1000$，保证字符串 $S$ 只包含小写字母以及标点符号 `!()-[]{}\\|;:'\",./?<>`。",
+      "outputFormat": "输出一行，表示翻译后的结果。",
+      "samples": [
+        {
+          "input": "2\nabc a\nd def\nabc.d.d.abc.abcd.",
+          "output": "a.def.def.a.UNK."
+        },
+        {
+          "input": "3\nabc a\nd def\nabcd xxxx\nabc,(d)d!-abc?abcd",
+          "output": "a,(def)def!-a?xxxx"
+        },
+        {
+          "input": "1\nabcdefghij klmnopqrst\n!()-[]{}\\|;:'\",./?<>abcdefghijklmnopqrstuvwxyz",
+          "output": "!()-[]{}\\|;:'\",./?<>UNK"
+        }
+      ],
+      "referenceSolution": "#include <cstdio>\n#include <cstdlib>\n#include <cstring>\n#include <algorithm>\n#include <string>\n#include <map>\n#include <iostream>\nusing namespace std;\nmap<string, string> dict;\nint main() {\n    int N;\n    cin >> N;\n    while(N --) {\n        string word1, word2;\n        cin >> word1 >> word2;\n        dict[word1] = word2;\n    }\n    string content, word = \"\";\n    cin >> content, content += \"\\n\";\n    int m = content.length();\n    for(int i = 0; i < m; i ++) {\n        if (content[i] >= 'a' && content[i] <= 'z')\n            word += content[i];\n        else {\n            if (word != \"\") {\n                if (dict.count(word))\n                    cout << dict[word];\n                else cout << \"UNK\";\n                word = \"\";\n            }\n            cout << content[i];\n        }\n    }\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "田忌赛马",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "你要和田忌赛马。你们各自有 $N$ 匹马，并且要进行 $N$ 轮比赛，每轮比赛，你们都要各派出一匹马决出胜负。\n\n你的马匹的速度分别为 $u_1, u_2, \\ldots, u_N$，田忌的马匹的速度分别为 $v_1, v_2, \\ldots, v_N$。田忌会按顺序派出他的马匹，请问你要如何排兵布阵，才能赢得最多轮次的比赛？巧合的是，你和田忌的所有马匹的速度两两不同，因此不可能出现平局。",
+      "inputFormat": "第一行一个整数 $N$。保证 $1 \\le N \\le 5 \\times 10^4$。\n\n接下来一行 $N$ 个用空格隔开的整数，依次为 $u_1, u_2, \\ldots, u_N$，表示你的马匹们的速度。保证 $1 \\le u_i \\le 2N$。\n\n接下来一行 $N$ 个用空格隔开的整数，依次为 $v_1, v_2, \\ldots, v_N$，表示田忌的马匹们的速度。保证 $1 \\le v_i \\le 2N$。",
+      "outputFormat": "输出一行，表示你最多能获胜几轮。",
+      "samples": [
+        {
+          "input": "3\n1 3 5\n2 4 6",
+          "output": "2",
+          "explanation": "第 1 轮，田忌派出速度为 $2$ 的马匹，你可以派出速度为 $3$ 的马匹迎战，本轮你获胜。\n\n第 2 轮，田忌派出速度为 $4$ 的马匹，你可以派出速度为 $5$ 的马匹迎战，本轮你获胜。\n\n第 3 轮，田忌派出速度为 $6$ 的马匹，你可以派出速度为 $1$ 的马匹迎战，本轮田忌获胜。\n\n如此，你可以赢得 2 轮比赛。"
+        },
+        {
+          "input": "5\n10 3 5 8 7\n4 6 1 2 9",
+          "output": "5"
+        }
+      ],
+      "referenceSolution": "#include <bits/stdc++.h>\nusing namespace std;\n\nconst int N = 100005;\n\nint a[N], t;\nint b[N], h;\nint n;\n\nint main() {\n    scanf(\"%d\", &n);\n    for (int i = 1; i <= n; ++i) {\n        scanf(\"%d\", &a[i]);\n    }\n    for (int i = 1; i <= n; ++i) {\n        scanf(\"%d\", &b[i]);\n    }\n    h = 1;\n    t = 0;\n    sort(a + 1, a + n + 1);\n    sort(b + 1, b + n + 1);\n    int ans = 0;\n    for (int i = 1; i <= n; ++i)\n        if (a[i] > b[h])\n            ++ans, ++h;\n    printf(\"%d\\n\", ans);\n\n    return 0;\n}\n"
+    }
+  ]
+}

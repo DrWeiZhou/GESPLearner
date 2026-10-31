@@ -1,0 +1,498 @@
+{
+  "id": "cpp-2026-09-l2",
+  "language": "cpp",
+  "level": 2,
+  "exam": {
+    "id": "2026-09",
+    "title": "2026年9月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10300.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1767258655293472.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "第二届世界人形机器人运动会开幕式上，机器人方阵通过控制程序来完成整场表演。表演前，工程师们使用集成开发环境（IDE）编写并调试方阵的控制程序。下列关于 IDE 功能的描述，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "可以提供代码自动补全，提高编程效率"
+        },
+        {
+          "label": "B",
+          "content": "可以提供辅助信息，帮助排查程序逻辑错误"
+        },
+        {
+          "label": "C",
+          "content": "可以直接控制机器人电机转动"
+        },
+        {
+          "label": "D",
+          "content": "支持语法高亮，使代码更易阅读"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "计算机 CPU 中的高速缓冲存储器（Cache）主要为提升系统性能而设计。下列关于 Cache 的说法中正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "Cache 的容量比主存大，速度比主存快"
+        },
+        {
+          "label": "B",
+          "content": "Cache 通常用于暂存 CPU 频繁访问的数据"
+        },
+        {
+          "label": "C",
+          "content": "Cache 中的数据断电后不会丢失，属于非易失性存储器"
+        },
+        {
+          "label": "D",
+          "content": "Cache 的访问速度比 CPU 寄存器还要快"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "执行如下 C++ 代码，其输出是（ ）。\n\n```cpp\ncout << (3 == 3.0);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1`"
+        },
+        {
+          "label": "B",
+          "content": "`1.0`"
+        },
+        {
+          "label": "C",
+          "content": "`0`"
+        },
+        {
+          "label": "D",
+          "content": "`-1`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "执行如下 C++ 代码，其输出是（ ）。\n\n```cpp\ncout << (bool(5) + bool(-5) + bool(5.0));\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0`"
+        },
+        {
+          "label": "B",
+          "content": "`1`"
+        },
+        {
+          "label": "C",
+          "content": "`2`"
+        },
+        {
+          "label": "D",
+          "content": "`3`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "判断年份 `N` 是否为闰年的规则是：能被 `4` 整除但不能被 `100` 整除，或者能被 `400` 整除。以下 C++ 表达式中，能正确判断 `N` 是否为闰年的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(N % 4 == 0 && N % 100 != 0) || (N % 400 == 0)`"
+        },
+        {
+          "label": "B",
+          "content": "`N % 4 == 0 && N % 100 == 0 || N % 400 == 0`"
+        },
+        {
+          "label": "C",
+          "content": "`(N / 4 == 0 && N / 100 != 0) || (N / 400 == 0)`"
+        },
+        {
+          "label": "D",
+          "content": "`(N % 4 == 0 && N % 100 != 0) && (N % 400 == 0)`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "执行如下 C++ 代码，其输出是（ ）。\n\n```cpp\nint tot, i;\ntot = 0;\nfor (i = 0; i < 10; i++)\n    if (i)\n        tot += 1;\ncout << tot;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0`"
+        },
+        {
+          "label": "B",
+          "content": "`8`"
+        },
+        {
+          "label": "C",
+          "content": "`9`"
+        },
+        {
+          "label": "D",
+          "content": "`10`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "执行如下 C++ 代码，当输入 `4` 时，其输出是（ ）。\n\n```cpp\nint n, tot, i, j;\ncin >> n;\ntot = 0;\nfor (i = 1; i < n; i++)\n    for (j = 1; j < i; j++)\n        tot += 1;\ncout << tot;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1`"
+        },
+        {
+          "label": "B",
+          "content": "`3`"
+        },
+        {
+          "label": "C",
+          "content": "`6`"
+        },
+        {
+          "label": "D",
+          "content": "`10`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面的 C++ 代码执行后其输出是（ ）。\n\n```cpp\nint tnt, i;\ntnt = 0;\nfor (i = 0; i < 10; i++)\n    if (i % 3)\n        tnt += i;\ncout << tnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`12`"
+        },
+        {
+          "label": "B",
+          "content": "`18`"
+        },
+        {
+          "label": "C",
+          "content": "`22`"
+        },
+        {
+          "label": "D",
+          "content": "`27`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面的 C++ 代码之后的输出是（ ）。\n\n```cpp\nint tot = 0, i;\nfor (i = -5; i < 5; i++)\n    if (not(i % 3 != 0))\n        tot += 1;\ncout << tot;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`2`"
+        },
+        {
+          "label": "B",
+          "content": "`3`"
+        },
+        {
+          "label": "C",
+          "content": "`7`"
+        },
+        {
+          "label": "D",
+          "content": "`9`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "有关如下 C++ 代码描述，变量都是整型，错误的是（ ）。\n\n```cpp\nint n, limit, i;\ncout << \"请输入一个正整数: \";\ncin >> n;\nif (n <= 1)\n    printf(\"%d非素数\", n);\nelse if (n == 2)\n    printf(\"2是素数\");\nelse {\n    limit = sqrt(n) + 1;\n    for (i = 2; i < limit; i++)\n        if (n % i == 0) {\n            printf(\"%d非素数\", n);\n            break;\n        }\n    if (i >= limit)\n        printf(\"%d是素数\", n);\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`n <= 1` 条件用于判断输入 `0`、`1` 以及负数时的情况，不能省略。"
+        },
+        {
+          "label": "B",
+          "content": "`n == 2` 条件及其相关代码省略，程序的输出结果没有区别。"
+        },
+        {
+          "label": "C",
+          "content": "`break` 语句不可以省略，否则非素数还将执行最后一行的语句。"
+        },
+        {
+          "label": "D",
+          "content": "`limit = sqrt(n) + 1` 语句中的 `1` 可以修改为其他大于等于 `1` 的正整数，执行结果不会有错误，但循环次数增多，效率有所影响。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "执行以下 C++ 代码后，最终的输出结果是（ ）。\n\n```cpp\nint total, i, j;\ntotal = 0;\ni = 1;\nwhile (i <= 3) {\n    for (j = 1; j < i + 1; j++)\n        total += i * j;\n    i += 1;\n}\ncout << total;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`9`"
+        },
+        {
+          "label": "B",
+          "content": "`11`"
+        },
+        {
+          "label": "C",
+          "content": "`23`"
+        },
+        {
+          "label": "D",
+          "content": "`25`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后其输出是（ ）。\n\n```cpp\nint count, i, j;\ncount = 0;\nfor (i = 1; i < 4; i++)\n    for (j = 0; j < i; j++) {\n        if (j % 3 == 0)\n            continue;\n        count += 1;\n        if (i * j >= 2)\n            break;\n    }\nprintf(\"%d %d %d\", i, j, count);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`2 3 2`"
+        },
+        {
+          "label": "B",
+          "content": "`3 0 2`"
+        },
+        {
+          "label": "C",
+          "content": "`4 1 2`"
+        },
+        {
+          "label": "D",
+          "content": "`4 2 3`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "如下的 C++ 代码执行时输入 `12` 将输出如下数字图形。注意：最后一行之前没有空格。横线处应填入的代码是（ ）。\n\n```text\n           0\n          12\n         345\n        6789\n       01234\n      567890\n     1234567\n    89012345\n   678901234\n  5678901234\n 56789012345\n678901234567\n```\n\n```cpp\nint line, i, j, k;\n\ni = 0;\ncout << \"请输入行数：\";\ncin >> line;\nfor (j = 0; j < line; j++) {\n    for (k = 0; k < ___________; k++) // L1\n        cout << \" \";\n    for (k = 0; k < j + 1; k++) {\n        cout << i;\n        i += 1;\n        if (i >= 10)\n            i = 0;\n    }\n    cout << endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`line - j - 1`"
+        },
+        {
+          "label": "B",
+          "content": "`line - j`"
+        },
+        {
+          "label": "C",
+          "content": "`line`"
+        },
+        {
+          "label": "D",
+          "content": "`line + 1`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "小北的身高是 `1.65` 米。班上有 `n` 个小朋友，小北想和身高最接近自己的人交朋友。如果有多个小朋友与小北的身高差相同，小北想和其中身高较矮的第一个小朋友做朋友。横线处应该填入的是（ ）。\n\n```cpp\nint n, i;\nfloat target, h, best_height, min_diff, diff;\n\ncout << \"请输入小朋友的人数: \";\ncin >> n;\ntarget = 1.65;\nbest_height = 0.0;\nmin_diff = 100.0;\n\nfor (i = 0; i < n; i++) {\n    cout << \"请输入第 \" << i << \" 个小朋友的身高: \";\n    cin >> h;\n    diff = abs(h - target);\n\n    if (____________________) { // L1\n        min_diff = diff;\n        best_height = h;\n    }\n}\ncout << \"小北的朋友身高为: \" << best_height;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`diff < min_diff || (diff == min_diff && h < best_height)`"
+        },
+        {
+          "label": "B",
+          "content": "`diff <= min_diff && h < best_height`"
+        },
+        {
+          "label": "C",
+          "content": "`diff < min_diff && h < best_height`"
+        },
+        {
+          "label": "D",
+          "content": "`diff < min_diff || h < best_height`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "小北的身高是 `1.65` 米。班上有 `n` 个小朋友，小北想和身高最接近自己的人交朋友。如果有多个小朋友与小北的身高差相同，小北想和其中身高较矮的第一个小朋友做朋友。横线处应该填入的是（ ）。\n\n```cpp\nint n, i;\nfloat target, h, best_height, min_diff, diff;\n\ncout << \"请输入小朋友的人数: \";\ncin >> n;\ntarget = 1.65;\nbest_height = 0.0;\nmin_diff = 100.0;\n\nfor (i = 0; i < n; i++) {\n    cout << \"请输入第 \" << (i + 1) << \" 个小朋友的身高: \";\n    cin >> h;\n\n    if (h > target)\n        diff = h - target;\n    else\n        diff = target - h;\n\n    if (diff < min_diff) {\n        min_diff = diff;\n        best_height = h;\n    } else if (diff == min_diff) {\n        __________________\n        __________________\n    }\n}\n\ncout << \"小北的朋友身高为:\" << best_height;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nif (h < best_height)\n    best_height = h;\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nif (h > best_height)\n    best_height = h;\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nif (h > target)\n    best_height = h;\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nif (h >= best_height)\n    best_height = h;\n```"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "C++ 程序执行 `cin` 或 `scanf` 语句时通常是使用键盘等输入设备来输入某个变量的值。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "执行 C++ 语句 `cout << ( 5 && 2 );` 将输出 `1`。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "C++ 表达式 `2 * - '2' / 4` 的值是 `-1`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "如下 C++ 代码执行后的输出是 `10`。\n\n```cpp\nint a;\na = 5;\na == +5;\ncout << a;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "执行 C++ 代码 `cout << (not not 5)` 将输出 `5`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后将输出 `369`。\n\n```cpp\nfor (int i = 1; i < 10; i++)\n    if (not(i % 3))\n        cout << i;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "`N` 是整数，执行如下 C++ 代码，将能输出 `0` 到 `N` 之间(包含 `N`)所有数之和。\n\n```cpp\nint N, tot, i;\ncin >> N;\ntot = 0;\nfor (i = 0; i < N + 1; i++)\n    tot += i;\ncout << tot;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "如下 C++ 代码执行后，输出值为 `0`。\n\n```cpp\nint cnt, i, j;\ncnt = 0;\nfor (i = 0; i < 10; i++) {\n    continue;\n    for (j = 0; j < i; j++)\n        cnt += 1;\n}\ncout << i * cnt;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "求解鸡兔同笼。在如下 C++ 代码中，`tou` 代表鸡和兔的头总数，`jiao` 代表鸡和兔的脚总数。先后两个输入均为正整数。该程序能求解鸡兔同笼。\n\n```cpp\nint tou, jiao, tu_tou, ji_tou;\n\ncout << \"请输入鸡和兔的头总数：\";\ncin >> tou;\ncout << \"请输入鸡和兔的脚总数：\";\ncin >> jiao;\n\nfor (tu_tou = 0; tu_tou < tou + 1; tu_tou++) {\n    ji_tou = tou - tu_tou;\n    if (tu_tou * 4 + ji_tou * 2 == jiao)\n        printf(\"兔的数量=%d,鸡的数量=%d\\n\", tu_tou, ji_tou);\n}\nif (tu_tou == tou)\n    printf(\"无解\\n\");\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "如果 `N` 和 `M` 均为整数，下列 C++ 代码则可以判断正整数 `N` 是 `M` 的平方。比如 `9` 是 `3` 的平方。\n\n```cpp\nint N, M;\n\ncout << \"请输入正整数N:\";\ncin >> N;\ncout << \"请输入整数M:\";\ncin >> M;\n\nif (int(sqrt(N)) == abs(M))\n    printf(\"%d是%d的平方\\n\", N, M);\n```",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "直角三角形",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小双刚学会勾股定理，得知直角三角形的斜边的平方等于两直角边的平方和。\n\n小双创造了*直角三角形数列*：数列前两项由小双指定，从第三项开始，数列中的每个数字的平方等于前两项的平方和。\n\n例如，第一项是 $3.0$，第二项是 $4.0$，则第三项是 $\\sqrt{3.0^2 + 4.0^2} = 5.0$。\\\n其中 $\\sqrt{x}$ 表示 $x$ 的算术平方根，可以使用 C/C++/Python 标准库中对应函数计算。\n\n小双给定了数列的前两项，并给定一个数列上限，想让你算算数列的第几项会超过小双给定的数列上限？",
+      "inputFormat": "输入三行，第一行一个浮点数是数列第一项，第二行一个浮点数是数列第二项，第三行一个浮点数表示数列上限。",
+      "outputFormat": "输出一个正整数，表示第几项开始会超过小双给定的数列上限。",
+      "samples": [
+        {
+          "input": "3.0\n4.0\n10.0",
+          "output": "6",
+          "explanation": "数列依次为：\n\n- $3.0$，\n- $4.0$，\n- $\\sqrt{3.0^2 + 4.0^2} = 5.0$，\n- $\\sqrt{4.0^2 + 5.0^2} = 6.403124\\ldots$，\n- $\\sqrt{5.0^2 + 6.403124^2} = 8.124038\\ldots$，\n- $\\sqrt{6.403124^2 + 8.124038^2} = 10.344080\\ldots$，\n\n因此第 $6$ 项会超过上限。"
+        }
+      ],
+      "dataRange": "输入均为不超过 $10000$ 的正数。\\\n题目保证给定第一项小于第二项。",
+      "referenceSolution": "#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main() {\n    double a, b, U;\n    cin >> a >> b >> U;\n    int ans = 1;\n    if (a <= U) ans++;\n    while (b <= U) {\n        ans++;\n        double t = sqrt(a * a + b * b);\n        a = b, b = t;\n    }\n    cout << ans << endl;\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "字符变换",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小明有一个 $8 \\times 16$ 的画布（8 行 16 列），画布中的格子从上到下从左到右编号，左上的编号为 $1$，第一排最后一个的编号为 $16$，最后一排第一个编号为 $113$，右下为 $128$。\n\n初始画布中的每个格子都是 `*`，随后小明会给定三个正整数，小明会将对应编号的格子变为*该正整数对应的 ASCII 编码字符*。\n\n最后请帮小明输出整个画布。",
+      "inputFormat": "输入包含三行，每行一个正整数，表示需要替换的画布格子编号。",
+      "outputFormat": "输出 $8 \\times 16$ 的画布。",
+      "samples": [
+        {
+          "input": "48\n65\n97",
+          "output": "****************\n****************\n***************0\n****************\nA***************\n****************\na***************\n****************"
+        }
+      ],
+      "dataRange": "输入范围是 $48$ 到 $57$、$65$ 到 $90$、以及 $97$ 到 $122$（即 ASCII 编码的 `0` 到 `9`，`A` 到 `Z`，以及 `a` 到 `z`）。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int a, b, c, p = 0;\n    cin >> a >> b >> c;\n    for (int i = 1; i <= 8; ++i) {\n        for (int j = 1; j <= 16; ++j) {\n            ++p;\n            if (p == a)\n                cout << (char)a;\n            else if (p == b)\n                cout << (char)b;\n            else if (p == c)\n                cout << (char)c;\n            else\n                cout << '*';\n        }\n        cout << '\\n';\n    }\n    return 0;\n}\n"
+    }
+  ]
+}

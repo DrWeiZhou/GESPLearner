@@ -1,0 +1,497 @@
+{
+  "id": "cpp-2025-03-l8",
+  "language": "cpp",
+  "level": 8,
+  "exam": {
+    "id": "2025-03",
+    "title": "2025年3月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10200.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1669257026863136.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "国家“以旧换新”政策仍在继续，小杨家决定在家里旧的冰箱、电视、洗衣机、微波炉中选两种换新。其中，冰箱有 $4$ 种型号可选，电视有 $6$ 种型号可选，洗衣机有 $3$ 种型号可选，微波炉有 $5$ 种型号可选。请问小杨家共有多少种换新的方案？（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$18$"
+        },
+        {
+          "label": "B",
+          "content": "$119$"
+        },
+        {
+          "label": "C",
+          "content": "$238$"
+        },
+        {
+          "label": "D",
+          "content": "$360$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "小杨和 $3$ 位朋友约好一起去看电影“哪吒2”。打开购票软件，他们发现，已经没有同一排连续的四个座位了（图中每个方框代表一个座位，红色方框代表已经售出）。朋友们商量了一下，决定分为两组，每组两人在同一排的相邻两个座位，且两组之间至少有一对座位是前后相邻的。请问共有多少种购票方案？（ ）。\n\n座位图（共 3 排、每排 6 个座位，第 1 排离银幕最近；□ 表示空座，■ 表示已售出）：\n\n```text\n      银幕\n-------------\n□ □ ■ ■ □ □    第 1 排\n□ □ □ ■ □ □    第 2 排\n□ □ □ ■ ■ ■    第 3 排\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$495$"
+        },
+        {
+          "label": "B",
+          "content": "$96$"
+        },
+        {
+          "label": "C",
+          "content": "$7$"
+        },
+        {
+          "label": "D",
+          "content": "$4$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下面关于 C++ 类构造和析构函数的说法，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "构造函数不能声明为虚函数。"
+        },
+        {
+          "label": "B",
+          "content": "析构函数必须声明为虚函数。"
+        },
+        {
+          "label": "C",
+          "content": "类的默认构造函数可以被声明为 `private`。"
+        },
+        {
+          "label": "D",
+          "content": "类的析构函数可以被声明为 `private`。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下列关于树和图的说法，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "树是一种有向无环图，有向无环图都是一棵树。"
+        },
+        {
+          "label": "B",
+          "content": "如果把树看做有向图，每个节点指向其子节点，则该图是弱连通图。"
+        },
+        {
+          "label": "C",
+          "content": "$N$ 个顶点且连通的无向图，其最小生成树一定包含 $N-1$ 个条边。"
+        },
+        {
+          "label": "D",
+          "content": "$N+1$ 个顶点、$N$ 条边的有向图，一定不是强连通的。"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "从 $1$ 到 $2025$ 这 $2025$ 个数中，包含数字 $5$ 的个数（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$600$"
+        },
+        {
+          "label": "B",
+          "content": "$601$"
+        },
+        {
+          "label": "C",
+          "content": "$602$"
+        },
+        {
+          "label": "D",
+          "content": "$603$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "已定义 `double` 类型的变量 `r` 和 `theta`，分别表示图中圆半径和圆心角。下列表达式中可以求出弦长 `s` 的是（ ）。\n\n图示：一个半径为 $r$ 的圆，圆心与弦的两个端点相连构成等腰三角形，两条腰长均为 $r$，顶角（圆心角）为 $\\theta$，弦（底边）长为 $s$。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`r * cos(theta)`"
+        },
+        {
+          "label": "B",
+          "content": "`r * cos(theta / 2) * 2`"
+        },
+        {
+          "label": "C",
+          "content": "`r * sin(theta)`"
+        },
+        {
+          "label": "D",
+          "content": "`r * sin(theta / 2) * 2`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "$N$ 个节点的平衡二叉树的高为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$\\lfloor \\log_2 N \\rfloor$"
+        },
+        {
+          "label": "B",
+          "content": "$\\lceil \\log_2 N \\rceil$"
+        },
+        {
+          "label": "C",
+          "content": "$\\lfloor \\log_2 N \\rfloor + 1$"
+        },
+        {
+          "label": "D",
+          "content": "无法确定。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下列关于算法的说法，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "如果有足够的时间和空间，枚举法能解决一切有限的问题。"
+        },
+        {
+          "label": "B",
+          "content": "分治算法将原问题分为多个子问题进行求解，且分解出的子问题必须相互独立。"
+        },
+        {
+          "label": "C",
+          "content": "如果能找到合理的贪心原则，贪心算法往往能够比其他方法更快求解。"
+        },
+        {
+          "label": "D",
+          "content": "倍增法在搜索未知长度的有序数组时，通过动态倍增或减半步长，快速定位目标范围。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "$2025$ 是个神奇的数字，因为它是由两个数 $20$ 和 $25$ 拼接而成，而且 $2025 = (20 + 25)^2$。小杨决定写个程序找找小于 $N$ 的正整数中共有多少这样神奇的数字。下面程序横线处应填入的是（ ）。\n\n```cpp\n#include <string>\nint count_miracle(int N) {\n    int cnt = 0;\n    for (int n = 1; n * n < N; n++) {\n        int n2 = n * n;\n        std::string s = std::to_string(n2);\n        for (int i = 1; i < s.length(); i++)\n            if (s[i] != '0') {\n                std::string sl = s.substr(0, i);\n                std::string sr = s.substr(i);\n                int nl = std::stoi(sl);\n                int nr = std::stoi(sr);\n                if (_________) // 在此处填入选项\n                    cnt++;\n            }\n    }\n    return cnt;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nnl + nr == n\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nnl + nr == n2\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\n(nl + nr) * (nl + nr) == n\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\n(nl + nr) ^ 2 == n2\n```"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "$2025$ 是个神奇的数字，因为它是由两个数 $20$ 和 $25$ 拼接而成，而且 $2025 = (20 + 25)^2$。小杨决定写个程序找找小于 $N$ 的正整数中共有多少这样神奇的数字。该函数的时间复杂度为（ ）。\n\n```cpp\n#include <string>\nint count_miracle(int N) {\n    int cnt = 0;\n    for (int n = 1; n * n < N; n++) {\n        int n2 = n * n;\n        std::string s = std::to_string(n2);\n        for (int i = 1; i < s.length(); i++)\n            if (s[i] != '0') {\n                std::string sl = s.substr(0, i);\n                std::string sr = s.substr(i);\n                int nl = std::stoi(sl);\n                int nr = std::stoi(sr);\n                if (_________) // 在此处填入选项\n                    cnt++;\n            }\n    }\n    return cnt;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(N \\log N)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(N^{1/2})$"
+        },
+        {
+          "label": "C",
+          "content": "$O(N^{1/2} \\log N)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(N^{1/2} (\\log N)^2)$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面的欧氏筛法程序中，两个横线处应填入的分别是（ ）。\n\n```cpp\nint primes[MAXP], num = 0;\nbool isPrime[MAXN + 1] = {false};\nvoid sieve() {\n    for (int n = 2; n <= MAXN; n++) {\n        if (!isPrime[n])\n            primes[num++] = n;\n        for (int i = 0; i < num && ________; i++) { // 在此处填入选项\n            isPrime[n * primes[i]] = true;\n            if (________) // 在此处填入选项\n                break;\n        }\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nn * primes[i] < MAXN\nn % primes[i] == 0\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nn * primes[i] < MAXN\nprimes[i] > n\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nn * primes[i] <= MAXN\nn % primes[i] == 0\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nn * primes[i] <= MAXN\nprimes[i] > n\n```"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面 Floyd 算法中，横线处应该填入的是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\n#define N 21\n#define INF 99999999\nint map[N][N];\nint main() {\n    int n, m, t1, t2, t3;\n    cin >> n >> m;\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= n; j++) {\n            if (i == j)\n                map[i][j] = 0;\n            else\n                map[i][j] = INF;\n        }\n    }\n    for (int i = 1; i <= m; i++) {\n        cin >> t1 >> t2 >> t3;\n        map[t1][t2] = t3;\n    }\n    for (int k = 1; k <= n; k++)\n        for (int i = 1; i <= n; i++)\n            for (int j = 1; j <= n; j++)\n                if (map[i][j] > map[i][k] + map[k][j])\n                    ________; // 在此处填入选项\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= n; j++) {\n            cout.width(4);\n            cout << map[i][j];\n        }\n        cout << endl;\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nmap[i][j] = map[i][k] + map[k][j]\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nmap[i][k] = map[i][j] - map[k][j]\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nmap[i][j] = map[i][k] - map[k][j]\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nmap[k][j] = map[i][j] - map[i][k]\n```"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下面 Floyd 算法程序的时间复杂度为（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\n#define N 21\n#define INF 99999999\nint map[N][N];\nint main() {\n    int n, m, t1, t2, t3;\n    cin >> n >> m;\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= n; j++) {\n            if (i == j)\n                map[i][j] = 0;\n            else\n                map[i][j] = INF;\n        }\n    }\n    for (int i = 1; i <= m; i++) {\n        cin >> t1 >> t2 >> t3;\n        map[t1][t2] = t3;\n    }\n    for (int k = 1; k <= n; k++)\n        for (int i = 1; i <= n; i++)\n            for (int j = 1; j <= n; j++)\n                if (map[i][j] > map[i][k] + map[k][j])\n                    ________; // 在此处填入选项\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= n; j++) {\n            cout.width(4);\n            cout << map[i][j];\n        }\n        cout << endl;\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(N)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(N^2)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(N^3)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(N^2 \\log N)$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "下列程序实现了输出杨辉三角形，代码中横线部分应该填入的是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n#define N 35\nint a[N];\nint main() {\n    int n;\n    cin >> n;\n    for (int i = 0; i < n; i++) {\n        a[i] = 1;\n        for (int j = i - 1; j > 0; j--)\n            ________; // 在此处填入选项\n        for (int j = 0; j <= i; j++)\n            cout << a[j] << \" \";\n        cout << endl;\n    }\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\na[j] += a[j + 1]\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\na[j] += a[j - 1]\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\na[j - 1] += a[j]\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\na[j + 1] += a[j]\n```"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下列程序实现了输出杨辉三角形，其时间复杂度为（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n#define N 35\nint a[N];\nint main() {\n    int n;\n    cin >> n;\n    for (int i = 0; i < n; i++) {\n        a[i] = 1;\n        for (int j = i - 1; j > 0; j--)\n            ________; // 在此处填入选项\n        for (int j = 0; j <= i; j++)\n            cout << a[j] << \" \";\n        cout << endl;\n    }\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n \\log n)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n^2)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(n^3)$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "表达式 `'5' - 3.0` 的结果为 `2.0`，类型为 `double`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "在 C++ 语言中，如果想要在一个函数内调用一个类的私有方法，可以在该类中将该函数声明为友元函数。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "插入排序一般是稳定的。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "$5$ 个相同的红球和 $4$ 个相同的蓝球排成一排，要求蓝球不能相邻，则一共有 $15$ 种排列方案。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "使用 `math.h` 或 `cmath` 头文件中的函数，表达式 `pow(2, 5)` 的结果类型为 `int`、值为 `32`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "C++ 是一种面向对象编程语言，C 则不是。多态是面向对象三大特性之一，虚函数是动态多态的代表特性。因此，使用 C 语言无法实现虚函数。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "在 $N$ 个节点的平衡二叉树中查找指定元素的最差时间复杂度为 $O(N)$。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "定义 `int` 类型的变量 `a` 和 `b`，求二次函数 $y = x^2 + ax + b$ 取最小值时 $x$ 的值，可以通过表达式 `-a / 2.0` 求得。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "判断无向图中是否有环，可以通过广度优先搜索实现。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "从 $32$ 名学生中选出 $4$ 人分别担任班长、副班长、学习委员和组织委员，共有 $C(32,4)$ 种不同的选法。",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "上学",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "C 城可以视为由 $n$ 个结点与 $m$ 条边组成的无向图。这些结点依次以 $1, 2, \\ldots, n$ 标号，边依次以 $1, 2, \\ldots, m$ 标号。第 $i$ 条边（$1 \\le i \\le m$）连接编号为 $u_i$ 与 $v_i$ 的结点，长度为 $l_i$ 米。\n\n小 A 的学校坐落在 C 城中编号为 $s$ 的结点。小 A 的同学们共有 $q$ 位，他们想在保证不迟到的前提下，每天尽可能晚地出门上学。但同学们并不会计算从家需要多久才能到学校，于是找到了聪明的小 A。第 $i$ 位同学（$1 \\le i \\le q$）告诉小 A，他的家位于编号为 $h_i$ 的结点，并且他每秒能行走 $1$ 米。请你帮小 A 计算，每位同学从家出发需要多少秒才能到达学校呢？",
+      "inputFormat": "第一行，四个正整数 $n, m, s, q$，分别表示 C 城的结点数与边数，学校所在的结点编号，以及小 A 同学们的数量。\n\n接下来 $m$ 行，每行三个正整数 $u_i, v_i, l_i$，表示 C 城中的一条无向边。\n\n接下来 $q$ 行，每行一个正整数 $h_i$，表示一位同学的情况。",
+      "outputFormat": "共 $q$ 行，对于每位同学，输出一个整数，表示从家出发到学校的最短时间。",
+      "samples": [
+        {
+          "input": "5 5 3 3\n1 2 3\n2 3 2\n3 4 1\n4 5 3\n1 4 2\n5\n1\n4",
+          "output": "4\n3\n1"
+        }
+      ],
+      "dataRange": "对于 $20\\%$ 的测试点，保证 $q = 1$。\n\n对于另外 $20\\%$ 的测试点，保证 $1 \\le n \\le 500$、$1 \\le m \\le 500$。\n\n对于所有测试点，保证 $1 \\le n \\le 2 \\times 10^5$、$1 \\le m \\le 2 \\times 10^5$、$1 \\le q \\le 2 \\times 10^5$、$1 \\le u_i, v_i, s, h_i \\le n$、$1 \\le l_i \\le 10^6$。保证给定的图联通。",
+      "referenceSolution": "#include <cstdio>\n#include <queue>\n#include <iostream>\n\nusing namespace std;\n\nconst int N = 2e5 + 5;\nconst int E = N << 1;\nconst long long oo = 1e18;\n\nint n, m, s, q;\nint h[N], to[E], nx[E], wt[E], et;\nint vis[N];\nlong long d[N];\npriority_queue <pair<long long, int>> pq;\n\nvoid ae(int u, int v, int w) {\n    et++;\n    to[et] = v;\n    nx[et] = h[u];\n    wt[et] = w;\n    h[u] = et;\n}\n\nint main() {\n    scanf(\"%d%d%d%d\", &n, &m, &s, &q);\n    for (int i = 1; i <= m; i++) {\n        int u, v, l;\n        scanf(\"%d%d%d\", &u, &v, &l);\n        ae(u, v, l);\n        ae(v, u, l);\n    }\n    for (int i = 1; i <= n; i++)\n        d[i] = oo;\n    d[s] = 0;\n    pq.push({0, s});\n    while (!pq.empty()) {\n        auto p = pq.top();\n        pq.pop();\n        int u = p.second;\n        if (vis[u])\n            continue;\n        vis[u] = 1;\n        for (int i = h[u]; i; i = nx[i])\n            if (d[u] + wt[i] < d[to[i]]) {\n                d[to[i]] = d[u] + wt[i];\n                pq.push({-d[to[i]], to[i]});\n            }\n    }\n    while (q--) {\n        int p;\n        scanf(\"%d\", &p);\n        printf(\"%lld\\n\", d[p]);\n    }\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "割裂",
+      "timeLimitMs": 4000,
+      "memoryLimitMb": 512,
+      "description": "小杨有一棵包含 $n$ 个节点的树，其中节点的编号从 $1$ 到 $n$。\n\n小杨设置了 $a$ 个好点对 $\\{<u_1, v_1>, <u_2, v_2>, \\ldots, <u_a, v_a>\\}$ 和 $1$ 个坏点对 $<b_u, b_v>$。一个节点能够被删除，当且仅当：\n\n- 删除该节点后对于所有的 $i\\,(1 \\le i \\le a)$，好点对 $u_i$ 和 $v_i$ 仍然连通；\n- 删除该节点后坏点对 $b_u$ 和 $b_v$ 不连通。\n\n如果点对中的任意一个节点被删除，其视为不连通。\n\n小杨想知道，有多少个节点能够被删除。",
+      "inputFormat": "第一行包含两个正整数 $n, a$，含义如题面所示。\n\n之后 $n-1$ 行，每行包含两个正整数 $x_i, y_i$，代表存在一条连接节点 $x_i$ 和 $y_i$ 的边。\n\n之后 $a$ 行，每行包含两个正整数 $u_i, v_i$，代表一个好点对 $<u_i, v_i>$。\n\n最后一行包含两个正整数 $b_u, b_v$，代表坏点对 $<b_u, b_v>$。",
+      "outputFormat": "输出一个正整数，代表能够删除的节点个数。",
+      "samples": [
+        {
+          "input": "6 2\n1 3\n1 5\n3 6\n3 2\n5 4\n5 4\n5 3\n2 6",
+          "output": "2"
+        }
+      ],
+      "dataRange": "| 子任务编号 | 分值 | $n$ | $a$ |\n| :-: | :-: | :-: | :-: |\n| 1 | $20\\%$ | $10$ | $0$ |\n| 2 | $20\\%$ | $\\le 100$ | $\\le 100$ |\n| 3 | $60\\%$ | $\\le 10^6$ | $\\le 10^5$ |\n\n对于全部数据，保证有 $1 \\le n \\le 10^6, 0 \\le a \\le 10^5, u_i \\ne v_i, b_u \\ne b_v$。",
+      "referenceSolution": "#include <bits/stdc++.h>\nusing namespace std;\nconst int N = 1e6+10;\nint n, k;\nvector<int> e[N];\nint f[N][25], dep[N], g[N], h[N];\n\nvoid dfs(int u, int fa){\n    dep[u] = dep[fa] + 1;\n    f[u][0] = fa;\n    for(int i = 1; i <= 20; i++){\n        f[u][i] = f[f[u][i - 1]][i - 1];\n    }\n    for(auto v: e[u]){\n        if(v == fa) continue;\n        dfs(v, u);\n    }\n}\n\nint lca(int u, int v){\n    if(dep[u] < dep[v]) swap(u, v);\n    int t = dep[u] - dep[v];\n    for(int i = 0; i <= 20; i++){\n        if(t & (1 << i)) u = f[u][i];\n    }\n    for(int i = 20; i >= 0; i--){\n        if(f[u][i] != f[v][i])\n            u = f[u][i], v = f[v][i];\n    }\n    if(u == v) return u;\n    return f[u][0];\n}\n\nint ans;\n\nvoid dfs2(int u, int fa){\n    for(auto v: e[u]){\n        if(v == fa) continue;\n        dfs2(v, u);\n        g[u] += g[v];\n        h[u] += h[v];\n    }\n    if(!g[u] && h[u]) {\n        ans++;\n    }\n}\n\nvoid solve(){\n    cin >> n >> k;\n    for(int i = 1; i < n; i++){\n        int u, v;\n        cin >> u >> v;\n        e[u].push_back(v);\n        e[v].push_back(u);\n    }\n    dfs(1, 0);\n    for(int i = 1; i <= k; i++){\n        int u, v;\n        cin >> u >> v;\n        int lc = lca(u, v);\n        g[u]++, g[v]++, g[lc]--, g[f[lc][0]]--;\n    }\n    int u, v;\n    cin >> u >> v;\n    int lc = lca(u, v);\n    h[u]++, h[v]++, h[lc]--, h[f[lc][0]]--;\n    dfs2(1, 0);\n    cout << ans << '\\n';\n}\n\nint main(){\n    solve();\n}\n"
+    }
+  ]
+}

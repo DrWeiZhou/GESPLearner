@@ -1,0 +1,506 @@
+{
+  "id": "cpp-2026-06-l6",
+  "language": "cpp",
+  "level": 6,
+  "exam": {
+    "id": "2026-06",
+    "title": "2026年6月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10284.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1753295364292640.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "下列关于 C++ 中继承和多态的描述中，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "通过基类指针调用虚函数时，会根据对象实际类型决定调用版本。"
+        },
+        {
+          "label": "B",
+          "content": "基类析构函数常声明为虚函数，以便通过基类指针正确释放派生类对象。"
+        },
+        {
+          "label": "C",
+          "content": "派生类可以重写基类中的虚函数。"
+        },
+        {
+          "label": "D",
+          "content": "构造函数可以声明为 `virtual`，以便在构造对象时实现动态绑定。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "下列代码中，`d1->work();` 和 `d2->work();` 输出不同结果的主要原因是（ ）。\n\n```cpp\nclass Device {\npublic:\n    virtual void work() {\n        cout << \"Device is working\" << endl;\n    }\n    virtual ~Device() {}\n};\n\nclass Printer : public Device {\npublic:\n    void work() override {\n        cout << \"Printer is printing\" << endl;\n    }\n};\n\nclass Scanner : public Device {\npublic:\n    void work() override {\n        cout << \"Scanner is scanning\" << endl;\n    }\n};\n\nint main() {\n    Device* d1 = new Printer();\n    Device* d2 = new Scanner();\n\n    d1->work();\n    d2->work();\n\n    delete d1;\n    delete d2;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`Printer` 和 `Scanner` 使用了相同的构造函数。"
+        },
+        {
+          "label": "B",
+          "content": "`work()` 是虚函数，且 `d1` 和 `d2` 实际指向不同派生类对象，发生动态绑定。"
+        },
+        {
+          "label": "C",
+          "content": "`d1` 和 `d2` 是不同的指针变量。"
+        },
+        {
+          "label": "D",
+          "content": "程序中使用了 `delete` 释放对象。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下面代码在 `main()` 中有一行会导致编译错误，请找出来。\n\n```cpp\nclass Student {\npublic:\n    Student(string n, int s) : name(n), score(s) {}\n\n    string getName() {\n        return name;\n    }\n\n    void setScore(int s) {\n        score = s;\n    }\n\nprivate:\n    string name;\n    int score;\n};\n\nint main() {\n    Student stu(\"Tom\", 85);\n    cout << stu.getName();   // ①\n    stu.setScore(90);        // ②\n    stu.score = 100;         // ③\n    cout << stu.getName();   // ④\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "第 ① 行"
+        },
+        {
+          "label": "B",
+          "content": "第 ② 行"
+        },
+        {
+          "label": "C",
+          "content": "第 ③ 行"
+        },
+        {
+          "label": "D",
+          "content": "第 ④ 行"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "某文本编辑器把用户输入的字符依次压入栈 `S`。用户依次输入 `X, Y, Z, W` 后，连续执行两次撤销操作。每次撤销都会弹出栈顶一个字符。此时栈从栈底到栈顶的内容是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`X Y`"
+        },
+        {
+          "label": "B",
+          "content": "`X Y Z`"
+        },
+        {
+          "label": "C",
+          "content": "`Y Z`"
+        },
+        {
+          "label": "D",
+          "content": "`X Z`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "假设循环队列数组长度为 `N = 7`，队空判断条件为 `front == rear`。入队和出队操作如下：\n\n```cpp\nconst int N = 7;\nint q[N];\nint front = 3, rear = 3;\n\nvoid enqueue(int x) {\n    q[rear] = x;\n    rear = (rear + 1) % N;\n}\n\nvoid dequeue() {\n    front = (front + 1) % N;\n}\n```\n\n依次执行：\n\n```cpp\nenqueue(10);\nenqueue(20);\nenqueue(30);\ndequeue();\nenqueue(40);\ndequeue();\nenqueue(50);\n```\n\n最终 `(front, rear)` 的值是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(5, 1)`"
+        },
+        {
+          "label": "B",
+          "content": "`(4, 0)`"
+        },
+        {
+          "label": "C",
+          "content": "`(5, 0)`"
+        },
+        {
+          "label": "D",
+          "content": "`(3, 1)`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "以下函数 `check()` 用于判断一棵二叉树是否为（ ）。\n\n```cpp\nbool check(TreeNode* root) {\n    if (!root) return true;\n\n    queue<TreeNode*> q;\n    q.push(root);\n\n    bool hasNull = false;\n\n    while (!q.empty()) {\n        TreeNode* cur = q.front();\n        q.pop();\n\n        if (cur == nullptr) {\n            hasNull = true;\n        } else {\n            if (hasNull) return false;\n            q.push(cur->left);\n            q.push(cur->right);\n        }\n    }\n\n    return true;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "满二叉树"
+        },
+        {
+          "label": "B",
+          "content": "完全二叉树"
+        },
+        {
+          "label": "C",
+          "content": "二叉搜索树"
+        },
+        {
+          "label": "D",
+          "content": "平衡二叉树"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "以下代码实现了二叉树的哪种遍历方式？\n\n```cpp\nvoid traverse(TreeNode* root) {\n    if (root == nullptr) return;\n\n    cout << root->val << \" \";\n    traverse(root->left);\n    traverse(root->right);\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "前序遍历"
+        },
+        {
+          "label": "B",
+          "content": "中序遍历"
+        },
+        {
+          "label": "C",
+          "content": "后序遍历"
+        },
+        {
+          "label": "D",
+          "content": "层序遍历"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "已知一棵二叉树的先序遍历序列为：`A B D E H C F G`，中序遍历序列为：`D B H E A F C G`，则该二叉树的后序遍历序列是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`D H E B F G C A`"
+        },
+        {
+          "label": "B",
+          "content": "`D E H B F G C A`"
+        },
+        {
+          "label": "C",
+          "content": "`H D E B F C G A`"
+        },
+        {
+          "label": "D",
+          "content": "`D H E B G F C A`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "有 $6$ 个字符，它们出现的次数分别为：$\\{3, 4, 7, 8, 12, 15\\}$，现在用哈夫曼编码为这些字符编码，最小加权路径长度 `WPL` 的值为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$113$"
+        },
+        {
+          "label": "B",
+          "content": "$119$"
+        },
+        {
+          "label": "C",
+          "content": "$126$"
+        },
+        {
+          "label": "D",
+          "content": "$31$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "对 `n` 个不同符号进行哈夫曼编码。若生成的哈夫曼树共有 $63$ 个结点，则 `n` 的值是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$31$"
+        },
+        {
+          "label": "B",
+          "content": "$32$"
+        },
+        {
+          "label": "C",
+          "content": "$63$"
+        },
+        {
+          "label": "D",
+          "content": "$64$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "在格雷码中，相邻两个编码只能有一位不同。若当前编码为 `110`，则它的下一个编码不可能是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`010`"
+        },
+        {
+          "label": "B",
+          "content": "`111`"
+        },
+        {
+          "label": "C",
+          "content": "`100`"
+        },
+        {
+          "label": "D",
+          "content": "`001`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "给定一棵二叉树，采用广度优先搜索 BFS 返回其右视图，其中右视图中的每个节点都是该层最右侧的节点。横线处应填写（ ）。\n\n```cpp\nvector<int> rightSideView(TreeNode* root) {\n    vector<int> result;\n    if (!root) return result;\n\n    queue<TreeNode*> q;\n    q.push(root);\n\n    while (!q.empty()) {\n        int sz = q.size();\n\n        for (int i = 0; i < sz; ++i) {\n            TreeNode* node = q.front();\n            q.pop();\n\n            _________________________\n\n            if (node->left) q.push(node->left);\n            if (node->right) q.push(node->right);\n        }\n    }\n\n    return result;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`if (i == 0) result.push_back(node->val);`"
+        },
+        {
+          "label": "B",
+          "content": "`if (i == sz - 1) result.push_back(node->val);`"
+        },
+        {
+          "label": "C",
+          "content": "`result.push_back(q.front()->val);`"
+        },
+        {
+          "label": "D",
+          "content": "`if (node->right) result.push_back(node->right->val);`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下面代码实现二叉搜索树的插入操作。假设树中不存在重复值，横线处应填写（ ）。\n\n```cpp\nTreeNode* insertNode(TreeNode* root, int x) {\n    if (root == nullptr) {\n        return new TreeNode(x);\n    }\n\n    if (x < root->val) {\n        _________________________\n    } else {\n        root->right = insertNode(root->right, x);\n    }\n\n    return root;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`root->left = insertNode(root->left, x);`"
+        },
+        {
+          "label": "B",
+          "content": "`root = insertNode(root->left, x);`"
+        },
+        {
+          "label": "C",
+          "content": "`root->right = insertNode(root->left, x);`"
+        },
+        {
+          "label": "D",
+          "content": "`insertNode(root->left, x);`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "给定一个整数数组 `a`，每个元素表示一个位置上的数值。要求从数组中选择若干个元素，使得任意两个被选择的元素在原数组中都不相邻，并且所选元素的总和最大。函数 `choose(vector<int>& a)` 返回能够得到的最大总和，则横线处应填写（ ）。\n\n```cpp\nint choose(vector<int>& a) {\n    if (a.empty()) return 0;\n\n    int n = a.size();\n    if (n == 1) return a[0];\n\n    vector<int> dp(n, 0);\n    dp[0] = a[0];\n    dp[1] = max(a[0], a[1]);\n\n    for (int i = 2; i < n; ++i) {\n        dp[i] = _________________________;\n    }\n\n    return dp[n - 1];\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`dp[i - 1] + a[i]`"
+        },
+        {
+          "label": "B",
+          "content": "`max(dp[i - 1], dp[i - 2] + a[i])`"
+        },
+        {
+          "label": "C",
+          "content": "`max(dp[i - 2], a[i])`"
+        },
+        {
+          "label": "D",
+          "content": "`dp[i - 1] + dp[i - 2]`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下面代码实现 0/1 背包的一维动态规划。第 `i` 个物品重量为 `wt[i]`，价值为 `val[i]`，背包容量为 `W`。横线处应填写（ ）。\n\n```cpp\nint knapsack(int W, vector<int>& wt, vector<int>& val) {\n    int n = wt.size();\n    vector<int> dp(W + 1, 0);\n\n    for (int i = 0; i < n; ++i) {\n        for (int w = W; w >= wt[i]; --w) {\n            _________________________\n        }\n    }\n\n    return dp[W];\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`dp[w] = max(dp[w], dp[w - wt[i]] + val[i]);`"
+        },
+        {
+          "label": "B",
+          "content": "`dp[w] = max(dp[w - 1], dp[w - wt[i]] + val[i]);`"
+        },
+        {
+          "label": "C",
+          "content": "`dp[w] = dp[w] + val[i];`"
+        },
+        {
+          "label": "D",
+          "content": "`dp[w - wt[i]] = max(dp[w], val[i]);`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "C++ 中构造函数可以声明为虚函数，从而实现运行时多态。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "通过指向 `Base` 的指针删除 `Derived` 对象时，一定会先调用 `Derived` 的析构函数，再调用 `Base` 的析构函数。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nclass Base {\npublic:\n    ~Base() {\n        cout << \"Base destructor\" << endl;\n    }\n};\n\nclass Derived : public Base {\npublic:\n    ~Derived() {\n        cout << \"Derived destructor\" << endl;\n    }\n};\n\nint main() {\n    Base* p = new Derived();\n    delete p;\n    return 0;\n}\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "在 C++ STL 中，`stack` 的 `pop()` 函数会返回栈顶元素并将其删除。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "程序运行后会输出 `2`。\n\n```cpp\nint main() {\n    queue<int> q;\n    q.push(1);\n    q.push(2);\n    q.push(3);\n    q.pop();\n    cout << q.front() << endl;\n    return 0;\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "下列函数试图将整数 `x` 插入到一棵二叉搜索树中。假设二叉搜索树满足如下性质：对于任意结点，左子树中所有结点的值均小于该结点的值，右子树中所有结点的值均大于或等于该结点的值。判断该函数是否能够在插入后保持二叉搜索树性质。\n\n```cpp\nstruct TreeNode {\n    int val;\n    TreeNode* left;\n    TreeNode* right;\n    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}\n};\n\nTreeNode* insertNode(TreeNode* root, int x) {\n    if (root == nullptr) {\n        return new TreeNode(x);\n    }\n\n    if (x < root->val) {\n        root->right = insertNode(root->right, x);\n    } else {\n        root->left = insertNode(root->left, x);\n    }\n\n    return root;\n}\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "哈夫曼编码一定唯一，只要字符频率相同，得到的编码也一定完全相同。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "若用数组按层序存储完全二叉树，且根节点下标为 `0`，则下标为 `i` 的节点左孩子下标为 `2 * i + 1`，右孩子下标为 `2 * i + 2`。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "以下代码可以正确地按层换行输出二叉树的节点值。\n\n```cpp\nvoid printByLevel(TreeNode* root) {\n    if (!root) return;\n\n    queue<TreeNode*> q;\n    q.push(root);\n\n    while (!q.empty()) {\n        for (int i = 0; i < q.size(); ++i) {\n            TreeNode* cur = q.front();\n            q.pop();\n            cout << cur->val << \" \";\n\n            if (cur->left) q.push(cur->left);\n            if (cur->right) q.push(cur->right);\n        }\n        cout << endl;\n    }\n}\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "使用栈非递归实现二叉树前序遍历时，若希望先访问左子树，通常应先将右孩子入栈，再将左孩子入栈。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "动态规划问题通常要求具有最优子结构，并且常常存在重叠子问题。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "条形蛋糕",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "寒假到了，小杨同学打算找一份兼职，顺便体验一下打工人的生活。\n\n小杨同学给一家蛋糕店发送了一份自己的简历，希望可以在寒假来这里帮忙。店长最近正好遇到了一个难题：店里每天会做一条长条蛋糕，但是不同长度的蛋糕块卖出的价格不同，应该怎么分才能卖得最多呢？\n\n有趣的是店长曾经学习过计算机专业。他最近对动态规划算法很感兴趣，于是打算用这个问题考一考小杨同学，问题如下：\n\n- 给定一条长度为 $n$ 的长条蛋糕和一个价格表，该价格表表示长度为 $i$（$i = 1, 2, \\ldots, n$）的蛋糕块的价格为 $p_i$。求蛋糕的分割方案，使得总销售价格最大，注意**蛋糕块的长度必须为整数**。",
+      "inputFormat": "第一行一个正整数 $n$（$1 \\le n \\le 10^3$），表示长条蛋糕的总长度。\n\n第二行 $n$ 个正整数 $p_1, p_2, \\ldots, p_n$（$1 \\le p_i \\le 10^5$），表示不同长度蛋糕块的价格。",
+      "outputFormat": "一行一个正整数，表示最大总销售价格。",
+      "samples": [
+        {
+          "input": "4\n1 5 8 9",
+          "output": "10",
+          "explanation": "长度为 $1$ 的蛋糕价值为 $1$，长度为 $2$ 的蛋糕价值为 $5$，长度为 $3$ 的蛋糕价值为 $8$，长度为 $4$ 的蛋糕价值为 $9$；\n\n总长度为 $4$ 的长条蛋糕，有 $\\{4\\}, \\{1, 3\\}, \\{2, 2\\}, \\{1, 1, 2\\}, \\{1, 1, 1, 1\\}$ 五种本质不同的分法。\n\n其对应的总销售价格分别为 $9, 9, 10, 7, 4$，故最大总销售价格为 $10$。"
+        },
+        {
+          "input": "10\n1 5 8 9 10 17 17 20 24 30",
+          "output": "30",
+          "explanation": "长度为 $10$ 的长条蛋糕，销售价格最大的分法为 $\\{10\\}$，最大总销售价格为 $30$。"
+        }
+      ],
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nint dp[1010], p[1010];\n\nint main() {\n    int n;\n    cin >> n;\n    for (int i = 1; i <= n; ++i)\n        cin >> p[i];\n    for (int i = 1; i <= n; ++i) {\n        for (int j = i; j <= n; ++j) {\n            dp[j] = max(dp[j], dp[j - i] + p[i]);\n        }\n    }\n    cout << dp[n] << endl;\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "满二叉树",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "给定一棵包含 $n$ 个结点的**有根二叉树**，结点依次以 $1, 2, \\ldots, n$ 编号，根结点编号为 $1$。\n\n对于结点 $i$，其左儿子的编号记为 $l_i$，右儿子编号记为 $r_i$。特别地，如果左儿子不存在则 $l_i = 0$，如果右儿子不存在则 $r_i = 0$。\n\n树中每个结点都对应一棵以其为根的子树。请你求出给定有根树的所有 $n$ 棵子树中，有多少棵子树是满二叉树。\n\n满二叉树是指所有叶子深度均相同，且除叶子外均有两个儿子的二叉树，例如以下三棵二叉树均是满二叉树：\n\n```text\n()      ()            ()\n       /  \\          /  \\\n     ()    ()      ()    ()\n                  /  \\  /  \\\n                ()   ()()   ()\n```\n\n例如，\n\n```text\n   ()\n  /  \\\n()    ()\n```\n\n在上面这棵有 $3$ 个节点的二叉树中，有 $3$ 个子树是满二叉树（包括整个树本身，及所有的单个叶子节点）；\n\n又例如，\n\n```text\n   (1)\n  /   \\\n(2)   (3)\n     /   \\\n   (4)   (5)\n```\n\n在上面这棵有 $5$ 个节点的二叉树中，有 $4$ 个子树是满二叉树（包括节点 $3$ 的子树，以及所有单个叶子节点）。",
+      "inputFormat": "第一行，一个正整数 $n$，表示有根二叉树结点数量。\n\n接下来 $n$ 行，每行两个非负整数 $l_i, r_i$，表示结点 $i$ 的左儿子编号和右儿子编号，整数之间以空格分隔。",
+      "outputFormat": "输出一行，一个整数，表示所有子树中满二叉树的数量。",
+      "samples": [
+        {
+          "input": "4\n2 3\n4 0\n0 0\n0 0",
+          "output": "2"
+        },
+        {
+          "input": "3\n2 3\n0 0\n0 0",
+          "output": "3"
+        }
+      ],
+      "dataRange": "对于 $40\\%$ 的测试点，保证 $1 \\le n \\le 500$。\n\n对于所有测试点，保证 $1 \\le n \\le 10^5$。",
+      "referenceSolution": "#include <iostream>\n#include <algorithm>\nusing namespace std;\n\nint n;\nint l[100010], r[100010];\nint h[100010], chk[100010] = {1};\nint ans;\n\nvoid dfs(int u) {\n    if (!u)\n        return;\n    dfs(l[u]);\n    dfs(r[u]);\n    h[u] = max(h[l[u]], h[r[u]]) + 1;\n    chk[u] = chk[l[u]] && chk[r[u]] && (h[l[u]] == h[r[u]]);\n    ans += chk[u];\n}\n\nint main() {\n    cin >> n;\n    for (int i = 1; i <= n; i++)\n        cin >> l[i] >> r[i];\n    ans = 0;\n    dfs(1);\n    cout << ans << endl;\n    return 0;\n}\n"
+    }
+  ]
+}

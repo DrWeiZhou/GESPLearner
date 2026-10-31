@@ -1,0 +1,505 @@
+{
+  "id": "cpp-2025-09-l4",
+  "language": "cpp",
+  "level": 4,
+  "exam": {
+    "id": "2025-09",
+    "title": "2025年9月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10229.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1703973044092960.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "运行下面程序后变量 `a` 的值是（ ）。\n\n```cpp\nint a = 42;\nint* p = &a;\n*p = *p + 1;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`42`"
+        },
+        {
+          "label": "B",
+          "content": "`43`"
+        },
+        {
+          "label": "C",
+          "content": "编译错误"
+        },
+        {
+          "label": "D",
+          "content": "不确定"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "以下关于数组的描述中，（ ）是错误的。",
+      "options": [
+        {
+          "label": "A",
+          "content": "数组名是一个指针常量"
+        },
+        {
+          "label": "B",
+          "content": "随机访问数组的元素方便快捷"
+        },
+        {
+          "label": "C",
+          "content": "数组可以像指针一样进行自增操作"
+        },
+        {
+          "label": "D",
+          "content": "`sizeof(arr)` 返回的是整个数组 `arr` 占用的字节数"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "给定如下定义的数组 `arr`，则 `*(*(arr + 1) + 2)` 的值是（ ）。\n\n```cpp\nint arr[2][3] = {{1, 2, 3}, {4, 5, 6}};\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`2`"
+        },
+        {
+          "label": "B",
+          "content": "`5`"
+        },
+        {
+          "label": "C",
+          "content": "`4`"
+        },
+        {
+          "label": "D",
+          "content": "`6`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下面这段代码会输出（ ）。\n\n```cpp\nint add(int a, int b = 1); // 函数声明\n\nint main() {\n    cout << add(2) << \" \" << add(2, 3);\n    return 0;\n}\n\nint add(int a, int b) { // 函数定义\n    return a + b;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3 5`"
+        },
+        {
+          "label": "B",
+          "content": "编译失败：定义处少了默认参数"
+        },
+        {
+          "label": "C",
+          "content": "运行错误"
+        },
+        {
+          "label": "D",
+          "content": "链接失败：未定义引用"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面这段代码会输出（ ）。\n\n```cpp\nint x = 5;\n\nvoid foo() {\n    int x = 10;\n    cout << x << \" \";\n}\n\nvoid bar() {\n    cout << x << \" \";\n}\n\nint main() {\n    foo();\n    bar();\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`5 5`"
+        },
+        {
+          "label": "B",
+          "content": "`10 10`"
+        },
+        {
+          "label": "C",
+          "content": "`5 10`"
+        },
+        {
+          "label": "D",
+          "content": "`10 5`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下面程序运行的结果是（ ）。\n\n```cpp\nvoid increaseA(int x) {\n    x++;\n}\nvoid increaseB(int* p) {\n    (*p)++;\n}\nint main() {\n    int a = 5;\n    increaseA(a);\n    cout << a << \" \";\n    increaseB(&a);\n    cout << a;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`6 7`"
+        },
+        {
+          "label": "B",
+          "content": "`6 6`"
+        },
+        {
+          "label": "C",
+          "content": "`5 6`"
+        },
+        {
+          "label": "D",
+          "content": "`5 5`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "关于结构体初始化，以下哪个选项中正确的是（ ）。\n\n```cpp\nstruct Point {int x,y;};\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`Point p = (1,2);`"
+        },
+        {
+          "label": "B",
+          "content": "`Point p = {1,2};`"
+        },
+        {
+          "label": "C",
+          "content": "`Point p = new {1,2};`"
+        },
+        {
+          "label": "D",
+          "content": "`Point p = <1,2>;`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "运行如下代码会输出（ ）。\n\n```cpp\nstruct Cat {\n    string name;\n    int age;\n};\n\nvoid birthday(Cat& c) {\n    c.age++;\n}\n\nint main() {\n    Cat kitty{\"Mimi\", 2};\n    birthday(kitty);\n    cout << kitty.name << \" \" << kitty.age;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`Mimi 2`"
+        },
+        {
+          "label": "B",
+          "content": "`Mimi 3`"
+        },
+        {
+          "label": "C",
+          "content": "`kitty 3`"
+        },
+        {
+          "label": "D",
+          "content": "`kitty 2`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "关于排序算法的稳定性，以下说法错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "稳定的排序算法不改变相等元素的相对位置"
+        },
+        {
+          "label": "B",
+          "content": "冒泡排序是稳定的排序算法"
+        },
+        {
+          "label": "C",
+          "content": "选择排序是稳定的排序算法"
+        },
+        {
+          "label": "D",
+          "content": "插入排序是稳定的排序算法"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面代码试图实现选择排序，使其能对数组 `nums` 排序为升序，则横线上应分别填写（ ）。\n\n```cpp\nvoid selectionSort(vector<int>& nums) {\n    int n = nums.size();\n    for (int i = 0; i < n - 1; ++i) {\n        int minIndex = i;\n        for (int j = i + 1; j < n; ++j) {\n            if ( __________ ) {     // 在此处填入代码\n                minIndex = j;\n            }\n        }\n        ____________________; // 在此处填入代码\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nnums[j] < nums[minIndex]\nswap(nums[i], nums[minIndex])\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nnums[j] > nums[minIndex]\nswap(nums[i], nums[minIndex])\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nnums[j] <= nums[minIndex]\nswap(nums[j], nums[minIndex])\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nnums[j] <= nums[minIndex]\nswap(nums[i], nums[j])\n```"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面程序实现插入排序（升序排序），则横线上应分别填写（ ）。\n\n```cpp\nvoid insertionSort(int arr[], int n) {\n    for (int i = 1; i < n; i++) {\n        int key = arr[i];\n        int j = i - 1;\n        while ( j >= 0 && ____________________ ) { // 在此处填入代码\n            arr[j + 1] = arr[j];\n            j--;\n        }\n        ____________________; // 在此处填入代码\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\narr[j] > key\narr[j + 1] = key\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\narr[j] < key\narr[j + 1] = key\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\narr[j] > key\narr[j] = key\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\narr[j] < key\narr[j] = key\n```"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "关于插入排序的时间复杂度，下列说法正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "最好情况和最坏情况的时间复杂度都是 $O(n^2)$"
+        },
+        {
+          "label": "B",
+          "content": "最好情况是 $O(n)$，最坏情况是 $O(n^2)$"
+        },
+        {
+          "label": "C",
+          "content": "最好情况是 $O(n)$，最坏情况是 $O(2^n)$"
+        },
+        {
+          "label": "D",
+          "content": "最好情况是 $O(n^2)$，最坏情况是 $O(2^n)$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "小杨正在爬楼梯，需要 $n$ 阶才能到达楼顶，每次可以爬 $1$ 阶或 $2$ 阶，求小杨有多少种不同的方法可以爬到楼顶，横线上应填写（ ）。\n\n```cpp\nint climbStairs(int n) {\n    if (n <= 2) return n;\n    int prev2 = 1;\n    int prev1 = 2;\n    int current = 0;\n    for (int i = 3; i <= n; ++i) {\n        ________________    // 在此处填入代码\n\n    }\n    return current;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nprev2 = prev1;\nprev1 = current;\ncurrent = prev1 + prev2;\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\ncurrent = prev1 + prev2;\nprev2 = prev1;\nprev1 = current;\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\ncurrent = prev1 + prev2;\nprev1 = current;\nprev2 = prev1;\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nprev1 = current;\nprev2 = prev1;\ncurrent = prev1 + prev2;\n```"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "假设有一个班级的成绩单，存储在一个长度为 `n` 的数组 `scores` 中，每个元素是一个学生的分数。老师想要找出所有满足 `scores[i] + scores[j] + scores[k] == 300` 的三元组，其中 $i < j < k$。下面代码实现该功能，请问其时间复杂度是（ ）。\n\n```cpp\nint cnt = 0;\nfor (int i = 0; i < n; i++) {\n    for (int j = i + 1; j < n; j++) {\n        for (int k = j + 1; k < n; k++) {\n            if (scores[i] + scores[j] + scores[k] == 300) {\n                cnt++;\n            }\n        }\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n^2)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n^3)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(2^n)$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "关于异常处理，以下说法错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`try` 块中的代码可能会抛出异常"
+        },
+        {
+          "label": "B",
+          "content": "`catch` 块可以有多个，处理不同类型的异常"
+        },
+        {
+          "label": "C",
+          "content": "`throw` 语句用于抛出异常"
+        },
+        {
+          "label": "D",
+          "content": "所有异常都必须被捕获，否则程序会崩溃"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "以下代码能正确初始化指针。\n\n```cpp\nint a = 5;\nint *p = a;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "执行下面 C++ 代码将输出 `11`。\n\n```cpp\nint x = 10;\nvoid f() {\n    int x = x + 1;\n    cout << x << endl;\n}\n\nint main() {\n    f();\n}\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "以下 C++ 代码合法。\n\n```cpp\nstruct Student {\n    string name;\n    int age;\n    float score;\n};\nStudent* students = new Student[20];\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "执行下面 C++ 代码将输出 `10`。\n\n```cpp\nvoid func(int* p) {\n    *p = 10;\n}\n\nint main() {\n    int a = 5;\n    func(&a);\n    cout << a << endl;\n    return 0;\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "下面代码将二维数组 `arr` 传递给函数 `f`，函数内部用 `arr[i][j]` 访问元素，函数参数声明为 `int arr[][4]` 是错误的。\n\n```cpp\nvoid f(int arr[][4], int rows) {\n    // 访问 arr[i][j]\n}\n\nint main() {\n    int arr[3][4] = { /* 初始化 */ };\n    f(arr, 3);\n}\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "递推是在给定初始条件下，已知前一项（或前几项）求后一项的过程。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "虽然插入排序的时间复杂度为 $O(n^2)$，但由于单元操作相对较少，因此在小数据量的排序任务中非常受欢迎。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "对整数数组 `{4, 1, 3, 1, 5, 2}` 进行冒泡排序（将最大元素放到最后），执行一轮之后是 `{4, 1, 3, 1, 2, 5}`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "以下代码只能捕获 `int` 类型异常。\n\n```cpp\nint main() {\n    try {\n        throw 42;\n    } catch (...) {\n        cout << \"Caught\" << endl;\n    }\n    return 0;\n}\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "以下代码将 `Hello` 写入文件 `data.txt`。\n\n```cpp\nofstream file(\"data.txt\");\ncout<<\"Hello\"<< endl;\nfile.close();\n```",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "排兵布阵",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "作为将军，你自然需要合理地排兵布阵。地图可以视为 $n$ 行 $m$ 列的网格，适合排兵的网格以 `1` 标注，不适合排兵的网格以 `0` 标注。现在你需要在地图上选择一个矩形区域排兵，这个矩形区域内不能包含不适合排兵的网格。请问可选择的矩形区域最多能包含多少网格？",
+      "inputFormat": "第一行，两个正整数 $n, m$，分别表示地图网格的行数与列数。\n\n接下来 $n$ 行，每行 $m$ 个整数 $a_{i,1}, a_{i,2}, \\ldots, a_{i,m}$，表示各行中的网格是否适合排兵。",
+      "outputFormat": "一行，一个整数，表示适合排兵的矩形区域包含的最大网格数。",
+      "samples": [
+        {
+          "input": "4 3\n0 1 1\n1 0 1\n0 1 1\n1 1 1",
+          "output": "4"
+        },
+        {
+          "input": "3 5\n1 0 1 0 1\n0 1 0 1 0\n0 1 1 1 0",
+          "output": "3"
+        }
+      ],
+      "dataRange": "对于所有测试点，保证 $1 \\le n, m \\le 12$，$0 \\le a_{i,j} \\le 1$。",
+      "referenceSolution": "#include <algorithm>\n#include <cstdio>\n\nusing namespace std;\n\nconst int N = 15;\n\nint n, m;\nint a[N][N];\nint ans;\n\nint main() {\n    scanf(\"%d%d\", &n, &m);\n    for (int i = 1; i <= n; i++)\n        for (int j = 1; j <= m; j++) scanf(\"%d\", &a[i][j]);\n    for (int u = 1; u <= n; u++)\n        for (int l = 1; l <= m; l++)\n            for (int d = u; d <= n; d++) {\n                int chk = 1;\n                for (int r = l; r <= m; r++) {\n                    for (int x = u; x <= d; x++) chk &= a[x][r];\n                    if (!chk) break;\n                    ans = max(ans, (r - l + 1) * (d - u + 1));\n                }\n            }\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "最长连续段",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "对于 $k$ 个整数构成的数组 $[b_1, b_2, \\ldots, b_k]$，如果对 $1 \\le i < k$ 都有 $b_{i+1} = b_i + 1$，那么称数组 $b$ 是一个连续段。\n\n给定由 $n$ 个整数构成的数组 $[a_1, a_2, \\ldots, a_n]$，你可以任意重排数组 $a$ 中元素顺序。请问在重排顺序之后，$a$ 所有是连续段的子数组中，最长的子数组长度是多少？\n\n例如，对于数组 $[1, 0, 2, 4]$，可以将其重排为 $[4, 0, 1, 2]$，有以下 $10$ 个子数组：\n\n$$[4], [0], [1], [2], [4, 0], [0, 1], [1, 2], [4, 0, 1], [0, 1, 2], [4, 0, 1, 2]$$\n\n其中除 $[4, 0], [4, 0, 1], [4, 0, 1, 2]$ 以外的子数组均是连续段，因此是连续段的子数组中，最长子数组长度为 $3$。",
+      "inputFormat": "第一行，一个正整数 $n$，表示数组长度。\n\n第二行，$n$ 个整数 $a_1, a_2, \\ldots, a_n$，表示数组中的整数。",
+      "outputFormat": "一行，一个整数，表示数组 $a$ 重排顺序后，所有是连续段的子数组的最长长度。",
+      "samples": [
+        {
+          "input": "4\n1 0 2 4",
+          "output": "3"
+        },
+        {
+          "input": "9\n9 9 8 2 4 4 3 5 3",
+          "output": "4"
+        }
+      ],
+      "dataRange": "对于 $40\\%$ 的测试点，保证 $1 \\le n \\le 8$。\n\n对于所有测试点，保证 $1 \\le n \\le 10^5$，$-10^9 \\le a_i \\le 10^9$。",
+      "referenceSolution": "#include <algorithm>\n#include <cstdio>\n\nusing namespace std;\n\nconst int N = 1e5 + 5;\n\nint n;\nint a[N];\nint last, cnt, mx;\n\nint main() {\n    scanf(\"%d\", &n);\n    for (int i = 1; i <= n; i++) scanf(\"%d\", &a[i]);\n    sort(a + 1, a + n + 1);\n    last = a[1];\n    cnt = mx = 1;\n    for (int i = 1; i <= n; i++) {\n        if (a[i] == last) continue;\n        if (a[i] == last + 1)\n            cnt++;\n        else\n            cnt = 1;\n        last = a[i];\n        mx = max(cnt, mx);\n    }\n    printf(\"%d\\n\", mx);\n    return 0;\n}\n"
+    }
+  ]
+}

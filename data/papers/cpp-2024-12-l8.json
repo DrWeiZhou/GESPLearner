@@ -1,0 +1,505 @@
+{
+  "id": "cpp-2024-12-l8",
+  "language": "cpp",
+  "level": 8,
+  "exam": {
+    "id": "2024-12",
+    "title": "2024年12月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10178.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1650239836520480.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "小杨家响应国家“以旧换新”政策，将自家的汽油车置换为新能源汽车，正在准备自编车牌。自编车牌包括 5 位数字或英文字母，要求第 5 位必须是数字，前 4 位中可以有最多 1 位英文字母。英文字母必须是大写，而且不能是 O 或 I（因为容易与数字 0 或 1 混淆）。请问自编车牌共有多少种可能性？（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$100{,}000$"
+        },
+        {
+          "label": "B",
+          "content": "$1{,}060{,}000$"
+        },
+        {
+          "label": "C",
+          "content": "$1{,}360{,}000$"
+        },
+        {
+          "label": "D",
+          "content": "$1{,}460{,}000$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "新年到，四家人在一起聚会。其中两家有三口人，另外两家有两口人。现在要安排大家在一张十人圆桌坐下，要求一家人必须相邻就座。由于有“主座”的习俗，每个座位都被认为是不同的。请问共有多少种就座方案？（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$8640$"
+        },
+        {
+          "label": "B",
+          "content": "$6912$"
+        },
+        {
+          "label": "C",
+          "content": "$144$"
+        },
+        {
+          "label": "D",
+          "content": "$60$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下面关于 C++ 类继承的说法，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "一个类可以继承多个类。"
+        },
+        {
+          "label": "B",
+          "content": "一个类可以被多个类继承。"
+        },
+        {
+          "label": "C",
+          "content": "一个类可以继承另一个类的子类。"
+        },
+        {
+          "label": "D",
+          "content": "抽象类必须被至少一个类继承，否则会编译错误。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "使用邻接表表达一个简单有向图，图中包含 `v` 个顶点、`e` 条边，则该出边表中边节点的个数为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$v \\times (v-1)$"
+        },
+        {
+          "label": "B",
+          "content": "$v \\times v$"
+        },
+        {
+          "label": "C",
+          "content": "$2 \\times e$"
+        },
+        {
+          "label": "D",
+          "content": "$e$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "以下将二维数组作为参数的函数声明，哪个是符合语法的？（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`void Bubble(int a[10][], int m);`"
+        },
+        {
+          "label": "B",
+          "content": "`void Bubble(int a[][], int n, int m);`"
+        },
+        {
+          "label": "C",
+          "content": "`void Bubble(int (*a)[20], int n);`"
+        },
+        {
+          "label": "D",
+          "content": "`void Bubble(int * a[20], int n);`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "已知两个点 `A`、`B` 在平面直角坐标系下的坐标分别为 $(xa, ya)$ 和 $(xb, yb)$，并分别定义变量 `double xa, ya, xb, yb;` 存储坐标。假设直线 `AB` 的斜率存在，下列哪个表达式可以用来表达它？（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(xa - xb) / (ya - yb)`"
+        },
+        {
+          "label": "B",
+          "content": "`(xa - xb) / (yb - ya)`"
+        },
+        {
+          "label": "C",
+          "content": "`(ya - yb) / (xa - xb)`"
+        },
+        {
+          "label": "D",
+          "content": "`(ya - yb) / (xb - xa)`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "二项式 $(x+y)^6$ 的展开式中 $x^3y^3$ 项的系数是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$6$"
+        },
+        {
+          "label": "B",
+          "content": "$15$"
+        },
+        {
+          "label": "C",
+          "content": "$20$"
+        },
+        {
+          "label": "D",
+          "content": "$120$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "以下关于动态规划的说法中，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "动态规划方法有递推和递归两种实现形式。"
+        },
+        {
+          "label": "B",
+          "content": "递归实现动态规划方法的时间复杂度总是不低于递推实现。"
+        },
+        {
+          "label": "C",
+          "content": "动态规划方法将原问题分解为一个或多个相似的子问题。"
+        },
+        {
+          "label": "D",
+          "content": "动态规划方法通常能够列出递推公式。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "在下面的程序中，使用整数表示一种组合。整数二进制表示的某一位为 1，表示该位对应的数被选中，反之为 0 表示未选中。例如，从 `0 - 5` 这 6 个数中选出 3 个，则 `0b111000` 代表选中 `3, 4, 5` 三个数，`0b011001` 代表选中 `0, 3, 4` 三个数。`zuhe_next` 函数按组合对应的整数由大到小的顺序，求出组合 `c` 的下一个组合。横线处可以填入的是（ ）。\n\n```cpp\nint intlow2(int c) {\n    return ________;  // 在此处填入选项\n}\nint zuhe_next_incur(int c, int n, int l) {\n    if (n == 1) return c;\n    if ((c & (1 << l)) == 0) {\n        int d = intlow2(c);\n        c = (c & ~d);\n        c = (c | (d >> 1));\n    } else {\n        c = (c & ~(1 << l));\n        c = zuhe_next_incur(c, n - 1, l + 1);\n        int d = intlow2(c);\n        c = (c | (d >> 1));\n    }\n    return c;\n}\n// 从n个数中选m个，当前组合为c\nint zuhe_next(int c, int n, int m) {\n    return zuhe_next_incur(c, n, 0);\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`((c - 1) ^ c)`"
+        },
+        {
+          "label": "B",
+          "content": "`(((c - 1) ^ c) + 1)`"
+        },
+        {
+          "label": "C",
+          "content": "`(((c - 1) ^ c) >> 1)`"
+        },
+        {
+          "label": "D",
+          "content": "`((((c - 1) ^ c) + 1) >> 1)`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面程序的输出为（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int N = 15, cnt = 0;\n    for (int x = 0; x + x + x <= N; x++)\n        for (int y = x; x + y + y <= N; y++)\n            for (int z = y; x + y + z <= N; z++)\n                cnt++;\n    cout << cnt << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`174`"
+        },
+        {
+          "label": "B",
+          "content": "`447`"
+        },
+        {
+          "label": "C",
+          "content": "`816`"
+        },
+        {
+          "label": "D",
+          "content": "`4096`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面最长公共子序列程序中，横线处应该填入的是（ ）。\n\n```cpp\n#define MAX(A, B) (((A) > (B)) ? (A) : (B))\n#define MIN(A, B) (((A) < (B)) ? (A) : (B))\nint dp[MAX_L + 1][MAX_L + 1];\nint LCS(char str1[], char str2[]) {\n    int len1 = strlen(str1);\n    int len2 = strlen(str2);\n    for (int i = 0; i < len1; i++)\n        for(int j = 0; j < len2; j++)\n            if (str1[i] == str2[j])\n                dp[i + 1][j + 1] = dp[i][j] + 1;\n            else\n                ________;  // 在此处填入选项\n    return dp[len1][len2];\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`dp[i + 1][j + 1] = dp[i][j + 1] + dp[i + 1][j]`"
+        },
+        {
+          "label": "B",
+          "content": "`dp[i + 1][j + 1] = MIN(dp[i][j + 1], dp[i + 1][j])`"
+        },
+        {
+          "label": "C",
+          "content": "`dp[i + 1][j + 1] = MAX(dp[i][j + 1], dp[i + 1][j])`"
+        },
+        {
+          "label": "D",
+          "content": "`dp[i + 1][j + 1] = MAX(dp[i][j + 1], dp[i + 1][j]) + 1`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下列 Dijkstra 算法中，横线处应该填入的是（ ）。\n\n```cpp\ntypedef struct Edge {\n    int in, out;    // 从下标in顶点到下标out顶点的边\n    int len;        // 边长度\n    struct Edge * next;\n} Edge;\n// v：顶点个数，graph：出边邻接表，start：起点下标，dis：输出每个顶点的最短距离\nvoid dijkstra(int v, Edge * graph[], int start, int * dis) {\n    const int MAX_DIS = 0x7fffff;\n    for (int i = 0; i < v; i++)\n        dis[i] = MAX_DIS;\n    dis[start] = 0;\n    int * visited = new int[v];\n    for (int i = 0; i < v; i++)\n        visited[i] = 0;\n    visited[start] = 1;\n    for (int t = 0; ; t++) {\n        int min = MAX_DIS, minv = -1;\n        for (int i = 0; i < v; i++) {\n            if (visited[i] == 0 && min > dis[i]) {\n                min = dis[i];\n                minv = i;\n            }\n        }\n        if (minv < 0)\n            break;\n        visited[minv] = 1;\n        for (Edge * e = graph[minv]; e != NULL; e = e->next) {\n            ________;  // 在此处填入选项\n        }\n    }\n    delete[] visited;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nif (dis[e->out] > e->len)\n    dis[e->out] = e->len;\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nif (dis[e->out] > min + e->len)\n    dis[e->out] = min + e->len;\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nif (dis[e->in] > e->len)\n    dis[e->in] = e->len;\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nif (dis[e->in] > min + e->len)\n    dis[e->in] = min + e->len;\n```"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "假设图 `graph` 中顶点数 `v`、边数 `e`，上题程序的时间复杂度为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(e)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(v^2)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(v \\log v + e)$"
+        },
+        {
+          "label": "D",
+          "content": "$O((v+e) \\log v)$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "下面的快速排序程序中，两处横线处分别应填入的是（ ）。\n\n```cpp\nvoid quick_sort(int a[], int n) {\n    if (n <= 1)\n        return;\n    int pivot = 0, l = 0, r = n - 1;\n    while (________) {  // 在此处填入选项\n        while (r > pivot && a[r] >= a[pivot])\n            r--;\n        if (r > pivot) {\n            int temp = a[pivot];\n            a[pivot] = a[r];\n            a[r] = temp;\n            pivot = r;\n        }\n        while (l < pivot && a[l] <= a[pivot])\n            l++;\n        if (l < pivot) {\n            int temp = a[pivot];\n            a[pivot] = a[l];\n            a[l] = temp;\n            pivot = l;\n        }\n    }\n    quick_sort(a, pivot);\n    quick_sort(________);  // 在此处填入选项\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nl < r\na + pivot + 1, n - pivot - 1\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nl < r\na + pivot + 1, n - pivot\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nl <= r\na + pivot + 1, n - pivot - 1\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nl <= r\na + pivot + 1, n - pivot\n```"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "上题程序的时间复杂度为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n^2)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(2^n)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(n \\log n)$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "表达式 `'3' + '5'` 的结果为 `'8'`，类型为 `char`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "在 C++ 语言中，可以在函数内定义结构体，但该结构体类型只能在该函数内使用。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "对 $n$ 个元素的数组进行排序，快速排序和归并排序的平均时间复杂度都为 $O(n \\log n)$。但快速排序存在退化情况，使得时间复杂度升高至 $O(n^2)$；归并排序需要额外的空间开销。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "二维数组的最后一维在内存中一定是连续的，但第一维在内存中可能不连续。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "使用 `math.h` 或 `cmath` 头文件中的函数，表达式 `log(1000)` 的结果类型为 `double`、值约为 `3`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "你有三种硬币，分别面值 2 元、5 元和 7 元，每种硬币都有足够多。买一本书需要 27 元，则有 8 种硬币组合（组合与顺序无关，“1 个 2 元 + 1 个 5 元 + 1 个 2 元”与“1 个 5 元 + 2 个 2 元”认为是同样的组合）可以正好付清，且不需要对方找钱。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "使用哈希函数 `f(x) = x % p` 建立键值为 `int` 类型的哈希表，只要 `p` 取小于等于哈希表大小的素数，可保证不发生碰撞。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "杨辉三角中的第 $n$ 行、第 $m$ 项，即为将二项式 $(a+b)^n$ 展开后 $a^{n-m}b^m$ 项的系数。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "判断图是否连通，可以通过广度优先搜索实现。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "要求解一元二次方程 $x^2 + ax + b = 0$，需要先判断表达式 `a ^ 2 - b * 4 >= 0` 是否为真。",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "树上移动",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨有一棵包含 $n$ 个节点的树，其中节点的编号从 $1$ 到 $n$，每个节点的颜色要么是白色要么是黑色。小杨可以任意选择节点 $s$ 和节点 $t$ 并从节点 $s$ 出发移动到节点 $t$，移动过程中小杨不能够经过重复节点。\n\n小杨希望自己在至多经过 $k$ 个黑色节点的前提下，经过的总节点数尽可能多，请你帮小杨选择经过最多的节点数是多少。",
+      "inputFormat": "第一行包含两个正整数 $n, k$，代表节点数量和至多经过的黑色节点数。\n\n第二行包含 $n$ 个正整数 $a_1, a_2, \\ldots, a_n$，代表节点颜色，如果 $a_i = 0$，代表节点颜色为白色，如果 $a_i = 1$，代表节点颜色为黑色。\n\n之后 $n-1$ 行，每行包含两个正整数 $u_i, v_i$，代表存在一条连接节点 $u_i$ 和 $v_i$ 的边。",
+      "outputFormat": "输出一个正整数，代表最多经过的节点数。",
+      "samples": [
+        {
+          "input": "5 1\n0 0 1 1 1\n1 2\n2 3\n2 5\n1 4",
+          "output": "3"
+        }
+      ],
+      "dataRange": "| 子任务编号 | 数据点占比 | $n$ | $k$ | 特殊性质 |\n| --- | --- | --- | --- | --- |\n| 1 | 20% | $\\le 100$ | $\\le 100$ | 树的形态为一条链 |\n| 2 | 20% | $\\le 1000$ | $0$ | |\n| 3 | 60% | $\\le 1000$ | $\\le 1000$ | |\n\n对于全部数据，保证有 $1 \\le n \\le 1000$，$0 \\le k \\le 1000$，$0 \\le a_i \\le 1$。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\n#define ll long long\nconst int N = 1010;\nvector<int> g[N];\nint a[N];\nint n,k;\nint ans;\nvoid dfs(int x,int fa,int tot,int le){\n    tot+=a[x];\n    if(tot>k){\n        ans = max(ans,le);\n        return;\n    }\n    le++;\n    ans = max(ans,le);\n    for(int i:g[x]){\n        if(i!=fa){\n            dfs(i,x,tot,le);\n        }\n    }\n}\nint main(){\n    cin>>n>>k;\n    for(int i=1;i<=n;i++){\n        cin>>a[i];\n    }\n    for(int i=1;i<n;i++){\n        int u,v;\n        cin>>u>>v;\n        g[u].push_back(v);\n        g[v].push_back(u);\n    }\n    for(int i=1;i<=n;i++){\n        dfs(i,0,0,0);\n    }\n    cout<<ans<<\"\\n\";\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "排队",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨所在班级共有 $n$ 位同学，依次以 $1, 2, \\ldots, n$ 标号。这 $n$ 位同学想排成一行队伍，其中有些同学之间关系非常好，在队伍里需要排在相邻的位置。具体来说，有 $m$ 对这样的关系（$m$ 是一个非负整数）。当 $m \\ge 1$ 时，第 $i$ 对关系（$1 \\le i \\le m$）给出 $a_i, b_i$，表示排队时编号为 $a_i$ 的同学需要排在编号为 $b_i$ 的同学前面，并且两人在队伍中相邻。\n\n现在小杨想知道总共有多少种排队方式。由于答案可能很大，你只需要求出答案对 $10^9 + 7$ 取模的结果。",
+      "inputFormat": "第一行，两个整数 $n, m$，分别表示同学们的数量与关系数量。\n\n接下来 $m$ 行，每行两个整数 $a_i, b_i$，表示一对关系。",
+      "outputFormat": "一行，一个整数，表示答案对 $10^9 + 7$ 取模的结果。",
+      "samples": [
+        {
+          "input": "4 2\n1 3\n2 4",
+          "output": "2"
+        },
+        {
+          "input": "3 0",
+          "output": "6"
+        },
+        {
+          "input": "3 2\n1 2\n2 1",
+          "output": "0"
+        }
+      ],
+      "dataRange": "对于 $20\\%$ 的测试数据点，保证 $1 \\le n \\le 8$，$0 \\le m \\le 10$。\n\n对于另外 $20\\%$ 的测试数据点，保证 $1 \\le n \\le 10^3$，$0 \\le m \\le 1$。\n\n对于所有测试数据点，保证 $1 \\le n \\le 2 \\times 10^5$，$0 \\le m \\le 2 \\times 10^5$。",
+      "referenceSolution": "#include <cstdio>\n\nusing namespace std;\n\nconst int N = 2e5 + 5;\nconst int mod = 1e9 + 7;\n\nint n, m;\nint pre[N], suf[N];\nint vis[N];\nint cnt;\nint ans;\n\nint main() {\n    scanf(\"%d%d\", &n, &m);\n    ans = 1;\n    for (int i = 1; i <= m; i++) {\n        int a, b;\n        scanf(\"%d%d\", &a, &b);\n        if (pre[b] == a && suf[a] == b)\n            continue;\n        if (pre[b] || suf[a])\n            ans = 0;\n        pre[b] = a;\n        suf[a] = b;\n    }\n    for (int i = 1; i <= n; i++) {\n        if (vis[i])\n            continue;\n        int j = i;\n        while (j) {\n            if (vis[j] == i)\n                ans = 0;\n            if (vis[j])\n                break;\n            vis[j] = i;\n            j = suf[j];\n        }\n    }\n    for (int i = 1; i <= n; i++)\n        cnt += !pre[i];\n    for (int i = 1; i <= cnt; i++)\n        ans = 1ll * ans * i % mod;\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n"
+    }
+  ]
+}

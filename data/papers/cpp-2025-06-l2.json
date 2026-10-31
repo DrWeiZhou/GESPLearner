@@ -1,0 +1,505 @@
+{
+  "id": "cpp-2025-06-l2",
+  "language": "cpp",
+  "level": 2,
+  "exam": {
+    "id": "2025-06",
+    "title": "2025年6月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10217.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1687195838578720.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "2025 年 4 月 19 日在北京举行了一场颇为瞩目的人形机器人半程马拉松赛。比赛期间，跑动着的机器人会利用身上安装的多个传感器所反馈的数据来调整姿态、保持平衡等，那么这类传感器类似于计算机的（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "处理器"
+        },
+        {
+          "label": "B",
+          "content": "存储器"
+        },
+        {
+          "label": "C",
+          "content": "输入设备"
+        },
+        {
+          "label": "D",
+          "content": "输出设备"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "小明购置的计算机使用一年后觉得内存不够用了，想购置一个容量更大的内存条，这时他需要的内存条是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "RAM"
+        },
+        {
+          "label": "B",
+          "content": "ROM"
+        },
+        {
+          "label": "C",
+          "content": "CACHE"
+        },
+        {
+          "label": "D",
+          "content": "EPROM"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\nint a=3;\nfloat b = 3.5;\ncout << (a *= b);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3`"
+        },
+        {
+          "label": "B",
+          "content": "`3.5`"
+        },
+        {
+          "label": "C",
+          "content": "`10`"
+        },
+        {
+          "label": "D",
+          "content": "`11`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下面 C++ 代码用于获得正整数的第 3 位数，如 `1234` 则输出 `2`。如果是一位数或两位数，则输出 `0`。横线处应填入的代码是（ ）。\n\n```cpp\nint N, remainder;\ncout << \"请输入正整数:\";\ncin >> N;\ncout << _________________;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`N % 1000 / 100`"
+        },
+        {
+          "label": "B",
+          "content": "`N / 1000 % 100`"
+        },
+        {
+          "label": "C",
+          "content": "`N / 1000 / 100`"
+        },
+        {
+          "label": "D",
+          "content": "`N % 100 / 100`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下面 C++ 代码执行，其输出是（ ）。\n\n```cpp\nint a, b = (6, 28);\nb == a;\na = b;\ncout << a << ' ' << b;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`6 28`"
+        },
+        {
+          "label": "B",
+          "content": "`6 6`"
+        },
+        {
+          "label": "C",
+          "content": "`28 6`"
+        },
+        {
+          "label": "D",
+          "content": "`28 28`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "今天星期六，其后第 N 天星期几？如果是星期一到星期六输出形如：星期1、星期2 等，星期天则输出星期天。下面的 C++ 代码用于完成上述要求，横线处应填上的代码是（ ）。\n\n```cpp\nint N, remainder;\ncin >> N;\nremainder = _____________;\nif(remainder == 0)\n    printf(\"星期六后第%d天是星期天\\n\", N);\nelse\n    printf(\"星期六后第%d天是星期%d\\n\", N, remainder);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(N + 6) / 7`"
+        },
+        {
+          "label": "B",
+          "content": "`(N + 6) // 7`"
+        },
+        {
+          "label": "C",
+          "content": "`N % 7`"
+        },
+        {
+          "label": "D",
+          "content": "`(N + 6) % 7`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下面的 C++ 代码执行后其输出是（ ）。\n\n```cpp\nint i, Sum = 0;\nfor (i = 1; i < 10; i++){\n    Sum += i;\n    if(i % 2) continue;\n    if(i % 7) break;\n}\ncout << Sum;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`45`"
+        },
+        {
+          "label": "B",
+          "content": "`28`"
+        },
+        {
+          "label": "C",
+          "content": "`3`"
+        },
+        {
+          "label": "D",
+          "content": "`0`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后其输出是（ ）。\n\n```cpp\nint i, j;\nfor(i = 1; i < 12; i++)\n    for(j = 1; j < i; j++)\n        if(i * j % 2 == 1)\n            break;\ncout << i * j;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`110`"
+        },
+        {
+          "label": "B",
+          "content": "`22`"
+        },
+        {
+          "label": "C",
+          "content": "`12`"
+        },
+        {
+          "label": "D",
+          "content": "`3`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后输出是（ ）。\n\n```cpp\nint i, cnt = 0;\nfor(i = -99; i < 100; i += 2)\n    cnt = 1 + cnt;\ncout << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`101`"
+        },
+        {
+          "label": "B",
+          "content": "`100`"
+        },
+        {
+          "label": "C",
+          "content": "`99`"
+        },
+        {
+          "label": "D",
+          "content": "`98`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后输出是（ ）。\n\n```cpp\nint i;\nfor(i = 1; i < 10; i++){\n    if(i % 3 != 0){\n        printf(\"A#\");\n        continue;\n    }\n    else\n        break;\n    printf(\"0#\");\n}\nif(i == 10) cout << \"1\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`A#A#`"
+        },
+        {
+          "label": "B",
+          "content": "`A#0#A#0`"
+        },
+        {
+          "label": "C",
+          "content": "`A#A#1`"
+        },
+        {
+          "label": "D",
+          "content": "`A#0#A#0#1`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后的输出是（ ）。\n\n```cpp\nint i,j;\nfor(i = 0; i < 3; i++)\n    for(j = 0; j < i; j++)\n        printf(\"%d#%d-\", i, j);\nprintf(\"END\");\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0#0-1#0-2#0-2#1-END`"
+        },
+        {
+          "label": "B",
+          "content": "`0#0-1#0-1#1-2#0-2#1-2#2-3#0-3#1-3#2-END`"
+        },
+        {
+          "label": "C",
+          "content": "`0#0-1#0-1#1-2#0-2#1-2#2-END`"
+        },
+        {
+          "label": "D",
+          "content": "`1#0-2#0-2#1-END`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后，将输出不能被 3 整除且除以 5 余数为 2 的数。下列选项不能实现的是（ ）。\n\n```cpp\nint i,j;\nfor(i = 0; i < 100; i++)\n    if(______________________)\n        cout << i << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(i % 3 != 0) && (i % 5 == 2)`"
+        },
+        {
+          "label": "B",
+          "content": "`(i % 3) && (i % 5 == 2)`"
+        },
+        {
+          "label": "C",
+          "content": "`(i % 3) && !(i % 5 != 2)`"
+        },
+        {
+          "label": "D",
+          "content": "`!(i % 3) && (i % 5 == 2)`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下面 C++ 代码用于判断一个大于 0 的正整数是几位数，横线处应填入代码先后是（ ）。\n\n```cpp\nint N, cnt;\ncout << \"请输入大于0的正整数：\";\ncin >> N;\n\ncnt = 0;\nwhile (_________){\n    cnt += 1;\n    ______________;\n}\n\ncout << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nN > 1\nN = N / 10\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nN > 1\nN /= 10\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nN == 0\nN /= 10\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nN > 0\nN /= 10\n```"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "判断一个数是否为自守数。自守数的定义是如果一个数的平方其尾数与该数相同，则为自守数，如 25 的平方是 625，其尾数是 25，所以 25 是自守数。相关说法错误的是（ ）。\n\n```cpp\nint N, N1, M1;\ncout << \"输入一个正整数：\";\ncin >> N;\nN1 = N, M1 = N * N;\n\nbool Flag = true;\n\nwhile (N1 > 0){\n    if (N1 % 10 != M1 % 10){\n        Flag = false;\n        break;\n    }\n    else{\n        N1 = N1 / 10, M1 = M1 / 10;\n    }\n}\n\nif (Flag == true)\n    printf(\"%d的平方是%d,是自守数\", N, N * N);\nelse\n    printf(\"%d的平方是%d,不是自守数\", N, N * N);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "如果 `Flag` 在循环中不被改为 `false`，则说明该数是自守数"
+        },
+        {
+          "label": "B",
+          "content": "代码 `if (N1 % 10 != M1 % 10)` 用于判断其个位数是否相等，如果不等，则表明不是自守数"
+        },
+        {
+          "label": "C",
+          "content": "代码 `N1 = N1 / 10, M1 = M1 / 10` 将个位数去掉"
+        },
+        {
+          "label": "D",
+          "content": "将 `N1 > 0` 改为 `N > 0` 效果相同"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下面 C++ 代码实现输出如下图形，相关说法**错误**的是（ ）。\n\n```text\n请输入层数：10\n0\n12\n345\n6789\n01234\n567890\n1234567\n89012345\n678901234\n5678901234\n```\n\n```cpp\nint line_number, now_number;\nint i,row;\n\ncout << \"请输入行数：\";\ncin >> line_number;\nnow_number = 0;\n\nfor (row = 1; row < line_number + 1; row++){ // L1\n    for (i = 0; i < row; i++){ // L2\n        cout << now_number;\n        now_number += 1;\n        if (now_number == 10) now_number = 0; // L3\n    }\n    cout << endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "代码 `now_number = 0` 移动到 `L1` 和 `L2` 标记的两行代码之间，效果维持不变"
+        },
+        {
+          "label": "B",
+          "content": "代码 `now_number += 1` 修改为 `now_number = 1 + now_number` 效果维持不变"
+        },
+        {
+          "label": "C",
+          "content": "将代码 `now_number == 10` 调整为 `now_number > 9` 效果维持不变"
+        },
+        {
+          "label": "D",
+          "content": "将最后一行的 `cout << endl` 修改为 `cout << \"\\n\"`，效果维持不变"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "人们现在参加很多闭卷考试时通常都不允许带智能手机、平板电脑等，此外很多种智能手表同样因为具有嵌入操作系统及通信等功能，所以也不允许随身携带。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "在 C++ 代码中，假设 `N` 为正整数，则 `N / 10` 舍弃个位数。如果 `N` 小于 10，则其值为 0，大于 10 则是舍弃个位数的数。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "下列 C++ 代码执行后，其输出为 `10 20`，即 `a == b` 和 `b == a` 对 `a` 和 `b` 的值没有任何影响。\n\n```cpp\nint a = 10, b = 20;\na == b;\nb == a;\ncout << (a, b);\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "`a` 和 `b` 分别是 C++ 的整型变量，如果表达式 `max(a, b) == min(a, b)` 的值为真，则说明 `a` 和 `b` 相等。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "下面 C++ 代码编译时将报错，因为字符变量 `a` 被赋值了浮点值。\n\n```cpp\nchar a = '1';\na = 45.6;\ncout << a;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "下面 C++ 代码执行时如输入 `59.99`，将输出 `及格` 两个汉字。\n\n```cpp\nint score;\ncout << \"请输入学生成绩：\";\ncin >> score;\nif (score < 60)\n    cout << \"不及格\";\nelse\n    cout << \"及格\";\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "在下面的 C++ 代码中，因为 `continue` 将被执行，因此不会有输出。\n\n```cpp\nint i;\nfor (i = 1; i < 10; i++)\n    if (i % 2 == 0)\n        continue;\nif(i == 10)\n    cout << \"END\";\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "下面的 C++ 代码执行后将输出 `15`。\n\n```cpp\nint Sum = 0;\nfor (int i = 0; i < 5; i++)\n    Sum += i;\ncout << Sum;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "将下面 C++ 代码中的 `(int i = 5; i > 1; i--)` 调整为 `(int i = 1; i < 5; i++)` 输出结果相同，因为 5 到 1 与 1 到 5 的求和相同。\n\n```cpp\nint tnt;\ntnt = 0;\nfor (int i = 5; i > 1; i--)\n    tnt += i;\ncout << tnt;\n    cout << endl;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "为实现如下效果，即 `N` 行 `N` 列字符。当输入是奇数时，中间列为 `*`，其他是 `-`；当输入是偶数时，则中间两列是 `*`，其他是 `-`。字符阵列后的代码能实现其效果。\n\n```cpp\n/*\n5\n--*--\n--*--\n--*--\n--*--\n--*--\n*/\n```\n\n```cpp\nint N;\ncin >> N;\n\nint i,j;\nfor (i = 0; i < N; i++){\n    for (j = 0; j < N; j++)\n        if ((j == N / 2) || (j == (N-1) / 2))\n            cout << \"*\";\n        else\n            cout << \"-\";\n    cout << endl;\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "数三角形",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "直角三角形有两条直角边与一条斜边，设两条直角边的长度分别为 $a, b$，则直角三角形的面积为 $\\frac{ab}{2}$。\n\n请你计算当直角边长 $a, b$ 均取不超过 $n$ 的正整数时，有多少个不同的面积为整数的直角三角形。直角边长分别为 $a, b$ 和 $a', b'$ 的两个直角三角形相同，当且仅当 $a = a', b = b'$ 或者 $a = b', b = a'$。",
+      "inputFormat": "一行，一个整数 $n$，表示直角边长的最大值。",
+      "outputFormat": "输出一行，一个整数，表示不同的直角三角形数量。",
+      "samples": [
+        {
+          "input": "3",
+          "output": "3"
+        },
+        {
+          "input": "5",
+          "output": "9"
+        }
+      ],
+      "dataRange": "对于所有测试点，保证 $1 \\le n \\le 1000$。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nint main()\n{\n    int n, a, b, cnt=0;\n    cin >> n;\n    for(a=1; a<=n; a++)\n    {\n        for(b=a; b<=n; b++)\n        {\n            if(a*b%2==0) cnt++;\n        }\n    }\n    cout << cnt <<endl;\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "幂和数",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "对于正整数 $n$，如果 $n$ 可以表为两个 $2$ 的次幂之和，即 $n = 2^x + 2^y$（$x, y$ 均为非负整数），那么称 $n$ 为幂和数。\n\n给定正整数 $l, r$，请你求出满足 $l \\le n \\le r$ 的整数 $n$ 中有多少个幂和数。",
+      "inputFormat": "一行，两个正整数 $l, r$，含义如上。",
+      "outputFormat": "输出一行，一个整数，表示 $l, r$ 之间幂和数的数量。",
+      "samples": [
+        {
+          "input": "2 8",
+          "output": "6"
+        },
+        {
+          "input": "10 100",
+          "output": "20"
+        }
+      ],
+      "dataRange": "对于所有测试点，保证 $1 \\le l \\le r \\le 10^4$。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nint main()\n{\n    int l, r, a, b, n, cnt = 0;\n    cin >> l >> r;\n\n    a = 1;\n    while(a<=r)\n    {\n        b = a;\n        while(b<=r)\n        {\n            n = a+b;\n            if(n>=l && n<=r) cnt++;\n            b *= 2;\n        }\n        a *= 2;\n    }\n    cout << cnt <<endl;\n    return 0;\n}\n"
+    }
+  ]
+}

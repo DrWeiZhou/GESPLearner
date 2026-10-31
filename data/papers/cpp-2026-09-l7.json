@@ -1,0 +1,505 @@
+{
+  "id": "cpp-2026-09-l7",
+  "language": "cpp",
+  "level": 7,
+  "exam": {
+    "id": "2026-09",
+    "title": "2026年9月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10300.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1767258888077344.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "下列 C++ 代码的输出结果是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int a = 5, b = 3;\n    cout << (a & b) + (a | b) << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`6`"
+        },
+        {
+          "label": "B",
+          "content": "`7`"
+        },
+        {
+          "label": "C",
+          "content": "`8`"
+        },
+        {
+          "label": "D",
+          "content": "`9`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "使用 `cmath` 或 `math.h` 中的数学库函数，下列说法中正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`pow(2, 3)` 的返回值类型为 `int`"
+        },
+        {
+          "label": "B",
+          "content": "`sin(30)` 的参数 `30` 表示 $30$ 度"
+        },
+        {
+          "label": "C",
+          "content": "`sqrt(4)` 的返回值类型为 `int`"
+        },
+        {
+          "label": "D",
+          "content": "`log(1)` 的返回值为 `0.0`，且类型为 `double`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "有 $4$ 个字符，出现次数分别为 $1$、$2$、$3$、$4$。构造哈夫曼树后，出现次数为 $1$ 的字符的哈夫曼编码长度为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$1$"
+        },
+        {
+          "label": "B",
+          "content": "$2$"
+        },
+        {
+          "label": "C",
+          "content": "$3$"
+        },
+        {
+          "label": "D",
+          "content": "$4$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "从 $4 \\times 5$ 个点连接成的网格的左上角走到右下角，每次只能向右或向下移动，不同的路径共有（ ）条。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$20$"
+        },
+        {
+          "label": "B",
+          "content": "$35$"
+        },
+        {
+          "label": "C",
+          "content": "$70$"
+        },
+        {
+          "label": "D",
+          "content": "$126$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "在含有 $n$ 个结点的二叉排序树中查找一个元素，平均时间复杂度和最坏时间复杂度分别为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(\\log n)$、$O(n)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n)$、$O(\\log n)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(\\log n)$、$O(\\log n)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(1)$、$O(n)$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "有 $4$ 堆石子，数量分别为 $1$、$2$、$3$、$4$。每次可以合并相邻两堆，合并代价为两堆石子数之和。将所有石子合并成一堆的最小总代价为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$17$"
+        },
+        {
+          "label": "B",
+          "content": "$19$"
+        },
+        {
+          "label": "C",
+          "content": "$20$"
+        },
+        {
+          "label": "D",
+          "content": "$23$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "在无权图中，使用 BFS 从起点开始遍历，并在访问由结点 `u` 扩展的相邻结点 `v` 时记录 `dist[v] = dist[u] + 1`，且起点的 `dist` 为 `0`，则最终 `dist[v]` 表示的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "起点到结点 `v` 的最少边数"
+        },
+        {
+          "label": "B",
+          "content": "结点 `v` 的度数"
+        },
+        {
+          "label": "C",
+          "content": "从起点到结点 `v` 的路径上经过的最大边权"
+        },
+        {
+          "label": "D",
+          "content": "包含结点 `v` 的连通块大小"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "在二维网格上实现泛洪填充时，为了防止递归层数过深，最适合的非递归实现方式是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "使用哈希表记录每个格子被访问的次数"
+        },
+        {
+          "label": "B",
+          "content": "使用快速排序预处理网格"
+        },
+        {
+          "label": "C",
+          "content": "使用二分查找定位边界"
+        },
+        {
+          "label": "D",
+          "content": "使用队列实现 BFS 或使用显式栈模拟 DFS"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "关于哈希表，下列说法正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "只要哈希函数选择合适，就可以完全避免冲突"
+        },
+        {
+          "label": "B",
+          "content": "在链地址法中，查找一个元素的时间复杂度一定为 $O(1)$"
+        },
+        {
+          "label": "C",
+          "content": "开放定址法发生冲突后，会在表内寻找下一个可用位置"
+        },
+        {
+          "label": "D",
+          "content": "哈希表的查找速度与表中元素个数无关"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下列 C++ 代码的输出结果是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nvoid inc(int &x) {\n    x++;\n}\nint main() {\n    int a = 3;\n    inc(a);\n    cout << a;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3`"
+        },
+        {
+          "label": "B",
+          "content": "`4`"
+        },
+        {
+          "label": "C",
+          "content": "`5`"
+        },
+        {
+          "label": "D",
+          "content": "编译错误"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "用动态规划求两个序列 $s_1$ 和 $s_2$ 的最长公共子序列长度，若 `dp[i][j]` 表示 $s_1$ 前 `i` 个元素与 $s_2$ 前 `j` 个元素的 LCS 长度。当 $s_1[i-1] = s_2[j-1]$ 时，正确的状态转移是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`dp[i][j] = dp[i - 1][j - 1] + 1`"
+        },
+        {
+          "label": "B",
+          "content": "`dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])`"
+        },
+        {
+          "label": "C",
+          "content": "`dp[i][j] = dp[i - 1][j] + 1`"
+        },
+        {
+          "label": "D",
+          "content": "`dp[i][j] = dp[i][j - 1]`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下列代码是一维数组优化 0/1 背包的核心片段，执行后 `dp[8]` 的输出结果是（ ）。\n\n```cpp\n#include <iostream>\n#include <algorithm>\nusing namespace std;\nint main() {\n    int w = 3, v = 5, W = 8;\n    int dp[9] = {0};\n    for (int c = W; c >= w; c--)\n        dp[c] = max(dp[c], dp[c - w] + v);\n    cout << dp[8] << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0`"
+        },
+        {
+          "label": "B",
+          "content": "`1`"
+        },
+        {
+          "label": "C",
+          "content": "`3`"
+        },
+        {
+          "label": "D",
+          "content": "`5`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "若要求排序后相等元素的相对顺序保持不变，下列排序算法中最不适宜使用的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "冒泡排序"
+        },
+        {
+          "label": "B",
+          "content": "插入排序"
+        },
+        {
+          "label": "C",
+          "content": "归并排序"
+        },
+        {
+          "label": "D",
+          "content": "快速排序"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "下列代码片段的时间复杂度为（ ）。\n\n```cpp\nlong long s = 0;\nfor (int i = 1; i <= n; i++)\n    for (int j = 1; j <= n; j += i)\n        s += i + j;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n \\log n)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n^2)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(n\\sqrt{n})$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "已知 `int a[6] = {1, 3, 5, 7, 9, 11}; int *p = a + 1;`，则表达式 `*(p + 3)` 的值是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`5`"
+        },
+        {
+          "label": "B",
+          "content": "`7`"
+        },
+        {
+          "label": "C",
+          "content": "`9`"
+        },
+        {
+          "label": "D",
+          "content": "`11`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "使用 `cmath` 或 `math.h` 中的函数，表达式 `exp(0)` 的结果值为 `1.0`，且类型为 `double`。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "采用开放定址法处理冲突的哈希表中，删除一个元素后可以直接将该位置置空，不会影响后续查找。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "在哈夫曼树中，出现次数更多的叶子结点，其深度总是更小。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "在一个有向图中，所有顶点的入度之和总是等于所有顶点的出度之和。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "广度优先搜索通常借助队列实现，深度优先搜索通常借助栈或递归实现。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "快速排序的平均时间复杂度为 $O(n \\log n)$，最坏时间复杂度也为 $O(n \\log n)$。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "为解决 0/1 背包问题，使用一维数组优化时，内层容量循环应从大到小枚举。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "使用邻接表存储图时，遍历某个顶点的所有邻边所需时间与图中顶点数成正比。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "在按层序从 $1$ 开始对结点编号的完全二叉树中，编号为 $i$（$i > 1$）的结点的父结点编号为 $\\lfloor i/2 \\rfloor$。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "在定义了数组 `int arr[10];` 后，表达式 `arr` 和表达式 `&arr[0]` 总是等价的。",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "必经之路",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "给定一张有 $n$ 个结点 $m$ 条边的有向图 $G$，$G$ 中的结点依次以 $1, 2, \\ldots, n$ 编号。第 $i$ 条边（$1 \\le i \\le m$）从结点 $u_i$ 指向结点 $v_i$。\n\n$G$ 中任一入度为 $0$ 的结点可以作为合法起点，任一出度为 $0$ 的结点可以作为合法终点。\n\n如果 $G$ 中所有可能的从合法起点到合法终点的路径都会经过结点 $u$，则称 $u$ 是必经点。注意必经点可以为合法起点或合法终点。\n\n请你求出 $G$ 中所有必经点的编号。\n\n例如，在下图中合法起点有点 $1$ 与点 $2$，合法终点有点 $7$ 与点 $8$。\n\n```text\n(1)            (5)---->(7)\n   \\           ^  \\    ^\n    v         /    v  /\n    (3)      /     (6)\n    ^  \\    /         \\\n   /    v  /           v\n(2)---->(4)            (8)\n```\n\n所有合法起点到合法终点的路径为：\n\n- $1 \\to 3 \\to 4 \\to 5 \\to 7$\n- $1 \\to 3 \\to 4 \\to 5 \\to 6 \\to 7$\n- $1 \\to 3 \\to 4 \\to 5 \\to 6 \\to 8$\n- $2 \\to 3 \\to 4 \\to 5 \\to 7$\n- $2 \\to 3 \\to 4 \\to 5 \\to 6 \\to 7$\n- $2 \\to 3 \\to 4 \\to 5 \\to 6 \\to 8$\n- $2 \\to 4 \\to 5 \\to 7$\n- $2 \\to 4 \\to 5 \\to 6 \\to 7$\n- $2 \\to 4 \\to 5 \\to 6 \\to 8$\n\n因此必经点有两个，编号分别为 $4, 5$。",
+      "inputFormat": "第一行，两个正整数 $n, m$，表示有向图 $G$ 中的结点数与边数。\n\n接下来 $m$ 行，每行两个正整数 $u_i, v_i$，表示一条从结点 $u_i$ 指向结点 $v_i$ 的有向边。\n\n保证 $G$ 中至少有一个合法起点，至少有一个合法终点，且至少存在一条从一个合法起点到一个合法终点路径，同时不存在孤立点（即出度和入度都为 $0$ 的点）。",
+      "outputFormat": "第一行，一个整数，表示必经点的数量 $k$。\n\n如果存在必经点，则第二行从小到大输出 $G$ 中所有必经点的编号。",
+      "samples": [
+        {
+          "input": "8 9\n1 3\n2 3\n3 4\n4 5\n5 6\n6 7\n6 8\n2 4\n5 7",
+          "output": "2\n4 5"
+        },
+        {
+          "input": "8 9\n1 3\n2 3\n3 4\n4 5\n5 6\n6 7\n6 8\n2 5\n4 7",
+          "output": "0"
+        }
+      ],
+      "dataRange": "对于 $40\\%$ 的测试点，保证 $1 \\le n \\le 100$，$1 \\le m \\le 200$。\n\n对于所有测试点，保证 $1 \\le n \\le 1000$，$1 \\le m \\le 2000$。保证 $G$ 中至少有一个合法起点，至少有一个合法终点，且至少存在一条从一个合法起点到一个合法终点路径，同时不存在孤立点（即出度和入度都为 $0$ 的点）。",
+      "referenceSolution": "#include <cstdio>\n#include <algorithm>\nusing namespace std;\n\nconst int N = 1005;\nconst int E = 2005;\n\nint n, m;\nint h[N], to[E], nx[E], et;\nint id[N], od[N];\nbool vis[N];\nint q[N], ql, qr;\nint ans[N], cnt;\n\nbool chk(int ban) {\n    ql = qr = 0;\n    for (int i = 1; i <= n; i++) {\n        vis[i] = (i == ban);\n        if (!vis[i] && !id[i]) {\n            q[++qr] = i;\n            vis[i] = 1;\n        }\n    }\n    while (ql < qr) {\n        int u = q[++ql];\n        for (int i = h[u]; i; i = nx[i]) {\n            int v = to[i];\n            if (vis[v])\n                continue;\n            if (!od[v])\n                return 0;\n            q[++qr] = v;\n            vis[v] = 1;\n        }\n    }\n    return 1;\n}\n\nint main() {\n    scanf(\"%d%d\", &n, &m);\n    for (int i = 1; i <= m; i++) {\n        int u, v;\n        scanf(\"%d%d\", &u, &v);\n        to[++et] = v;\n        nx[et] = h[u];\n        h[u] = et;\n        od[u]++;\n        id[v]++;\n    }\n    for (int i = 1; i <= n; i++)\n        if (chk(i))\n            ans[++cnt] = i;\n    printf(\"%d\\n\", cnt);\n    for (int i = 1; i <= cnt; i++)\n        printf(\"%d%c\", ans[i], \" \\n\"[i == cnt]);\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "括号序列",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "对于字符串 $S$ 与 $T$，如果从 $S$ 中删除任意多个字符可以得到 $T$，那么 $T$ 是 $S$ 的子序列。换言之，$T$ 是选取 $S$ 中的若干字符按下标顺序连接而成的。两个子序列不同当且仅当所选取的下标不同。\n\n例如 `sun` 是 `sequence` 的子序列，因为从 `sequence` 中删除 `eq`、`e` 和 `ce` 可以得到 `sun`；`sequence` 有 $2^8$ 个不同的子序列，其中有空字符串，也有三个不同的子序列 `e`，因为 `sequence` 的第 $2, 5, 8$ 个字符都为 `e`，分别保留这三个字符得到的子序列是不同的。\n\n对于字符串 $S$，如果 $S$ 满足以下条件那么 $S$ 是合法括号序列：\n\n- $S$ 是空字符串，或者\n- $S$ 可由 `(`、合法括号序列、`)` 三者连接得到，或者\n- $S$ 可由两个合法括号序列连接得到。\n\n例如 `()`、`()()`、`(())` 和 `(()())` 都是合法括号序列。但是 `(()`、`)(` 不是合法括号序列。\n\n给定一个长度为 $n$ 的仅包含 `(` 与 `)` 的字符串 $S$。请你求出 $S$ 所有 $2^n$ 个子序列中有多少个合法括号序列。由于答案可能很大，请你输出答案对 $10^9$ 取模的结果。\n\n例如，$S$ 为 `))(()(` 时共有 $3$ 个子序列是合法括号序列，分别为空字符串与两个不同的子序列 `()`。",
+      "inputFormat": "第一行，一个正整数 $n$，表示字符串 $S$ 的长度。\n\n第二行，长度为 $n$ 的仅包含 `(` 与 `)` 的字符串 $S$。",
+      "outputFormat": "输出一行，一个整数，表示 $S$ 的合法括号子序列的数量对 $10^9$ 取模的结果。",
+      "samples": [
+        {
+          "input": "6\n))(()(",
+          "output": "3"
+        },
+        {
+          "input": "34\n((((((((((((((((()))))))))))))))))",
+          "output": "333606220"
+        }
+      ],
+      "dataRange": "对于 $40\\%$ 的测试点，保证 $1 \\le n \\le 400$。\n\n对于所有测试点，保证 $1 \\le n \\le 2000$。",
+      "referenceSolution": "#include <cstdio>\n#include <algorithm>\nusing namespace std;\n\nconst int N = 2005;\nconst int mod = 1e9;\n\nint n;\nchar s[N];\nint f[N][N];\n\nint main() {\n    scanf(\"%d\", &n);\n    scanf(\"%s\", s + 1);\n    f[0][0] = 1;\n    for (int i = 1; i <= n; i++)\n        for (int j = 0; j <= n; j++) {\n            f[i][j] = f[i - 1][j];\n            if (s[i] == '(' && j)\n                f[i][j] = (f[i][j] + f[i - 1][j - 1]) % mod;\n            if (s[i] == ')' && j < n)\n                f[i][j] = (f[i][j] + f[i - 1][j + 1]) % mod;\n        }\n    printf(\"%d\\n\", f[n][0]);\n    return 0;\n}\n"
+    }
+  ]
+}

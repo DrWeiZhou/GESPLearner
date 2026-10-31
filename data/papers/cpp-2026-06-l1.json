@@ -1,0 +1,504 @@
+{
+  "id": "cpp-2026-06-l1",
+  "language": "cpp",
+  "level": 1,
+  "exam": {
+    "id": "2026-06",
+    "title": "2026年6月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10284.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1753295253143584.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "学校组织到未来农场参观，小明听讲解员介绍，在智能温室中，湿度传感器可以连续检测土壤的湿度变化，并将检测到的湿度数据实时发送给中央控制器。中央控制器根据这些数据判断是否开启灌溉系统。请问，这里的湿度传感器所发挥的作用，类似于计算机系统中的哪一类组件？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "处理器"
+        },
+        {
+          "label": "B",
+          "content": "存储器"
+        },
+        {
+          "label": "C",
+          "content": "输入设备"
+        },
+        {
+          "label": "D",
+          "content": "输出设备"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "在使用某集成开发环境（比如 Dev-C++）来编辑源代码文件时，程序员经常需要在编辑区中对代码进行各种修改。以下关于在编辑区中执行的操作描述不正确的（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "可以将变量名 `count` 统一修改为 `number`"
+        },
+        {
+          "label": "B",
+          "content": "可以连续撤销最近 2 次输入的内容"
+        },
+        {
+          "label": "C",
+          "content": "可以调整代码行的缩进（如按 `Tab` 键）"
+        },
+        {
+          "label": "D",
+          "content": "在注释文本中间不能混用中英文"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "有关如下 C++ 代码的说法，正确的是（ ）。\n\n```cpp\nfloat a = 3 + 3.5;\ncout << a;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "代码执行将报错。如果将 `a = 3 + 3.5` 改为 `a = 3 + 3 + 1/2` 将能正常执行。"
+        },
+        {
+          "label": "B",
+          "content": "代码执行将报错。如果将 `a = 3 + 3.5` 改为 `a = 3.0 + 3.5` 将能正常执行。"
+        },
+        {
+          "label": "C",
+          "content": "代码能正常执行，将输出 `6`。"
+        },
+        {
+          "label": "D",
+          "content": "代码能正常执行，将输出 `6.5`。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下列 C++ 表达式与 `- 2 * 2 % 4` 的值不同的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`- (2 * 2) % 4`"
+        },
+        {
+          "label": "B",
+          "content": "`(- 2 * 2) % 4`"
+        },
+        {
+          "label": "C",
+          "content": "`- 2 * (2 % 4)`"
+        },
+        {
+          "label": "D",
+          "content": "`(2 * 2) % - 4`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "执行如下 C++ 代码片段，其输出是（ ）。\n\n```cpp\nint a = 3;\nint b = a;\na = 4;\nprintf(\"%d %d\", a, b);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3 3`"
+        },
+        {
+          "label": "B",
+          "content": "`4 3`"
+        },
+        {
+          "label": "C",
+          "content": "`4 4`"
+        },
+        {
+          "label": "D",
+          "content": "`3 4`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "如下 C++ 代码执行时输入 `2026-6-27`，下列说法正确的是（ ）。\n\n```cpp\nint N;\ncin >> N;\ncout << N;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "输入失败，不允许输入减号，没有输出"
+        },
+        {
+          "label": "B",
+          "content": "允许输入，输出 `1993`"
+        },
+        {
+          "label": "C",
+          "content": "允许输入并原样输出 `2026-6-27`"
+        },
+        {
+          "label": "D",
+          "content": "允许输入并输出 `2026`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "如下 C++ 代码执行时，其说法错误的是（ ）。\n\n```cpp\nint N, M;\ncin >> N >> M;\n\nif (N > M)\n    cout << \"A \" << (N - M);\nelse\n    cout << \"B \" << (M - N);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "如果输入 `4 3`，将输出 `A 1`"
+        },
+        {
+          "label": "B",
+          "content": "如果输入 `3 4`，将输出 `B 1`"
+        },
+        {
+          "label": "C",
+          "content": "如果输入 `3 3`，将输出 `A 0`"
+        },
+        {
+          "label": "D",
+          "content": "如果输入 `4 4`，将输出 `B 0`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "阅读如下 C++ 代码，下列说法错误的是（ ）。\n\n```cpp\nint cnt = 0;\nfor (int i = 0; i < 5; i++)\n    cnt += 1;\ncout << cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "将 `cnt += 1` 修改为 `cnt = cnt + 1`，执行效果相同"
+        },
+        {
+          "label": "B",
+          "content": "将 `cnt += 1` 修改为 `cnt = 1 + cnt`，执行效果相同"
+        },
+        {
+          "label": "C",
+          "content": "将 `cnt += 1` 修改为 `cnt =+ 1`，执行效果相同"
+        },
+        {
+          "label": "D",
+          "content": "将 `cnt += 1` 修改为 `cnt = + 1 + cnt`，执行效果相同"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "如下 C++ 代码执行后输出是 `1 2 3 4 5 6 7 8 9 10 11 5 6 7 8 9 10 11 5 6 7 8 9 10 11 5 6 7 8 9 10 11 5 6 7`。横线处应该先后依次填入的运算符是（ ）。\n\n```cpp\nint num = 1;\nfor (int i = 0; i < 35; i++) {\n    printf(\"%d \", num);\n    if (num _______ 10)\n        num _______ 2;\n    else\n        num _______ 1;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`>` `/=` `+=`"
+        },
+        {
+          "label": "B",
+          "content": "`>=` `%=` `+=`"
+        },
+        {
+          "label": "C",
+          "content": "`>` `%=` `+=`"
+        },
+        {
+          "label": "D",
+          "content": "`>` `/=` `=+`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "如下 C++ 代码可以执行，其输出是（ ）。\n\n```cpp\nint i;\nfor (i = 1; i < 5; i++)\n    if (i % 2 == 0) {\n        continue;\n        cout << i << \"#\";\n    }\ncout << i << \"END#\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`5END#`"
+        },
+        {
+          "label": "B",
+          "content": "`5#END`"
+        },
+        {
+          "label": "C",
+          "content": "`1#3#4#END`"
+        },
+        {
+          "label": "D",
+          "content": "`1#3#4 END#`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "如下 C++ 代码执行时，下列说法正确的是（ ）。\n\n```cpp\nint N, i;\ncin >> N;\nfor (i = 2; i < N; i++)\n    if (N % i == 0) {\n        cout << \"1#\";\n        break;\n    } else\n        cout << \"0#\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "如果输入 `2`，将输出 `1#`。"
+        },
+        {
+          "label": "B",
+          "content": "如果输入 `15`，将输出 `0#1#`。"
+        },
+        {
+          "label": "C",
+          "content": "如果输入 `1`，将输出 `0#`。"
+        },
+        {
+          "label": "D",
+          "content": "如果输入 `3`，将输出 `1#`。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "有关如下 C++ 代码，下列说法中错误的是（ ）。\n\n```cpp\nint i, tot;\ni = 0, tot = 0;\nwhile (0 <= i && i < 10) {\n    tot += 1;\n    i += 1;\n}\ncout << tot;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "如果调整 `0 <= i && i < 10` 为 `1 <= i && i < 10`，输出同样为 `45`，因为加上 `0` 不影响结果。"
+        },
+        {
+          "label": "B",
+          "content": "如果将 `i = 0` 和 `tot = 0` 合并为 `i = tot = 0`，执行结果与修改前相同。"
+        },
+        {
+          "label": "C",
+          "content": "将 `tot += 1` 与 `i += 1` 交换顺序，执行结果与修改前相同。"
+        },
+        {
+          "label": "D",
+          "content": "将 `i = 0` 与 `tot = 0` 交换顺序，执行结果与修改前相同。"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "以下 C++ 代码可以找出千位、百位、十位和个位满足特定条件的四位数（例如各位数字的四次方和等于原数，即“四叶玫瑰数”），横线处应该填入的是（ ）。\n\n```cpp\nint count = 0;\nfor (int n = 1000; n <= 9999; n++) {\n    int a = n / 1000;\n    int b = (n / 100) % 10;\n    _________________________       // L1\n    int d = n % 10;\n    if (a * a * a * a + b * b * b * b + c * c * c * c + d * d * d * d == n) { // 特定条件\n        count++;\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`int c = (n / 10) / 10;`"
+        },
+        {
+          "label": "B",
+          "content": "`int c = (n / 10) % 10;`"
+        },
+        {
+          "label": "C",
+          "content": "`int c = (n % 10) / 10;`"
+        },
+        {
+          "label": "D",
+          "content": "`int c = (n % 10) % 10;`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "下面的 C++ 代码用于计算经过 `n` 秒后的秒针位置（$0 \\sim 59$），两处横线处分别应填入的代码是（ ）。\n\n```cpp\nint start, n, pos;\ncout << \"当前秒数（0-59）: \";\ncin >> start;\ncout << \"经过多少秒: \";\ncin >> n;\n\npos = ____________;  // L1\nif (____________)    // L2\n    cout << n << \"秒后回到12点方向\" << endl;\nelse\n    cout << n << \"秒后指向\" << pos << \"秒刻度\" << endl;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(start + n) / 60` 和 `pos == 0`"
+        },
+        {
+          "label": "B",
+          "content": "`(start + n) % 60` 和 `pos == 0`"
+        },
+        {
+          "label": "C",
+          "content": "`(start + n) / 60` 和 `pos <= 0`"
+        },
+        {
+          "label": "D",
+          "content": "`(start + n) % 60` 和 `pos = 0`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "如果正整数 `N` 只能被 `1` 和它本身整除，则它是一个质数（或素数）。下面的 C++ 代码用于判断正整数 `N` 是否为质数（素数）。若 `N` 是质数，输出 `YES`，否则输出 `NO`。横线处不应填入的代码是（ ）。\n\n```cpp\nint N, i;\ncin >> N;\nif (N <= 1) {\n    cout << \"NO\";\n    return 0;\n}\nfor (i = 2; ______; i++) {\n    if (N % i == 0) {\n        cout << \"NO\";\n        return 0;\n    }\n}\ncout << \"YES\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`i < N`"
+        },
+        {
+          "label": "B",
+          "content": "`i <= N`"
+        },
+        {
+          "label": "C",
+          "content": "`i <= N / 2`"
+        },
+        {
+          "label": "D",
+          "content": "`i * i <= N`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "又到期末考试周，小明发现这次许多闭卷考试不仅禁止携带手机、平板电脑，还有最近比较时髦的各类 AI 眼镜（也有叫智能眼镜）也同样不允许带入考场。这些 AI 眼镜应该也是内置了操作系统并可能支持 Wi-Fi 或蓝牙连接。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "如果 `n` 为大于 $100$ 的整数，则 C++ 表达式 `(n / 10) % 10` 与 `(n % 100) / 10` 的结果相同。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "下面 C++ 代码执行后将输出 `19`。\n\n```cpp\nint i;\nfor (i = 0; i < 20; i += 3)\n    if (i % 3 != 0)\n        break;\ncout << i;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "在数学中，$N!$ 称之为 $N$ 的阶乘，其含义是 $1$ 到 $N$ 之积，包括 $N$。如 $3! = 1 \\times 2 \\times 3 = 6$。如下 C++ 代码能输出 $N!$ 的结果。\n\n```cpp\nint N;\ncout << \"请输入正整数：\";\ncin >> N;\nint rst = 0;\nfor (int i = 1; i < N + 1; i++)\n    rst *= i;\ncout << rst;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "如下 C++ 代码能实现输出正整数 `N` 的各位数字。\n\n```cpp\nint N;\ncin >> N;\nwhile (N > 0) {\n    cout << (N % 10) << endl;\n    N = N / 10;\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "将如下 C++ 代码中的 `printf(\"\\n\")` 更换为 `printf(\"%c\", '\\n')`，输出效果相同。\n\n```cpp\nfor (int i = 0; i < 100; i++) {\n    if (i % 5 == 0)\n        printf(\"\\n\");\n    printf(\"%2d \", i);\n}\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "C++ 代码 `cout << (2.5 % 2)` 能够生成可执行代码，但执行时将报错，因为 `%` 只能适用于正整数。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "下面的 C++ 代码执行后将输出 `24`。\n\n```cpp\nint total;\nfor (int n = 1; n <= 4; n++) {\n    total *= n;\n}\ncout << total;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "如果 `a` 是 C++ 的整型变量，值为 `4`，则表达式 `(a % 2 == 0) + (a / 2)` 的值为 `4`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "删除下面 C++ 代码中的 `continue` 后，其输出与原来相同。\n\n```cpp\nint x = 0;\nwhile (x < 4) {\n    x++;\n    if (x == 2) continue;\n    cout << x << \",\";\n}\n```",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "去旅行",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "快暑假了，小杨同学正在计划出去旅行，前往目的地的方案多种多样，小杨同学想知道如何前往目的地最便宜。\n\n小杨同学住在 A 市，旅行目的地是 B 市，小杨同学前往目的地有三种方案：\n\n1. 从 A 市直飞 B 市；\n2. 从 A 市坐高铁到 C 市，然后坐飞机到 B 市；\n3. 从 A 市坐高铁到 C 市，然后坐高铁到 B 市。\n\n请帮小杨同学求出最便宜的出行方案的价格。",
+      "inputFormat": "输入包含 $4$ 行，每行一个正整数：\n\n- 第 $1$ 行的正整数表示「从 A 市直飞 B 市」的价格；\n- 第 $2$ 行的正整数表示「从 A 市坐高铁到 C 市」的价格；\n- 第 $3$ 行的正整数表示「从 C 市坐飞机到 B 市」的价格；\n- 第 $4$ 行的正整数表示「从 C 市坐高铁到 B 市」的价格。",
+      "outputFormat": "输出一个正整数，表示 $3$ 种方式中，最便宜的出行方案的价格。",
+      "samples": [
+        {
+          "input": "999\n105\n699\n588",
+          "output": "693",
+          "explanation": "方案 1. 直飞价格为 $999$；\\\n方案 2. 高铁转飞机价格为 $105 + 699 = 804$；\\\n方案 3. 高铁的价格为 $105 + 588 = 693$；\\\n因此最便宜的价格是 $693$。"
+        },
+        {
+          "input": "9\n3\n8\n7",
+          "output": "9",
+          "explanation": "方案 1. 直飞价格为 $9$；\\\n方案 2. 高铁转飞机价格为 $3 + 8 = 11$；\\\n方案 3. 高铁的价格为 $3 + 7 = 10$；\\\n因此最便宜的价格是 $9$。"
+        }
+      ],
+      "dataRange": "所有输入均为正整数，且不超过 $10000$。",
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int a, b, c, d;\n    cin >> a >> b >> c >> d;\n    int x = a, y = b + c, z = b + d;\n    if (x <= y && x <= z)\n        cout << x;\n    else if (y <= x && y <= z)\n        cout << y;\n    else\n        cout << z;\n    cout << endl;\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "交税",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "根据国家税收相关规定，劳务报酬需要按月预交个税，预交税率如下：\n\n1. 劳务报酬不超过 $800$ 的，不需要预交个税；\n2. 劳务报酬超过 $800$ 的，仅超过 $800$ 的部分按照 $20\\%$（即 $0.2$）税率预交个税（不超过 $800$ 的部分不需要预交个税）；\n\n例如，月劳务报酬为 $1000.0$，则按照规则 2 需要预交个税 $(1000.0 - 800.0) \\times 20\\% = 40.00$。\n\n现在给定小杨同学 $12$ 个月的月度劳务报酬，请帮小杨同学计算他这 $12$ 个月应预交个税的总和。",
+      "inputFormat": "输入 $12$ 行，每行一个**浮点数**，表示小杨同学 $12$ 个月中每个月的劳务报酬。\n\n每个浮点数恰好有一位小数。",
+      "outputFormat": "输出 $1$ 行，一个浮点数，**保留两位小数**，表示小杨同学 $12$ 个月应预交个税的总和。",
+      "samples": [
+        {
+          "input": "932.0\n1634.3\n1790.4\n2172.9\n378.1\n283.4\n2761.9\n3583.5\n10.1\n2324.9\n1111.6\n3812.3",
+          "output": "2584.76",
+          "explanation": "1. $932.0$ 符合规则 2，超过 $800$ 的部分为 $132.0$，按照 $20\\%$ 预交为 $132.0 \\times 20\\% = 26.40$；\n2. $1634.3$ 符合规则 2，超过 $800$ 的部分为 $834.3$，按照 $20\\%$ 预交为 $834.3 \\times 20\\% = 166.86$；\n3. $1790.4$ 符合规则 2，超过 $800$ 的部分为 $990.4$，按照 $20\\%$ 预交为 $990.4 \\times 20\\% = 198.08$；\n4. $2172.9$ 符合规则 2，超过 $800$ 的部分为 $1372.9$，按照 $20\\%$ 预交为 $1372.9 \\times 20\\% = 274.58$；\n5. $378.1$ 符合规则 1，不需要预交个税；\n6. $283.4$ 符合规则 1，不需要预交个税；\n7. $2761.9$ 符合规则 2，超过 $800$ 的部分为 $1961.9$，按照 $20\\%$ 预交为 $1961.9 \\times 20\\% = 392.38$；\n8. $3583.5$ 符合规则 2，超过 $800$ 的部分为 $2783.5$，按照 $20\\%$ 预交为 $2783.5 \\times 20\\% = 556.70$；\n9. $10.1$ 符合规则 1，不需要预交个税；\n10. $2324.9$ 符合规则 2，超过 $800$ 的部分为 $1524.9$，按照 $20\\%$ 预交为 $1524.9 \\times 20\\% = 304.98$；\n11. $1111.6$ 符合规则 2，超过 $800$ 的部分为 $311.6$，按照 $20\\%$ 预交为 $311.6 \\times 20\\% = 62.32$；\n12. $3812.3$ 符合规则 2，超过 $800$ 的部分为 $3012.3$，按照 $20\\%$ 预交为 $3012.3 \\times 20\\% = 602.46$；\n\n总和为 $2584.76$。"
+        }
+      ],
+      "dataRange": "小杨同学每月劳务报酬收入均为正，且恰好有一位小数，且不超过 $4000.0$。",
+      "referenceSolution": "#include <iostream>\n#include <cstdio>\nusing namespace std;\n\nint main() {\n    double ans = 0.0;\n    for (int i = 0; i < 12; ++i) {\n        double a;\n        cin >> a;\n        if (a <= 800.0) {\n            ans += 0.0;\n        } else {\n            ans += (a - 800.0) * 0.2;\n        }\n    }\n    printf(\"%.2f\\n\", ans);\n    return 0;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,505 @@
+{
+  "id": "cpp-2023-03-l1",
+  "language": "cpp",
+  "level": 1,
+  "exam": {
+    "id": "2023-03",
+    "title": "2023年3月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10068.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1536716611518496.pdf",
+  "durationMinutes": 90,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "以下不属于计算机输入设备的有（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "键盘"
+        },
+        {
+          "label": "B",
+          "content": "音箱"
+        },
+        {
+          "label": "C",
+          "content": "鼠标"
+        },
+        {
+          "label": "D",
+          "content": "传感器"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "计算机系统中存储的基本单位用 B 来表示，它代表的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "Byte"
+        },
+        {
+          "label": "B",
+          "content": "Block"
+        },
+        {
+          "label": "C",
+          "content": "Bulk"
+        },
+        {
+          "label": "D",
+          "content": "Bit"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "常量 `7.0` 的数据类型是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`double`"
+        },
+        {
+          "label": "B",
+          "content": "`float`"
+        },
+        {
+          "label": "C",
+          "content": "`void`"
+        },
+        {
+          "label": "D",
+          "content": "`int`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下列关于 C++ 语言的叙述，不正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "变量定义时可以不初始化"
+        },
+        {
+          "label": "B",
+          "content": "变量被赋值之后的类型不变"
+        },
+        {
+          "label": "C",
+          "content": "变量没有定义也能够使用"
+        },
+        {
+          "label": "D",
+          "content": "变量名必须是合法的标识符"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "以下不可以作为 C++ 标识符的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`x321`"
+        },
+        {
+          "label": "B",
+          "content": "`0x321`"
+        },
+        {
+          "label": "C",
+          "content": "`x321_`"
+        },
+        {
+          "label": "D",
+          "content": "`_x321`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "以下哪个不是 C++ 语言的关键字？",
+      "options": [
+        {
+          "label": "A",
+          "content": "`int`"
+        },
+        {
+          "label": "B",
+          "content": "`for`"
+        },
+        {
+          "label": "C",
+          "content": "`do`"
+        },
+        {
+          "label": "D",
+          "content": "`cout`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "如果 `a`、`b` 和 `c` 都是 `int` 类型的变量，下列哪个语句不符合 C++ 语法？",
+      "options": [
+        {
+          "label": "A",
+          "content": "`c = a + b;`"
+        },
+        {
+          "label": "B",
+          "content": "`c += a + b;`"
+        },
+        {
+          "label": "C",
+          "content": "`c = a = b;`"
+        },
+        {
+          "label": "D",
+          "content": "`c = a ++ b;`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "如果用两个 `int` 类型的变量 `a` 和 `b` 分别表达长方形的长和宽，则下列哪个表达式不能用来计算长方形的周长？",
+      "options": [
+        {
+          "label": "A",
+          "content": "`a + b * 2`"
+        },
+        {
+          "label": "B",
+          "content": "`2 * a + 2 * b`"
+        },
+        {
+          "label": "C",
+          "content": "`a + b + a + b`"
+        },
+        {
+          "label": "D",
+          "content": "`b + a * 2 + b`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "表达式 `((3 == 0) + 'A' + 1 + 3.0)` 的结果类型为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`double`"
+        },
+        {
+          "label": "B",
+          "content": "`int`"
+        },
+        {
+          "label": "C",
+          "content": "`char`"
+        },
+        {
+          "label": "D",
+          "content": "`bool`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "如果 `a` 为 `int` 类型的变量，且 `a` 的值为 $6$，则执行 `a *= 3;` 之后，`a` 的值会是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`3`"
+        },
+        {
+          "label": "B",
+          "content": "`6`"
+        },
+        {
+          "label": "C",
+          "content": "`9`"
+        },
+        {
+          "label": "D",
+          "content": "`18`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "如果 `a` 和 `b` 均为 `int` 类型的变量，下列表达式不能正确判断“`a` 等于 $0$ 且 `b` 等于 $0$”的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(a == 0) && (b == 0)`"
+        },
+        {
+          "label": "B",
+          "content": "`(a == b == 0)`"
+        },
+        {
+          "label": "C",
+          "content": "`(!a) && (!b)`"
+        },
+        {
+          "label": "D",
+          "content": "`(a == 0) + (b == 0) == 2`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "如果 `a` 为 `int` 类型的变量，下列哪个表达式可以正确求出满足“大于等于 `a` 且是 $4$ 的倍数”的整数中最小的？",
+      "options": [
+        {
+          "label": "A",
+          "content": "`a * 4`"
+        },
+        {
+          "label": "B",
+          "content": "`a / 4 * 4`"
+        },
+        {
+          "label": "C",
+          "content": "`(a + 3) / 4 * 4`"
+        },
+        {
+          "label": "D",
+          "content": "`a - a % 4 + 4`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "在下列代码的横线处填写（ ），可以使得输出是“20 10”。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int a = 10, b = 20;\n    a = ________; // 在此处填入代码\n    b = a / 100;\n    a = a % 100;\n    cout << a << \" \" << b << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`a + b`"
+        },
+        {
+          "label": "B",
+          "content": "`(a + b) * 100`"
+        },
+        {
+          "label": "C",
+          "content": "`b * 100 + a`"
+        },
+        {
+          "label": "D",
+          "content": "`a * 100 + b`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "在下列代码的横线处填写（ ），可以使得输出是“1248”。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    for (int i = 1; i <= 8; ________) // 在此处填入代码\n        cout << i;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`i++`"
+        },
+        {
+          "label": "B",
+          "content": "`i *= 2`"
+        },
+        {
+          "label": "C",
+          "content": "`i += 2`"
+        },
+        {
+          "label": "D",
+          "content": "`i * 2`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "执行以下 C++ 语言程序后，输出结果是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int sum = 0;\n    for (int i = 1; i <= 20; i++)\n        if (i % 3 == 0 || i % 5 == 0)\n            sum += i;\n    cout << sum << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`210`"
+        },
+        {
+          "label": "B",
+          "content": "`113`"
+        },
+        {
+          "label": "C",
+          "content": "`98`"
+        },
+        {
+          "label": "D",
+          "content": "`15`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "在 Windows 系统中通过键盘完成对选定文本移动的按键组合是先 Ctrl+X，移动到目标位置后按 Ctrl+V。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "程序员用 C、C++、Python、Scratch 等编写的程序能在 CPU 上直接执行。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "在 C++ 语言中，注释不宜写得过多，否则会使得程序运行速度变慢。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "在 C++ 语言中，标识符中可以有数字，但不能以数字开头。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "`'3'` 是一个 `int` 类型常量。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "`if` 语句中的条件表达式的结果必须为 `bool` 类型。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "`for` 语句的循环体至少会执行一次。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "如果 `a` 为 `int` 类型的变量，则赋值语句 `a = a + 3;` 是错误的，因为这条语句会导致 `a` 无意义。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "如果 `a` 为 `int` 类型的变量，则表达式 `(a / 4 == 2)` 和表达式 `(a >= 8 && a <= 11)` 的结果总是相同的。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "表达式 `(3.5 * 2)` 的计算结果为 `7.0`，且结果类型为 `double`。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "每月天数",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小明刚刚学习了每月有多少天，以及如何判断平年和闰年，想到可以使用编程方法求出给定的月份有多少天。你能做到吗？",
+      "inputFormat": "输入一行，包含两个整数，分别表示一个日期的年、月。",
+      "outputFormat": "输出一行，包含一个整数，表示输入月份有多少天。",
+      "samples": [
+        {
+          "input": "2022 1",
+          "output": "31"
+        },
+        {
+          "input": "2020 2",
+          "output": "29"
+        }
+      ],
+      "referenceSolution": "#include <iostream>\nusing namespace std;\nint main() {\n    int y = 0, m = 0;\n    cin >> y >> m;\n    bool leap = false; // 判断闰年\n    if (y % 400 == 0)\n        leap = true;\n    if (y % 4 == 0 && y % 100 != 0)\n        leap = true;\n    if (m ==1 || m==3 || m==5 || m==7 || m==8 || m==10 || m==12)\n        cout << 31 << endl; // 大月\n    else if (m == 4 || m == 6 || m == 9 || m == 11)\n        cout << 30 << endl; // 小月\n    else if (leap)\n        cout << 29 << endl; // 闰年2月\n    else\n        cout << 28 << endl; // 平年2月\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "长方形面积",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小明刚刚学习了如何计算长方形面积。他发现，如果一个长方形的长和宽都是整数，它的面积一定也是整数。现在，小明想知道如果给定长方形的面积，有多少种可能的长方形，满足长和宽都是整数？\n\n如果两个长方形的长相等、宽也相等，则认为是同一种长方形。约定长方形的长大于等于宽。正方形是长方形的特例，即长方形的长和宽可以相等。",
+      "inputFormat": "输入一行，包含一个整数 $A$，表示长方形的面积。约定 $2 \\le A \\le 1000$。",
+      "outputFormat": "输出一行，包含一个整数 $C$，表示有 $C$ 种可能的长方形。",
+      "samples": [
+        {
+          "input": "4",
+          "output": "2",
+          "explanation": "$2$ 种长方形面积为 $4$，它们的长宽分别为 $2 \\times 2$、$4 \\times 1$。"
+        },
+        {
+          "input": "6",
+          "output": "2",
+          "explanation": "$2$ 种长方形面积为 $6$，它们的长宽分别为 $3 \\times 2$、$6 \\times 1$。"
+        }
+      ],
+      "referenceSolution": "#include <iostream>\nusing namespace std;\nint main() {\n    int area = 0, cnt = 0;\n    cin >> area;\n    for (int w = 1; w * w <= area; w++) {\n        if (area % w == 0)\n            cnt++;\n    }\n    cout << cnt << endl;\n    return 0;\n}\n"
+    }
+  ]
+}

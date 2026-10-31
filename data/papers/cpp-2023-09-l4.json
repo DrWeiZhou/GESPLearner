@@ -1,0 +1,508 @@
+{
+  "id": "cpp-2023-09-l4",
+  "language": "cpp",
+  "level": 4,
+  "exam": {
+    "id": "2023-09",
+    "title": "2023年9月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10105.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1570611272876064.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "人们所使用的手机上安装的 App 通常指的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "一款操作系统"
+        },
+        {
+          "label": "B",
+          "content": "一款应用软件"
+        },
+        {
+          "label": "C",
+          "content": "一种通话设备"
+        },
+        {
+          "label": "D",
+          "content": "以上都不对"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "下列流程图的输出结果是？（ ）\n\n```text\n开始 → m=1, n=1 → ◇ m*n > 20 ?\n        ├─ 是 → m = m-2\n        └─ 否 → m = 2*m+1\n     → n = n+1 → ◇ n > 5 ?\n        ├─ 是 → 输出 m → 结束\n        └─ 否 → 回到 ◇ m*n > 20 ?\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$9$"
+        },
+        {
+          "label": "B",
+          "content": "$7$"
+        },
+        {
+          "label": "C",
+          "content": "$5$"
+        },
+        {
+          "label": "D",
+          "content": "$11$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "对包含 $n$ 个元素的数组进行冒泡排序，平均时间复杂度一般为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n\\log n)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n^2)$"
+        },
+        {
+          "label": "D",
+          "content": "以上都不正确"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下列关于 C++ 语言中指针的叙述，不正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "可以定义指向 `int` 类型的指针。"
+        },
+        {
+          "label": "B",
+          "content": "可以定义指向自定义结构体类型的指针。"
+        },
+        {
+          "label": "C",
+          "content": "自定义结构体类型可以包含指针类型的元素。"
+        },
+        {
+          "label": "D",
+          "content": "不能定义指向 `void` 类型的指针，那没有意义。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下列关于 C++ 语言中数组的叙述，不正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "一维数组可以用来表示数列。"
+        },
+        {
+          "label": "B",
+          "content": "二维数组可以用来表示矩阵。"
+        },
+        {
+          "label": "C",
+          "content": "三维数组可以用来表示空间中物体的形状。"
+        },
+        {
+          "label": "D",
+          "content": "世界是三维的，所以定义四维数组没有意义。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "下列关于 C++ 语言中函数的叙述，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "函数调用前必须定义。"
+        },
+        {
+          "label": "B",
+          "content": "函数调用时必须提供足够的实际参数。"
+        },
+        {
+          "label": "C",
+          "content": "函数定义前必须声明。"
+        },
+        {
+          "label": "D",
+          "content": "函数声明只能写在函数调用前。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下列关于 C++ 语言中函数的叙述，不正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "两个函数的声明可以相同。"
+        },
+        {
+          "label": "B",
+          "content": "两个函数的局部变量可以重名。"
+        },
+        {
+          "label": "C",
+          "content": "两个函数的参数可以重名。"
+        },
+        {
+          "label": "D",
+          "content": "两个函数可以重名。"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "一个二维数组定义为 `char array[3][10];`，则这个二维数组占用内存的大小为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$10$"
+        },
+        {
+          "label": "B",
+          "content": "$30$"
+        },
+        {
+          "label": "C",
+          "content": "$32$"
+        },
+        {
+          "label": "D",
+          "content": "$48$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "如果 `n` 为 `int` 类型的变量，一个指针变量定义为 `int *p = &n;`，则下列说法正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "指针变量 `p` 的值与变量 `n` 是相同的。"
+        },
+        {
+          "label": "B",
+          "content": "指针变量 `p` 的值与变量 `n` 的地址是相同的。"
+        },
+        {
+          "label": "C",
+          "content": "指针变量 `p` 指向的值为 `'n'`。"
+        },
+        {
+          "label": "D",
+          "content": "指针变量 `p` 指向的值与变量 `n` 的地址是相同的。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "一个三维数组定义为 `long long array[6][6][6];`，则 `array[1][2][3]` 和 `array[3][2][1]` 在内存中的位置相差多少字节？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "70 字节"
+        },
+        {
+          "label": "B",
+          "content": "198 字节"
+        },
+        {
+          "label": "C",
+          "content": "560 字节"
+        },
+        {
+          "label": "D",
+          "content": "无法确定"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "如果 `a` 为 `int` 类型的变量，且 `a` 的值为 $6$，则执行 `a = ~a;` 之后，`a` 的值会是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$-6$"
+        },
+        {
+          "label": "B",
+          "content": "$6$"
+        },
+        {
+          "label": "C",
+          "content": "$-7$"
+        },
+        {
+          "label": "D",
+          "content": "$7$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "一个数组定义为 `int a[5] = {1, 2, 3, 4, 5};`，一个指针定义为 `int * p = &a[2];`，则执行 `*p = a[1];` 后，数组 `a` 中的值会变为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`{1, 2, 2, 4, 5}`"
+        },
+        {
+          "label": "B",
+          "content": "`{1, 3, 3, 4, 5}`"
+        },
+        {
+          "label": "C",
+          "content": "`{1, 2, 3, 3, 5}`"
+        },
+        {
+          "label": "D",
+          "content": "`{1, 2, 4, 4, 5}`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下列关于 C++ 语言中异常处理的叙述，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "一个 `try` 子句可以有多个 `catch` 子句与之对应。"
+        },
+        {
+          "label": "B",
+          "content": "如果 `try` 子句在执行时发生异常，就一定会进入某一个 `catch` 子句执行。"
+        },
+        {
+          "label": "C",
+          "content": "如果 `try` 子句中没有可能发生异常的语句，会产生编译错误。"
+        },
+        {
+          "label": "D",
+          "content": "`catch` 子句处理异常后，会重新执行与之对应的 `try` 子句。"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "执行以下 C++ 语言程序后，输出结果是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int fib[10];\n    fib[0] = 0;\n    fib[1] = 1;\n    for (int i = 2; i < 10; i++)\n        fib[i] = fib[i - 1] + fib[i - 2];\n    cout << fib[10] << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0`"
+        },
+        {
+          "label": "B",
+          "content": "`5`"
+        },
+        {
+          "label": "C",
+          "content": "`55`"
+        },
+        {
+          "label": "D",
+          "content": "无法确定。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "在下列代码的横线处填写（ ），完成对有 `n` 个 `int` 类型元素的数组 `array` 由小到大排序。\n\n```cpp\nvoid BubbleSort(int array[], int n) {\n    for (int i = n; i >= 2; i--)\n        for (_____) // 在此处填入代码\n            if (array[j] > array[j + 1]) {\n                int t = array[j];\n                array[j] = array[j + 1];\n                array[j + 1] = t;\n            }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`int j = 1; j < n; j++`"
+        },
+        {
+          "label": "B",
+          "content": "`int j = 0; j < n; j++`"
+        },
+        {
+          "label": "C",
+          "content": "`int j = 0; j < i - 1; j++`"
+        },
+        {
+          "label": "D",
+          "content": "`int j = 0; j < i; j++`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "在 C++ 语言中，指针变量在逻辑上指向另一个变量在内存中的位置，指针变量本身不占用内存。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "对 $N$ 个元素的数组执行插入排序算法，通常的时间复杂度是 $O(N^2)$。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "在 C++ 语言中，每个变量都有其作用域。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "在 C++ 语言中，在函数调用时，通过引用传递的参数不会复制实际参数，因此不会额外占用内存。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "在 C++ 语言中，可以通过定义结构体，定义一个新的数据类型。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "在 C++ 语言中，可以定义结构体类型的数组变量，定义结构体时也可以包含数组成员。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "如果希望记录 10 个最长为 99 字节的字符串，可以将字符串数组定义为 `char s[10][100];`。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "一个可能抛出异常的函数，调用它的位置没有在 `try` 子句中，会引起编译错误。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "`==` 和 `:=` 都是 C++ 语言的运算符。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "通过使用文件重定向操作，可以将程序中输出到 `cout` 的内容输出到文件中，这是常用的记录程序运行日志的方法之一。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "进制转换",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "$N$ 进制数指的是逢 $N$ 进一的计数制。例如，人们日常生活中大多使用十进制计数，而计算机底层则一般使用二进制。除此之外，八进制和十六进制在一些场合也是常用的计数制（十六进制中，一般使用字母 `A` 至 `F` 表示十至十五；本题中，十一进制到十五进制也是类似的）。\n\n在本题中，我们将给出 $N$ 个不同进制的数。你需要分别把它们转换成十进制数。\n\n**提示**\n\n对于任意一个 $L$ 位 $K$ 进制数，假设其最右边的数位为第 $0$ 位，最左边的数位为第 $L-1$ 位，我们只需要将其第 $i$ 位的数码乘以权值 $K^i$，再将每位的结果相加，即可得到原 $K$ 进制数对应的十进制数。下面是两个例子：\n\n1. 八进制数 `1362` 对应的十进制数为 $1 \\times 8^3 + 3 \\times 8^2 + 6 \\times 8^1 + 2 \\times 8^0 = 754$；\n2. 十六进制数 `3F0` 对应的十进制数为 $3 \\times 16^2 + 15 \\times 16^1 + 0 \\times 16^0 = 1008$。",
+      "inputFormat": "输入的第一行为一个十进制表示的整数 $N$。接下来 $N$ 行，每行一个整数 $K$，随后是一个空格，紧接着是一个 $K$ 进制数，表示需要转换的数。保证所有 $K$ 进制数均由数字和大写字母组成，且不以 `0` 开头。保证 $K$ 进制数合法。",
+      "outputFormat": "输出 $N$ 行，每一个十进制数，表示对应 $K$ 进制数的十进制数值。",
+      "samples": [
+        {
+          "input": "2\n8 1362\n16 3F0",
+          "output": "754\n1008"
+        },
+        {
+          "input": "2\n2 11011\n10 123456789",
+          "output": "27\n123456789"
+        }
+      ],
+      "dataRange": "保证 $N \\le 1000$；保证 $2 \\le K \\le 16$。\n\n保证所有 $K$ 进制数的位数不超过 $9$。",
+      "referenceSolution": "#include <iostream>\n#include <cstring>\nusing namespace std;\n\nint trans_digit(int k, char c) {\n    if (c <= '9')\n        return (c - '0');\n    return (c - 'A' + 10);\n}\nlong long trans(int k, char str[]) {\n    int l = strlen(str);\n    long long res = 0, pw = 1;\n    for (int i = l - 1; i >= 0; i--) {\n        res += pw * trans_digit(k, str[i]);\n        pw *= k;\n    }\n    return res;\n}\nint main() {\n    int n = 0;\n    cin >> n;\n    for (int t = 0; t < n; t++) {\n        int k = 0;\n        char str[10];\n        cin >> k >> str;\n        cout << trans(k, str) << endl;\n    }\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "变长编码",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 128,
+      "description": "小明刚刚学习了三种整数编码方式：原码、反码、补码，并了解到计算机存储整数通常使用补码。但他总是觉得，生活中很少用到 $2^{31}-1$ 这么大的数，生活中常用的 $0 \\sim 100$ 这种数也同样需要用 $4$ 个字节的补码表示，太浪费了些。\n\n热爱学习的小明通过搜索，发现了一种正整数的变长编码方式。这种编码方式的规则如下：\n\n1. 对于给定的正整数，首先将其表达为二进制形式。例如，$(0)_{10} = (0)_2$，$(926)_{10} = (1110011110)_2$。\n2. 将二进制数从低位到高位切分成每组 7 bit，不足 7 bit 的在高位用 $0$ 填补。例如，$(0)_2$ 变为 `0000000` 的一组，$(1110011110)_2$ 变为 `0011110` 和 `0000111` 的两组。\n3. 由代表低位的组开始，为其加入最高位。如果这组是最后一组，则在最高位填上 $0$，否则在最高位填上 $1$。于是，$0$ 的变长编码为 `00000000` 一个字节，$926$ 的变长编码为 `10011110` 和 `00000111` 两个字节。\n\n这种编码方式可以用更少的字节表达比较小的数，也可以用很多的字节表达非常大的数。例如，$987654321012345678$ 的二进制为 $(0001101\\ 1011010\\ 0110110\\ 1001011\\ 1110100\\ 0100110\\ 1001000\\ 0010110\\ 1001110)_2$，于是它的变长编码为（十六进制表示）`CE 96 C8 A6 F4 CB B6 DA 0D`，共 $9$ 个字节。\n\n你能通过编写程序，找到一个正整数的变长编码吗？",
+      "inputFormat": "输入第一行，包含一个正整数 $N$。约定 $0 \\le N \\le 10^{18}$。",
+      "outputFormat": "输出一行，输出 $N$ 对应的变长编码的每个字节，每个字节均以 $2$ 位十六进制表示（其中，`A-F` 使用大写字母表示），两个字节间以空格分隔。",
+      "samples": [
+        {
+          "input": "0",
+          "output": "00"
+        },
+        {
+          "input": "926",
+          "output": "9E 07"
+        },
+        {
+          "input": "987654321012345678",
+          "output": "CE 96 C8 A6 F4 CB B6 DA 0D"
+        }
+      ],
+      "referenceSolution": "#include <iostream>\nusing namespace std;\n\nvoid output_digit(int d) {\n    if (d >= 10)\n        cout << (char)('A' + d - 10);\n    else\n        cout << (char)('0' + d);\n}\nvoid output_code(int s) {\n    output_digit(s >> 4);\n    output_digit(s & 0x0f);\n}\nint main() {\n    long long n = 0;\n    cin >> n;\n    int split[10];\n    int l = 0;\n    while (n > 0) {\n        split[l] = (int)(n & 0x7f);\n        n >>= 7;\n        l++;\n    }\n    for (int i = 0; i < l - 1; i++)\n        split[i] |= 0x80;\n    output_code(split[0]);\n    for (int i = 1; i < l; i++) {\n        cout << \" \";\n        output_code(split[i]);\n    }\n    cout << endl;\n    return 0;\n}\n"
+    }
+  ]
+}

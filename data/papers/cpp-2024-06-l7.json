@@ -1,0 +1,499 @@
+{
+  "id": "cpp-2024-06-l7",
+  "language": "cpp",
+  "level": 7,
+  "exam": {
+    "id": "2024-06",
+    "title": "2024年6月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10147.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1621071620997152.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "下列 C++ 代码的输出结果是（ ）。\n\n```cpp\n#include <iostream>\n#include <cmath>\nusing namespace std;\nint main() {\n    cout << sin(3.1415926 / 2);\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0`"
+        },
+        {
+          "label": "B",
+          "content": "`1`"
+        },
+        {
+          "label": "C",
+          "content": "`0.5`"
+        },
+        {
+          "label": "D",
+          "content": "`0.7071`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "对于如下图的二叉树，说法正确的是（ ）。\n\n```text\n1\n \\\n  2\n /\n3\n```\n\n（节点 `1` 是根，`2` 是 `1` 的右孩子，`3` 是 `2` 的左孩子。）",
+      "options": [
+        {
+          "label": "A",
+          "content": "先序遍历是 `132`。"
+        },
+        {
+          "label": "B",
+          "content": "中序遍历是 `123`。"
+        },
+        {
+          "label": "C",
+          "content": "后序遍历是 `312`。"
+        },
+        {
+          "label": "D",
+          "content": "先序遍历和后序遍历正好是相反的。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "已知两个序列 s1= `{1,3,4,5,6,7,7,8,1}`、s2= `{3,5,7,4,8,2,9,5,1}`，则它们的最长公共子序列是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`{3,5,7,8,1}`"
+        },
+        {
+          "label": "B",
+          "content": "`{3,4,5,7,8}`"
+        },
+        {
+          "label": "C",
+          "content": "`{5,7,8}`"
+        },
+        {
+          "label": "D",
+          "content": "`{3,5,7,9,1}`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "关于序列 `{2,7,1,5,6,4,3,8,9}`，以下说法错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`{2,5,6,8,9}` 是它的最长上升子序列"
+        },
+        {
+          "label": "B",
+          "content": "`{1,5,6,8,9}` 是它的最长上升子序列"
+        },
+        {
+          "label": "C",
+          "content": "`{7,5,4,3}` 是它的最长下降子序列"
+        },
+        {
+          "label": "D",
+          "content": "`{1,5,6,8,9}` 是它的唯一最长上升子序列"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "关于图的深度优先搜索和广度优先搜索，下列说法错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "二叉树是也是一种图。"
+        },
+        {
+          "label": "B",
+          "content": "二叉树的前序遍历和后序遍历都是深度优先搜索的一种。"
+        },
+        {
+          "label": "C",
+          "content": "深度优先搜索可以从任意根节点开始。"
+        },
+        {
+          "label": "D",
+          "content": "二叉树的后序遍历也是广度优先搜索的一种。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "对于如下二叉树，下面访问顺序说法错误的是（ ）。\n\n```text\n          A\n        /   \\\n       B     C\n      / \\   / \\\n     D   E F   G\n      \\       /\n       H     I\n```\n\n（`A` 的左、右孩子为 `B`、`C`；`B` 的左、右孩子为 `D`、`E`；`C` 的左、右孩子为 `F`、`G`；`H` 是 `D` 的右孩子；`I` 是 `G` 的左孩子。）",
+      "options": [
+        {
+          "label": "A",
+          "content": "HDEBFIGCA 不是它的后序遍历序列"
+        },
+        {
+          "label": "B",
+          "content": "ABCDEFGHI 是它的广度优先遍历序列"
+        },
+        {
+          "label": "C",
+          "content": "ABDHECFGI 是它的深度优先遍历序列"
+        },
+        {
+          "label": "D",
+          "content": "ABDHECFGI 是它的先序遍历序列"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "以下哪个方案不能合理解决或缓解哈希表冲突（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "丢弃发生冲突的新元素。"
+        },
+        {
+          "label": "B",
+          "content": "在每个哈希表项处，使用不同的哈希函数再建立一个哈希表，管理该表项的冲突元素。"
+        },
+        {
+          "label": "C",
+          "content": "在每个哈希表项处，建立二叉排序树，管理该表项的冲突元素。"
+        },
+        {
+          "label": "D",
+          "content": "使用不同的哈希函数建立额外的哈希表，用来管理所有发生冲突的元素。"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "在 C++ 中，关于运算符 `&`，下面说法正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`2 & 3` 的结果是 `true`"
+        },
+        {
+          "label": "B",
+          "content": "`011 & 111` 的结果是 `3`"
+        },
+        {
+          "label": "C",
+          "content": "`3 & 6` 的结果是 `2`"
+        },
+        {
+          "label": "D",
+          "content": "`110 & 101` 的结果是 `4`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面关于图的说法正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "在无向图中，环是指至少包含三个不同顶点，并且第一个顶点和最后一个顶点是相同的路径。"
+        },
+        {
+          "label": "B",
+          "content": "在有向图中，环是指一个顶点经过至少另一个顶点到自身的路径。"
+        },
+        {
+          "label": "C",
+          "content": "在有向图中，如果任意两个顶点之间都存在一条边，则这个图一定是强连通图。"
+        },
+        {
+          "label": "D",
+          "content": "在有向图中，所有顶点的入度和出度的总和就是图的边数的两倍。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "图的存储和遍历算法，下面说法错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "图的深度优先搜索和广度优先搜索对有向图和无向图都适用。"
+        },
+        {
+          "label": "B",
+          "content": "图的深度优先搜索和二叉树的先序遍历道理是不一样的。"
+        },
+        {
+          "label": "C",
+          "content": "图的深度优先搜索需要借助栈来完成。"
+        },
+        {
+          "label": "D",
+          "content": "邻接表中，顶点 $v_i$ 对应链表中的边结点数目正好是顶点 $v_i$ 的度。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "如下图所示的邻接表结构，表示的是下列哪个选项中的图？\n\n```text\n0 | V1 | 3 → 1 → ^\n1 | V2 | 4 → 2 → 0 → ^\n2 | V3 | 4 → 3 → 1 → ^\n3 | V4 | 2 → 0 → ^\n4 | V5 | 2 → 1 → ^\n```\n\n（每行依次为：下标、顶点、该顶点链表中各边结点存储的邻接顶点下标，`^` 表示链表结束。）",
+      "options": [
+        {
+          "label": "A",
+          "content": "无向图，顶点 V1～V5，边：V1-V2, V1-V4, V2-V3, V2-V5, V3-V4, V3-V5, V4-V5"
+        },
+        {
+          "label": "B",
+          "content": "无向图，顶点 V1～V5，边：V1-V2, V1-V4, V2-V3, V3-V4, V3-V5, V4-V5"
+        },
+        {
+          "label": "C",
+          "content": "无向图，顶点 V1～V5，边：V1-V2, V1-V4, V2-V3, V2-V5, V3-V4, V3-V5"
+        },
+        {
+          "label": "D",
+          "content": "无向图，顶点 V1～V5，边：V1-V2, V1-V4, V2-V5, V3-V5"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "如下图所示的邻接矩阵（inf 表示无穷大），表示的是下列哪个选项中的图？\n\n|   | 0 | 1 | 2 | 3 | 4 |\n| :-: | :-: | :-: | :-: | :-: | :-: |\n| 0 | inf | inf | 12 | 30 | inf |\n| 1 | inf | inf | inf | inf | inf |\n| 2 | inf | inf | inf | inf | 32 |\n| 3 | inf | 5 | inf | inf | inf |\n| 4 | 50 | inf | inf | inf | inf |",
+      "options": [
+        {
+          "label": "A",
+          "content": "有向图，顶点 0～4，带权有向边：0→2 (12), 0→3 (30), 2→4 (32), 4→0 (50), 3→1 (5)"
+        },
+        {
+          "label": "B",
+          "content": "有向图，顶点 0～4，带权有向边：0→2 (12), 0→3 (30), 2→4 (32), 4→0 (50), 4→1 (5)"
+        },
+        {
+          "label": "C",
+          "content": "无向图，顶点 0～4，带权边：0-2 (12), 0-3 (30), 2-4 (32), 0-4 (50), 3-1 (5)"
+        },
+        {
+          "label": "D",
+          "content": "无向图，顶点 0～4，带权边：0-2 (12), 0-3 (30), 2-4 (32), 0-4 (50), 4-1 (5)"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下面程序的输出为（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint fib(int n) {\n    if (n <= 1)\n        return n;\n    return fib(n - 1) + fib(n - 2);\n}\nint main() {\n    cout << fib(6) << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`5`"
+        },
+        {
+          "label": "B",
+          "content": "`8`"
+        },
+        {
+          "label": "C",
+          "content": "`13`"
+        },
+        {
+          "label": "D",
+          "content": "无法正常结束。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "下面 `count_triple` 函数的时间复杂度为（ ）。\n\n```cpp\nint count_triple(int n) {\n    int cnt = 0;\n    for (int a = 1; a <= n; a++)\n        for (int b = a; a + b <= n; b++) {\n            int c = sqrt(a * a + b * b);\n            if (a + b + c > n)\n                break;\n            if (a * a + b * b == c * c)\n                cnt++;\n        }\n    return cnt;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n^2)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n^3)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(n^4)$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下列选项中，哪个可能是下图的深度优先遍历序列（ ）。\n\n有向图，顶点 1～9，有向边：\n\n```text\n2→1, 4→2, 9→4,\n1→3, 1→5,\n3→2, 3→4, 3→7,\n5→3,\n7→5, 7→6,\n6→8, 8→9,\n9→7\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "1, 3, 7, 5, 4, 2, 6, 8, 9"
+        },
+        {
+          "label": "B",
+          "content": "9, 4, 2, 1, 3, 5, 7, 6, 8"
+        },
+        {
+          "label": "C",
+          "content": "1, 3, 4, 2, 7, 6, 8, 9, 5"
+        },
+        {
+          "label": "D",
+          "content": "9, 7, 6, 8, 4, 2, 1, 5, 3"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "C++ 语言中，表达式 `6 & 5` 的结果类型为 `int`、值为 `1`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "冒泡排序是稳定的排序算法。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "唯一分解定理（算术基本定理）指出，每个大于 $1$ 的自然数都可以唯一地分解成若干个素数的乘积。因此，我们可以很容易的对给定的自然数 `n` 进行质因数分解，时间复杂度仅为 $O(\\log(n))$。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "C++ 语言中，可以为同一个类定义多个构造函数。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "使用 `math.h` 或 `cmath` 头文件中的对数函数，表达式 `log(128)` 的结果类型为 `double`、值约为 `7.0`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "一颗 `N` 层的二叉树，至少有 $2^{N-1}$ 个节点。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "非连通图不能使用广度优先搜索算法进行遍历。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "现使用有 `N` 个表项的哈希表，从 `M` 个元素中进行查找。该哈希表为解决哈希函数冲突，为每个表项处建立单链表存储冲突元素。其查找操作的最坏情况时间复杂度为 $O(M)$。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "动态规划有递推实现和递归实现，对于很多问题，通过记录子问题的解，两种实现的时间复杂度是相同的。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "泛洪算法的递归方法容易造成溢出，因此大的二维地图算法中，一般不用递归方法。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "黑白翻转",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨有一棵包含 $n$ 个节点的树，这棵树上的任意一个节点要么是白色，要么是黑色。小杨认为一棵树是美丽树当且仅当在删除所有白色节点之后，剩余节点仍然组成一棵树。\n\n小杨每次操作可以选择一个白色节点将它的颜色变为黑色，他想知道自己最少要执行多少次操作可以使得这棵树变为美丽树。",
+      "inputFormat": "第一行包含一个正整数 $n$，代表树的节点数。\n\n第二行包含 $n$ 个非负整数 $a_1, a_2, \\ldots, a_n$，其中如果 $a_i = 0$，则节点 $i$ 的颜色为白色，否则为黑色。\n\n之后 $n-1$ 行，每行包含两个正整数 $x_i, y_i$，代表存在一条连接节点 $x_i$ 和 $y_i$ 的边。",
+      "outputFormat": "输出一个整数，代表最少执行的操作次数。",
+      "samples": [
+        {
+          "input": "5\n0 1 0 1 0\n1 2\n1 3\n3 4\n3 5",
+          "output": "2",
+          "explanation": "将节点 $1$ 和 $3$ 变为黑色即可使这棵树变为美丽树，此时删除白色节点 $5$，剩余黑色节点仍然组成一棵树。"
+        }
+      ],
+      "dataRange": "| 子任务编号 | 数据点占比 | $n$ | $a_i$ | 特殊条件 |\n| :-: | :-: | :-: | :-: | :-: |\n| 1 | 30% | $\\le 10^5$ | $0 \\le a_i \\le 1$ | 树的形态为一条链 |\n| 2 | 30% | $\\le 10^5$ | $0 \\le a_i \\le 1$ | 只有两个节点颜色为黑色 |\n| 3 | 40% | $\\le 10^5$ | $0 \\le a_i \\le 1$ | |\n\n对于全部数据，保证有 $1 \\le n \\le 10^5$，$0 \\le a_i \\le 1$。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\nconst int N = 1e5+10;\nvector<int> g[N];\nint col[N],num[N];\nint ans,sum;\nvoid calc(int x,int fa){\n    num[x]+=col[x];\n    for(auto i:g[x]){\n        if(i!=fa){\n            calc(i,x);\n            num[x]+=num[i];\n        }\n    }\n}\nvoid dfs(int x,int fa){\n    int fl=0;\n    if(num[x]!=sum&&num[x]!=0)fl=1;\n    for(auto i:g[x]){\n        if(i!=fa){\n            dfs(i,x);\n            if(num[i]!=0&&num[i]!=num[x]-col[x]){\n                fl=1;\n            }\n        }\n    }\n    if(fl==1&&col[x]!=1)ans++;\n}\nint main(){\n    int n;\n    cin>>n;\n    for(int i=1;i<=n;i++){\n        cin>>col[i];\n        sum+=col[i];\n    }\n    for(int i=1;i<n;i++){\n        int u,v;\n        cin>>u>>v;\n        g[u].push_back(v);\n        g[v].push_back(u);\n    }\n    calc(1,0);\n    dfs(1,0);\n    cout<<ans<<\"\\n\";\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "区间乘积",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨有一个包含 $n$ 个正整数的序列 $A = [a_1, a_2, \\cdots, a_n]$。\n\n小杨想知道有多少对 $<l, r>$ $(1 \\le l \\le r \\le n)$ 满足 $a_l \\times a_{l+1} \\times \\ldots \\times a_r$ 为完全平方数。\n\n一个正整数 $x$ 为完全平方数当且仅当存在一个正整数 $y$ 使得 $x = y \\times y$。",
+      "inputFormat": "第一行包含一个正整数 $n$，代表正整数个数。\n\n第二行包含 $n$ 个正整数 $a_1, a_2, \\ldots, a_n$，代表序列 $A$。",
+      "outputFormat": "输出一个整数，代表满足要求的 $<l, r>$ 数量。",
+      "samples": [
+        {
+          "input": "5\n3 2 4 3 2",
+          "output": "2",
+          "explanation": "满足条件的 $<l, r>$ 有 $<3, 3>$ 和 $<1, 5>$。"
+        }
+      ],
+      "dataRange": "| 子任务编号 | 数据点占比 | $n$ | $a_i$ |\n| :-: | :-: | :-: | :-: |\n| 1 | 20% | $\\le 10^5$ | $1 \\le a_i \\le 2$ |\n| 2 | 40% | $\\le 100$ | $1 \\le a_i \\le 30$ |\n| 3 | 40% | $\\le 10^5$ | $1 \\le a_i \\le 30$ |\n\n对于全部数据，保证有 $1 \\le n \\le 10^5$，$1 \\le a_i \\le 30$。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\nmap<int,int> mp;\nconst int N = 1e5+10;\nint calc(int x) {\n    int res = 0;\n    for (int i = 2; i * i <= x; i++) {\n        if (x % i == 0) {\n            while (x% i == 0){\n                x/= i;\n                res^=(1<<(i-1));\n            }\n        }\n    }\n    if (x != 1) {\n        res^=(1<<(x-1));\n    }\n    return res;\n}\nint a[N];\nint main(){\n    int n;\n    cin>>n;\n    long long ans = 0;\n    int pre = 0;\n    for(int i=1;i<=n;i++){\n        cin>>a[i];\n        int res = calc(a[i]);\n        pre^=res;\n        if(pre==0)\n            ans++;\n        ans+=mp[pre];\n        mp[pre]+=1;\n\n    }\n    cout<<ans<<\"\\n\";\n}\n"
+    }
+  ]
+}

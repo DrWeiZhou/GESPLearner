@@ -1,0 +1,499 @@
+{
+  "id": "cpp-2024-06-l8",
+  "language": "cpp",
+  "level": 8,
+  "exam": {
+    "id": "2024-06",
+    "title": "2024年6月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10147.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1621071654551584.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "GESP 活动期间，举办方从获胜者 ABCDE 五个人中选出三个人排成一队升国旗，其中 A 不能排在队首，请问有多少种排法？",
+      "options": [
+        {
+          "label": "A",
+          "content": "$24$"
+        },
+        {
+          "label": "B",
+          "content": "$48$"
+        },
+        {
+          "label": "C",
+          "content": "$32$"
+        },
+        {
+          "label": "D",
+          "content": "$12$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "7 进制数 $235$ 转换成 3 进制数是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$11121$"
+        },
+        {
+          "label": "B",
+          "content": "$11122$"
+        },
+        {
+          "label": "C",
+          "content": "$11211$"
+        },
+        {
+          "label": "D",
+          "content": "$11112$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "$0,1,2,3,4,5$ 这些数字组成一个三位数，请问没有重复数字的情况下，有多少种组法（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$180$"
+        },
+        {
+          "label": "B",
+          "content": "$120$"
+        },
+        {
+          "label": "C",
+          "content": "$80$"
+        },
+        {
+          "label": "D",
+          "content": "$100$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "有 $V$ 个顶点、$E$ 条边的图的深度优先搜索遍历时间复杂度为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(V)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(E)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(V+E)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(\\log(V+E))$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "一对夫妻生男生女的概率相同。已知这对夫妻有两个孩子，其中一个是女孩，另一个是男孩的概率是多少？",
+      "options": [
+        {
+          "label": "A",
+          "content": "$\\frac{2}{3}$"
+        },
+        {
+          "label": "B",
+          "content": "$\\frac{1}{4}$"
+        },
+        {
+          "label": "C",
+          "content": "$\\frac{1}{2}$"
+        },
+        {
+          "label": "D",
+          "content": "$\\frac{1}{3}$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "从 $1$ 到 $2024$ 这 $2024$ 个数中，共有（ ）个包含数字 $6$ 的数。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$544$"
+        },
+        {
+          "label": "B",
+          "content": "$546$"
+        },
+        {
+          "label": "C",
+          "content": "$564$"
+        },
+        {
+          "label": "D",
+          "content": "$602$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "二进制数 `100.001` 转换成十进制数是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$4.25$"
+        },
+        {
+          "label": "B",
+          "content": "$4.125$"
+        },
+        {
+          "label": "C",
+          "content": "$4.5$"
+        },
+        {
+          "label": "D",
+          "content": "$4.75$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "以下函数声明，哪个是符合 C++ 语法的？（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`void BubbleSort(char a[][], int n);`"
+        },
+        {
+          "label": "B",
+          "content": "`void BubbleSort(char a[][20], int n);`"
+        },
+        {
+          "label": "C",
+          "content": "`void BubbleSort(char a[10][], int n);`"
+        },
+        {
+          "label": "D",
+          "content": "`void BubbleSort(char[,] a, int n);`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下面有关 C++ 重载的说法，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "两个参数个数不同的函数可以重名。"
+        },
+        {
+          "label": "B",
+          "content": "两个参数类型不同的函数可以重名。"
+        },
+        {
+          "label": "C",
+          "content": "两个类的方法可以重名。"
+        },
+        {
+          "label": "D",
+          "content": "所有 C++ 运算符均可以重载。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "小于或等于给定正整数 $n$ 的数中，与 $n$ 互质的数的个数，我们称为欧拉函数，记作 $\\phi(n)$。下面说法错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "如果 $n$ 是质数，那么 $\\phi(n) = n - 1$。"
+        },
+        {
+          "label": "B",
+          "content": "两个质数一定是互质数。"
+        },
+        {
+          "label": "C",
+          "content": "两个相邻的数一定是互质数。"
+        },
+        {
+          "label": "D",
+          "content": "相邻的两个质数不一定是互质数。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "已知一棵二叉树有 $10$ 个节点，则其中至多有（ ）个节点有 $2$ 个子节点。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$4$"
+        },
+        {
+          "label": "B",
+          "content": "$5$"
+        },
+        {
+          "label": "C",
+          "content": "$6$"
+        },
+        {
+          "label": "D",
+          "content": "$3$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "二项展开式 $(x+y)^n = x^n + nx^{n-1}y + \\frac{n(n-1)}{2}x^{n-2}y^2 + \\dots + y^n$ 的系数，正好满足杨辉三角的规律。当 $n = 10$ 时，二项式展开式中 $xy^9$ 项的系数是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$5$"
+        },
+        {
+          "label": "B",
+          "content": "$9$"
+        },
+        {
+          "label": "C",
+          "content": "$10$"
+        },
+        {
+          "label": "D",
+          "content": "$8$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下面程序的时间复杂度为（ ）。\n\n```cpp\nbool notPrime[N] = {false};\nvoid sieve() {\n    for (int n = 2; n * n < N; n++)\n        if (!notPrime[n])\n            for (int i = n * n; i < N; i += n)\n                notPrime[i] = true;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(N)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(N \\times \\log N)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(N \\times \\log \\log N)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(N^2)$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "下面程序的最差时间复杂度为（ ）。\n\n```cpp\nint gcd(int m, int n) {\n    if (m == 0)\n        return n;\n    return gcd(n % m, m);\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(\\sqrt{n})$"
+        },
+        {
+          "label": "B",
+          "content": "$O(\\log(n))$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(1)$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下面程序的输出为（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int cnt = 0;\n    for (int x = 0; x <= 10; x++)\n        for (int y = 0; y <= 10; y++)\n            for (int z = 0; z <= 10; z++)\n                if (x + y + z <= 15)\n                    cnt++;\n    cout << cnt << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$90$"
+        },
+        {
+          "label": "B",
+          "content": "$91$"
+        },
+        {
+          "label": "C",
+          "content": "$710$"
+        },
+        {
+          "label": "D",
+          "content": "$711$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "ABCDE 五个小朋友，排成一队跑步，其中 AB 两人必须排在一起，一共有 $48$ 种排法。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "已知 `double` 类型的变量 `a` 和 `b`，则执行语句 `a = a + b; b = a - b; a = a - b;` 后，变量 `a` 和 `b` 的值会互换。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "一个袋子中有 $3$ 个完全相同的红色小球、$2$ 个完全相同的蓝色小球。每次从中取出 $1$ 个，再放回袋子，这样进行 $3$ 次后，可能的颜色顺序有 $8$ 种。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "已知 `int` 类型的变量 `a` 和 `b` 中分别存储着一个直角三角形的两条直角边的长度，则斜边的长度可以通过表达式 `sqrt(a * a + b * b)` 求得。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "在一个包含 $v$ 个顶点、$e$ 条边的带权连通简单有向图上使用 Dijkstra 算法求最短路径，时间复杂度为 $O(v^2)$，可进一步优化至 $O(e + v\\log(v))$。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "在 $N$ 个元素的二叉排序树中查找一个元素，最差情况的时间复杂度是 $O(\\log N)$。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "C++ 语言中，可以为同一个类定义多个析构函数。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "使用单链表和使用双向链表，查找元素的时间复杂度相同。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "为解决哈希函数冲突，可以使用不同的哈希函数为每个表项各建立一个子哈希表，用来管理该表项的所有冲突元素。这些子哈希表一定不会发生冲突。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "要判断无向图的连通性，在深度优先搜索和广度优先搜索中选择，深度优先的平均时间复杂度更低。",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "最远点对",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨有一棵包含 $n$ 个节点的树，这棵树上的任意一个节点要么是白色，要么是黑色。\n\n小杨想知道相距最远的一对不同颜色节点的距离是多少。",
+      "inputFormat": "第一行包含一个正整数 $n$，代表树的节点数。\n\n第二行包含 $n$ 个非负整数 $a_1, a_2, \\ldots, a_n$（对于所有的 $1 \\le i \\le n$，均有 $a_i$ 等于 $0$ 或 $1$），其中如果 $a_i = 0$，则节点 $i$ 的颜色为白色；如果 $a_i = 1$，则节点 $i$ 的颜色为黑色。\n\n之后 $n-1$ 行，每行包含两个正整数 $x_i, y_i$，代表存在一条连接节点 $x_i$ 和 $y_i$ 的边。\n\n保证输入的树中存在不同颜色的点。",
+      "outputFormat": "输出一个整数，代表相距最远的一对不同颜色节点的距离。",
+      "samples": [
+        {
+          "input": "5\n0 1 0 1 0\n1 2\n1 3\n3 4\n3 5",
+          "output": "3",
+          "explanation": "相距最远的不同颜色的一对节点为节点 $2$ 和 $5$。"
+        }
+      ],
+      "dataRange": "| 子任务编号 | 数据点占比 | $n$ | $a_i$ | 特殊条件 |\n| --- | --- | --- | --- | --- |\n| $1$ | $30\\%$ | $\\le 10^5$ | $0 \\le a_i \\le 1$ | 树的形态为一条链 |\n| $2$ | $30\\%$ | $\\le 10^3$ | $0 \\le a_i \\le 1$ | |\n| $3$ | $40\\%$ | $\\le 10^5$ | $0 \\le a_i \\le 1$ | |\n\n对于全部数据，保证有 $1 \\le n \\le 10^5$，$0 \\le a_i \\le 1$。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\nconst int N = 1e5+10;\nvector<int> g[N];\nint col[N];\nint n;\nint dep[N],far[N][2];\nint ans;\nvoid dfs(int x,int fa){\n    dep[x]=dep[fa]+1;\n    far[x][col[x]]=dep[x];\n    for(int i:g[x]){\n        if(i!=fa){\n            dfs(i,x);\n            for(int j=0;j<2;j++){\n                if(far[x][j]!=-1&&far[i][j^1]!=-1){\n                    ans = max(ans,far[x][j]-dep[x]+far[i][j^1]-dep[x]);\n                }\n            }\n            for(int j=0;j<2;j++){\n                far[x][j]=max(far[x][j],far[i][j]);\n            }\n        }\n    }\n    ans = max(ans,far[x][col[x]^1]-dep[x]);\n}\nint main(){\n    int n;\n    cin>>n;\n    memset(far,-1,sizeof far);\n    for(int i=1;i<=n;i++){\n        cin>>col[i];\n    }\n    for(int i=1;i<n;i++){\n        int u,v;\n        cin>>u>>v;\n        g[u].push_back(v);\n        g[v].push_back(u);\n    }\n    dfs(1,0);\n    cout<<ans<<\"\\n\";\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "空间跳跃",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨在二维空间中有 $n$ 个水平挡板，并且挡板之间彼此不重叠，其中第 $i$ 个挡板处于水平高度 $h_i$，左右端点分别位于 $l_i$ 与 $r_i$。\n\n小杨可以在挡板上左右移动，当小杨移动到右端点时，如果再向右移动会竖直掉落，从而落到下方第一个挡板上，移动到左端点时同理。小杨在挡板上每移动 $1$ 个单位长度会耗费 $1$ 个单位时间，掉落时每掉落 $1$ 个单位高度也会耗费 $1$ 个单位时间。\n\n小杨想知道，从第 $s$ 个挡板上的左端点出发到第 $t$ 个挡板需要耗费的最少时间是多少？\n\n注意：可能无法从第 $s$ 个挡板到达到第 $t$ 个挡板。",
+      "inputFormat": "第一行包含一个正整数 $n$，代表挡板数量。\n\n第二行包含两个正整数 $s, t$，含义如题面所示。\n\n之后 $n$ 行，每行包含三个正整数 $l_i, r_i, h_i$，代表第 $i$ 个挡板的左右端点位置与高度。",
+      "outputFormat": "输出一个整数代表需要耗费的最少时间，如果无法到达则输出 $-1$。",
+      "samples": [
+        {
+          "input": "3\n3 1\n5 6 3\n3 5 6\n1 4 100000",
+          "output": "100001",
+          "explanation": "耗费时间最少的移动方案为，从第 $3$ 个挡板左端点移动到右端点，耗费 $3$ 个单位时间，然后向右移动掉落到第 $2$ 个挡板上，耗费 $100000 - 6 = 99994$ 个单位时间，之后再向右移动 $1$ 个单位长度，耗费 $1$ 个单位时间，最后向右移动掉落到第 $1$ 个挡板上，耗费 $3$ 个单位时间。共耗费 $3 + 99994 + 1 + 3 = 100001$ 个单位时间。"
+        }
+      ],
+      "dataRange": "| 子任务编号 | 数据点占比 | $n$ | 特殊条件 |\n| --- | --- | --- | --- |\n| $1$ | $20\\%$ | $\\le 1000$ | $l_i = 1$ |\n| $2$ | $40\\%$ | $\\le 1000$ | $l_i = i, r_i = i + 1$ |\n| $3$ | $40\\%$ | $\\le 1000$ | |\n\n对于全部数据，保证有 $1 \\le n \\le 1000$，$1 \\le l_i \\le r_i \\le 10^5$，$1 \\le h_i \\le 10^5$。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\n\nconst int maxn = 1e4+10;\n\nstruct edge {\n    int v, w;\n\n    edge(){}\n    edge(int vv,int ww){\n        v=vv;w=ww;\n    }\n};\n\nstruct node {\n    int dis, u;\n    node (){}\n    node (int diss,int uu){dis=diss;u=uu;}\n    bool operator>(const node& a) const { return dis > a.dis; }\n};\n\nvector<edge> e[maxn];\nint dis[maxn], vis[maxn];\npriority_queue<node, vector<node>, greater<node> > q;\nint cnt;\nvoid dijkstra(int s) {\n    for(int i=1;i<=cnt;i++)dis[i]=INT_MAX;\n    dis[s] = 0;\n    q.push(node(0, s));\n    while (!q.empty()) {\n        int u = q.top().u;\n        q.pop();\n        if (vis[u]) continue;\n        vis[u] = 1;\n        for (auto ed : e[u]) {\n            int v = ed.v, w = ed.w;\n            if (dis[v] > dis[u] + w) {\n                dis[v] = dis[u] + w;\n                q.push(node(dis[v], v));\n            }\n        }\n    }\n}\n\nmap<pair<int,int>,int> mp;\nvector<int> es[2010];\nint l[maxn],r[maxn],h[maxn];\nint main(){\n    int n;\n    cin>>n;\n    int s,t;\n    cin>>s>>t;\n    for(int i=1;i<=n;i++){\n        cin>>l[i]>>r[i]>>h[i];\n        mp[make_pair(l[i],h[i])]=i;\n        mp[make_pair(r[i],h[i])]=n+i;\n        es[i].push_back(i);\n        es[i].push_back(n+i);\n        e[i].push_back(edge(n+i,r[i]-l[i]));\n        e[n+i].push_back(edge(i,r[i]-l[i]));\n    }\n    cnt=2*n+1;\n    for(int i=1;i<=n;i++){\n        int hh = -1,idx = i;\n        for(int j=1;j<=n;j++){\n            if(i==j)continue;\n            if(l[j]<=l[i]&&l[i]<=r[j]&&h[j]<=h[i]){\n                if(h[j]>hh){\n                    hh=h[j];\n                    idx=j;\n                }\n            }\n        }\n        if(hh!=-1){\n            if(!mp[make_pair(l[i],hh)]){\n                mp[make_pair(l[i],hh)]=cnt++;\n            }\n            int v = mp[make_pair(l[i],hh)];\n            e[i].push_back(edge(v,h[i]-hh));\n            e[idx].push_back(edge(v,abs(l[i]-l[idx])));\n            e[n+idx].push_back(edge(v,abs(l[i]-r[idx])));\n            e[v].push_back(edge(idx,abs(l[i]-l[idx])));\n            e[v].push_back(edge(n+idx,abs(l[i]-r[idx])));\n            es[idx].push_back(v);\n        }\n        hh = -1,idx = i;\n        for(int j=1;j<=n;j++){\n            if(i==j)continue;\n            if(l[j]<=r[i]&&r[i]<=r[j]&&h[j]<=h[i]){\n                if(h[j]>hh){\n                    hh=h[j];\n                    idx=j;\n                }\n            }\n        }\n\n        if(hh!=-1){\n            if(!mp[make_pair(r[i],hh)]){\n                mp[make_pair(r[i],hh)]=cnt++;\n            }\n            int v = mp[make_pair(r[i],hh)];\n            e[n+i].push_back(edge(v,h[i]-hh));\n            e[idx].push_back(edge(v,abs(r[i]-l[idx])));\n            e[n+idx].push_back(edge(v,abs(r[i]-r[idx])));\n            e[v].push_back(edge(idx,abs(r[i]-l[idx])));\n            e[v].push_back(edge(n+idx,abs(r[i]-r[idx])));\n            es[idx].push_back(v);\n        }\n    }\n    dijkstra(s);\n    int ans = INT_MAX;\n    for(auto i:es[t]){\n        ans=min(ans,dis[i]);\n    }\n    if(ans!=INT_MAX)cout<<ans<<\"\\n\";\n    else cout<<\"-1\\n\";\n\n}\n"
+    }
+  ]
+}

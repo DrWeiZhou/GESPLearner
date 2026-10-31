@@ -1,0 +1,498 @@
+{
+  "id": "cpp-2024-09-l2",
+  "language": "cpp",
+  "level": 2,
+  "exam": {
+    "id": "2024-09",
+    "title": "2024年9月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10166.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1633836163137568.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "据有关资料，山东大学于1972年研制成功DJL-1计算机，并于1973年投入运行，其综合性能居当时全国第三位。DJL-1计算机运算控制部分所使用的磁心存储元件由磁心颗粒组成，设计存贮周期为2μs（微秒）。那么该磁心存储元件相当于现代计算机的（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "内存"
+        },
+        {
+          "label": "B",
+          "content": "磁盘"
+        },
+        {
+          "label": "C",
+          "content": "CPU"
+        },
+        {
+          "label": "D",
+          "content": "显示器"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "IPv4版本的因特网总共有（ ）个A类地址网络。",
+      "options": [
+        {
+          "label": "A",
+          "content": "65000"
+        },
+        {
+          "label": "B",
+          "content": "200万"
+        },
+        {
+          "label": "C",
+          "content": "126"
+        },
+        {
+          "label": "D",
+          "content": "128"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "在C++中，下列不可做变量的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`ccf-gesp`"
+        },
+        {
+          "label": "B",
+          "content": "`ccf_gesp`"
+        },
+        {
+          "label": "C",
+          "content": "`ccfGesp`"
+        },
+        {
+          "label": "D",
+          "content": "`_ccfGesp`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "在C++中，与 `for (int i = 1; i < 10; i++)` 效果相同的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`for (int i = 0; i < 10; i++)`"
+        },
+        {
+          "label": "B",
+          "content": "`for (int i = 0; i < 11; i++)`"
+        },
+        {
+          "label": "C",
+          "content": "`for (int i = 1; i < 10; ++i)`"
+        },
+        {
+          "label": "D",
+          "content": "`for (int i = 0; i < 11; ++i)`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "在C++中，`cout << (5 / 2 + 5 % 3)` 的输出是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1`"
+        },
+        {
+          "label": "B",
+          "content": "`2`"
+        },
+        {
+          "label": "C",
+          "content": "`4`"
+        },
+        {
+          "label": "D",
+          "content": "`5`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "假定变量a和b可能是整型、字符型或浮点型，则下面C++代码执行时先后输入 `-2` 和 `3.14` 后，其输出不可能是（ ）。[已知字符 `'+'`、`'-'`、`'='` 的ASCII码值分别是43、45和61]\n\n```cpp\ncin >> a;\ncin >> b;\ncout << (a + b);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1`"
+        },
+        {
+          "label": "B",
+          "content": "`1.14`"
+        },
+        {
+          "label": "C",
+          "content": "`47`"
+        },
+        {
+          "label": "D",
+          "content": "将触发异常"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "在C++代码中假设N为正整数，则下面代码能获得个位数的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`N % 10`"
+        },
+        {
+          "label": "B",
+          "content": "`N / 10`"
+        },
+        {
+          "label": "C",
+          "content": "`N && 10`"
+        },
+        {
+          "label": "D",
+          "content": "以上选项均不正确"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面C++代码执行后的输出是（ ）。\n\n```cpp\nint i;\nfor (i = 0; i < 10; i++){\n    if (i % 2)\n        break;\n    cout << \"0#\";\n}\nif(i==10) cout << \"1#\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0#`"
+        },
+        {
+          "label": "B",
+          "content": "`1#`"
+        },
+        {
+          "label": "C",
+          "content": "`0#0#1`"
+        },
+        {
+          "label": "D",
+          "content": "没有输出"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "执行下面C++代码并输入1和0，有关说法正确的是（ ）。\n\n```cpp\nint a,b;\ncin >> a >> b;\nif(a&&b)\n    cout << (\"1\");\nelse if(!(a||b))\n    cout << (\"2\");\nelse if(a || b)\n    cout << (\"3\");\nelse\n    cout << (\"4\");\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1`"
+        },
+        {
+          "label": "B",
+          "content": "`2`"
+        },
+        {
+          "label": "C",
+          "content": "`3`"
+        },
+        {
+          "label": "D",
+          "content": "`4`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面C++代码执行后的输出是（ ）。\n\n```cpp\nint loopCount = 0;\nfor (int i = 1; i < 5; i += 2)\n    loopCount += 1;\ncout << (loopCount);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`1`"
+        },
+        {
+          "label": "B",
+          "content": "`2`"
+        },
+        {
+          "label": "C",
+          "content": "`3`"
+        },
+        {
+          "label": "D",
+          "content": "`5`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下图是C++程序执行后的输出。为实现其功能，横线处应填入代码是（ ）。\n\n```cpp\n7\n1\n2 3\n3 4 5\n4 5 6 7\n5 6 7 8 9\n6 7 8 9 10 11\n7 8 9 10 11 12 13\n\n//////////////////////////////\n\nint lineNum;\ncin >> lineNum;\nfor (int i= 1; i < lineNum+1; i++){\n    for(int __________________)\n        cout << j << \" \";\n    cout << endl;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`j = i; j < i; j++`"
+        },
+        {
+          "label": "B",
+          "content": "`j = 1; j < i; j++`"
+        },
+        {
+          "label": "C",
+          "content": "`j = i; j < i*2; j++`"
+        },
+        {
+          "label": "D",
+          "content": "`j = i+1; j < i+i; j++`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面C++代码执行后输出逆序数，如输入 `123` 则输出 `321`。如输入 `120` 则输出 `21`。横线处先后应填入的代码是（ ）。\n\n```cpp\nint N;\ncin >> N;\nint rst = 0;\nwhile (N){\n    ____________________;\n    ____________________;\n}\ncout << (rst);\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nrst = rst * 10 + N % 10\nN = N / 10\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nrst += N % 10\nN = N / 10\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nrst = rst * 10 + N / 10\nN = N % 10\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nrst += N / 10\nN = N % 10\n```"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下面的C++代码用于输入学生成绩，并根据人数计算出平均成绩，有关说法错误的是（ ）。\n\n```cpp\nfloat Sum = 0; // 保存总成绩\nint cnt = 0; // 保存学生人数\nwhile (1){\n    int score;\n    cin >> score;\n    if (score < 0)\n        break;\n    cnt += 1;\n    Sum += score;\n}\ncout << \"总学生数：\" << cnt << \"平均分：\" << Sum/cnt;\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "代码 `while (1)` 写法错误"
+        },
+        {
+          "label": "B",
+          "content": "如果输入负数，将结束输入，并正确输出"
+        },
+        {
+          "label": "C",
+          "content": "如果输入的学生成绩含有小数，程序将无法正常执行"
+        },
+        {
+          "label": "D",
+          "content": "变量 `int score` 初始值不确定，但不影响程序执行"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "以下C++代码判断输入的正整数是否为质数，如果该数字是质数，则输出 `YES`，否则输出 `NO`。质数是指仅能被1和它本身整除的正整数。请在横线上填写代码。（ ）\n\n```cpp\nint num, i;\ncin >> num;\nfor(i = 2; i < num; i++)\n    if (__________){\n        cout << (\"NO\");\n        break;\n    }\nif(i == num)\n    cout << (\"YES\");\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`num % i`"
+        },
+        {
+          "label": "B",
+          "content": "`num % i == 0`"
+        },
+        {
+          "label": "C",
+          "content": "`num / i`"
+        },
+        {
+          "label": "D",
+          "content": "`num / i == 0`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "一个数如果能被某个数（比如7）整除，或者含有该数，则说该数是某个数的相关数。下面C++代码用于判定输入的数与7是否有关。下列说法错误的是（ ）。\n\n```cpp\nint N, M;\nbool Flag = false;\ncin >> N;\nM = N;\n\nif (M % 7 == 0)\n    Flag = true;\n\nwhile (!Flag && M){\n    if (M % 10 == 7){\n        Flag = true;\n        break;\n    }\n    M /= 10;\n}\n\nif (Flag)\n    cout << N << \"与7有关\";\nelse\n    cout << N << \"与7无关\";\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "删除 `break` 语句不会导致死循环，但有时会导致结果错误"
+        },
+        {
+          "label": "B",
+          "content": "删除 `M /= 10` 将可能导致死循环"
+        },
+        {
+          "label": "C",
+          "content": "删除 `M = N` 并将其后代码中的M变量改为N，并调整输出同样能完成相关功能"
+        },
+        {
+          "label": "D",
+          "content": "删除 `break` 语句不会导致死循环，但有时会影响效率"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "小杨最近开始学习C++编程，老师说C++是一门面向对象的编程语言，也是一门高级语言。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "在C++中，`cout << (3, 4, 5)` 可以输出 `3 4 5`，且每个输出项之间用空格分开。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "C++表达式 `12 % 10 % 10` 的值为2。（ ）",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "C++语句 `cout << rand() << ' ' << rand();` 的第二个输出值较大。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "定义C++的 `int` 类型的变量 `ch`，而且值为 `'1'`，则语句 `cout << int(ch);` 的输出为 `1`。（ ）",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "下面C++代码执行后将输出10。（ ）\n\n```cpp\nint i;\nfor (i = 0; i < 10; i++)\n    continue;\nif(i == 10)\n    cout << i;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "下面C++代码能求整数N和M之间所有整数之和，包含N和M。（ ）\n\n```cpp\nint N, M, Sum;\n\ncin >> N >> M;\n\nif (N > M){\n    int tmp = N;\n    N = M, M = tmp;\n}\n\nfor (int i = N; i < M+1; i++)\n    Sum += i;\n\ncout << Sum;\n```",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "将下面C++代码中的 L3 标记的代码行调整为 `for (int i = 0; i < 5; i++)` 后输出结果相同。（ ）\n\n```cpp\nint loopCount = 0;\nfor (int i = 1; i < 5; i++) // L3\n    for (int j = 0; j < i; j++)\n        loopCount += 1;\ncout << loopCount;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "某一系列数据的规律是从第3个数值开始是前两个数之和。下面的代码求第N个数的值，N限定为大于2。（ ）\n\n```cpp\nint start1; // 第1个数\nint start2; // 第2个数\nint N; //求N个数的值\nint tmp;\ncin >> start1 >> start2 >> N;\n\nfor (int i = 2; i < N; i++){\n    tmp = start1 + start2;\n    start1 = start2;\n    start2 = tmp;\n}\ncout << start2;\n```",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "下面C++代码执行时如果输入 `2024`，则输出是 `4202`。（ ）\n\n```cpp\nint N, flag=0;\ncin >> N;\nwhile (N){\n    if(!flag) cout << N % 10;\n    N /= 10;\n    flag = (flag + 1)%2;\n}\n```",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "数位之和",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨有 $n$ 个正整数，他认为一个正整数是美丽数字当且仅当该正整数每一位数字的总和是 $7$ 的倍数。\n\n小杨想请你编写一个程序判断 $n$ 个正整数哪些是美丽数字。",
+      "inputFormat": "第一行包含一个正整数 $n$，代表正整数个数。\n\n之后 $n$ 行，每行包含一个正整数。",
+      "outputFormat": "对于每个正整数，如果是美丽数字则输出 `Yes`，否则输出 `No`。",
+      "samples": [
+        {
+          "input": "3\n7\n52\n103",
+          "output": "Yes\nYes\nNo",
+          "explanation": "$7$ 的各位数字之和为 $7$，是 $7$ 的倍数。$52$ 的各位数字之和为 $5+2=7$，是 $7$ 的倍数。$103$ 的各位数字之和为 $1+0+3=4$，不是 $7$ 的倍数。"
+        }
+      ],
+      "dataRange": "对于全部数据，保证有 $1 \\le n \\le 10^5, 1 \\le a_i \\le 10^5$。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\n\nint main(){\n    int n;\n    cin>>n;\n    int ans=0;\n    for(int i=1;i<=n;i++){\n        int x;\n        cin>>x;\n        int tot=0;\n        while(x){\n            tot+=(x%10);\n            x/=10;\n        }\n        if(tot%7==0)cout<<\"Yes\\n\";\n        else cout<<\"No\\n\";\n    }\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "小杨的 N 字矩阵",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨想要构造一个 $m \\times m$ 的 N 字矩阵（$m$ 为奇数），这个矩阵的从左上角到右下角的对角线、第 $1$ 列和第 $m$ 列都是半角加号 `+`，其余都是半角减号 `-`。例如，一个 $5 \\times 5$ 的 N 字矩阵如下：\n\n```text\n+---+\n++--+\n+-+-+\n+--++\n+---+\n```\n\n请你帮小杨根据给定的 $m$ 打印出对应的 N 字矩阵。",
+      "inputFormat": "第一行包含一个正整数 $m$。",
+      "outputFormat": "输出对应的 N 字矩阵。",
+      "samples": [
+        {
+          "input": "5",
+          "output": "+---+\n++--+\n+-+-+\n+--++\n+---+"
+        }
+      ],
+      "dataRange": "对于全部数据，保证有 $3 \\le m \\le 49$ 且 $m$ 为奇数。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n    int n;\n    cin>>n;\n    for(int i=1;i<=n;i++){\n        for(int j=1;j<=n;j++){\n            if(j==1||j==n)cout<<\"+\";\n            else{\n                if(i==j)cout<<\"+\";\n                else cout<<\"-\";\n            }\n        }\n        cout<<\"\\n\";\n    }\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,507 @@
+{
+  "id": "cpp-2023-06-l1",
+  "language": "cpp",
+  "level": 1,
+  "exam": {
+    "id": "2023-06",
+    "title": "2023年6月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10092.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1553039792013344.pdf",
+  "durationMinutes": 90,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "以下不属于计算机输出设备的有（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "麦克风"
+        },
+        {
+          "label": "B",
+          "content": "音箱"
+        },
+        {
+          "label": "C",
+          "content": "打印机"
+        },
+        {
+          "label": "D",
+          "content": "显示器"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "ChatGPT 是 OpenAI 研发的聊天机器人程序，它能通过理解和学习人类的语言来进行对话，还能根据聊天的上下文进行互动，完成很多工作。请你猜猜看，下面任务中，ChatGPT 不能完成的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "改邮件"
+        },
+        {
+          "label": "B",
+          "content": "编剧本"
+        },
+        {
+          "label": "C",
+          "content": "擦地板"
+        },
+        {
+          "label": "D",
+          "content": "写代码"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "常量 `'3'` 的数据类型是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`double`"
+        },
+        {
+          "label": "B",
+          "content": "`float`"
+        },
+        {
+          "label": "C",
+          "content": "`char`"
+        },
+        {
+          "label": "D",
+          "content": "`int`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下列关于 C++ 语言变量的叙述，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "变量可以没有定义"
+        },
+        {
+          "label": "B",
+          "content": "对一个没有定义的变量赋值，相当于定义了一个新变量"
+        },
+        {
+          "label": "C",
+          "content": "执行赋值语句后，变量的类型可能会变化"
+        },
+        {
+          "label": "D",
+          "content": "执行赋值语句后，变量的值可能不会变化"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "以下可以作为 C++ 标识符的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`number_of_Chinese_people_in_millions`"
+        },
+        {
+          "label": "B",
+          "content": "`360AntiVirus`"
+        },
+        {
+          "label": "C",
+          "content": "`Man&Woman`"
+        },
+        {
+          "label": "D",
+          "content": "`break`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "以下哪个不是 C++ 语言的关键字？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`double`"
+        },
+        {
+          "label": "B",
+          "content": "`else`"
+        },
+        {
+          "label": "C",
+          "content": "`while`"
+        },
+        {
+          "label": "D",
+          "content": "`endl`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "如果 `a`、`b` 和 `c` 都是 `int` 类型的变量，下列哪个语句不符合 C++ 语法？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`a = (b == c);`"
+        },
+        {
+          "label": "B",
+          "content": "`b = 5.5;`"
+        },
+        {
+          "label": "C",
+          "content": "`c = a + b + c;`"
+        },
+        {
+          "label": "D",
+          "content": "`a + c = b + c;`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "如果用一个 `int` 类型的变量 `a` 表达正方形的边长，则下列哪个表达式不能用来计算正方形的面积？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`a * a`"
+        },
+        {
+          "label": "B",
+          "content": "`1 * a * a`"
+        },
+        {
+          "label": "C",
+          "content": "`a ^ 2`"
+        },
+        {
+          "label": "D",
+          "content": "`a * 2 * a / 2`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "表达式 `(4 * (11 + 12) / 4)` 的计算结果为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`47`"
+        },
+        {
+          "label": "B",
+          "content": "`20`"
+        },
+        {
+          "label": "C",
+          "content": "`23`"
+        },
+        {
+          "label": "D",
+          "content": "`56`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "如果 `a` 为 `int` 类型的变量，且 `a` 的值为 6，则执行 `a %= 4;` 之后，`a` 的值会是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "1"
+        },
+        {
+          "label": "B",
+          "content": "2"
+        },
+        {
+          "label": "C",
+          "content": "3"
+        },
+        {
+          "label": "D",
+          "content": "4"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "如果 `a` 和 `b` 均为 `int` 类型的变量，下列表达式能正确判断“`a` 等于 `0` 且 `b` 等于 `0`”的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`(a == b == 0)`"
+        },
+        {
+          "label": "B",
+          "content": "`!(a || b)`"
+        },
+        {
+          "label": "C",
+          "content": "`(a + b == 0)`"
+        },
+        {
+          "label": "D",
+          "content": "`(a == 0) + (b == 0)`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "如果 `a` 和 `b` 为 `int` 类型的变量，且值分别为 `7` 和 `2`，则下列哪个表达式的计算结果不是 `3.5`？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`0.0 + a / b`"
+        },
+        {
+          "label": "B",
+          "content": "`(a + 0.0) / b`"
+        },
+        {
+          "label": "C",
+          "content": "`(0.0 + a) / b`"
+        },
+        {
+          "label": "D",
+          "content": "`a / (0.0 + b)`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "在下列代码的横线处填写（ ），使得输出是“`20 10`”。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int a = 10, b = 20;\n    a = ________; // 在此处填入代码\n    b = a + b;\n    a = b - a;\n    cout << a << \" \" << b << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`a + b`"
+        },
+        {
+          "label": "B",
+          "content": "`b`"
+        },
+        {
+          "label": "C",
+          "content": "`a - b`"
+        },
+        {
+          "label": "D",
+          "content": "`b - a`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "在下列代码的横线处填写（ ），可以使得输出是“`147`”。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    for (int i = 1; i <= 8; i++)\n        if (________) // 在此处填入代码\n            cout << i;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`i % 2 == 1`"
+        },
+        {
+          "label": "B",
+          "content": "`i % 3 == 1`"
+        },
+        {
+          "label": "C",
+          "content": "`i = i + 3`"
+        },
+        {
+          "label": "D",
+          "content": "`i + 3`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "执行以下 C++ 语言程序后，输出结果是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    int sum;\n    for (int i = 1; i <= 20; i++)\n        if (i % 3 == 0 || i % 5 == 0)\n            sum += i;\n    cout << sum << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`63`"
+        },
+        {
+          "label": "B",
+          "content": "`98`"
+        },
+        {
+          "label": "C",
+          "content": "`113`"
+        },
+        {
+          "label": "D",
+          "content": "无法确定"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "计算机硬件主要包括运算器、控制器、存储器、输入设备和输出设备。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "诞生于 1958 年的 103 机是中国第一台通用数字电子计算机，比 1946 年在美国诞生的第一台通用电子计算机 ENIAC 晚了十多年。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "在 C++ 语言中，计算结果必须存储在变量中才能输出。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "在 C++ 语言中，标识符的命名不能完全由数字组成，至少有一个字母就可以。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "`10` 是一个 `int` 类型常量。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "`if` 语句可以没有 `else` 子句。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "`do ... while` 语句的循环体至少会执行一次。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "如果 `a` 和 `b` 为 `int` 类型的变量，则表达式 `a = b` 可以判断 `a` 和 `b` 是否相等。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "如果 `a` 为 `int` 类型的变量，则表达式 `(a % 4 == 2)` 可以判断 `a` 的值是否为偶数。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "表达式 `(37 / 4)` 的计算结果为 `9`，且结果类型为 `int`。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "时间规划",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小明在为自己规划学习时间。现在他想知道两个时刻之间有多少分钟，你能通过编程帮他做到吗？",
+      "inputFormat": "输入 $4$ 行，第一行为开始时刻的小时，第二行为开始时刻的分钟，第三行为结束时刻的小时，第四行为结束时刻的分钟。\n\n输入保证两个时刻是同一天，开始时刻一定在结束时刻之前。时刻使用 $24$ 小时制，即小时在 $0$ 到 $23$ 之间，分钟在 $0$ 到 $59$ 之间。",
+      "outputFormat": "输出一行，包含一个整数，从开始时刻到结束时刻之间有多少分钟。",
+      "samples": [
+        {
+          "input": "9\n5\n9\n6",
+          "output": "1"
+        },
+        {
+          "input": "9\n5\n10\n0",
+          "output": "55"
+        }
+      ],
+      "referenceSolution": "#include <iostream>\nusing namespace std;\nint main() {\n    int h1 = 0, m1 = 0, h2 = 0, m2 = 0;\n    cin >> h1 >> m1;\n    cin >> h2 >> m2;\n    cout << (h2 - h1) * 60 + (m2 - m1) << endl;\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "累计相加",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "输入一个正整数 $n$，求形如：$1 + (1 + 2) + (1 + 2 + 3) + (1 + 2 + 3 + 4) + \\cdots + (1 + 2 + 3 + 4 + 5 + \\cdots + n)$ 的累计相加。",
+      "inputFormat": "输入一个正整数。约定 $1 \\le n \\le 100$。",
+      "outputFormat": "输出累计相加的结果。",
+      "samples": [
+        {
+          "input": "3",
+          "output": "10"
+        },
+        {
+          "input": "4",
+          "output": "20"
+        },
+        {
+          "input": "10",
+          "output": "220"
+        }
+      ],
+      "referenceSolution": "#include <iostream>\nusing namespace std;\nint main() {\n    int n = 0;\n    cin >> n;\n    int sum = 0;\n    for (int i = 1; i <= n; i++)\n        sum += (i + 1) * i / 2;\n    cout << sum << endl;\n    return 0;\n}\n"
+    }
+  ]
+}

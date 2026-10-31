@@ -1,0 +1,505 @@
+{
+  "id": "cpp-2025-12-l7",
+  "language": "cpp",
+  "level": 7,
+  "exam": {
+    "id": "2025-12",
+    "title": "2025年12月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10242.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1723013022089248.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "下面关于C++中形参、实参和定义域的说法中，正确的一项是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "形参是函数定义时所指定的变量，它只在函数内部有效。"
+        },
+        {
+          "label": "B",
+          "content": "在函数内部，可以修改传入的形参的值，即使该形参是一个常量引用。"
+        },
+        {
+          "label": "C",
+          "content": "实参和形参的类型必须完全一致，否则会导致编译错误。"
+        },
+        {
+          "label": "D",
+          "content": "使用指针作为形参时，形参是指向实参的地址，因此对该指针赋值会影响实参。"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "已知三个序列：`s1 = {3, 1, 8, 2, 5, 6, 7, 4}`、`s2 = {1, 5, 1, 8, 6, 4, 7, 5, 6}`、`s3 = {1, 8, 3, 5, 7, 6, 2, 4}`。以下哪个序列是它们的最长公共子序列（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`{1, 8, 5, 6}`"
+        },
+        {
+          "label": "B",
+          "content": "`{1, 5, 6, 7}`"
+        },
+        {
+          "label": "C",
+          "content": "`{1, 8, 6}`"
+        },
+        {
+          "label": "D",
+          "content": "`{1, 5, 7, 4}`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "现有一个地址区间为 $0 \\sim 10$ 的哈希表，当出现冲突情况，会往后找第一个空的地址存储（到 $10$ 冲突了就从 $0$ 开始往后），现在要依次存储 $(1, 3, 5, 7, 9)$，哈希函数为 $h(x) = (x^2 + x) \\bmod 11$。其中 $9$ 存储在哈希表哪个地址中（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$1$"
+        },
+        {
+          "label": "B",
+          "content": "$2$"
+        },
+        {
+          "label": "C",
+          "content": "$3$"
+        },
+        {
+          "label": "D",
+          "content": "$4$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "在0/1背包问题中，给定一组物品，每个物品有一个重量和价值，背包的容量有限。假设背包的最大容量为 $W$，物品的数量为 $n$，其中第 $i$ 个物品的重量为 $w[i]$，价值为 $v[i]$。以下关于0/1背包问题的描述，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "在解决0/1背包问题时，使用贪心算法可以保证找到最优解，因为物品只能放入一次。"
+        },
+        {
+          "label": "B",
+          "content": "0/1背包是P问题（多项式时间可解问题），它可以在 $O(nW)$ 的时间复杂度内解决。"
+        },
+        {
+          "label": "C",
+          "content": "0/1背包问题中，动态规划解法的空间复杂度为 $O(nW)$，但可以通过滚动数组技巧将空间复杂度优化到 $O(W)$。"
+        },
+        {
+          "label": "D",
+          "content": "0/1背包问题中，每个物品只能选择一次，并且子问题之间是独立的，无法重用计算结果。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "一棵深度为 $6$（根节点深度为 $1$）的完全二叉树，节点总数最少有（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$31$"
+        },
+        {
+          "label": "B",
+          "content": "$32$"
+        },
+        {
+          "label": "C",
+          "content": "$63$"
+        },
+        {
+          "label": "D",
+          "content": "$64$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "对于如下二叉树，下面关于访问的顺序说法错误的是（ ）。\n\n```text\n          A\n        /   \\\n       B     C\n      / \\   / \\\n     D   E F   G\n              / \\\n             H   I\n                  \\\n                   J\n```\n\n（A 的左孩子为 B、右孩子为 C；B 的左右孩子为 D、E；C 的左右孩子为 F、G；G 的左右孩子为 H、I；I 只有右孩子 J。）",
+      "options": [
+        {
+          "label": "A",
+          "content": "`D E B F H J I G C A` 是它的后序遍历序列。"
+        },
+        {
+          "label": "B",
+          "content": "`A B C D E F G H I J` 是它的广度优先遍历序列。"
+        },
+        {
+          "label": "C",
+          "content": "`A B D E C F G H I J` 是它的先序遍历序列。"
+        },
+        {
+          "label": "D",
+          "content": "`D B E A F C H G J I` 是它的中序遍历序列。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下面程序的运行结果为（ ）。\n\n```cpp\n#include <iostream>\n\nint query(int n, int *a, int x) {\n    int l = 0, r = n;\n    while (l < r) {\n        int mid = l + (r - l) / 2;\n        if (a[mid] >= x) r = mid;\n        else l = mid + 1;\n    }\n\n    if (l == n) return -1;\n    return l;\n}\n\nint main() {\n    int n = 10;\n    int x = 3;\n    int num[] = {1, 2, 2, 3, 3, 4, 5, 5, 6, 7};\n\n    std::cout << query(n, num, x) << \"\\n\";\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`2`"
+        },
+        {
+          "label": "B",
+          "content": "`3`"
+        },
+        {
+          "label": "C",
+          "content": "`4`"
+        },
+        {
+          "label": "D",
+          "content": "`5`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面程序中，函数 `query` 的时间复杂度是（ ）。\n\n```cpp\n#include <iostream>\n\nint query(int n, int *a, int x) {\n    int l = 0, r = n;\n    while (l < r) {\n        int mid = l + (r - l) / 2;\n        if (a[mid] >= x) r = mid;\n        else l = mid + 1;\n    }\n\n    if (l == n) return -1;\n    return l;\n}\n\nint main() {\n    int n = 10;\n    int x = 3;\n    int num[] = {1, 2, 2, 3, 3, 4, 5, 5, 6, 7};\n\n    std::cout << query(n, num, x) << \"\\n\";\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(1)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(\\log n)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(n \\log n)$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "有 $5$ 个字符，它们出现的次数分别为 $2$ 次、$2$ 次、$3$ 次、$3$ 次、$5$ 次。现在要用哈夫曼编码的方式来为这些字符进行编码，最小加权路径长度WPL（每个字符的出现次数 $\\times$ 它的编码长度，再把每个字符结果加起来）的值为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`30`"
+        },
+        {
+          "label": "B",
+          "content": "`34`"
+        },
+        {
+          "label": "C",
+          "content": "`43`"
+        },
+        {
+          "label": "D",
+          "content": "`47`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面程序的运行结果为（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint f(int n) {\n    if (n <= 2) return n * 2;\n    return f(n - 1) + f(n - 2);\n}\nint main() {\n    cout << f(5) << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`10`"
+        },
+        {
+          "label": "B",
+          "content": "`16`"
+        },
+        {
+          "label": "C",
+          "content": "`26`"
+        },
+        {
+          "label": "D",
+          "content": "`30`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "一个简单无向图 $G$ 有 $36$ 条边，且每个顶点的度数都为 $4$，则图 $G$ 的顶点个数为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$9$"
+        },
+        {
+          "label": "B",
+          "content": "$12$"
+        },
+        {
+          "label": "C",
+          "content": "$18$"
+        },
+        {
+          "label": "D",
+          "content": "$36$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面关于二叉树的说法正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "任意二叉树的中序遍历与后序遍历必定不相同。"
+        },
+        {
+          "label": "B",
+          "content": "对任意二叉树，若已知先序遍历与后序遍历，则该二叉树唯一确定。"
+        },
+        {
+          "label": "C",
+          "content": "若二叉树有 $n$ 个结点，根节点高度为 $1$，则其高度满足：$\\lceil \\log_2(n+1) \\rceil \\le h \\le n$。"
+        },
+        {
+          "label": "D",
+          "content": "在二叉树的先序遍历中，根后紧跟的结点一定是根的左孩子。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "假设一个算法时间复杂度的递推式是 $T(n) = 8T(\\frac{n}{4}) + n\\sqrt{n}$（$n$ 为正整数），和 $T(0) = 1$，那么这个算法的时间复杂度是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n\\sqrt{n})$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n\\sqrt{n}\\log n)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n^2)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(n^2 \\log n)$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "下面哪一个可能是下图的深度优先遍历序列（ ）。\n\n```text\n 1 <--- 2 <--- 3\n |    \\ |  \\   ^\n v     vv   v  |\n 4 <--- 5 ---> 6\n |  ^   |      |\n v   \\  v      v\n 7 <--- 8 ---> 9\n```\n\n有向边：$2 \\to 1$，$3 \\to 2$，$1 \\to 4$，$1 \\to 5$，$2 \\to 5$，$2 \\to 6$，$6 \\to 3$，$5 \\to 4$，$5 \\to 6$，$5 \\to 8$，$4 \\to 7$，$6 \\to 9$，$8 \\to 4$，$8 \\to 7$，$8 \\to 9$。",
+      "options": [
+        {
+          "label": "A",
+          "content": "1, 5, 6, 3, 2, 8, 9, 4, 7"
+        },
+        {
+          "label": "B",
+          "content": "1, 5, 8, 9, 7, 4, 6, 3, 2"
+        },
+        {
+          "label": "C",
+          "content": "3, 2, 1, 4, 7, 6, 9, 5, 8"
+        },
+        {
+          "label": "D",
+          "content": "2, 5, 6, 3, 8, 7, 9, 4, 1"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下面这个有向图的强连通分量的个数是（ ）。\n\n```text\n 1 <==> 2 ---> 3 ---> 6\n |             |    / ^\n v             v   v  |\n 4 <--- 5      10 --> 11\n |  ^   ^      |    ^ ^\n v   \\  |      v   /  |\n 7 ---> 8 ---> 9 <--- 12\n```\n\n有向边：$1 \\to 2$，$2 \\to 1$，$2 \\to 3$，$3 \\to 6$，$3 \\to 10$，$6 \\to 10$，$1 \\to 4$，$5 \\to 4$，$4 \\to 7$，$7 \\to 8$，$8 \\to 4$，$8 \\to 5$，$8 \\to 9$，$10 \\to 11$，$10 \\to 9$，$9 \\to 11$，$11 \\to 6$，$12 \\to 9$，$12 \\to 11$。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$3$"
+        },
+        {
+          "label": "B",
+          "content": "$4$"
+        },
+        {
+          "label": "C",
+          "content": "$5$"
+        },
+        {
+          "label": "D",
+          "content": "$6$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "C++语言中，表达式 `3 ^ 2` 的结果类型为 `int`，值为 `9`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "使用 `cmath` 头文件中的正弦函数，表达式 `sin(90)` 的结果类型为 `double`，值约为 `1.0`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "使用 `strcmp(\"10\", \"9\")` 比较两个字符串，返回值大于0，说明 `\"10\"` 比 `\"9\"` 大。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "选择排序是一种不稳定的排序算法，而冒泡排序是一种稳定的排序算法。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "求两个长度为 $n$ 序列的最长公共子序列（LCS）长度时，可以使用滚动数组将空间复杂度从 $O(n^2)$ 优化到 $O(n)$。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "在无向图中，所有顶点的度数之和等于边数的两倍。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "使用邻接矩阵存储一个有 $V$ 个顶点、$E$ 条边的图，对该图进行一次完整的BFS遍历，时间复杂度为 $O(V + E)$。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "在图像处理或游戏开发中，泛洪（flood fill）算法既可以用BFS实现，也可以用DFS实现。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "使用链地址法处理冲突的哈希表，当所有元素都映射到同一个槽位时，查找操作的最坏时间复杂度为 $O(n)$，其中 $n$ 为元素个数。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "一个包含 $V$ 个顶点的连通无向图，其任何一棵生成树都恰好包含 $V - 1$ 条边。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "城市规划",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "A 国有 $n$ 座城市，城市之间由 $m$ 条双向道路连接，任意一座城市均可经过若干条双向道路到达另一座城市。城市依次以 $1, 2, \\ldots, n$ 编号。第 $i$（$1 \\le i \\le m$）条双向道路连接城市 $u_i$ 与城市 $v_i$。\n\n对于城市 $u$ 和城市 $v$ 而言，它们之间的连通度 $d(u, v)$ 定义为从城市 $u$ 出发到达城市 $v$ 所需经过的双向道路的最少条数。由于道路是双向的，可以知道连通度满足 $d(u, v) = d(v, u)$，特殊地有 $d(u, u) = 0$。\n\n现在 A 国正在规划城市建设方案。城市 $u$ 的建设难度为它到其它城市的最大连通度。请你求出建设难度最小的城市，如果有多个满足条件的城市，则选取其中编号最小的城市。形式化地，你需要求出使得 $\\max_{1 \\le i \\le n} d(u, i)$ 最小的 $u$，若存在多个可能的 $u$ 则选取其中最小的。",
+      "inputFormat": "第一行，两个正整数 $n, m$，表示 A 国的城市数量与双向道路数量。\n\n接下来 $m$ 行，每行两个整数 $u_i, v_i$，表示一条连接城市 $u_i$ 与城市 $v_i$ 的双向道路。",
+      "outputFormat": "输出一行，一个整数，表示建设难度最小的城市编号。如果有多个满足条件的城市，则选取其中编号最小的城市。",
+      "samples": [
+        {
+          "input": "3 3\n1 2\n1 3\n2 3",
+          "output": "1"
+        },
+        {
+          "input": "4 4\n1 2\n2 3\n3 4\n2 4",
+          "output": "2"
+        }
+      ],
+      "dataRange": "对于 $40\\%$ 的测试点，保证 $1 \\le n \\le 300$。\n\n对于所有测试点，保证 $1 \\le n \\le 2000$，$1 \\le m \\le 2000$，$1 \\le u_i, v_i \\le n$。",
+      "referenceSolution": "#include <cstdio>\n#include <algorithm>\n#include <vector>\n\nusing namespace std;\n\nconst int N = 2005;\n\nint n, m;\nvector<int> e[N];\nint d[N], mx[N], q[N];\n\nvoid bfs(int u) {\n    for (int i = 1; i <= n; i++)\n        d[i] = n + 1;\n    d[u] = 0;\n    q[1] = u;\n    int ql = 1, qr = 1;\n    while (ql <= qr) {\n        int x = q[ql++];\n        for (auto y : e[x])\n            if (d[x] + 1 < d[y]) {\n                d[y] = d[x] + 1;\n                q[++qr] = y;\n            }\n    }\n    mx[u] = d[q[qr]];\n}\n\nint main() {\n    scanf(\"%d%d\", &n, &m);\n    for (int i = 1; i <= m; i++) {\n        int u, v;\n        scanf(\"%d%d\", &u, &v);\n        e[u].emplace_back(v);\n        e[v].emplace_back(u);\n    }\n    int ans = 1;\n    for (int i = 1; i <= n; i++) {\n        bfs(i);\n        if (mx[i] < mx[ans])\n            ans = i;\n    }\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "学习小组",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "班主任计划将班级里的 $n$ 名同学划分为若干个学习小组，每名同学都需要分入某一个学习小组中。班级里的同学依次以 $1, 2, \\ldots, n$ 编号，第 $i$ 名同学有其发言积极度 $c_i$。\n\n观察发现，如果一个学习小组中恰好包含编号为 $p_1, p_2, \\ldots, p_k$ 的 $k$ 名同学，则该学习小组的基础讨论积极度为 $a_k$，综合讨论积极度为 $a_k + \\max\\{c_{p_1}, c_{p_2}, \\ldots, c_{p_k}\\} - \\min\\{c_{p_1}, c_{p_2}, \\ldots, c_{p_k}\\}$，也即基础讨论积极度加上小组内同学的最大发言积极度与最小发言积极度之差。\n\n给定基础讨论积极度 $a_1, a_2, \\ldots, a_n$，请你计算将这 $n$ 名同学划分为学习小组的所有可能方案中，综合讨论积极度之和的最大值。",
+      "inputFormat": "第一行，一个正整数 $n$，表示班级人数。\n\n第二行，$n$ 个非负整数 $c_1, c_2, \\ldots, c_n$，表示每位同学的发言积极度。\n\n第三行，$n$ 个非负整数 $a_1, a_2, \\ldots, a_n$，表示不同人数学习小组的基础讨论积极度。",
+      "outputFormat": "输出一行，一个整数，表示所有划分方案中，学习小组综合讨论积极度之和的最大值。",
+      "samples": [
+        {
+          "input": "4\n2 1 3 2\n1 5 6 3",
+          "output": "12"
+        },
+        {
+          "input": "8\n1 3 2 4 3 5 4 6\n0 2 5 6 4 3 3 4",
+          "output": "21"
+        }
+      ],
+      "dataRange": "对于 $40\\%$ 的测试点，保证 $c_i = 0$。\n\n对于所有测试点，保证 $1 \\le n \\le 300$，$0 \\le c_i \\le 10^4$，$0 \\le a_i \\le 10^4$。",
+      "referenceSolution": "#include <cstdio>\n#include <algorithm>\n\nusing namespace std;\n\nconst int N = 305;\n\nint n;\nint c[N], a[N];\nint f[N][N];\nint ans;\n\nint main() {\n    scanf(\"%d\", &n);\n    for (int i = 1; i <= n; i++)\n        scanf(\"%d\", &c[i]);\n    for (int i = 1; i <= n; i++)\n        scanf(\"%d\", &a[i]);\n    sort(c + 1, c + n + 1);\n    for (int i = n; i >= 1; i--)\n        for (int j = 1; j <= n; j++)\n            for (int k = i; k <= n; k++) {\n                int diff = 0;\n                if (i > 1)\n                    diff = c[n - j + 1] - c[j];\n                f[j][k] = max(f[j][k], f[j - 1][k - i] + a[i] + diff);\n                if (k == n)\n                    ans = max(ans, f[j][k]);\n            }\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n"
+    }
+  ]
+}

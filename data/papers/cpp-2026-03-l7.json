@@ -1,0 +1,498 @@
+{
+  "id": "cpp-2026-03-l7",
+  "language": "cpp",
+  "level": 7,
+  "exam": {
+    "id": "2026-03",
+    "title": "2026年3月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10269.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1734447340716064.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "假设一个算法时间复杂度的递推式是 $T(n) = 2T(n-1) + 1$（$n$ 为正整数），且 $T(0) = 1$，那么这个算法的时间复杂度是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n\\log n)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n^2)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(2^n)$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "下面关于“唯一分解定理”和“素数筛法”的说法中，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "如果预处理出 $n$ 以内每个数的最小质因子，那么可以在 $O(\\log n)$ 时间内完成任意一个不超过 $n$ 的整数的质因数分解。"
+        },
+        {
+          "label": "B",
+          "content": "线性筛（欧拉筛）能够保证每个合数只被其最小质因子筛掉一次，这一性质依赖于唯一分解定理。"
+        },
+        {
+          "label": "C",
+          "content": "唯一分解定理保证：若一个数未被任何不超过其平方根的质数筛去，则它一定是质数。"
+        },
+        {
+          "label": "D",
+          "content": "唯一分解定理是埃氏筛时间复杂度为 $O(n\\log\\log n)$ 的根本原因。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "若字符串 $A$ 与字符串 $B$ 的最长公共子序列（LCS）长度为 5，则（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "它们的编辑距离为 5"
+        },
+        {
+          "label": "B",
+          "content": "它们至少有 5 个公共字符"
+        },
+        {
+          "label": "C",
+          "content": "它们最长公共子串长度为 5"
+        },
+        {
+          "label": "D",
+          "content": "它们一定长度相等"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "对于一棵包含 $n$ 个顶点（$n \\ge 2$）的树，其所有顶点的度数之和必定等于（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$n-1$"
+        },
+        {
+          "label": "B",
+          "content": "$2n-2$"
+        },
+        {
+          "label": "C",
+          "content": "$2n$"
+        },
+        {
+          "label": "D",
+          "content": "$n^2$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "关于哈希表（Hash Table）在**不考虑扩容且采用简单均匀哈希函数的前提下**，下列说法中错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "装载因子越大，发生冲突的概率通常越高"
+        },
+        {
+          "label": "B",
+          "content": "开放定址法在删除元素时实现相对复杂"
+        },
+        {
+          "label": "C",
+          "content": "链地址法在最坏情况下查找时间复杂度为 $O(n)$"
+        },
+        {
+          "label": "D",
+          "content": "查找哈希表的时间复杂度总是 $O(1)$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "深度优先搜索（DFS）在遍历图时，每当访问到某个顶点后，选择一个相邻的未访问顶点继续搜索，直到某个顶点的所有相邻顶点均已被访问，则退回到前一顶点继续搜索。该算法主要运用了（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "分治"
+        },
+        {
+          "label": "B",
+          "content": "贪心"
+        },
+        {
+          "label": "C",
+          "content": "动态规划"
+        },
+        {
+          "label": "D",
+          "content": "回溯"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下面程序的运行结果为（ ）。\n\n```cpp\n#include <iostream>\n#include <algorithm>\n\nbool check(int n, int a[], int k, int dist) {\n    int cnt = 1;\n    int last = a[0];\n\n    for (int i = 1; i < n; i++) {\n        if (a[i] - last >= dist) {\n            cnt++;\n            last = a[i];\n        }\n    }\n\n    return cnt >= k;\n}\n\nint solve(int n, int a[], int k) {\n    std::sort(a, a + n);\n\n    int l = 0;\n    int r = a[n - 1] - a[0];\n\n    while (l < r) {\n        int mid = (l + r + 1) / 2;\n\n        if (check(n, a, k, mid))\n            l = mid;\n        else\n            r = mid - 1;\n    }\n\n    return l;\n}\n\nint main() {\n    int a[] = {1, 2, 8, 4, 9};\n    int n = 5;\n    int k = 3;\n\n    std::cout << solve(n, a, k) << std::endl;\n\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "2"
+        },
+        {
+          "label": "B",
+          "content": "3"
+        },
+        {
+          "label": "C",
+          "content": "4"
+        },
+        {
+          "label": "D",
+          "content": "5"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "下面程序的时间复杂度是（ ），假设数组 $a$ 的值域范围是 $D$。\n\n```cpp\n#include <iostream>\n#include <algorithm>\n\nbool check(int n, int a[], int k, int dist) {\n    int cnt = 1;\n    int last = a[0];\n\n    for (int i = 1; i < n; i++) {\n        if (a[i] - last >= dist) {\n            cnt++;\n            last = a[i];\n        }\n    }\n\n    return cnt >= k;\n}\n\nint solve(int n, int a[], int k) {\n    std::sort(a, a + n);\n\n    int l = 0;\n    int r = a[n - 1] - a[0];\n\n    while (l < r) {\n        int mid = (l + r + 1) / 2;\n\n        if (check(n, a, k, mid))\n            l = mid;\n        else\n            r = mid - 1;\n    }\n\n    return l;\n}\n\nint main() {\n    int a[] = {1, 2, 8, 4, 9};\n    int n = 5;\n    int k = 3;\n\n    std::cout << solve(n, a, k) << std::endl;\n\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n\\log n + n\\log D)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n\\log n\\log D)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n\\log n)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(n\\log D)$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "某二叉树共有 10 个结点，记为 A~J，已知它的先序遍历序列为：**A B D H I E C F J G**，中序遍历序列为：**H D I B E A F J C G**，则该二叉树的后序遍历序列是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "H I D E B J F G C A"
+        },
+        {
+          "label": "B",
+          "content": "H I D B E J F G C A"
+        },
+        {
+          "label": "C",
+          "content": "I H D E B J F G C A"
+        },
+        {
+          "label": "D",
+          "content": "H I D E B F J G C A"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面哪一个可能是下图的深度优先遍历序列（ ）。\n\n```text\n有向边：\n3→1, 3→2, 2→1, 2→5, 2→9,\n1→4, 1→5, 1→7, 5→4, 5→8,\n4→7, 8→4, 8→7, 8→9, 9→6, 6→3\n```\n\n（图中共 9 个顶点：1~9。）",
+      "options": [
+        {
+          "label": "A",
+          "content": "1, 5, 4, 8, 7, 9, 6, 3, 2"
+        },
+        {
+          "label": "B",
+          "content": "1, 5, 8, 4, 7, 9, 6, 3, 2"
+        },
+        {
+          "label": "C",
+          "content": "2, 5, 8, 7, 9, 6, 3, 4, 1"
+        },
+        {
+          "label": "D",
+          "content": "8, 9, 6, 3, 2, 5, 1, 4, 7"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面这个有向图的强连通分量的个数是（ ）。\n\n```text\n有向边：\n1→2, 3→2, 3→4, 4→3, 4→7,\n2→6, 5→1, 6→5, 6→9,\n7→8, 8→7,\n9→10, 10→11, 10→12, 11→9, 11→15,\n12→6, 12→7, 12→13,\n13→14, 14→15, 14→16, 15→13, 16→15\n```\n\n（图中共 16 个顶点：1~16。）",
+      "options": [
+        {
+          "label": "A",
+          "content": "3"
+        },
+        {
+          "label": "B",
+          "content": "4"
+        },
+        {
+          "label": "C",
+          "content": "5"
+        },
+        {
+          "label": "D",
+          "content": "6"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "关于泛洪算法（Flood Fill）的说法，正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "泛洪算法只适用于二维网格中的四连通或八连通问题。"
+        },
+        {
+          "label": "B",
+          "content": "泛洪算法必须使用递归方式实现。"
+        },
+        {
+          "label": "C",
+          "content": "泛洪算法本质上是对图进行一次从起点出发的搜索。"
+        },
+        {
+          "label": "D",
+          "content": "泛洪算法只能用于统计连通块个数，不能用于计算面积或周长。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "有 6 个字符，它们出现的次数分别为：`{2, 3, 3, 4, 6, 8}`，现在用哈夫曼编码为这些字符编码，最小加权路径长度 WPL（每个字符的出现次数 $\\times$ 它的编码长度，再把每个字符结果加起来）的值为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "58"
+        },
+        {
+          "label": "B",
+          "content": "60"
+        },
+        {
+          "label": "C",
+          "content": "62"
+        },
+        {
+          "label": "D",
+          "content": "64"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "关于单链表、双链表和循环链表，下列说法正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "在单链表中，若已知某结点的指针，则可以在 $O(1)$ 时间内删除该结点。"
+        },
+        {
+          "label": "B",
+          "content": "循环链表中一定不存在空指针。"
+        },
+        {
+          "label": "C",
+          "content": "在循环双链表中，尾结点的 next 指针一定为 NULL。"
+        },
+        {
+          "label": "D",
+          "content": "在带头结点的循环单链表中，判定链表是否为空只需判断头结点的 next 是否指向自身。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下列关于树的遍历的说法中，正确的一项是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "对任意一棵树进行深度优先遍历，所得序列一定唯一。"
+        },
+        {
+          "label": "B",
+          "content": "已知一棵二叉树的先序遍历和后序遍历序列，可以唯一确定这棵二叉树。"
+        },
+        {
+          "label": "C",
+          "content": "已知一棵二叉树的先序遍历和中序遍历序列，可以唯一确定这棵二叉树。"
+        },
+        {
+          "label": "D",
+          "content": "一棵二叉树的中序遍历序列是单调递增的，则该二叉树一定是二叉平衡树。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "C++ 语言中，表达式 `4 ^ 2` 的结果类型为 `int`，值为 `6`。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "C++ 中引用可以重新绑定。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "在 C++ 中，若函数形参为引用类型，则在函数内部对该形参的修改会影响对应的实参。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "如果一个最值问题可以用动态规划在多项式时间内求解，那么也一定存在一种贪心策略，可以在多项式时间内求得最优解。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "使用归并排序对 $n$ 个元素进行排序时，无论最好、最坏还是平均情况，时间复杂度均为 $O(n\\log n)$。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "在无向连通图中删除一条边，该图就一定变成非连通图。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "在一个无向图中，每个顶点有不同的编号，在执行深度优先遍历过程中选择下一个顶点时总是优先选择编号更小的相邻顶点，则从指定顶点开始的遍历序列是唯一的。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "若所有字符出现频率相同，则哈夫曼编码一定会得到完全二叉树。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "使用 `math.h` 或 `cmath` 头文件中的函数，表达式 `sin(90)` 的结果为 `1`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "在一个无向连通图中，从任意顶点开始进行深度优先遍历，最终得到的 DFS 生成树一定包含图中的所有顶点。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "拆分",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小 A 想将正整数 $n$ 拆分成若干个正整数之和，并最大化拆分后的正整数之积。小 A 希望你帮他计算出拆分后正整数之积的最大值。由于答案可能很大，你只需要求出答案对 $10^9$ 取模的结果。\n\n形式化地，$n$ 的拆分是满足 $a_1 + \\cdots + a_k = n$ 的若干个正整数 $a_1, \\ldots, a_k$，其中 $1 \\le k \\le n$。你需要求出 $n$ 的所有拆分中 $a_1 \\times \\cdots \\times a_n$ 的最大值对 $10^9$ 取模的结果。",
+      "inputFormat": "第一行，一个正整数 $t$，表示数据组数。\n\n对于每组数据：一行，一个整数 $n$，表示给定的正整数。",
+      "outputFormat": "对于每组数据：输出一行，一个整数，表示 $n$ 拆分后正整数之积的最大值对 $10^9$ 取模的结果。",
+      "samples": [
+        {
+          "input": "3\n5\n8\n100",
+          "output": "6\n18\n755407364"
+        }
+      ],
+      "dataRange": "对于 $40\\%$ 的测试点，保证 $n \\le 50$。\n\n对于所有测试点，保证 $1 \\le t \\le 10^4$，$1 \\le n \\le 10^6$。",
+      "referenceSolution": "#include <cstdio>\n#include <cmath>\n#include <algorithm>\n\nusing namespace std;\n\nconst int N = 1e6 + 5;\nconst int mod = 1e9;\nconst double ln2 = log(2);\nconst double ln3 = log(3);\n\nint f[N];\ndouble lnf[N];\n\nint main() {\n    f[0] = f[1] = 1;\n    for (int i = 0; i < N; i++) {\n        if (i + 2 < N && lnf[i] + ln2 > lnf[i + 2]) {\n            lnf[i + 2] = lnf[i] + ln2;\n            f[i + 2] = 2ll * f[i] % mod;\n        }\n        if (i + 3 < N && lnf[i] + ln3 > lnf[i + 3]) {\n            lnf[i + 3] = lnf[i] + ln3;\n            f[i + 3] = 3ll * f[i] % mod;\n        }\n    }\n    int t;\n    scanf(\"%d\", &t);\n    while (t--) {\n        int n;\n        scanf(\"%d\", &n);\n        printf(\"%d\\n\", f[n]);\n    }\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "物流网络",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "一个物流网络由 $n$ 个城市和 $m$ 条双向公路组成。每条公路都有两个属性：\n\n- 运输费用 $w_i$\n- 景观评分 $b_i$\n\n当一辆运输车从城市 $1$ 运送货物到城市 $n$ 时，需要支付经过道路的运输费用之和。\n\n为了推广旅游线路，物流公司推出了一项优惠政策：在运输路径上，可以**免除景观评分最高**的那条公路的运输费用。如果有多条公路的景观评分同为最大值，则只免除其中 **一条** 的费用。\n\n请你计算，从城市 $1$ 到城市 $n$ 的**最小运输费用**。",
+      "inputFormat": "第一行两个整数 $n, m$，分别表示城市数量和公路数量。\n\n接下来 $m$ 行，每行四个整数 $u, v, w, b$，表示存在一条连接城市 $u$ 和城市 $v$ 的双向公路，其中 $w$ 为运输费用，$b$ 为景观评分。",
+      "outputFormat": "输出一个整数，表示从城市 $1$ 到城市 $n$ 的最小费用。\n\n如果无法到达，输出 `-1`。",
+      "samples": [
+        {
+          "input": "3 3\n1 2 10 5\n2 3 20 6\n1 3 100 1",
+          "output": "0",
+          "explanation": "路径 $1 \\to 2 \\to 3$：费用 $10 + 20$，最大美丽值 $6$（边 $2-3$）。免除 $20$，总花费 $10$。\n\n路径 $1 \\to 3$：费用 $100$，最大美丽值 $1$（边 $1-3$）。免除 $100$，总花费 $0$。\n\n最小费用为 $0$。"
+        }
+      ],
+      "dataRange": "$1 \\le n \\le 5000$，$1 \\le m \\le 5000$，$1 \\le w, b \\le 10^9$。",
+      "referenceSolution": "#include <algorithm>\n#include <iostream>\n#include <queue>\n#include <vector>\n\nusing namespace std;\n\nstruct Highway {\n    int u, v;\n    int fee, b;\n    bool operator<(const Highway &other) const {\n        return b == other.b ? fee < other.fee : b < other.b;\n    }\n};\n\nvoid solve() {\n\n    int n, m;\n    cin >> n >> m;\n\n    vector<Highway> highways(m);\n    for (int i = 0; i < m; i ++)\n        cin >> highways[i].u >> highways[i].v >> highways[i].fee >> highways[i].b;\n\n    sort(highways.begin(), highways.end());\n\n    vector<vector<const Highway *> > network(n + 1);\n\n    vector<long long> dp1(n + 1, (long long)1e18);\n    vector<long long> dpn(n + 1, (long long)1e18);\n\n    dp1[1] = 0, dpn[n] = 0;\n    long long answer = (long long)1e18;\n\n    for (int ri = 0; ri < m; ri ++) {\n        const Highway &r = highways[ri];\n        answer = min(\n            answer,\n            min(dp1[r.u] + dpn[r.v],\n                     dp1[r.v] + dpn[r.u])\n        );\n\n        network[r.u].push_back(&r);\n        network[r.v].push_back(&r);\n\n        vector<int> cur;\n        cur.push_back(r.u), cur.push_back(r.v);\n        for (int t = 0; t < cur.size(); t ++) {\n            int i = cur[t];\n            for (int t2 = 0; t2 < network[i].size(); t2 ++) {\n                const Highway* j = network[i][t2];\n                int k = (i == j->u ? j->v : j->u);\n                if (dp1[i] + j->fee < dp1[k]) {\n                    dp1[k] = dp1[i] + j->fee;\n                    cur.push_back(k);\n                }\n            }\n        }\n        cur.clear();\n\n\n        cur.push_back(r.u), cur.push_back(r.v);\n        for (int t = 0; t < cur.size(); t ++) {\n            int i = cur[t];\n            for (int t2 = 0; t2 < network[i].size(); t2 ++) {\n                const Highway* j = network[i][t2];\n                int k = (i == j->u ? j->v : j->u);\n                if (dpn[i] + j->fee < dpn[k]) {\n                    dpn[k] = dpn[i] + j->fee;\n                    cur.push_back(k);\n                }\n            }\n        }\n        cur.clear();\n    }\n\n    cout << (answer == (long long)1e18 ? -1 : answer) << '\\n';\n}\n\nint main() {\n    solve();\n    return 0;\n}\n"
+    }
+  ]
+}

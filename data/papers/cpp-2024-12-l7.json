@@ -1,0 +1,497 @@
+{
+  "id": "cpp-2024-12-l7",
+  "language": "cpp",
+  "level": 7,
+  "exam": {
+    "id": "2024-12",
+    "title": "2024年12月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10178.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1650239779897376.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "已知小写字母 `b` 的 ASCII 码为 $98$，下列 C++ 代码的输出结果是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint main() {\n    char a = 'b';\n    cout << a + 1;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`b`"
+        },
+        {
+          "label": "B",
+          "content": "`c`"
+        },
+        {
+          "label": "C",
+          "content": "`98`"
+        },
+        {
+          "label": "D",
+          "content": "`99`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "已知 `a` 为 `int` 类型变量，`p` 为 `int *` 类型变量，下列赋值语句不符合语法的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "`+a = *p;`"
+        },
+        {
+          "label": "B",
+          "content": "`*p = +a;`"
+        },
+        {
+          "label": "C",
+          "content": "`a = *(p + a);`"
+        },
+        {
+          "label": "D",
+          "content": "`*(p + a) = a;`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "已知数组 `a` 的定义 `int a[10] = {0};`，下列说法不正确的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "语句 `a[-1] = 0;` 会产生编译错误。"
+        },
+        {
+          "label": "B",
+          "content": "数组 `a` 的所有元素均被初始化为 `0`。"
+        },
+        {
+          "label": "C",
+          "content": "数组 `a` 至少占用 `10` 个 `int` 大小的内存，一般为 `40` 个字节。"
+        },
+        {
+          "label": "D",
+          "content": "语句 `a[13] = 0;` 不会产生编译错误，但会导致难以预测的运行结果。"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "下列关于 C++ 类的说法，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "构造函数不能声明为虚函数，但析构函数可以。"
+        },
+        {
+          "label": "B",
+          "content": "函数参数如声明为类的引用类型，调用时不会调用该类的复制构造函数。"
+        },
+        {
+          "label": "C",
+          "content": "静态方法属于类、不属于对象，因此不能使用 `对象.方法(...)` 的形式调用静态方法。"
+        },
+        {
+          "label": "D",
+          "content": "析构派生类的对象时，一定会调用基类的析构函数。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "下列关于有向图的说法，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$n$ 个顶点的弱连通有向图，最少有 $n-1$ 条边。"
+        },
+        {
+          "label": "B",
+          "content": "$n$ 个顶点的强连通有向图，最少有 $n$ 条边。"
+        },
+        {
+          "label": "C",
+          "content": "$n$ 个顶点的有向图，最多有 $n \\times (n-1)$ 条边。"
+        },
+        {
+          "label": "D",
+          "content": "$n$ 个顶点的有向完全图，有 $n \\times (n-1)$ 条边。"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "一棵二叉树的每个结点均满足：结点的左子树和右子树，要么同时存在，要么同时不存在。该树有 $197$ 个结点，则其叶结点有多少个？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "$98$"
+        },
+        {
+          "label": "B",
+          "content": "$99$"
+        },
+        {
+          "label": "C",
+          "content": "不存在这样的树。"
+        },
+        {
+          "label": "D",
+          "content": "无法确定叶结点数量。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下列关于二叉树的说法，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "二叉排序树的中序遍历顺序与元素排序的顺序是相同的。"
+        },
+        {
+          "label": "B",
+          "content": "$n$ 个元素的二叉排序树，其高一定为 $\\lfloor \\log_2 n \\rfloor$。"
+        },
+        {
+          "label": "C",
+          "content": "自平衡二叉查找树（AVL 树）是一种二叉排序树。"
+        },
+        {
+          "label": "D",
+          "content": "任意的森林，都可以映射为一颗二叉树进行表达和存储。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "一个简单无向图有 $10$ 个结点、$6$ 条边。在最差情况，至少增加多少条边可以使其连通？（ ）",
+      "options": [
+        {
+          "label": "A",
+          "content": "$3$"
+        },
+        {
+          "label": "B",
+          "content": "$4$"
+        },
+        {
+          "label": "C",
+          "content": "$6$"
+        },
+        {
+          "label": "D",
+          "content": "$9$"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "一个哈希表，包括 $n$ 个位置（分别编号 $0 \\sim (n-1)$），每个位置最多仅能存储一个元素。该哈希表只有插入元素和查询两种操作，没有删除或修改元素的操作。以下说法错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "如果哈希函数取值范围为 $0 \\sim (n-1)$，且当发生哈希函数碰撞时循环向后寻找空位，则查询操作的最差时间复杂度为 $O(n)$。（“循环向后”指：$0$ 向后一位为 $1$，$1$ 向后一位为 $2$，……，$(n-2)$ 向后一位为 $(n-1)$，$(n-1)$ 向后一位为 $0$）"
+        },
+        {
+          "label": "B",
+          "content": "如果哈希函数取值范围为 $0 \\sim (n-1)$，且当发生哈希函数碰撞时仅循环向后一个位置寻找空位，则查询操作的最差时间复杂度为 $O(1)$。"
+        },
+        {
+          "label": "C",
+          "content": "如果哈希函数取值范围为 $0 \\sim (m-1)$（$m < n$），且当发生哈希函数碰撞时仅在 $m \\sim (n-1)$ 的范围内寻找空位，则查询操作的最差时间复杂度为 $O(n-m)$。"
+        },
+        {
+          "label": "D",
+          "content": "查询操作时，如果发现查询元素经哈希函数对应的位置为空位，该查询元素仍可能出现在哈希表内。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "以下关于动态规划的说法中，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "动态规划方法将原问题分解为一个或多个相似的子问题。"
+        },
+        {
+          "label": "B",
+          "content": "动态规划方法通常能够列出递推公式。"
+        },
+        {
+          "label": "C",
+          "content": "动态规划方法有递推和递归两种实现形式。"
+        },
+        {
+          "label": "D",
+          "content": "递推实现动态规划方法的时间复杂度总是不低于递归实现。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面程序的输出为（ ）。\n\n```cpp\n#include <iostream>\n#include <cmath>\nusing namespace std;\nint main() {\n    cout << (int)exp(2) << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`4`"
+        },
+        {
+          "label": "B",
+          "content": "`7`"
+        },
+        {
+          "label": "C",
+          "content": "`100`"
+        },
+        {
+          "label": "D",
+          "content": "无法通过编译。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下面程序的输出为（ ）。\n\n```cpp\n#include <iostream>\n#define N 10\nusing namespace std;\nint h[N];\nint main() {\n    h[0] = h[1] = 1;\n    for (int n = 2; n < N; n++)\n        for (int j = 0; j < n; j++)\n            h[n] += h[j] * h[n - j - 1];\n    cout << h[6] << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`132`"
+        },
+        {
+          "label": "B",
+          "content": "`1430`"
+        },
+        {
+          "label": "C",
+          "content": "`16796`"
+        },
+        {
+          "label": "D",
+          "content": "结果是随机的。"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "上题中程序的时间复杂度为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(N)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(N \\log N)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(N^{3/2})$"
+        },
+        {
+          "label": "D",
+          "content": "$O(N^2)$"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "下面 `init_sieve` 函数的时间复杂度为（ ）。\n\n```cpp\nint sieve[MAX_N];\nvoid init_sieve(int n) {\n    for (int i = 1; i <= n; i++)\n        sieve[i] = i;\n    for (int i = 2; i <= n; i++)\n        for (int j = i; j <= n; j += i)\n            sieve[j]--;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n \\log n)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n^2)$"
+        },
+        {
+          "label": "D",
+          "content": "无法正常结束。"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下列选项中，哪个不可能是下图的深度优先遍历序列（ ）。\n\n```text\n顶点按 3×3 排列：\n1  2  3\n4  5  6\n7  8  9\n```\n\n该有向图共 9 个顶点，有向边为：$1 \\to 2$，$2 \\to 3$，$1 \\to 4$，$1 \\to 5$，$3 \\to 5$，$3 \\to 6$，$4 \\to 7$，$5 \\to 7$，$8 \\to 5$，$6 \\to 8$，$6 \\to 9$，$7 \\to 8$，$8 \\to 9$。",
+      "options": [
+        {
+          "label": "A",
+          "content": "1, 2, 3, 5, 7, 8, 6, 9, 4"
+        },
+        {
+          "label": "B",
+          "content": "1, 4, 7, 8, 9, 5, 2, 3, 6"
+        },
+        {
+          "label": "C",
+          "content": "1, 5, 7, 8, 9, 4, 2, 3, 6"
+        },
+        {
+          "label": "D",
+          "content": "1, 2, 3, 6, 9, 8, 5, 7, 4"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "表达式 `5 ^ 3` 的结果为 `125`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "在 C++ 语言中，函数定义和函数调用可以不在同一个文件内。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "在 $n$ 个元素中进行二分查找，平均时间复杂度是 $O(\\log n)$，但须要事先进行排序。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "`unsigned long long` 类型是 C++ 语言中表达范围最大的非负整数类型之一，其表达范围是 $[0, 2^{64}-1]$。超出该范围的非负整数运算，将无法使用 C++ 语言进行计算。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "使用 `math.h` 或 `cmath` 头文件中的函数，表达式 `log2(32)` 的结果为 `5`、类型为 `int`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "C++ 是一种面向对象编程语言，C 则不是。继承是面向对象三大特性之一。因此，使用 C 语言无法实现继承。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "邻接表和邻接矩阵都是图的存储形式。邻接表在遍历单个顶点的所有边时，时间复杂度更低；邻接矩阵在判断两个顶点之间是否有边时，时间复杂度更低。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "MD5 是一种常见的哈希函数，可以由任意长度的数据生成 128 位的哈希值，曾广泛应用于数据完整性校验。中国科学家的系列工作首次发现了可实用的 MD5 破解方法。之后，MD5 逐渐被其他哈希函数所取代。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "递归调用在运行时会由于层数过多导致程序崩溃，可以通过循环配合栈缓解这一问题。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "一个图中，每个顶点表达一个城市，连接两个顶点的边表达从一个城市到达另一个城市的一种交通方式。这个图可以用来表达交通网络，且是简单有向图。",
+      "answer": "F"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "武器购买",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "商店里有 $n$ 个武器，第 $i$ 个武器的强度为 $p_i$，花费为 $c_i$。\n\n小杨想要购买一些武器，满足这些武器的总强度不小于 $P$，总花费不超过 $Q$，小杨想知道是否存在满足条件的购买方案，如果有，最少花费又是多少。",
+      "inputFormat": "第一行包含一个正整数 $t$，代表测试数据组数。\n\n对于每组测试数据，第一行包含三个正整数 $n, P, Q$，含义如题面所示。\n\n之后 $n$ 行，每行包含两个正整数 $p_i, c_i$，代表武器的强度和花费。",
+      "outputFormat": "对于每组测试数据，如果存在满足条件的购买方案，输出最少花费，否则输出 $-1$。",
+      "samples": [
+        {
+          "input": "3\n3 2 3\n1 2\n1 2\n2 3\n3 3 4\n1 2\n1 2\n2 3\n3 1000 1000\n1 2\n1 2\n2 3",
+          "output": "3\n-1\n-1"
+        }
+      ],
+      "dataRange": "| 子任务编号 | 数据点占比 | $n$ | $p_i$ | $c_i$ | $P$ | $Q$ |\n| :-: | :-: | :-: | :-: | :-: | :-: | :-: |\n| 1 | 20% | $\\le 10$ | $1$ | $1$ | $\\le 10$ | $\\le 10$ |\n| 2 | 20% | $\\le 100$ | $\\le 5 \\times 10^4$ | $1$ | $\\le 5 \\times 10^4$ | $2$ |\n| 3 | 60% | $\\le 100$ | $\\le 5 \\times 10^4$ | $\\le 5 \\times 10^4$ | $\\le 5 \\times 10^4$ | $\\le 5 \\times 10^4$ |\n\n对于全部数据，保证有 $1 \\le t \\le 10$，$1 \\le n \\le 100$，$1 \\le p_i, c_i, P, Q \\le 5 \\times 10^4$。",
+      "referenceSolution": "#include <bits/stdc++.h>\nusing namespace std;\n\n#define ll long long\nll dp[50010];\nll solve(int n, int P, int Q, vector<pair<int, int>>& weapons) {\n    dp[0] = 0;\n\n    for (auto& weapon : weapons) {\n        int p = weapon.first;\n        int c = weapon.second;\n        for (int j = Q; j >= c; --j) {\n            if (dp[j - c]>=0) {\n                dp[j] = max(dp[j], dp[j - c] + p);\n            }\n        }\n    }\n    for (int j = 0; j <= Q; ++j) {\n        if (dp[j] >= P) {\n            return j;\n        }\n    }\n\n    return -1;\n}\n\nint main() {\n    int t;\n    cin>>t;\n    while(t--){\n        int n, P, Q;\n        cin >> n >> P >> Q;\n        memset(dp,-0x3f,sizeof dp);\n        vector<pair<int, int> > weapons(n);\n        for (int i = 0; i < n; ++i) {\n            cin >> weapons[i].first >> weapons[i].second;\n        }\n        cout << solve(n, P, Q, weapons) << \"\\n\";\n    }\n\n    return 0;\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "燃烧",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨有一棵包含 $n$ 个节点的树，其中节点的编号从 $1$ 到 $n$。节点 $i$ 的权值为 $a_i$。\n\n小杨可以选择一个初始节点引燃，每个燃烧的节点会将其相邻节点中权值**严格小于**自身权值的节点也引燃，火焰会在节点间扩散直到不会有新的节点被引燃。\n\n小杨想知道在合理选择初始节点的情况下，最多可以燃烧多少个节点。",
+      "inputFormat": "第一行包含一个正整数 $n$，代表节点数量。\n\n第二行包含 $n$ 个正整数 $a_1, a_2, \\ldots, a_n$，代表节点权值。\n\n之后 $n-1$ 行，每行包含两个正整数 $u_i, v_i$，代表存在一条连接节点 $u_i$ 和 $v_i$ 的边。",
+      "outputFormat": "输出一个正整数，代表最多燃烧的节点个数。",
+      "samples": [
+        {
+          "input": "5\n6 2 3 4 5\n1 2\n2 3\n2 5\n1 4",
+          "output": "3"
+        }
+      ],
+      "dataRange": "| 子任务编号 | 数据点占比 | $n$ |\n| :-: | :-: | :-: |\n| 1 | 20% | $10$ |\n| 2 | 20% | $\\le 100$ |\n| 3 | 60% | $\\le 10^5$ |\n\n对于全部数据，保证有 $1 \\le n \\le 10^5$，$1 \\le a_i \\le 10^6$。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\nconst int N = 1e5+10;\nint a[N];\nint sum[N];\nint down[N];\nvector<int> g[N];\nvoid dfs_down(int x,int fa){\n    down[x]=1;\n    for(int i:g[x]){\n        if(i!=fa){\n            dfs_down(i,x);\n            if(a[x]>a[i]){\n                down[x]+=down[i];\n            }\n        }\n    }\n}\nvoid dfs_sum(int x,int fa){\n    if(a[x]>a[fa]){\n        sum[x]+=sum[fa]+down[fa];\n    }\n    for(int i:g[x]){\n        if(i!=fa){\n            dfs_sum(i,x);\n        }\n    }\n}\nint main(){\n    int n;\n    cin>>n;\n    for(int i=1;i<=n;i++){\n        cin>>a[i];\n    }\n    for(int i=1;i<n;i++){\n        int u,v;\n        cin>>u>>v;\n        g[u].push_back(v);\n        g[v].push_back(u);\n    }\n    dfs_down(1,0);\n    dfs_sum(1,0);\n    int mx = 0;\n    for(int i=1;i<=n;i++){\n        mx = max(mx,sum[i]+down[i]);\n    }\n    cout<<mx<<\"\\n\";\n\n}\n"
+    }
+  ]
+}

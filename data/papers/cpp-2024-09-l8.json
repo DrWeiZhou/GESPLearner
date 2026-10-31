@@ -1,0 +1,501 @@
+{
+  "id": "cpp-2024-09-l8",
+  "language": "cpp",
+  "level": 8,
+  "exam": {
+    "id": "2024-09",
+    "title": "2024年9月GESP认证",
+    "sourceUrl": "https://gesp.ccf.org.cn/101/1010/10166.html"
+  },
+  "pdfUrl": "https://gesp.ccf.org.cn/101/attach/1633836360269856.pdf",
+  "durationMinutes": 120,
+  "questions": [
+    {
+      "type": "single_choice",
+      "number": 1,
+      "score": 2,
+      "stem": "下面关于 C++ 类和对象的说法，错误的是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "类的析构函数可以为虚函数。"
+        },
+        {
+          "label": "B",
+          "content": "类的构造函数不可以为虚函数。"
+        },
+        {
+          "label": "C",
+          "content": "`class` 中成员的默认访问权限为 `private`。"
+        },
+        {
+          "label": "D",
+          "content": "`struct` 中成员的默认访问权限为 `private`。"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 2,
+      "score": 2,
+      "stem": "对于一个具有 $n$ 个顶点的无向图，若采用邻接矩阵表示，则该矩阵的大小为（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$n \\times \\frac{n}{2}$"
+        },
+        {
+          "label": "B",
+          "content": "$n \\times n$"
+        },
+        {
+          "label": "C",
+          "content": "$(n-1) \\times (n-1)$"
+        },
+        {
+          "label": "D",
+          "content": "$(n+1) \\times (n+1)$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 3,
+      "score": 2,
+      "stem": "设有编号为 A、B、C、D、E 的 5 个球和编号为 A、B、C、D、E 的 5 个盒子。现将这 5 个球投入 5 个盒子，要求每个盒子放一个球，并且恰好有两个球的编号与盒子编号相同，问有多少种不同的方法？（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "5"
+        },
+        {
+          "label": "B",
+          "content": "120"
+        },
+        {
+          "label": "C",
+          "content": "20"
+        },
+        {
+          "label": "D",
+          "content": "60"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 4,
+      "score": 2,
+      "stem": "从甲地到乙地，可以乘高铁，也可以乘汽车，还可以乘轮船。一天中，高铁有 10 班，汽车有 5 班，轮船有 2 班。那么一天中乘坐这些交通工具从甲地到乙地共有多少种不同的走法？（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "100"
+        },
+        {
+          "label": "B",
+          "content": "60"
+        },
+        {
+          "label": "C",
+          "content": "30"
+        },
+        {
+          "label": "D",
+          "content": "17"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 5,
+      "score": 2,
+      "stem": "$n$ 个结点的二叉树，执行释放全部结点操作的时间复杂度是（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n \\log n)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(\\log n)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(2^n)$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 6,
+      "score": 2,
+      "stem": "在一个单位圆上，随机分布 $n$ 个点，求这 $n$ 个点能被一个单位半圆周全部覆盖的概率（ ）。",
+      "options": [
+        {
+          "label": "A",
+          "content": "$\\frac{n}{2^{n-1}}$"
+        },
+        {
+          "label": "B",
+          "content": "$\\frac{1}{n^2}$"
+        },
+        {
+          "label": "C",
+          "content": "$\\frac{1}{n}$"
+        },
+        {
+          "label": "D",
+          "content": "$\\frac{1}{2^n}$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 7,
+      "score": 2,
+      "stem": "下面 `pailie` 函数是一个实现排列的程序，横线处可以填入的是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\nint sum = 0;\nvoid swap(int & a, int & b) {\n    int temp = a;\n    a = b;\n    b = temp;\n}\nvoid pailie(int begin, int end, int a[]) {\n    if (begin == end) {\n        for (int i = 0; i < end; i++)\n            cout << a[i];\n        cout << endl;\n    }\n    for (int i = begin; i < end; i++) {\n        __________ // 在此处填入选项\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "```cpp\nswap(a[begin + 1], a[i]);\npailie(begin + 1, end, a);\nswap(a[i], a[begin]);\n```"
+        },
+        {
+          "label": "B",
+          "content": "```cpp\nswap(a[begin], a[i]);\npailie(begin, end, a);\nswap(a[i], a[begin]);\n```"
+        },
+        {
+          "label": "C",
+          "content": "```cpp\nswap(a[begin], a[i]);\npailie(begin + 1, end, a);\nswap(a[i], a[begin]);\n```"
+        },
+        {
+          "label": "D",
+          "content": "```cpp\nswap(a[begin] + 1, a[i]);\npailie(begin + 1, end, a);\nswap(a[i], a[begin + 1]);\n```"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 8,
+      "score": 2,
+      "stem": "上一题中，如果主函数为如下的程序，则最后的排列数是多少个？（ ）。\n\n```cpp\nint main() {\n    int a[5] = {1, 2, 3, 4, 5};\n    pailie(0, 5, a);\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "120"
+        },
+        {
+          "label": "B",
+          "content": "60"
+        },
+        {
+          "label": "C",
+          "content": "240"
+        },
+        {
+          "label": "D",
+          "content": "180"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 9,
+      "score": 2,
+      "stem": "下列程序实现了输出杨辉三角形，代码中横线部分应该填入的是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n#define N 35\nint a[N][N];\nint main() {\n    int n;\n    cin >> n;\n    for (int i = 1; i <= n; i++)\n        for (int j = 1; j <= i; j++) {\n            if (j == 1 || j == i)\n                a[i][j] = 1;\n            else\n                __________ // 在此处填入选项\n        }\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= i; j++)\n            cout << a[i][j];\n        cout<<endl;\n    }\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`a[i][j] = a[i - 1][j - 1] + a[i - 1][j];`"
+        },
+        {
+          "label": "B",
+          "content": "`a[i][j] = a[i][j - 1] + a[i - 1][j];`"
+        },
+        {
+          "label": "C",
+          "content": "`a[i][j] = a[i - 1][j] + a[i - 1][j];`"
+        },
+        {
+          "label": "D",
+          "content": "`a[i][j] = a[i - 1][j - 1] + a[i][j];`"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 10,
+      "score": 2,
+      "stem": "下面最小生成树的 Kruskal 算法程序中，横线处应该填入的是（ ）。\n\n```cpp\n#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nstruct Edge {\n    int u, v, weight;\n    bool operator <(const Edge & other) const {\n        return weight < other.weight;\n    }\n};\nint findParent(int vertex, vector<int> & parent) {\n    if (parent[vertex] == -1)\n        return vertex;\n    return parent[vertex] = findParent(parent[vertex], parent);\n}\nint main() {\n    int n, m;\n    cin >> n >> m; // n: 顶点数, m: 边数\n    vector<Edge> edges(m);\n    vector<int> parent(n, -1);\n    int totalWeight = 0;\n    for (int i = 0; i < m; i++)\n        cin >> edges[i].u >> edges[i].v >> edges[i].weight;\n    sort(edges.begin(), edges.end());\n\n    for (const auto & edge : edges) {\n        int uParent = findParent(edge.u, parent);\n        int vParent = findParent(edge.v, parent);\n        if (__________) { // 在此处填入选项\n            parent[uParent] = vParent;\n            totalWeight += edge.weight;\n        }\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`uParent == vParent`"
+        },
+        {
+          "label": "B",
+          "content": "`uParent >= vParent`"
+        },
+        {
+          "label": "C",
+          "content": "`uParent != vParent`"
+        },
+        {
+          "label": "D",
+          "content": "`uParent <= vParent`"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "single_choice",
+      "number": 11,
+      "score": 2,
+      "stem": "下面 Prim 算法程序中，横线处应该填入的是（ ）。\n\n```cpp\n#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint prim(vector<vector<int>> & graph, int n) {\n    vector<int> key(n, INT_MAX);\n    vector<int> parent(n, -1);\n    key[0] = 0;\n    for (int i = 0; i < n; i++) {\n        int u = min_element(key.begin(), key.end()) - key.begin();\n        if (key[u] == INT_MAX)\n            break;\n        for (int v = 0; v < n; v++) {\n            if (__________) { // 在此处填入选项\n                key[v] = graph[u][v];\n                parent[v] = u;\n            }\n        }\n    }\n    int sum = 0;\n    for (int i = 0; i < n; i++) {\n        if (parent[i] != -1) {\n            cout << \"Edge: \" << parent[i] << \" - \" << i << \" Weight: \" << key[i] << endl;\n            sum += key[i];\n        }\n    }\n    return sum;\n}\nint main() {\n    int n, m;\n    cin >> n >> m;\n    vector<vector<int>> graph(n, vector<int>(n, 0));\n    for (int i = 0; i < m; i++) {\n        int u, v, w;\n        cin >> u >> v >> w;\n        graph[u][v] = w;\n        graph[v][u] = w;\n    }\n    int result = prim(graph, n);\n    cout << \"Total weight of the minimum spanning tree: \" << result << endl;\n    return 0;\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`graph[u][v] >= 0 && key[v] > graph[u][v]`"
+        },
+        {
+          "label": "B",
+          "content": "`graph[u][v] <= 0 && key[v] > graph[u][v]`"
+        },
+        {
+          "label": "C",
+          "content": "`graph[u][v] == 0 && key[v] > graph[u][v]`"
+        },
+        {
+          "label": "D",
+          "content": "`graph[u][v] != 0 && key[v] > graph[u][v]`"
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "single_choice",
+      "number": 12,
+      "score": 2,
+      "stem": "下列 Dijkstra 算法中，横线处应该填入的是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\n#define N 100\nint n, e, s;\nconst int inf = 0x7fffff;\nint dis[N + 1];\nint cheak[N + 1];\nint graph[N + 1][N + 1];\nint main() {\n    for (int i = 1; i <= N; i++)\n        dis[i] = inf;\n    cin >> n >> e;\n    for (int i = 1; i <= e; i++) {\n        int a, b, c;\n        cin >> a >> b >> c;\n        graph[a][b] = c;\n    }\n    cin >> s;\n    dis[s] = 0;\n    for (int i = 1; i <= n; i++) {\n        int minn = inf, minx;\n        for (int j = 1; j <= n; j++) {\n            if (__________) { // 在此处填入选项\n                minn = dis[j];\n                minx = j;\n            }\n        }\n        cheak[minx] = 1;\n        for (int j = 1; j <= n; j++) {\n            if (graph[minx][j] > 0) {\n                if (minn + graph[minx][j] < dis[j]) {\n                    dis[j] = minn + graph[minx][j];\n                }\n            }\n        }\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`dis[j] > minn && cheak[j] == 0`"
+        },
+        {
+          "label": "B",
+          "content": "`dis[j] < minn && cheak[j] == 0`"
+        },
+        {
+          "label": "C",
+          "content": "`dis[j] >= minn && cheak[j] == 0`"
+        },
+        {
+          "label": "D",
+          "content": "`dis[j] < minn && cheak[j] != 0`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 13,
+      "score": 2,
+      "stem": "下面 Floyd 算法中，横线处应该填入的是（ ）。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\n#define N 21\n#define INF 99999999\nint map[N][N];\nint main() {\n    int n, m, t1, t2, t3;\n    cin >> n >> m;\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= n; j++) {\n            if (i == j)\n                map[i][j] = 0;\n            else\n                map[i][j] = INF;\n        }\n    }\n    for (int i = 1; i <= m; i++) {\n        cin >> t1 >> t2 >> t3;\n        map[t1][t2] = t3;\n    }\n    for (int k = 1; k <= n; k++)\n        for (int i = 1; i <= n; i++)\n            for (int j = 1; j <= n; j++)\n                if (__________) // 在此处填入选项\n                    map[i][j] = map[i][k] + map[k][j];\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= n; j++) {\n            cout.width(4);\n            cout << map[i][j];\n        }\n        cout << endl;\n    }\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "`map[i][j] < map[i][k] + map[k][j]`"
+        },
+        {
+          "label": "B",
+          "content": "`map[i][j] > map[i][k] + map[k][j]`"
+        },
+        {
+          "label": "C",
+          "content": "`map[i][j] > map[i][k] - map[k][j]`"
+        },
+        {
+          "label": "D",
+          "content": "`map[i][j] < map[i][k] - map[k][j]`"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "single_choice",
+      "number": 14,
+      "score": 2,
+      "stem": "下面程序的 `Merge_Sort` 函数时间复杂度为（ ）。\n\n```cpp\nvoid Merge(int a[], int left, int mid, int right) {\n    int temp[right - left + 1];\n    int i = left;\n    int j = mid + 1;\n    int k = 0;\n    while (i <= mid && j <= right) {\n        if (a[i] < a[j])\n            temp[k++] = a[i++];\n        else\n            temp[k++] = a[j++];\n    }\n    while (i <= mid)\n        temp[k++] = a[i++];\n    while (j <= right)\n        temp[k++] = a[j++];\n    for (int m = left, n = 0; m <= right; m++, n++)\n        a[m] = temp[n];\n}\nvoid Merge_Sort(int a[], int left, int right) {\n    if (left == right)\n        return;\n    int mid = (left + right) / 2;\n    Merge_Sort(a, left, mid);\n    Merge_Sort(a, mid + 1, right);\n    Merge(a, left, mid, right);\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(n \\log n)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(n^2)$"
+        },
+        {
+          "label": "C",
+          "content": "$O(2^n)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(\\log n)$"
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "type": "single_choice",
+      "number": 15,
+      "score": 2,
+      "stem": "下面 `fibonacci` 函数的时间复杂度为（ ）。\n\n```cpp\nint fibonacci(int n) {\n    if (n <= 1)\n        return n;\n    else\n        return fibonacci(n - 1) + fibonacci(n - 2);\n}\n```",
+      "options": [
+        {
+          "label": "A",
+          "content": "$O(1)$"
+        },
+        {
+          "label": "B",
+          "content": "$O(\\phi^n), \\phi = \\frac{\\sqrt{5}-1}{2}$"
+        },
+        {
+          "label": "C",
+          "content": "$O(n)$"
+        },
+        {
+          "label": "D",
+          "content": "$O(n \\log n)$"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "true_false",
+      "number": 1,
+      "score": 2,
+      "stem": "表达式 `'3' & 1` 的结果为 `'1'`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 2,
+      "score": 2,
+      "stem": "在 C++ 语言中，变量定义必须在某一个函数定义之内。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 3,
+      "score": 2,
+      "stem": "冒泡排序一般是不稳定的。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 4,
+      "score": 2,
+      "stem": "二叉排序树的查找操作的平均时间复杂度，正比于树的高度。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 5,
+      "score": 2,
+      "stem": "使用 `math.h` 或 `cmath` 头文件中的余弦函数，表达式 `cos(60)` 的结果类型为 `double`、值约为 `0.5`。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 6,
+      "score": 2,
+      "stem": "你有三种硬币，分别面值 2 元、5 元和 7 元，每种硬币都有足够多。买一本书需要 27 元，则最少可以用 5 个硬币组合起来正好付清，且不需要对方找钱。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 7,
+      "score": 2,
+      "stem": "现有 $n$ 个完全相同的元素，要将其分为 $k$ 组，允许每组可以有 $0$ 个元素，则一共有 $C(n-1, k-1)$ 种分组方案。",
+      "answer": "F"
+    },
+    {
+      "type": "true_false",
+      "number": 8,
+      "score": 2,
+      "stem": "已知 `int` 类型的变量 `a` 和 `b` 中分别存储着一个直角三角形的两条直角边的长度，则该三角形的面积可以通过表达式 `a / 2.0 * b` 求得。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 9,
+      "score": 2,
+      "stem": "已知等差数列的通项公式 $a_n = a_1 + (n-1) \\cdot d$，则前 $n$ 项和的求和公式为 $S_n = n \\cdot (a_1 + a_n) / 2$。使用这一公式计算 $S_n$ 的时间复杂度是 $O(1)$。",
+      "answer": "T"
+    },
+    {
+      "type": "true_false",
+      "number": 10,
+      "score": 2,
+      "stem": "诚实国公民只说实话，说谎国公民只说谎话。你来到一处分岔口，一条通往诚实国，一条通往说谎国，但不知是哪一条通往哪里。正在为难之际，走来两位路人，他们都自称是诚实国公民，都说对方是说谎国公民。你想去说谎国，可以这样问其中一位路人：“我要去说谎国，如果我去问另一个路人，他会指向哪一条路？”。",
+      "answer": "T"
+    },
+    {
+      "type": "programming",
+      "number": 1,
+      "score": 25,
+      "title": "手套配对",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨有 $n$ 对不同的手套，每对手套由左右各一只组成。\n\n小杨想知道从中取出 $m$ 只手套，$m$ 只手套恰好包含 $k$ 对手套的情况有多少种。\n\n小杨认为两种取出的情况不同，当且仅当两种情况取出的手套中存在不同的手套（同一对手套的左右手也视为不同的手套）。",
+      "inputFormat": "第一行包含一个正整数 $t$，代表测试用例组数。\n\n接下来是 $t$ 组测试用例。对于每组测试用例，一共一行。\n\n第一行包含三个正整数 $n, m, k$，代表手套数量，取出的手套数和目标对数。",
+      "outputFormat": "对于每组测试数据，输出一个整数，代表可能的情况数量对 $10^9 + 7$ 取模的结果。",
+      "samples": [
+        {
+          "input": "2\n5 6 2\n5 1 5",
+          "output": "120\n0"
+        }
+      ],
+      "dataRange": "| 子任务编号 | 数据点占比 | $t$ | $n$ | $m$ | $k$ |\n| :-: | :-: | :-: | :-: | :-: | :-: |\n| 1 | 30% | $\\le 5$ | $\\le 1000$ | $\\le 3$ | $= 1$ |\n| 2 | 30% | $\\le 5$ | $\\le 5$ | $\\le 10$ | $\\le 5$ |\n| 3 | 40% | $\\le 10^5$ | $\\le 1000$ | $\\le 2000$ | $\\le 2000$ |\n\n对于全部数据，保证有 $1 \\le t \\le 10^5$，$1 \\le n \\le 1000$，$1 \\le m \\le 2 \\times n$，$1 \\le k \\le n$。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\nconst int N = 2e3+10;\nconst int p = 1e9+7;\n#define ll long long\nll c[N][N];\nll pw[N];\nint n,m,k;\nvoid init(){\n    pw[0]=1;\n    for(int i=0;i<N;i++){\n        if(i)pw[i]=pw[i-1]*2%p;\n        for(int j=0;j<=i;j++){\n            if(j==0)c[i][j]=1;\n            else c[i][j]=(c[i-1][j]+c[i-1][j-1])%p;\n        }\n    }\n}\nint main(){\n    init();\n    int t;\n    cin>>t;\n    while(t--){\n        cin>>n>>m>>k;\n        if(m<2*k||m-2*k>n-k){\n            cout<<\"0\\n\";\n            continue;\n        }\n        ll ans=c[n][k]*c[n-k][m-2*k]%p;\n        ans=ans*pw[m-2*k]%p;\n        cout<<ans<<\"\\n\";\n    }\n}\n"
+    },
+    {
+      "type": "programming",
+      "number": 2,
+      "score": 25,
+      "title": "美丽路径",
+      "timeLimitMs": 1000,
+      "memoryLimitMb": 512,
+      "description": "小杨有一棵包含 $n$ 个节点的树，节点从 $1$ 到 $n$ 编号，并且每个节点要么是白色，要么是黑色。\n\n对于树上的一条简单路径（不经过重复节点的路径），小杨认为它是**美丽**的当且仅当路径上相邻节点的颜色均不相同。例如下图，其中节点 $1$ 和节点 $4$ 是黑色，其余节点是白色，路径 $2-1-3-4$ 是美丽路径，而路径 $2-1-3-5$ 不是美丽路径（相邻节点 $3$ 和 $5$ 颜色相同）。\n\n```text\n        1(黑)\n       /    \\\n    3(白)   2(白)\n    /   \\\n 5(白)  4(黑)\n```\n\n（边：1-3, 1-2, 3-5, 3-4；节点 1、4 为黑色，节点 2、3、5 为白色。）\n\n对于树上的一条简单路径，小杨认为它的长度是路径包含节点的数量。小杨想知道**最长的美丽路径**的长度是多少。",
+      "inputFormat": "第一行包含一个正整数 $n$，代表节点数量。\n\n第二行包含 $n$ 个整数 $c_1, c_2, \\ldots, c_n$，代表每个节点的颜色，如果 $c_i = 0$，代表节点 $i$ 为白色，如果 $c_i = 1$，代表节点 $i$ 为黑色。\n\n之后 $n-1$ 行，每行包含两个正整数 $u_i, v_i$，代表存在一条连接节点 $u_i$ 和节点 $v_i$ 的边。",
+      "outputFormat": "输出一个整数，代表最长美丽路径的长度。",
+      "samples": [
+        {
+          "input": "5\n1 0 0 1 0\n1 2\n3 5\n4 3\n1 3",
+          "output": "4"
+        },
+        {
+          "input": "5\n0 0 0 0 0\n1 2\n2 3\n3 4\n4 5",
+          "output": "1"
+        }
+      ],
+      "dataRange": "| 子任务编号 | 数据点占比 | $n$ | 特殊条件 |\n| :-: | :-: | :-: | :-: |\n| 1 | 30% | $\\le 1000$ | 树的形态是一条链 |\n| 2 | 30% | $\\le 1000$ | |\n| 3 | 40% | $\\le 10^5$ | |\n\n对于全部数据，保证有 $1 \\le n \\le 10^5$，$0 \\le c_i \\le 1$，同时保证给出的数据构成一棵树。",
+      "referenceSolution": "#include<bits/stdc++.h>\nusing namespace std;\nconst int N = 1e5+10;\nvector<int> g[N];\nint dep[N],vis[N],c[N];\nint n,ans;\nint dfs(int x,int fa){\n    vis[x]=1;\n    dep[x]=dep[fa]+1;\n    int mx = dep[x];\n    vector<int> tmp;\n    tmp.push_back(mx);\n    for(auto i:g[x]){\n        if(i==fa||c[i]==c[x])continue;\n        int d = dfs(i,x);\n        tmp.push_back(d);\n        mx = max(d,mx);\n    }\n    sort(tmp.begin(),tmp.end());\n    int m = tmp.size(),res=1;\n    if(m>1){\n        res = tmp[m - 1] + tmp[m - 2] - 2 * dep[x] + 1;\n    }\n    ans=max(ans,res);\n    return mx;\n}\nint main(){\n    cin>>n;\n    for(int i=1;i<=n;i++){\n        cin>>c[i];\n    }\n    for(int i=1;i<n;i++){\n        int u,v;\n        cin>>u>>v;\n        g[u].push_back(v);\n        g[v].push_back(u);\n    }\n    for(int i=1;i<=n;i++){\n        if(!vis[i]){\n            dfs(i,0);\n        }\n    }\n    cout<<ans<<\"\\n\";\n}\n"
+    }
+  ]
+}
