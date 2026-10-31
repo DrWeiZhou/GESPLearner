@@ -40,5 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# 真题 PDF 由 `bun run crawl` 下载（约 70MB），不入库
+# 真题 PDF 由 `bun run crawl` 下载（约 130MB），不入库
 /data/pdf/
