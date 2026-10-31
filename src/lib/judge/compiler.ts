@@ -1,7 +1,8 @@
 import "server-only";
 import { spawn } from "node:child_process";
 import { createHash } from "node:crypto";
-import { cpSync, existsSync, mkdirSync, readdirSync, rmdirSync, symlinkSync, writeFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { cp, link, mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { hostPlatform, isWindows } from "@/lib/platform";
 
@@ -102,39 +103,52 @@ const WINDOWS_LOCATIONS = [
 
 const isAscii = (s: string) => /^[\x20-\x7e]*$/.test(s);
 
+/** Mirrors a directory tree with hard links: instant, and no extra disk space. */
+async function linkTree(from: string, to: string) {
+  await mkdir(to, { recursive: true });
+  for (const entry of await readdir(from, { withFileTypes: true })) {
+    const src = path.join(/*turbopackIgnore: true*/ from, entry.name);
+    const dest = path.join(/*turbopackIgnore: true*/ to, entry.name);
+    if (entry.isDirectory()) await linkTree(src, dest);
+    else await link(src, dest);
+  }
+}
+
 /**
  * MinGW's GCC works out where its own libraries live (crt2.o, libstdc++ …) from
- * its executable's path, through the ANSI code page. Installed under a folder with
- * Chinese characters — the default install location contains the Windows user
- * name — that path comes out as `C:/??/…` and linking fails. So the bundled
- * toolchain is reached through an ASCII path: a directory junction in the public
- * profile (no admin rights, no extra disk), or a one-time copy if that fails.
+ * the real path of its executable, through the ANSI code page. Installed under a
+ * folder with Chinese characters — the default install location contains the
+ * Windows user name — that path comes out as `C:/??/…` and linking fails; a
+ * junction doesn't help, GCC resolves it. So the bundled toolchain gets a real
+ * ASCII home in the public profile: a hard-link mirror, or a one-time copy when
+ * linking isn't possible (another drive).
  */
-function asciiToolchain(dir: string): string {
+async function asciiToolchain(dir: string): Promise<string> {
   if (!isWin || isAscii(dir)) return dir;
   const root = path.join(/*turbopackIgnore: true*/ process.env.PUBLIC || "C:\\Users\\Public", "GESPLearner");
-  const tag = createHash("sha256").update(dir).digest("hex").slice(0, 10);
-  const gpp = (base: string) => path.join(/*turbopackIgnore: true*/ base, "bin", "g++.exe");
-  const link = path.join(/*turbopackIgnore: true*/ root, `toolchain-${tag}`);
+  let version = "";
   try {
-    if (existsSync(gpp(link))) return link;
-    mkdirSync(root, { recursive: true });
-    // A stale junction (its target was removed): rmdir drops the link, never the target.
-    if (existsSync(link)) rmdirSync(link);
-    symlinkSync(dir, link, "junction");
-    if (existsSync(gpp(link))) return link;
-  } catch (err) {
-    console.error("创建编译器链接失败，改为复制：", err);
+    version = readFileSync(/*turbopackIgnore: true*/ path.join(dir, "GESP-TOOLCHAIN.txt"), "utf8");
+  } catch {
+    // older layout without a version stamp
   }
-  const copy = path.join(/*turbopackIgnore: true*/ root, `toolchain-${tag}-copy`);
+  const target = path.join(/*turbopackIgnore: true*/ root, `gcc-${createHash("sha256").update(dir + version).digest("hex").slice(0, 10)}`);
+  const done = path.join(/*turbopackIgnore: true*/ target, ".complete");
+  if (existsSync(done)) return target;
   try {
-    if (!existsSync(path.join(/*turbopackIgnore: true*/ copy, ".complete"))) {
-      cpSync(dir, copy, { recursive: true });
-      writeFileSync(path.join(/*turbopackIgnore: true*/ copy, ".complete"), dir);
+    // A half-finished earlier attempt: removing hard links / a copy never touches the original.
+    await rm(target, { recursive: true, force: true });
+    try {
+      await linkTree(dir, target);
+    } catch (err) {
+      console.error("无法为编译器创建硬链接，改为复制：", err);
+      await rm(target, { recursive: true, force: true });
+      await cp(dir, target, { recursive: true });
     }
-    return copy;
+    await writeFile(done, dir);
+    return target;
   } catch (err) {
-    console.error("复制编译器失败：", err);
+    console.error("准备编译器目录失败：", err);
     return dir;
   }
 }
@@ -144,7 +158,7 @@ async function candidates(): Promise<{ path: string; source: CompilerInfo["sourc
   if (process.env.CXX) list.push({ path: process.env.CXX, source: "env" });
   const toolchain = process.env.GESP_TOOLCHAIN_DIR;
   if (toolchain)
-    list.push({ path: path.join(/*turbopackIgnore: true*/ asciiToolchain(toolchain), "bin", exe("g++")), source: "bundled" });
+    list.push({ path: path.join(/*turbopackIgnore: true*/ await asciiToolchain(toolchain), "bin", exe("g++")), source: "bundled" });
 
   const system: string[] = [];
   if (hostPlatform() === "darwin") {

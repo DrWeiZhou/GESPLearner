@@ -54,6 +54,14 @@ GESPLearner(.exe / .app)            Electron 主进程（desktop/main.ts → app
 `process.platform` 替换成构建机器的值（`"darwin"`），`process.platform === "win32"` 的分支在 Windows 包里就整个没了。
 统一用 `src/lib/platform.ts` 的 `isWindows()`（内部是 `os.platform()`）；构建脚本会检查 Windows 分支是否还在 bundle 里。
 
+Windows 上 MinGW 工具链只认 ANSI 路径，而中国用户的用户名常是中文（`C:\Users\张三\`），默认安装目录与 `%TEMP%` 都在它下面：
+
+- **编译器位置**：GCC 从自身可执行文件的真实路径推算库目录，中文路径会变成 `C:/??/…`，链接时找不到 `crt2.o`
+  （目录联接没用，GCC 会解析回真实路径）。安装路径含非 ASCII 字符时，首次检测编译器时在 `C:\Users\Public\GESPLearner\gcc-<哈希>`
+  用**硬链接**镜像一份工具链（瞬间完成、不占额外空间），不在同一个盘时改为复制一次（`lib/judge/compiler.ts`）。
+- **临时文件**：评测工作目录在 `%TEMP%` 含中文时改到 `C:\Users\Public\GESPLearner`，并把编译器进程的 `TMP`/`TEMP` 指向它，
+  GCC 的中间文件也就不会写进中文目录（`lib/judge/local.ts`）。
+
 ## 打包流程（`scripts/desktop/build.ts`）
 
 1. `scripts/desktop/prepare-db.ts` 建一个带内置题库的构建用数据库，`next build` 预渲染页面时读它。
