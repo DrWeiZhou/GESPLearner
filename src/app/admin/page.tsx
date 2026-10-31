@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { AISettingsForm } from "@/components/admin/ai-settings-form";
 import { CoinRateForm } from "@/components/admin/coin-rate-form";
+import { PaperUpdateCard } from "@/components/admin/paper-update-card";
 import { UserTable } from "@/components/admin/user-table";
 import { RequireLogin } from "@/components/common/require-login";
 import { Card, CardContent } from "@/components/ui/card";
@@ -48,6 +49,7 @@ async function Settings() {
   const users = await listUsers();
   return (
     <div className="space-y-6">
+      <PaperUpdateCard />
       <CoinRateForm rate={rate} />
       <AISettingsForm settings={ai} />
       <UserTable users={users} currentUserId={user.id} />

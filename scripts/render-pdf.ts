@@ -4,7 +4,7 @@
  *   bun scripts/render-pdf.ts <file.pdf> <outDir>
  */
 import { mkdir } from "node:fs/promises";
-import { extractPagesText, renderPages } from "./lib/pdf";
+import { extractPagesText, renderPages } from "../src/lib/papers/pdf";
 
 const [file, outDir] = process.argv.slice(2);
 if (!file || !outDir) {

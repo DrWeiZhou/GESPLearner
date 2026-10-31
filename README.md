@@ -7,6 +7,7 @@
 | 模块 | 说明 |
 | --- | --- |
 | 真题库 | 官网「认证资料 → 真题及解析」的 C++ 试卷，按考试场次与级别组织；题干、选项、公式、代码完整还原（Markdown + KaTeX + 代码高亮） |
+| 一键更新题库 | 管理员在 `/admin` 一键检查官网是否有新的考试，自动下载 PDF、用视觉模型解析、校验后发布（见下文「更新题库」） |
 | 逐题练习 | 客观题即时判分、显示正确答案；编程题进入在线 IDE |
 | 模拟考试 | 按真实时长（120 分钟）限时作答，倒计时结束自动交卷，交卷后生成成绩报告与逐题回顾 |
 | 在线评测 | Monaco 编辑器 + Judge0：自测运行（自定义输入）与提交评测（样例 + 隐藏测试点），返回每个测试点的判定、用时与差异 |
@@ -67,12 +68,30 @@ docker run -d --name judge0 -p 2358:2358 judge0/judge0:1.13.1   # 或参考 Judg
 | `bun run crawl` | 解析官网真题列表（含分页），下载全部 C++ 试卷 PDF，写入 `data/sources.json` |
 | `bun run parse [paperId...] [--level N] [--force]` | 用视觉模型把 PDF 转成结构化 JSON。PDF 的公式是矢量图形，文字层会丢失，因此同时送入**页面文字层**（保证代码与文字准确）和**页面图片**（补全公式、答案表格、版面） |
 | `bun run seed [paperId...] [--draft]` | 幂等导入数据库；`--draft` 只导入不发布 |
+| `bun run update [--level N] [--all-missing] [--draft] [--dry-run]` | 命令行版「一键更新题库」：检查官网新考试 → 下载 PDF → 解析 → 写 `data/papers/` → 导入发布 |
 | `bun run gen-tests <paperId...> | --all` | 让模型为编程题写数据生成器，用官方参考程序产出隐藏测试点（先校验参考程序能复现官方样例，否则跳过该题） |
 | `bun run embed [--force]` | 生成题目向量（pgvector），用于相似题推荐与 AI 讲解的 RAG |
 | `bun run render-pdf <file.pdf> <outDir>` | 调试：导出 PDF 每页的图片与阅读顺序文字 |
 | `bun run backup [--keep N]` | 备份数据库到 `data/backups/`（见下文「备份与恢复」） |
 
 `parse` 的结果建议人工抽查后再 `seed` 发布——公式和样例空格最容易出错。
+
+## 更新题库
+
+`/admin →「更新题库」`的**一键更新**会抓取官网真题列表，与数据库比对，然后逐份导入：
+
+- **新考试**指比题库中最新一场更晚的考试；默认导入题库已有的级别（题库为空时导入最新一场的全部级别）。
+  往期缺失的试卷列在折叠区里，可勾选后「导入所选」。也可以只点「只检查」先看看。
+- 每份试卷一次请求（约 1 分钟，函数上限 300 秒）：下载 PDF → 渲染页面 → 视觉模型转录 → 校验 → 写库 → 生成向量，
+  浏览器逐份调用并显示进度，因此需要保持页面打开。
+- **答案不只靠模型**：单选答案直接从 PDF 文字层的答案表读取；判断题的 √/× 是矢量图形，
+  会单独裁出答案表的高清图让模型只读这 10 个符号。两者都会覆盖模型在整页转录时给出的答案
+  （用历年 106 份试卷验证：除官网链接放错文件的 1 份外，与人工录入的答案逐题一致）。
+- **校验**：不是「15 单选 + 10 判断 + 2 编程、共 100 分」或题号重复的试卷只存为草稿，学生看不到；
+  草稿可在卡片里「重新解析」或确认后「发布」。已发布的试卷不会被覆盖。
+- 网页导入只写数据库（Vercel 上没有可写的文件系统），随数据库备份。想把新试卷也存进仓库，
+  在本地运行 `bun run update`，它会同时写 `data/sources.json`、`data/pdf/` 与 `data/papers/`。
+- 新导入的编程题只有样例测试点，隐藏测试点仍需 `bun run gen-tests <paperId>`。
 
 ## 账号与金币
 
@@ -88,6 +107,8 @@ docker run -d --name judge0 -p 2358:2358 judge0/judge0:1.13.1   # 或参考 Judg
 `/admin` 的「大模型设置」可填写接口地址、API key 与讲解 / 视觉 / 向量三个模型名，保存后立即生效，`parse`、`embed`、`gen-tests` 脚本也读同一份配置（需要 `.env.local` 里有 `DATABASE_URL` 和同一个 `SETTINGS_SECRET`）。
 
 - 优先级：后台配置 → 环境变量 → 本地 `.z-ai-config`（仅开发环境）。「清除后台配置」即回退到环境变量。
+- 模型名要填服务商的模型 ID：智谱是 `glm-4.5v`，SiliconFlow 则是 `zai-org/GLM-4.5V`。填错时「更新题库」会报 `Model does not exist`。
+- 智谱与 SiliconFlow 会自动关闭模型的思考模式（讲解更快；解析一份试卷从约 2.5 分钟降到 1 分钟）。
 - API key 用 AES-256-GCM 加密后存进 `app_settings`，密钥 `SETTINGS_SECRET` 只在环境变量里，单独泄露数据库拿不到 key；页面与接口只返回末 4 位。
 - 「测试连接」用表单里的值发一次极短的请求，key 留空则用当前生效的 key。
 
@@ -150,8 +171,9 @@ src/
     ai/                 模型接入（LangChain）与讲解提示词
     judge/              评测：judge0（生产）/ local（开发）
     content.ts          题库读取（公开接口不含答案）+ pgvector 相似题
+    papers/             官网抓取、PDF 渲染、视觉模型解析、导入（脚本与「更新题库」共用）
     schema/paper.ts     试卷 JSON 的 zod schema
-scripts/                crawl / parse / seed / gen-tests / embed
+scripts/                crawl / parse / seed / update / gen-tests / embed
 drizzle/                迁移
 data/                   sources.json、pdf/、papers/、tests/
 ```

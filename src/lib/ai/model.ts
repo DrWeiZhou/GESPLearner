@@ -108,8 +108,18 @@ async function requireConfig() {
   return c;
 }
 
-/** Zhipu / Z.ai gateways: the only providers that understand the `thinking` switch. */
-const isZaiEndpoint = (baseUrl: string) => /bigmodel\.cn|z\.ai/i.test(baseUrl);
+/**
+ * Reasoning models think by default. Tutoring wants fast, direct answers, and paper
+ * parsing has to fit in one function call (thinking roughly doubles it). Other
+ * OpenAI-compatible APIs may reject an unknown parameter, so only send it where it's known.
+ */
+function thinkingOff(baseUrl: string): Record<string, unknown> | undefined {
+  // Zhipu / Z.ai gateways
+  if (/bigmodel\.cn|z\.ai/i.test(baseUrl)) return { thinking: { type: "disabled" } };
+  // SiliconFlow's hybrid models (GLM-4.5V, DeepSeek, Qwen3 …)
+  if (/siliconflow/i.test(baseUrl)) return { enable_thinking: false };
+  return undefined;
+}
 
 function clientOptions(c: Pick<AIConfig, "baseUrl" | "apiKey" | "chatId" | "userId" | "token">) {
   // Same headers the ZAI SDK sends, so ZAI-hosted gateways keep working.
@@ -131,15 +141,16 @@ export function buildChatModel(
     temperature: opts.temperature ?? 0.4,
     maxTokens: opts.maxTokens,
     timeout: opts.timeout,
-    // GLM reasoning models think by default; tutoring wants fast, direct answers.
-    // Other OpenAI-compatible APIs may reject the unknown parameter, so only send it to Zhipu.
-    modelKwargs: isZaiEndpoint(c.baseUrl) ? { thinking: { type: "disabled" } } : undefined,
+    modelKwargs: thinkingOff(c.baseUrl),
   });
 }
 
-export async function getChatModel(opts: { temperature?: number; vision?: boolean } = {}) {
+export async function getChatModel(opts: { temperature?: number; vision?: boolean; maxTokens?: number } = {}) {
   const c = await requireConfig();
-  return buildChatModel(c, opts.vision ? c.visionModel : c.chatModel, { temperature: opts.temperature });
+  return buildChatModel(c, opts.vision ? c.visionModel : c.chatModel, {
+    temperature: opts.temperature,
+    maxTokens: opts.maxTokens,
+  });
 }
 
 export async function getEmbeddings(dimensions: number) {
