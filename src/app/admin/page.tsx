@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { CoinRateForm } from "@/components/admin/coin-rate-form";
+import { UserTable } from "@/components/admin/user-table";
 import { RequireLogin } from "@/components/common/require-login";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getCurrentUser } from "@/lib/auth";
 import { getCoinRate } from "@/lib/coins";
+import { listUsers } from "@/lib/admin";
 import { connection } from "next/server";
 
 export const metadata: Metadata = { title: "系统设置" };
 
 export default function AdminPage() {
   return (
-    <div className="mx-auto w-full max-w-2xl px-4 py-10">
+    <div className="mx-auto w-full max-w-3xl px-4 py-10">
       <h1 className="mb-6 text-2xl font-bold">系统设置</h1>
       <Suspense fallback={<Skeleton className="h-48 w-full" />}>
         <Settings />
@@ -38,5 +40,13 @@ async function Settings() {
       </Card>
     );
   }
-  return <CoinRateForm rate={await getCoinRate()} />;
+  // Sequential — see the note in app/coins/page.tsx.
+  const rate = await getCoinRate();
+  const users = await listUsers();
+  return (
+    <div className="space-y-6">
+      <CoinRateForm rate={rate} />
+      <UserTable users={users} currentUserId={user.id} />
+    </div>
+  );
 }

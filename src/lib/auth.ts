@@ -136,6 +136,43 @@ export async function changePassword(userId: string, currentPassword: string, ne
     );
 }
 
+/**
+ * Admin reset for a student who forgot their password — there is no mailbox to send
+ * a reset link to. The admin re-enters their own password: taking over another
+ * account shouldn't be possible from an unattended, already-signed-in admin device.
+ *
+ * Every session of the target is revoked (if the account was compromised, the reset
+ * must actually evict whoever is in it), and the login lockout is cleared, since a
+ * locked-out student is one of the reasons to reset in the first place.
+ */
+export async function adminResetPassword(params: {
+  adminId: string;
+  targetUserId: string;
+  newPassword: string;
+  adminPassword: string;
+}): Promise<{ username: string }> {
+  const { adminId, targetUserId, newPassword, adminPassword } = params;
+  if (newPassword.length < 6) throw new HttpError(400, "新密码至少 6 位");
+
+  const db = getDb();
+  const [admin] = await db.select().from(users).where(eq(users.id, adminId));
+  if (!admin || admin.role !== "admin") throw new HttpError(403, "需要管理员权限");
+  if (!(await verifyPassword(adminPassword, admin.passwordHash)))
+    throw new HttpError(400, "管理员密码不正确");
+
+  const [target] = await db.select().from(users).where(eq(users.id, targetUserId));
+  if (!target) throw new HttpError(404, "用户不存在");
+
+  const passwordHash = await hashPassword(newPassword);
+  await db
+    .update(users)
+    .set({ passwordHash, failedAttempts: 0, lockedUntil: null })
+    .where(eq(users.id, targetUserId));
+  await db.delete(sessions).where(eq(sessions.userId, targetUserId));
+
+  return { username: target.username };
+}
+
 // ───────────────────────── sessions ─────────────────────────
 
 export async function createSession(userId: string) {
