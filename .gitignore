@@ -42,3 +42,6 @@ next-env.d.ts
 
 # 真题 PDF 由 `bun run crawl` 下载（约 130MB），不入库
 /data/pdf/
+
+# 数据库备份含账号与作答记录，只留在本地（`bun run backup`）
+/data/backups/

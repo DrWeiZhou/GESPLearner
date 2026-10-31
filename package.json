@@ -16,7 +16,8 @@
     "seed": "bun --conditions react-server scripts/seed.ts",
     "embed": "bun --conditions react-server scripts/embed.ts",
     "gen-tests": "bun --conditions react-server scripts/gen-tests.ts",
-    "render-pdf": "bun --conditions react-server scripts/render-pdf.ts"
+    "render-pdf": "bun --conditions react-server scripts/render-pdf.ts",
+    "backup": "bun scripts/backup.ts"
   },
   "dependencies": {
     "@ai-sdk/langchain": "^3.0.158",
