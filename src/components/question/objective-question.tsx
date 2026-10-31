@@ -139,8 +139,16 @@ export function ObjectiveQuestionCard({
 function RewardBadge({ reward }: { reward: CoinReward }) {
   const text = formatReward(reward);
   if (!text) return null;
+  // Nothing was earned when the question had already been settled — say so plainly
+  // rather than in reward colours.
+  const earned = reward.questions > 0;
   return (
-    <Badge className="border-transparent bg-amber-500/15 text-amber-700 dark:text-amber-400">
+    <Badge
+      className={cn(
+        "border-transparent",
+        earned ? "bg-amber-500/15 text-amber-700 dark:text-amber-400" : "bg-muted text-muted-foreground",
+      )}
+    >
       <CoinsIcon className="size-3" /> {text}
     </Badge>
   );

@@ -17,6 +17,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { loadDraft, postJSON, saveDraft } from "@/lib/api";
 import { formatReward } from "@/lib/format";
 import type { CoinReward, JudgeResult, PublicProgramming, RunResult, TutorContext } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 type Panel = "run" | "judge" | "tutor";
 
@@ -85,10 +86,10 @@ export function ProgrammingWorkspace({
       setReward(settled ?? null);
       onJudged?.(result);
       if (result.verdict === "AC") toast.success(`全部通过！得分 ${result.score ?? question.score}`);
-      const coins = settled ? formatReward(settled) : null;
+      const coins = settled?.questions ? formatReward(settled) : null;
       if (coins) toast.success(coins, { icon: "🪙" });
-      // The balance in the header is rendered on the server.
-      if (settled?.credited) router.refresh();
+      // The header renders the balance and carry on the server, and both can move.
+      if (settled?.questions) router.refresh();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "评测失败");
     } finally {
@@ -207,8 +208,16 @@ export function ProgrammingWorkspace({
 function RewardNote({ reward }: { reward: CoinReward }) {
   const text = formatReward(reward);
   if (!text) return null;
+  const earned = reward.questions > 0;
   return (
-    <p className="flex items-center gap-1.5 border-b bg-amber-500/10 px-4 py-2 text-sm font-medium text-amber-700 dark:text-amber-400">
+    <p
+      className={cn(
+        "flex items-center gap-1.5 border-b px-4 py-2 text-sm",
+        earned
+          ? "bg-amber-500/10 font-medium text-amber-700 dark:text-amber-400"
+          : "bg-muted/40 text-muted-foreground",
+      )}
+    >
       <CoinsIcon className="size-4" /> {text}
     </p>
   );

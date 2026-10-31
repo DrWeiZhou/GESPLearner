@@ -131,9 +131,10 @@ export type GradedQuestion = {
 /**
  * Settle freshly graded questions into coins.
  *
- * Questions that already have a `question_rewards` row are skipped silently, which
- * is what makes a redo — or the wrong-answer book — earn nothing. Returns null when
- * nothing was settled, so callers can tell "nothing to show" from "+0 coins".
+ * Questions that already have a `question_rewards` row are skipped, which is what
+ * makes a redo — or the wrong-answer book — earn nothing. That case still comes back
+ * with `questions: 0` rather than null: the student needs to be told the question
+ * had already paid out, otherwise an unchanged balance just looks broken.
  *
  * Safe to call with the whole batch a hand-in produced: the carry is applied once,
  * to their total.
@@ -176,15 +177,13 @@ export async function rewardQuestions(
       score: questionRewards.score,
       coins: questionRewards.coins,
     });
-  if (!fresh.length) return null;
-
   const score = round3(fresh.reduce((s, r) => s + r.score, 0));
   const coins = round3(fresh.reduce((s, r) => s + r.coins, 0));
   const pending = round3(owner.carry + coins);
   const credited = Math.floor(pending);
   const carry = round3(pending - credited);
 
-  await tx.update(users).set({ coinCarry: carry }).where(eq(users.id, userId));
+  if (fresh.length) await tx.update(users).set({ coinCarry: carry }).where(eq(users.id, userId));
 
   if (credited > 0) {
     const single = fresh.length === 1 ? graded.find((g) => g.questionId === fresh[0].questionId) : undefined;

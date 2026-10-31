@@ -25,8 +25,9 @@ export function PracticeObjective({ question }: { question: ObjectiveQuestion })
       const res = await postJSON<CheckedResult>("/api/answers/check", { questionId: question.id, answer: value });
       answerRef.current = value;
       setResult(res);
-      // Coins just landed in the balance the header renders on the server.
-      if (res.reward?.credited) router.refresh();
+      // The header renders the balance and the carry on the server, and a settlement
+      // can move either one.
+      if (res.reward?.questions) router.refresh();
       // Wrong answers almost always need an explanation — open the tutor right away.
       if (!res.correct) setShowTutor(true);
     } catch (err) {

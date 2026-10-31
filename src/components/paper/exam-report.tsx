@@ -180,11 +180,18 @@ function ReviewRow({ item, paper }: { item: ReportItem; paper: PaperDetail }) {
  * it is graded, and the ones answered in practice beforehand have already paid.
  */
 function SettledCoins({ reward }: { reward: CoinReward }) {
+  if (reward.questions === 0) {
+    return (
+      <p className="mt-5 flex items-center justify-center gap-1.5 text-sm text-muted-foreground">
+        <CoinsIcon className="size-4" /> 这些题之前都已经结算过，本次没有新的金币
+      </p>
+    );
+  }
   const text = formatReward(reward);
-  if (!text) return null;
   return (
     <p className="mt-5 flex items-center justify-center gap-1.5 text-sm font-medium text-amber-600 dark:text-amber-400">
-      <CoinsIcon className="size-4" /> 本次结算 {reward.questions} 道新题：{text}
+      <CoinsIcon className="size-4" /> 本次结算 {reward.questions} 道新题
+      {text ? `：${text}` : "，都答错了，没有金币"}
     </p>
   );
 }
