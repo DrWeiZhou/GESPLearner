@@ -18,7 +18,12 @@ export type ManagedUser = {
 };
 
 export async function listUsers(): Promise<ManagedUser[]> {
-  const rows = await getDb()
+  const db = getDb();
+
+  // Aggregated separately rather than as correlated subqueries: inside a `sql`
+  // template Drizzle renders `users.id` unqualified, which Postgres then resolves
+  // against the subquery's own table. Sequential, per the note in app/coins/page.tsx.
+  const rows = await db
     .select({
       id: users.id,
       username: users.username,
@@ -27,23 +32,29 @@ export async function listUsers(): Promise<ManagedUser[]> {
       createdAt: users.createdAt,
       lastLoginAt: users.lastLoginAt,
       lockedUntil: users.lockedUntil,
-      coins: sql<number>`(
-        select coalesce(sum(ct.amount), 0)::int
-        from ${coinTransactions} ct where ct.user_id = ${users.id}
-      )`,
-      activeSessions: sql<number>`(
-        select count(*)::int from ${sessions} s
-        where s.user_id = ${users.id} and s.expires_at > now()
-      )`,
     })
     .from(users)
     .orderBy(asc(users.createdAt));
 
+  const balances = await db
+    .select({ userId: coinTransactions.userId, total: sql<number>`coalesce(sum(${coinTransactions.amount}), 0)::int` })
+    .from(coinTransactions)
+    .groupBy(coinTransactions.userId);
+
+  const active = await db
+    .select({ userId: sessions.userId, n: sql<number>`count(*)::int` })
+    .from(sessions)
+    .where(sql`${sessions.expiresAt} > now()`)
+    .groupBy(sessions.userId);
+
+  const coinsBy = new Map(balances.map((b) => [b.userId, Number(b.total)]));
+  const sessionsBy = new Map(active.map((a) => [a.userId, Number(a.n)]));
+
   return rows.map((r) => ({
     ...r,
     displayName: r.displayName ?? r.username,
-    coins: Number(r.coins),
-    activeSessions: Number(r.activeSessions),
+    coins: coinsBy.get(r.id) ?? 0,
+    activeSessions: sessionsBy.get(r.id) ?? 0,
   }));
 }
 
