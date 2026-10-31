@@ -31,7 +31,7 @@ if (rows.length === 0) {
   process.exit(0);
 }
 
-const embeddings = getEmbeddings(EMBEDDING_DIMENSIONS);
+const embeddings = await getEmbeddings(EMBEDDING_DIMENSIONS);
 const BATCH = 16;
 for (let i = 0; i < rows.length; i += BATCH) {
   const batch = rows.slice(i, i + BATCH);

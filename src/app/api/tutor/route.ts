@@ -69,7 +69,7 @@ export async function POST(req: Request) {
       ...history,
     ];
 
-    const stream = await getChatModel().stream(lcMessages);
+    const stream = await (await getChatModel()).stream(lcMessages);
 
     return createUIMessageStreamResponse({
       stream: toUIMessageStream(stream, {

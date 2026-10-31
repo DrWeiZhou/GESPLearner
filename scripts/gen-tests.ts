@@ -56,7 +56,7 @@ ${q.dataRange ? `数据范围：${q.dataRange}` : ""}
 样例输入：
 ${q.samples[0]?.input ?? ""}`;
 
-  const res = await getChatModel({ temperature: 0.2 }).invoke([new SystemMessage(SYSTEM), new HumanMessage(prompt)]);
+  const res = await (await getChatModel({ temperature: 0.2 })).invoke([new SystemMessage(SYSTEM), new HumanMessage(prompt)]);
   const generator = stripFence(res.text);
 
   // The generator reads its seed from stdin, so one compile + one run per seed.
@@ -132,3 +132,5 @@ async function main() {
 }
 
 await main();
+// the settings lookup may have opened a database connection
+process.exit(0);

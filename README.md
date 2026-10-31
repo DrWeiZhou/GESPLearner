@@ -47,7 +47,8 @@ bun run dev
 | --- | --- |
 | `DATABASE_URL` | 应用连接串。Supabase 用 **Transaction pooler（6543）** |
 | `DATABASE_DIRECT_URL` | 迁移用直连（5432） |
-| `ZAI_BASE_URL` / `ZAI_API_KEY` | 任意 OpenAI 兼容大模型接口（如智谱 `https://open.bigmodel.cn/api/paas/v4`） |
+| `ZAI_BASE_URL` / `ZAI_API_KEY` | 任意 OpenAI 兼容大模型接口（如智谱 `https://open.bigmodel.cn/api/paas/v4`）。也可以不设，改在 `/admin →「大模型设置」`填写，后台配置优先 |
+| `SETTINGS_SECRET` | 加密后台保存的 API key（至少 16 位，`openssl rand -base64 32` 生成）。未设置时后台不能保存大模型配置；更换后已保存的 key 需重新填写 |
 | `AI_MODEL` / `AI_VISION_MODEL` / `AI_EMBEDDING_MODEL` | 讲解模型 / 解析试卷的视觉模型 / 向量模型（默认 `glm-4.6`、`glm-4.5v`、`embedding-3`） |
 | `JUDGE0_URL`（+ `JUDGE0_RAPIDAPI_KEY` 或 `JUDGE0_AUTH_TOKEN`） | 代码评测服务 |
 | `JUDGE_PROVIDER=local` | 仅本地开发：直接用本机 `g++` 编译运行（**无沙箱，禁止用于公网部署**） |
@@ -79,7 +80,15 @@ docker run -d --name judge0 -p 2358:2358 judge0/judge0:1.13.1   # 或参考 Judg
 - 密码用 `node:crypto` 的 **scrypt**（N=32768）加随机盐哈希，参数随哈希一起存储，日后可提高强度而不作废旧密码；验证用 `timingSafeEqual`。
 - 会话存在服务端 `sessions` 表，Cookie 里只放随机令牌，库中只存它的 SHA-256，因此即使数据库泄露也拿不到可用会话。Cookie 为 HttpOnly + SameSite=Lax，生产环境加 Secure。
 - 连续 8 次密码错误锁定 15 分钟；用户名不存在时也会走一次等长的哈希计算，避免用响应时间探测用户是否存在。
-- **系统中注册的第一个账号自动成为管理员**，可在 `/admin` 修改金币兑换比例。
+- **系统中注册的第一个账号自动成为管理员**，可在 `/admin` 修改金币兑换比例、配置大模型接口。
+
+### 大模型设置
+
+`/admin` 的「大模型设置」可填写接口地址、API key 与讲解 / 视觉 / 向量三个模型名，保存后立即生效，`parse`、`embed`、`gen-tests` 脚本也读同一份配置（需要 `.env.local` 里有 `DATABASE_URL` 和同一个 `SETTINGS_SECRET`）。
+
+- 优先级：后台配置 → 环境变量 → 本地 `.z-ai-config`（仅开发环境）。「清除后台配置」即回退到环境变量。
+- API key 用 AES-256-GCM 加密后存进 `app_settings`，密钥 `SETTINGS_SECRET` 只在环境变量里，单独泄露数据库拿不到 key；页面与接口只返回末 4 位。
+- 「测试连接」用表单里的值发一次极短的请求，key 留空则用当前生效的 key。
 
 金币采用**流水账**（`coin_transactions`）而非存一个余额字段：余额始终是流水求和，既可追溯又不会因并发写丢失更新。
 
@@ -139,7 +148,7 @@ Vercel 已配置的环境变量（Production + Preview）：`DATABASE_URL`（Tra
 
 **上线前仍需补充：**
 
-1. `ZAI_BASE_URL` / `ZAI_API_KEY` —— 否则 AI 讲解接口返回「大模型未配置」。
+1. 大模型：设置 `SETTINGS_SECRET` 后在 `/admin` 填写，或直接设 `ZAI_BASE_URL` / `ZAI_API_KEY` —— 否则 AI 讲解接口返回「大模型未配置」。
 2. `JUDGE0_URL` —— 否则编程题评测返回「未配置代码评测服务」。
    切勿在 Vercel 上设置 `JUDGE_PROVIDER=local`：那会在无沙箱的环境里编译运行任意代码。
 3. Supabase Auth → URL Configuration 里把 Site URL 设为线上域名，否则注册确认邮件里的链接会指回 localhost。

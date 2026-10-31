@@ -75,7 +75,7 @@ async function parsePaper(source: SourcePaper): Promise<Paper> {
     })),
   ];
 
-  const model = getChatModel({ vision: true, temperature: 0 });
+  const model = await getChatModel({ vision: true, temperature: 0 });
   const res = await model.invoke([new SystemMessage(SYSTEM), new HumanMessage({ content: content as never })]);
   const parsed = JSON.parse(extractJSON(res.text)) as ParsedPaper;
 
@@ -122,3 +122,5 @@ async function main() {
 }
 
 await main();
+// the settings lookup may have opened a database connection
+process.exit(0);

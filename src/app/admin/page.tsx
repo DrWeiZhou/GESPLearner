@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { AISettingsForm } from "@/components/admin/ai-settings-form";
 import { CoinRateForm } from "@/components/admin/coin-rate-form";
 import { UserTable } from "@/components/admin/user-table";
 import { RequireLogin } from "@/components/common/require-login";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getCurrentUser } from "@/lib/auth";
+import { getAISettingsView } from "@/lib/ai/settings";
 import { getCoinRate } from "@/lib/coins";
 import { listUsers } from "@/lib/admin";
 import { connection } from "next/server";
@@ -42,10 +44,12 @@ async function Settings() {
   }
   // Sequential — see the note in app/coins/page.tsx.
   const rate = await getCoinRate();
+  const ai = await getAISettingsView();
   const users = await listUsers();
   return (
     <div className="space-y-6">
       <CoinRateForm rate={rate} />
+      <AISettingsForm settings={ai} />
       <UserTable users={users} currentUserId={user.id} />
     </div>
   );

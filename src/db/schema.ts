@@ -180,6 +180,8 @@ export const appSettings = pgTable("app_settings", {
 
 export const DEFAULT_COIN_RATE = 0.3;
 export const COIN_RATE_KEY = "coin_rate";
+/** LLM endpoint set from /admin; the API key inside is encrypted (see lib/secret-box). */
+export const AI_SETTINGS_KEY = "ai_settings";
 
 export const attempts = pgTable(
   "attempts",
