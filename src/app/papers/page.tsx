@@ -18,7 +18,7 @@ export default function PapersPage() {
       <header className="mb-8">
         <h1 className="text-2xl font-bold">真题库</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          按等级选择试卷，可逐题练习，也可限时模拟考试。每个等级后面附有官方考试大纲的知识点。
+          按等级选择试卷，可逐题练习，也可限时模拟考试。每个等级先列出官方考试大纲的知识点，再列出该级的试卷。
         </p>
       </header>
       <Suspense fallback={<Skeleton className="h-64 w-full" />}>
@@ -57,6 +57,11 @@ async function PaperList() {
               <LevelBadge level={level} />
               <h2 className="text-sm text-muted-foreground">{LEVEL_NAMES[level]} · {list.length} 套</h2>
             </div>
+            {syllabusOf.has(level) && (
+              <div className="mb-3">
+                <SyllabusCard syllabus={syllabusOf.get(level)!} />
+              </div>
+            )}
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {list.map((p) => (
                 <Link
@@ -75,11 +80,6 @@ async function PaperList() {
                 </Link>
               ))}
             </div>
-            {syllabusOf.has(level) && (
-              <div className="mt-3">
-                <SyllabusCard syllabus={syllabusOf.get(level)!} />
-              </div>
-            )}
           </section>
         ))}
     </div>

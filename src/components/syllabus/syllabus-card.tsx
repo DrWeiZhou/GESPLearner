@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import type { SyllabusView } from "@/lib/syllabus/content";
 
 /**
- * The syllabus strip shown under each level in the paper library: what the level
+ * The syllabus strip shown under each level heading in the paper library, above its papers: what the level
  * examines, in the syllabus's own words, and a way into the full knowledge-point list.
  */
 export function SyllabusCard({ syllabus, points = 10 }: { syllabus: SyllabusView; points?: number }) {
