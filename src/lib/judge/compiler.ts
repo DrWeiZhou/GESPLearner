@@ -1,8 +1,8 @@
 import "server-only";
 import { spawn } from "node:child_process";
-import { createHash } from "node:crypto";
+import { createHash, randomBytes } from "node:crypto";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
-import { cp, link, mkdir, readdir, rm, writeFile } from "node:fs/promises";
+import { cp, link, mkdir, readdir, rename, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { hostPlatform, isWindows } from "@/lib/platform";
 
@@ -125,6 +125,17 @@ async function linkTree(from: string, to: string) {
  */
 async function asciiToolchain(dir: string): Promise<string> {
   if (!isWin || isAscii(dir)) return dir;
+  // Shared by the whole process: each route bundle has its own copy of this module.
+  const pending = (shared.__gespToolchainMirrors ??= new Map<string, Promise<string>>());
+  let mirror = pending.get(dir);
+  if (!mirror) {
+    mirror = mirrorToolchain(dir);
+    pending.set(dir, mirror);
+  }
+  return mirror;
+}
+
+async function mirrorToolchain(dir: string): Promise<string> {
   const root = path.join(/*turbopackIgnore: true*/ process.env.PUBLIC || "C:\\Users\\Public", "GESPLearner");
   let version = "";
   try {
@@ -135,21 +146,35 @@ async function asciiToolchain(dir: string): Promise<string> {
   const target = path.join(/*turbopackIgnore: true*/ root, `gcc-${createHash("sha256").update(dir + version).digest("hex").slice(0, 10)}`);
   const done = path.join(/*turbopackIgnore: true*/ target, ".complete");
   if (existsSync(done)) return target;
+
+  // Built under a unique name and renamed into place, so a second process (or a
+  // half-finished earlier run) can never see — or delete — a partial mirror.
+  const staging = `${target}.tmp-${process.pid}-${randomBytes(4).toString("hex")}`;
   try {
-    // A half-finished earlier attempt: removing hard links / a copy never touches the original.
-    await rm(target, { recursive: true, force: true });
     try {
-      await linkTree(dir, target);
+      await linkTree(dir, staging);
     } catch (err) {
       console.error("无法为编译器创建硬链接，改为复制：", err);
-      await rm(target, { recursive: true, force: true });
-      await cp(dir, target, { recursive: true });
+      await rm(staging, { recursive: true, force: true });
+      await cp(dir, staging, { recursive: true });
     }
-    await writeFile(done, dir);
+    await writeFile(path.join(/*turbopackIgnore: true*/ staging, ".complete"), dir);
+    try {
+      await rename(staging, target);
+    } catch {
+      if (existsSync(done)) {
+        await rm(staging, { recursive: true, force: true });
+        return target;
+      }
+      // An incomplete leftover is in the way. Removing hard links / a copy never touches the original.
+      await rm(target, { recursive: true, force: true });
+      await rename(staging, target);
+    }
     return target;
   } catch (err) {
     console.error("准备编译器目录失败：", err);
-    return dir;
+    await rm(staging, { recursive: true, force: true }).catch(() => {});
+    return existsSync(done) ? target : dir;
   }
 }
 
@@ -172,7 +197,11 @@ async function candidates(): Promise<{ path: string; source: CompilerInfo["sourc
   return list;
 }
 
-let detected: Promise<CompilerInfo | null> | null = null;
+/** Process-wide state: Next.js gives every route bundle its own instance of this module. */
+const shared = globalThis as unknown as {
+  __gespCompiler?: Promise<CompilerInfo | null> | null;
+  __gespToolchainMirrors?: Map<string, Promise<string>>;
+};
 
 /** Runs `--version` on one path; null if it isn't a working compiler. */
 export async function probeCompiler(file: string, source: CompilerInfo["source"]): Promise<CompilerInfo | null> {
@@ -186,18 +215,18 @@ export async function probeCompiler(file: string, source: CompilerInfo["source"]
  */
 export function findCompiler(preferred?: string | null): Promise<CompilerInfo | null> {
   if (preferred) return probeCompiler(preferred, "settings");
-  detected ??= (async () => {
+  shared.__gespCompiler ??= (async () => {
     for (const c of await candidates()) {
       const info = await probeCompiler(c.path, c.source);
       if (info) return info;
     }
     return null;
   })();
-  return detected;
+  return shared.__gespCompiler;
 }
 
 export function resetCompilerCache() {
-  detected = null;
+  shared.__gespCompiler = null;
 }
 
 /** What to tell a student whose machine has no compiler yet. */
