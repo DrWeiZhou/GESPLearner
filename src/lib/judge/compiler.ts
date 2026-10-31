@@ -2,6 +2,7 @@ import "server-only";
 import { spawn } from "node:child_process";
 import { existsSync, readdirSync } from "node:fs";
 import path from "node:path";
+import { hostPlatform, isWindows } from "@/lib/platform";
 
 /**
  * Finding a C++ compiler on the student's machine.
@@ -24,7 +25,7 @@ export type CompilerInfo = {
   source: "settings" | "env" | "bundled" | "system";
 };
 
-const isWin = process.platform === "win32";
+const isWin = isWindows();
 const exe = (name: string) => (isWin ? `${name}.exe` : name);
 
 function versionOf(cxx: string): Promise<string | null> {
@@ -105,7 +106,7 @@ async function candidates(): Promise<{ path: string; source: CompilerInfo["sourc
   if (toolchain) list.push({ path: path.join(/*turbopackIgnore: true*/ toolchain, "bin", exe("g++")), source: "bundled" });
 
   const system: string[] = [];
-  if (process.platform === "darwin") {
+  if (hostPlatform() === "darwin") {
     system.push(...homebrewGcc(), ...(await xcodeClang()));
   } else if (isWin) {
     system.push(...inPath("g++"), ...WINDOWS_LOCATIONS.filter((f) => existsSync(/*turbopackIgnore: true*/ f)), ...inPath("clang++"));
@@ -146,7 +147,7 @@ export function resetCompilerCache() {
 
 /** What to tell a student whose machine has no compiler yet. */
 export function missingCompilerHint() {
-  if (process.platform === "darwin")
+  if (hostPlatform() === "darwin")
     return "没有找到 C++ 编译器：请在「终端」中运行 xcode-select --install 安装苹果命令行工具（或用 Homebrew 安装 gcc），然后重新打开本程序";
   if (isWin)
     return "没有找到 C++ 编译器：安装包自带的编译器缺失，请重新安装本程序，或在「系统设置 → 代码评测」中指定 g++.exe 的位置";

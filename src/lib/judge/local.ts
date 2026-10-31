@@ -4,6 +4,7 @@ import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import type { RunResult } from "@/lib/types";
+import { isWindows } from "@/lib/platform";
 import { findCompiler, missingCompilerHint, type CompilerInfo } from "./compiler";
 import type { CodeRunner } from "./types";
 
@@ -46,7 +47,7 @@ const STDCXX_SHIM = `#pragma once
 #include <vector>
 `;
 
-const isWin = process.platform === "win32";
+const isWin = isWindows();
 
 type ProcResult = { code: number | null; signal: NodeJS.Signals | null; stdout: string; stderr: string; ms: number; timedOut: boolean };
 

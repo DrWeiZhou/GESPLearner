@@ -122,6 +122,15 @@ function assembleServer() {
   };
   walk(server);
   if (leaks.length) throw new Error(`服务目录里有不该发布的文件：\n${leaks.join("\n")}`);
+
+  // One bundle serves every platform, so platform checks must survive the build.
+  // Turbopack inlines `process.platform` with the build machine's value; code that
+  // used it would lose its Windows branches when built on a Mac (see lib/platform).
+  const chunks = path.join(server, NEXT_DIR, "server", "chunks");
+  const windowsBranch = readdirSync(chunks).some(
+    (f) => f.endsWith(".js") && readFileSync(path.join(chunks, f), "utf8").includes("C:\\\\Users\\\\Public"),
+  );
+  if (!windowsBranch) throw new Error("服务端代码里缺少 Windows 分支（process.platform 被构建时内联了？）");
 }
 
 // ───────────────────────── 4. native binaries ─────────────────────────

@@ -48,6 +48,12 @@ GESPLearner(.exe / .app)            Electron 主进程（desktop/main.ts → app
   回调返回 Promise 会直接报错，从根上杜绝「另一个请求的语句落进这个事务」。
 - 时间戳存毫秒整数（`timestamp_ms`），比较「未过期的会话」用数据库时钟 `strftime('%s','now') * 1000`（Cache Components 预渲染时不允许读 `new Date()`）。
 
+## 跨平台注意
+
+同一份服务端 bundle 在 macOS 上构建、发给 Windows 用，所以**判断平台必须在运行时**：Turbopack 会把应用代码里的
+`process.platform` 替换成构建机器的值（`"darwin"`），`process.platform === "win32"` 的分支在 Windows 包里就整个没了。
+统一用 `src/lib/platform.ts` 的 `isWindows()`（内部是 `os.platform()`）；构建脚本会检查 Windows 分支是否还在 bundle 里。
+
 ## 打包流程（`scripts/desktop/build.ts`）
 
 1. `scripts/desktop/prepare-db.ts` 建一个带内置题库的构建用数据库，`next build` 预渲染页面时读它。
