@@ -1,15 +1,14 @@
 {
   "name": "gesp-learner",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/desktop/copy-monaco.mjs && next dev",
+    "build": "node scripts/desktop/copy-monaco.mjs && next build",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
     "crawl": "bun --conditions react-server scripts/crawl.ts",
     "parse": "bun --conditions react-server scripts/parse.ts",
@@ -19,7 +18,11 @@
     "embed": "bun --conditions react-server scripts/embed.ts",
     "gen-tests": "bun --conditions react-server scripts/gen-tests.ts",
     "render-pdf": "bun --conditions react-server scripts/render-pdf.ts",
-    "backup": "bun scripts/backup.ts"
+    "backup": "bun --conditions react-server scripts/backup.ts",
+    "db:prepare": "bun --conditions react-server scripts/desktop/prepare-db.ts",
+    "desktop:dev": "bun scripts/desktop/build.ts --dev",
+    "desktop:build": "bun scripts/desktop/build.ts",
+    "desktop:icon": "bun scripts/desktop/make-icon.ts"
   },
   "dependencies": {
     "@ai-sdk/langchain": "^3.0.158",
@@ -30,8 +33,6 @@
     "@langchain/openai": "^1.8.0",
     "@monaco-editor/react": "^4.7.0",
     "@napi-rs/canvas": "^1.1.0",
-    "@supabase/ssr": "^0.12.7",
-    "@supabase/supabase-js": "^2.118.0",
     "ai": "^7.0.158",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.5.1",
@@ -42,7 +43,6 @@
     "motion": "^14.9.0",
     "next": "16.4.3",
     "next-themes": "^0.4.6",
-    "postgres": "^4.0.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-markdown": "^10.1.0",
@@ -65,9 +65,13 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "drizzle-kit": "^0.31.11",
+    "electron": "45.2.1",
+    "electron-builder": "26.18.0",
+    "esbuild": "^0.28.2",
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   },
   "packageManager": "bun@1.3.11",
@@ -76,7 +80,9 @@
     "unrs-resolver"
   ],
   "trustedDependencies": [
+    "esbuild",
     "sharp",
     "unrs-resolver"
-  ]
+  ],
+  "description": "GESP 备考助手：CCF GESP C++ 真题练习、模拟考试、在线评测与 AI 讲解（桌面版）"
 }

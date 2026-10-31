@@ -1,0 +1,61 @@
+# Installs the Windows build of a desktop release on a real Windows machine and
+# runs desktop/smoke.cjs against it. The release can still be a draft: the
+# installer is fetched through the API, which shows drafts to this workflow.
+name: 桌面版 Windows 冒烟测试
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 要测试的发布版本（tag，如 v1.0.0）
+        required: true
+
+permissions:
+  contents: write # draft releases are only visible with write access
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 40
+    env:
+      TAG: ${{ inputs.tag || github.ref_name }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: desktop
+
+      - name: 下载安装包
+        shell: pwsh
+        run: |
+          $releases = gh api "repos/${{ github.repository }}/releases?per_page=50" | ConvertFrom-Json
+          $release = $releases | Where-Object { $_.tag_name -eq $env:TAG } | Select-Object -First 1
+          if (-not $release) { throw "找不到 $env:TAG 对应的发布" }
+          $asset = $release.assets | Where-Object { $_.name -like '*-win-x64-setup.exe' } | Select-Object -First 1
+          if (-not $asset) { throw "发布 $env:TAG 里没有 Windows 安装包" }
+          curl.exe -fsSL -H "Authorization: Bearer $env:GH_TOKEN" -H "Accept: application/octet-stream" -o setup.exe $asset.url
+          Get-Item setup.exe | Format-List Name, Length
+
+      # A Chinese install path: the bundled GCC must cope with non-ASCII paths.
+      - name: 静默安装到中文路径
+        shell: pwsh
+        run: |
+          $dir = "C:\测试\GESP备考助手"
+          $p = Start-Process -FilePath .\setup.exe -ArgumentList '/S', "/D=$dir" -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "安装失败：$($p.ExitCode)" }
+          Get-ChildItem $dir | Format-Table Name, Length
+          "INSTALL_DIR=$dir" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: 冒烟测试
+        shell: pwsh
+        run: |
+          $env:ELECTRON_RUN_AS_NODE = "1"
+          $p = Start-Process -FilePath "$env:INSTALL_DIR\GESPLearner.exe" `
+            -ArgumentList "desktop\smoke.cjs", "`"$env:INSTALL_DIR`"" `
+            -NoNewWindow -Wait -PassThru `
+            -RedirectStandardOutput smoke.out -RedirectStandardError smoke.err
+          Get-Content smoke.out -Encoding utf8
+          Get-Content smoke.err -Encoding utf8
+          exit $p.ExitCode

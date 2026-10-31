@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Desktop build output and copied assets.
+    ".next-desktop/**",
+    "dist-desktop/**",
+    "build-desktop/**",
+    "public/monaco/**",
   ]),
 ]);
 
