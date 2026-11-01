@@ -99,7 +99,7 @@ export async function importPaper(
     pdf?: Uint8Array;
     /** Already-parsed paper (an existing data/papers/<id>.json): skips download and parse. */
     paper?: Paper;
-    loadTests?: (qid: string) => Promise<StoredCase[] | null>;
+    loadTests?: (qid: string) => StoredCase[] | null;
     /** Lets the CLI write data/papers/<id>.json before the database step. */
     onParsed?: (paper: Paper) => Promise<void>;
   },
@@ -112,7 +112,7 @@ export async function importPaper(
 
   const warnings = checkPaperShape(paper);
   const status = publish && warnings.length === 0 ? "published" : "parsed";
-  const totalScore = await seedPaper(paper, { publish: status === "published", loadTests });
+  const totalScore = seedPaper(paper, { publish: status === "published", loadTests });
 
   let embedError: string | null = null;
   try {

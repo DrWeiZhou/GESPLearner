@@ -1,24 +1,45 @@
 import "server-only";
 import { createCipheriv, createDecipheriv, createHash, randomBytes } from "node:crypto";
+import { readFileSync, writeFileSync } from "node:fs";
+import path from "node:path";
+import { dbPath } from "@/db";
 
 /**
  * AES-256-GCM for secrets kept in the database (the LLM API key set from /admin).
  *
- * The key comes from the `SETTINGS_SECRET` env var, never from the database, so a
- * leaked dump alone doesn't reveal the stored secrets. Generate one with
- * `openssl rand -base64 32`; changing it makes previously saved secrets unreadable.
+ * The key never lives in the database, so a copied `gesp.db` alone doesn't reveal
+ * the stored secrets. It comes from the `SETTINGS_SECRET` env var when set;
+ * otherwise each installation generates one on first use and keeps it in
+ * `secret.key` next to the database. Losing or changing it makes previously saved
+ * secrets unreadable (the admin just enters the API key again).
  */
 
 export type SealedSecret = { v: 1; iv: string; tag: string; data: string };
 
 const MIN_SECRET_LENGTH = 16;
 
-export const isSecretBoxConfigured = () => (process.env.SETTINGS_SECRET?.length ?? 0) >= MIN_SECRET_LENGTH;
+let cached: string | null = null;
+
+function settingsSecret(): string {
+  const env = process.env.SETTINGS_SECRET;
+  if (env) return env;
+  if (cached) return cached;
+  const file = path.join(path.dirname(dbPath()), "secret.key");
+  try {
+    cached = readFileSync(file, "utf8").trim();
+  } catch {
+    cached = randomBytes(32).toString("base64");
+    writeFileSync(file, cached + "\n", { mode: 0o600 });
+  }
+  return cached;
+}
+
+export const isSecretBoxConfigured = () => settingsSecret().length >= MIN_SECRET_LENGTH;
 
 function key() {
-  const secret = process.env.SETTINGS_SECRET;
-  if (!secret || secret.length < MIN_SECRET_LENGTH) {
-    throw new Error(`SETTINGS_SECRET 未配置或少于 ${MIN_SECRET_LENGTH} 位`);
+  const secret = settingsSecret();
+  if (secret.length < MIN_SECRET_LENGTH) {
+    throw new Error(`SETTINGS_SECRET 少于 ${MIN_SECRET_LENGTH} 位`);
   }
   return createHash("sha256").update(`gesp-settings:${secret}`).digest();
 }

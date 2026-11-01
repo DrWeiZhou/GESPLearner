@@ -1,47 +1,65 @@
 import { sql } from "drizzle-orm";
 import {
-  bigint,
-  boolean,
   check,
+  customType,
   index,
   integer,
-  jsonb,
-  numeric,
-  pgTable,
   primaryKey,
-  smallint,
+  real,
+  sqliteTable,
   text,
-  timestamp,
   unique,
   uniqueIndex,
-  uuid,
-  vector,
-} from "drizzle-orm/pg-core";
+} from "drizzle-orm/sqlite-core";
 import type { ExamReport } from "@/lib/grading";
 
 /**
- * Database schema (Supabase Postgres + pgvector), managed by drizzle-kit.
+ * Database schema (SQLite, one file in the user's data directory), managed by
+ * drizzle-kit. The desktop app is the only client, so authorization lives in the
+ * server code exactly as it did on Postgres.
  *
- * The app talks to Postgres directly through Drizzle on the server, so every table
- * has RLS enabled with no policies (see the custom migration): Supabase's public
- * REST API can't read anything, and authorization lives in the server code.
- *
- * User ids are Supabase Auth ids (auth.users.id). We deliberately don't declare a
- * foreign key into the `auth` schema so migrations also run on plain Postgres.
+ * Postgres → SQLite mapping:
+ * - timestamps are integer milliseconds (`timestamp_ms`), surfacing as `Date`
+ * - uuid ids are text, generated in JS with `crypto.randomUUID()`
+ * - jsonb is text in JSON mode, numeric is REAL (coin amounts are rounded to three
+ *   decimals in code, see lib/coins), boolean is 0/1
+ * - the pgvector embedding is a Float32 BLOB; similarity is computed in memory
  */
 
 export const EMBEDDING_DIMENSIONS = 1024;
 
+const id = () =>
+  text()
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID());
+const createdAt = () =>
+  integer({ mode: "timestamp_ms" })
+    .notNull()
+    .$defaultFn(() => new Date());
+const timestamp = () => integer({ mode: "timestamp_ms" });
+const bool = () => integer({ mode: "boolean" });
+
+/** number[] ↔ little-endian Float32 BLOB (4 KB per 1024-dim vector). */
+const vector = customType<{ data: number[]; driverData: Uint8Array }>({
+  dataType: () => "blob",
+  toDriver: (value) => new Uint8Array(Float32Array.from(value).buffer),
+  fromDriver: (value) => {
+    const bytes = value instanceof Uint8Array ? value : new Uint8Array(value as ArrayBuffer);
+    // Copy so the Float32Array view is aligned regardless of the driver's buffer.
+    return Array.from(new Float32Array(bytes.slice().buffer));
+  },
+});
+
 // ───────────────────────── Content ─────────────────────────
 
-export const exams = pgTable("exams", {
+export const exams = sqliteTable("exams", {
   id: text().primaryKey(), // '2026-09'
   title: text().notNull(), // '2026年9月GESP认证'
   sourceUrl: text(),
-  createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+  createdAt: createdAt(),
 });
 
-export const papers = pgTable(
+export const papers = sqliteTable(
   "papers",
   {
     id: text().primaryKey(), // 'cpp-2026-09-l3'
@@ -49,17 +67,17 @@ export const papers = pgTable(
       .notNull()
       .references(() => exams.id, { onDelete: "cascade" }),
     language: text().notNull().default("cpp"),
-    level: smallint().notNull(),
+    level: integer().notNull(),
     pdfUrl: text(),
     durationMinutes: integer().notNull().default(120),
     /** crawled: PDF known · parsed: imported, awaiting review · published: visible to students */
     status: text({ enum: ["crawled", "parsed", "published"] }).notNull().default("crawled"),
-    totalScore: numeric({ mode: "number" }).notNull().default(0),
-    updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+    totalScore: real().notNull().default(0),
+    updatedAt: createdAt(),
   },
   (t) => [
     unique().on(t.examId, t.language, t.level),
-    index().on(t.language, t.level),
+    index("papers_language_level_idx").on(t.language, t.level),
     check("papers_level_range", sql`${t.level} between 1 and 8`),
   ],
 );
@@ -67,7 +85,7 @@ export const papers = pgTable(
 export type SampleJson = { input: string; output: string; explanation?: string };
 export type OptionJson = { label: "A" | "B" | "C" | "D"; content: string };
 
-export const questions = pgTable(
+export const questions = sqliteTable(
   "questions",
   {
     id: text().primaryKey(), // 'cpp-2026-09-l3-sc-01'
@@ -75,32 +93,31 @@ export const questions = pgTable(
       .notNull()
       .references(() => papers.id, { onDelete: "cascade" }),
     type: text({ enum: ["single_choice", "true_false", "programming"] }).notNull(),
-    number: smallint().notNull(),
-    score: numeric({ mode: "number" }).notNull(),
+    number: integer().notNull(),
+    score: real().notNull(),
     /** Markdown. For programming questions this is the problem description. */
     stem: text().notNull().default(""),
-    options: jsonb().$type<OptionJson[]>(),
+    options: text({ mode: "json" }).$type<OptionJson[]>(),
     // programming only
     title: text(),
     timeLimitMs: integer(),
     memoryLimitMb: integer(),
     inputFormat: text(),
     outputFormat: text(),
-    samples: jsonb().$type<SampleJson[]>(),
+    samples: text({ mode: "json" }).$type<SampleJson[]>(),
     dataRange: text(),
     sortOrder: integer().notNull().default(0),
     /** Semantic embedding of the question text, for similar-question search / tutor RAG. */
-    embedding: vector({ dimensions: EMBEDDING_DIMENSIONS }),
+    embedding: vector(),
   },
   (t) => [
     unique().on(t.paperId, t.type, t.number),
-    index().on(t.paperId, t.sortOrder),
-    index("questions_embedding_idx").using("hnsw", t.embedding.op("vector_cosine_ops")),
+    index("questions_paper_sort_idx").on(t.paperId, t.sortOrder),
   ],
 );
 
 /** Server-only: answers and reference solutions. */
-export const questionKeys = pgTable("question_keys", {
+export const questionKeys = sqliteTable("question_keys", {
   questionId: text()
     .primaryKey()
     .references(() => questions.id, { onDelete: "cascade" }),
@@ -110,17 +127,17 @@ export const questionKeys = pgTable("question_keys", {
 });
 
 /** Server-only: judge data (samples + hidden cases). */
-export const testCases = pgTable(
+export const testCases = sqliteTable(
   "test_cases",
   {
-    id: bigint({ mode: "number" }).primaryKey().generatedAlwaysAsIdentity(),
+    id: integer().primaryKey({ autoIncrement: true }),
     questionId: text()
       .notNull()
       .references(() => questions.id, { onDelete: "cascade" }),
     idx: integer().notNull(),
     input: text().notNull(),
     expectedOutput: text().notNull(),
-    isSample: boolean().notNull().default(false),
+    isSample: bool().notNull().default(false),
   },
   (t) => [unique().on(t.questionId, t.idx)],
 );
@@ -131,18 +148,18 @@ export const testCases = pgTable(
  * All eight levels live in a single official PDF; `pages` records which slice of it
  * this row was parsed from, so a bad transcription can be traced back.
  */
-export const syllabi = pgTable(
+export const syllabi = sqliteTable(
   "syllabi",
   {
-    level: smallint().primaryKey(),
+    level: integer().primaryKey(),
     language: text().notNull().default("cpp"),
     /** 考核目标 for the level, as printed in the syllabus. */
     objective: text().notNull().default(""),
     pdfUrl: text(),
     sourceUrl: text(),
     /** 1-based [from, to] page range inside the official PDF. */
-    pages: jsonb().$type<[number, number]>(),
-    updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+    pages: text({ mode: "json" }).$type<[number, number]>(),
+    updatedAt: createdAt(),
   },
   (t) => [check("syllabi_level_range", sql`${t.level} between 1 and 8`)],
 );
@@ -152,11 +169,11 @@ export const syllabi = pgTable(
  * the name (see `knowledgePointId`) so re-parsing the syllabus keeps the ids of
  * points that haven't changed, and with them the question classifications.
  */
-export const knowledgePoints = pgTable(
+export const knowledgePoints = sqliteTable(
   "knowledge_points",
   {
     id: text().primaryKey(), // 'kp-l3-1a2b3c4d'
-    level: smallint()
+    level: integer()
       .notNull()
       .references(() => syllabi.level, { onDelete: "cascade" }),
     /** 知识块 the point belongs to. */
@@ -165,7 +182,7 @@ export const knowledgePoints = pgTable(
     summary: text().notNull().default(""),
     sortOrder: integer().notNull().default(0),
   },
-  (t) => [index().on(t.level, t.sortOrder)],
+  (t) => [index("knowledge_points_level_sort_idx").on(t.level, t.sortOrder)],
 );
 
 /**
@@ -176,7 +193,7 @@ export const knowledgePoints = pgTable(
  * A null `knowledgePointId` means the model was asked and couldn't place the
  * question; the row still exists, so it isn't asked again on every page load.
  */
-export const questionKnowledge = pgTable("question_knowledge", {
+export const questionKnowledge = sqliteTable("question_knowledge", {
   questionId: text()
     .primaryKey()
     .references(() => questions.id, { onDelete: "cascade" }),
@@ -185,33 +202,32 @@ export const questionKnowledge = pgTable("question_knowledge", {
   reason: text(),
   /** Which model decided, so old verdicts stay explainable after a model change. */
   model: text(),
-  createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+  createdAt: createdAt(),
 });
 
 // ───────────────────────── Users ─────────────────────────
 
 /**
- * Accounts live here, not in Supabase Auth: GESP students are children who often
- * have no mailbox, so they sign in with a username and password. Supabase is used
- * purely as the Postgres host.
+ * Accounts: GESP students are children who often have no mailbox, so they sign in
+ * with a username and password. Several students can share one installation.
  *
  * `passwordHash` is a self-describing scrypt string (see `@/lib/password`), never
  * a raw password. Usernames are compared case-insensitively.
  */
-export const users = pgTable(
+export const users = sqliteTable(
   "users",
   {
-    id: uuid().primaryKey().defaultRandom(),
+    id: id(),
     username: text().notNull(),
     passwordHash: text().notNull(),
     displayName: text(),
     role: text({ enum: ["student", "admin"] }).notNull().default("student"),
-    targetLevel: smallint(),
-    createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
-    lastLoginAt: timestamp({ withTimezone: true }),
+    targetLevel: integer(),
+    createdAt: createdAt(),
+    lastLoginAt: timestamp(),
     /** Throttling for password guessing. */
     failedAttempts: integer().notNull().default(0),
-    lockedUntil: timestamp({ withTimezone: true }),
+    lockedUntil: timestamp(),
   },
   (t) => [uniqueIndex("users_username_key").on(sql`lower(${t.username})`)],
 );
@@ -220,110 +236,117 @@ export const users = pgTable(
  * Server-side sessions. Only the SHA-256 of the cookie token is stored, so a
  * database leak doesn't hand out live sessions.
  */
-export const sessions = pgTable(
+export const sessions = sqliteTable(
   "sessions",
   {
-    id: uuid().primaryKey().defaultRandom(),
-    userId: uuid()
+    id: id(),
+    userId: text()
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
     tokenHash: text().notNull().unique(),
-    expiresAt: timestamp({ withTimezone: true }).notNull(),
-    createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+    expiresAt: integer({ mode: "timestamp_ms" }).notNull(),
+    createdAt: createdAt(),
   },
-  (t) => [index().on(t.userId)],
+  (t) => [index("sessions_user_idx").on(t.userId)],
 );
 
 /** Single-row-per-key configuration, editable by an admin (e.g. the coin rate). */
-export const appSettings = pgTable("app_settings", {
+export const appSettings = sqliteTable("app_settings", {
   key: text().primaryKey(),
-  value: jsonb().notNull(),
-  updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
-  updatedBy: uuid().references(() => users.id, { onDelete: "set null" }),
+  value: text({ mode: "json" }).notNull(),
+  updatedAt: createdAt(),
+  updatedBy: text().references(() => users.id, { onDelete: "set null" }),
 });
 
 export const DEFAULT_COIN_RATE = 0.3;
 export const COIN_RATE_KEY = "coin_rate";
 /** LLM endpoint set from /admin; the API key inside is encrypted (see lib/secret-box). */
 export const AI_SETTINGS_KEY = "ai_settings";
+/** Code runner choice set from /admin (see lib/judge/settings). */
+export const JUDGE_SETTINGS_KEY = "judge_settings";
+/** Version of the bundled question bank last imported (see db/bootstrap). */
+export const CONTENT_VERSION_KEY = "content_version";
 
-export const attempts = pgTable(
+export const attempts = sqliteTable(
   "attempts",
   {
-    id: uuid().primaryKey().defaultRandom(),
-    userId: uuid()
+    id: id(),
+    userId: text()
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
     paperId: text()
       .notNull()
       .references(() => papers.id, { onDelete: "cascade" }),
     mode: text({ enum: ["practice", "exam"] }).notNull(),
-    startedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
-    submittedAt: timestamp({ withTimezone: true }),
-    score: numeric({ mode: "number" }),
-    maxScore: numeric({ mode: "number" }),
-    detail: jsonb().$type<ExamReport>(),
+    startedAt: createdAt(),
+    submittedAt: timestamp(),
+    score: real(),
+    maxScore: real(),
+    detail: text({ mode: "json" }).$type<ExamReport>(),
   },
-  (t) => [index().on(t.userId, t.startedAt)],
+  (t) => [index("attempts_user_started_idx").on(t.userId, t.startedAt)],
 );
 
-export const answerRecords = pgTable(
+export const answerRecords = sqliteTable(
   "answer_records",
   {
-    id: bigint({ mode: "number" }).primaryKey().generatedAlwaysAsIdentity(),
-    userId: uuid()
+    id: integer().primaryKey({ autoIncrement: true }),
+    userId: text()
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
     questionId: text()
       .notNull()
       .references(() => questions.id, { onDelete: "cascade" }),
-    attemptId: uuid().references(() => attempts.id, { onDelete: "set null" }),
+    attemptId: text().references(() => attempts.id, { onDelete: "set null" }),
     answer: text().notNull(),
-    isCorrect: boolean().notNull(),
-    createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+    isCorrect: bool().notNull(),
+    createdAt: createdAt(),
   },
-  (t) => [index().on(t.userId, t.questionId, t.createdAt)],
+  (t) => [index("answer_records_user_question_idx").on(t.userId, t.questionId, t.createdAt)],
 );
 
 export type CaseSummaryJson = { idx: number; isSample: boolean; verdict: string; timeMs: number | null; memoryKb: number | null };
 
-export const submissions = pgTable(
+export const submissions = sqliteTable(
   "submissions",
   {
-    id: uuid().primaryKey().defaultRandom(),
-    userId: uuid()
+    id: id(),
+    userId: text()
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
     questionId: text()
       .notNull()
       .references(() => questions.id, { onDelete: "cascade" }),
-    attemptId: uuid().references(() => attempts.id, { onDelete: "set null" }),
+    attemptId: text().references(() => attempts.id, { onDelete: "set null" }),
     code: text().notNull(),
     language: text().notNull().default("cpp"),
     verdict: text().notNull(), // AC / WA / TLE / MLE / RE / CE / SE
     passed: integer().notNull().default(0),
     total: integer().notNull().default(0),
-    results: jsonb().$type<CaseSummaryJson[]>(),
+    results: text({ mode: "json" }).$type<CaseSummaryJson[]>(),
     compileOutput: text(),
-    createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+    createdAt: createdAt(),
   },
-  (t) => [index().on(t.userId, t.questionId, t.createdAt), index().on(t.attemptId)],
+  (t) => [
+    index("submissions_user_question_idx").on(t.userId, t.questionId, t.createdAt),
+    index("submissions_attempt_idx").on(t.attemptId),
+  ],
 );
 
 export type StoredChatMessage = { id: string; role: "user" | "assistant"; text: string };
 
-export const aiChats = pgTable(
+export const aiChats = sqliteTable(
   "ai_chats",
   {
-    id: uuid().primaryKey().defaultRandom(),
-    userId: uuid()
+    id: id(),
+    userId: text()
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
     questionId: text()
       .notNull()
       .references(() => questions.id, { onDelete: "cascade" }),
-    messages: jsonb().$type<StoredChatMessage[]>().notNull().default([]),
-    updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+    messages: text({ mode: "json" }).$type<StoredChatMessage[]>().notNull().default(sql`'[]'`),
+    updatedAt: createdAt(),
   },
   (t) => [unique().on(t.userId, t.questionId)],
 );
@@ -335,31 +358,34 @@ export const aiChats = pgTable(
  * the wrong-answer book: the row is already there, with the score of that first
  * attempt (0 for a wrong answer).
  */
-export const questionRewards = pgTable(
+export const questionRewards = sqliteTable(
   "question_rewards",
   {
-    userId: uuid()
+    userId: text()
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
     questionId: text()
       .notNull()
       .references(() => questions.id, { onDelete: "cascade" }),
     /** Score earned the first time the question was graded. */
-    score: numeric({ mode: "number" }).notNull(),
+    score: real().notNull(),
     /** The rate in force at that moment, so old rows stay explainable. */
-    rate: numeric({ mode: "number" }).notNull(),
+    rate: real().notNull(),
     /** score × rate — what the ledger was credited. Fractional, e.g. 0.6. */
-    coins: numeric({ mode: "number" }).notNull(),
+    coins: real().notNull(),
     /** Set when the question was graded as part of a mock exam. */
-    attemptId: uuid().references(() => attempts.id, { onDelete: "set null" }),
-    createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+    attemptId: text().references(() => attempts.id, { onDelete: "set null" }),
+    createdAt: createdAt(),
   },
-  (t) => [primaryKey({ columns: [t.userId, t.questionId] }), index().on(t.userId, t.createdAt)],
+  (t) => [
+    primaryKey({ columns: [t.userId, t.questionId] }),
+    index("question_rewards_user_created_idx").on(t.userId, t.createdAt),
+  ],
 );
 
 /**
  * Coin ledger. The balance is the SUM of amounts rather than a stored counter, so
- * every change is auditable and concurrent writes can't lose an update.
+ * every change is auditable.
  *
  * Amounts are fractional: a 2-point question at the default rate is worth 0.6 coins,
  * and the student gets exactly that — no rounding, no remainder held back.
@@ -369,25 +395,24 @@ export const questionRewards = pgTable(
  * - `adjust`: manual correction by an admin, either sign
  * - `earn`:  legacy whole-paper redemption, kept so old history still reads correctly
  */
-export const coinTransactions = pgTable(
+export const coinTransactions = sqliteTable(
   "coin_transactions",
   {
-    id: bigint({ mode: "number" }).primaryKey().generatedAlwaysAsIdentity(),
-    userId: uuid().notNull(),
-    /** Positive = credit, negative = debit. Fractional, to three decimals. */
-    amount: numeric({ mode: "number", precision: 12, scale: 3 }).notNull(),
+    id: integer().primaryKey({ autoIncrement: true }),
+    userId: text().notNull(),
+    /** Positive = credit, negative = debit. Fractional, rounded to three decimals in code. */
+    amount: real().notNull(),
     type: text({ enum: ["reward", "spend", "adjust", "earn"] }).notNull(),
-    attemptId: uuid().references(() => attempts.id, { onDelete: "set null" }),
+    attemptId: text().references(() => attempts.id, { onDelete: "set null" }),
     /** Set when the row is the reward for a single question. */
     questionId: text().references(() => questions.id, { onDelete: "set null" }),
     note: text(),
-    createdBy: uuid().references(() => users.id, { onDelete: "set null" }),
-    createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
+    createdBy: text().references(() => users.id, { onDelete: "set null" }),
+    createdAt: createdAt(),
   },
   (t) => [
-    index().on(t.userId, t.createdAt),
-    // Legacy: guarded the old one-redemption-per-paper flow. Nothing writes 'earn'
-    // any more, but the index stays so existing rows keep their guarantee.
+    index("coin_tx_user_created_idx").on(t.userId, t.createdAt),
+    // Legacy: guarded the old one-redemption-per-paper flow.
     uniqueIndex("coin_tx_one_earn_per_attempt")
       .on(t.attemptId)
       .where(sql`${t.type} = 'earn'`),

@@ -1,18 +1,13 @@
 import "server-only";
-import { readdir, readFile } from "node:fs/promises";
-import path from "node:path";
 import { cacheLife, cacheTag } from "next/cache";
 import { asc, count, inArray, lte } from "drizzle-orm";
-import { getDb, isDatabaseConfigured } from "@/db";
+import { getDb } from "@/db";
 import { knowledgePoints, syllabi } from "@/db/schema";
-import { knowledgePointId, SyllabusSchema, type Syllabus } from "@/lib/schema/syllabus";
 
 /**
- * Read access to the syllabus, mirroring `lib/content`: Postgres when DATABASE_URL
- * is set, otherwise `data/syllabus/*.json` (demo mode).
+ * Read access to the syllabus, mirroring `lib/content`. The bundled
+ * `data/syllabus/*.json` is imported into the database on first start.
  */
-
-const DATA_DIR = path.join(process.cwd(), "data", "syllabus");
 
 export type KnowledgePointView = {
   id: string;
@@ -30,39 +25,11 @@ export type SyllabusView = {
   points: KnowledgePointView[];
 };
 
-async function loadLocalSyllabi(): Promise<Syllabus[]> {
-  let files: string[] = [];
-  try {
-    files = (await readdir(DATA_DIR)).filter((f) => f.endsWith(".json"));
-  } catch {
-    return [];
-  }
-  return Promise.all(
-    files.map(async (f) => SyllabusSchema.parse(JSON.parse(await readFile(path.join(DATA_DIR, f), "utf8")))),
-  );
-}
-
-const toView = (s: Syllabus): SyllabusView => ({
-  level: s.level,
-  objective: s.objective,
-  pdfUrl: s.pdfUrl ?? null,
-  sourceUrl: s.sourceUrl ?? null,
-  points: s.points.map((p) => ({
-    id: knowledgePointId(s.level, p.name),
-    level: s.level,
-    block: p.block,
-    name: p.name,
-    summary: p.summary,
-  })),
-});
-
 /** Every imported level, lowest first. */
 export async function listSyllabi(): Promise<SyllabusView[]> {
   "use cache";
   cacheLife("hours");
   cacheTag("syllabus");
-
-  if (!isDatabaseConfigured) return (await loadLocalSyllabi()).map(toView).sort((a, b) => a.level - b.level);
 
   const db = getDb();
   const heads = await db.select().from(syllabi).orderBy(asc(syllabi.level));
@@ -93,9 +60,6 @@ export async function getSyllabus(level: number): Promise<SyllabusView | null> {
  * level's. GESP is cumulative — a 五级 question routinely turns on 三级 material.
  */
 export async function candidatePoints(level: number): Promise<KnowledgePointView[]> {
-  if (!isDatabaseConfigured) {
-    return (await listSyllabi()).filter((s) => s.level <= level).flatMap((s) => s.points);
-  }
   const rows = await getDb()
     .select()
     .from(knowledgePoints)
@@ -106,7 +70,6 @@ export async function candidatePoints(level: number): Promise<KnowledgePointView
 
 /** Levels with a syllabus in the database, for the admin page. */
 export async function importedSyllabusLevels(): Promise<{ level: number; points: number; updatedAt: Date }[]> {
-  if (!isDatabaseConfigured) return [];
   const db = getDb();
   const heads = await db.select().from(syllabi).orderBy(asc(syllabi.level));
   if (heads.length === 0) return [];

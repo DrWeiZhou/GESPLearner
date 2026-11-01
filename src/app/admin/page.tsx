@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { AISettingsForm } from "@/components/admin/ai-settings-form";
+import { BackupCard } from "@/components/admin/backup-card";
 import { CoinRateForm } from "@/components/admin/coin-rate-form";
+import { EmbeddingsCard } from "@/components/admin/embeddings-card";
+import { JudgeSettingsForm } from "@/components/admin/judge-settings-form";
 import { PaperUpdateCard } from "@/components/admin/paper-update-card";
 import { SyllabusUpdateCard } from "@/components/admin/syllabus-card";
 import { UserTable } from "@/components/admin/user-table";
@@ -10,6 +13,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getCurrentUser } from "@/lib/auth";
 import { getAISettingsView } from "@/lib/ai/settings";
+import { backupDir, listBackups } from "@/lib/backup";
+import { getJudgeSettingsView } from "@/lib/judge/settings";
+import { count, isNotNull } from "drizzle-orm";
+import { getDb } from "@/db";
+import { questions } from "@/db/schema";
 import { getCoinRate } from "@/lib/coins";
 import { listUsers } from "@/lib/admin";
 import { importedSyllabusLevels } from "@/lib/syllabus/content";
@@ -48,14 +56,20 @@ async function Settings() {
   // Sequential — see the note in app/coins/page.tsx.
   const rate = await getCoinRate();
   const ai = await getAISettingsView();
+  const judge = await getJudgeSettingsView();
   const syllabi = await importedSyllabusLevels();
   const users = await listUsers();
+  const [all] = await getDb().select({ n: count() }).from(questions);
+  const [embedded] = await getDb().select({ n: count() }).from(questions).where(isNotNull(questions.embedding));
   return (
     <div className="space-y-6">
       <PaperUpdateCard />
       <SyllabusUpdateCard imported={syllabi.map((s) => ({ level: s.level, points: s.points }))} />
       <CoinRateForm rate={rate} />
       <AISettingsForm settings={ai} />
+      <JudgeSettingsForm settings={judge} />
+      <EmbeddingsCard initial={{ total: all.n, embedded: embedded.n, remaining: all.n - embedded.n }} />
+      <BackupCard initial={listBackups()} folder={backupDir()} />
       <UserTable users={users} currentUserId={user.id} />
     </div>
   );

@@ -13,7 +13,7 @@ export async function recordAnswer(r: {
   isCorrect: boolean;
   attemptId?: string | null;
 }) {
-  await getDb().insert(answerRecords).values({ ...r, attemptId: r.attemptId ?? null });
+  getDb().insert(answerRecords).values({ ...r, attemptId: r.attemptId ?? null }).run();
 }
 
 export async function recordSubmission(r: {
@@ -23,7 +23,7 @@ export async function recordSubmission(r: {
   result: JudgeResult;
   attemptId?: string | null;
 }) {
-  await getDb()
+  getDb()
     .insert(submissions)
     .values({
       userId: r.userId,
@@ -36,17 +36,19 @@ export async function recordSubmission(r: {
       // keep the per-case summary but drop revealed hidden-case contents
       results: r.result.cases.map(({ idx, isSample, verdict, timeMs, memoryKb }) => ({ idx, isSample, verdict, timeMs, memoryKb })),
       compileOutput: r.result.compileOutput.slice(0, 8000),
-    });
+    })
+    .run();
 }
 
 export async function saveChat(userId: string, questionId: string, messages: StoredChatMessage[]) {
-  await getDb()
+  getDb()
     .insert(aiChats)
     .values({ userId, questionId, messages })
     .onConflictDoUpdate({
       target: [aiChats.userId, aiChats.questionId],
       set: { messages, updatedAt: new Date() },
-    });
+    })
+    .run();
 }
 
 /** The attempt if it belongs to the user and hasn't been handed in yet. */

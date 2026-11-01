@@ -1,6 +1,6 @@
 import "server-only";
 import { desc, eq, sql } from "drizzle-orm";
-import { getDb, type Tx } from "@/db";
+import { getDb, type DB, type Tx } from "@/db";
 import {
   appSettings,
   attempts,
@@ -28,7 +28,11 @@ import type { CoinReward } from "@/lib/types";
  * at that first grading (score 0 included) is what enforces it.
  *
  * The balance is always SUM(amount) over the ledger — never a stored counter — so
- * history stays auditable and concurrent writes can't lose an update.
+ * history stays auditable.
+ *
+ * Every write here runs in a synchronous SQLite transaction: no `await` between
+ * BEGIN and COMMIT, so nothing from another request can slip in between the
+ * balance check and the ledger row (see db/sqlite).
  */
 
 export type CoinTransaction = {
@@ -43,15 +47,9 @@ export type CoinTransaction = {
 
 // ───────────────────────── rate ─────────────────────────
 
-/**
- * Coins awarded per exam point. Admin-configurable; defaults to 0.3.
- *
- * Takes the connection to read on: a settlement reads the rate while holding its
- * transaction, and borrowing a second connection from the small pool to do it
- * deadlocks as soon as a few students are graded at once.
- */
-export async function getCoinRate(conn: Pick<Tx, "select"> = getDb()): Promise<number> {
-  const [row] = await conn.select().from(appSettings).where(eq(appSettings.key, COIN_RATE_KEY));
+/** Coins awarded per exam point. Admin-configurable; defaults to 0.3. */
+export function getCoinRate(conn: Pick<Tx, "select"> = getDb()): number {
+  const row = conn.select().from(appSettings).where(eq(appSettings.key, COIN_RATE_KEY)).get();
   const value = Number(row?.value);
   return Number.isFinite(value) && value >= 0 ? value : DEFAULT_COIN_RATE;
 }
@@ -59,13 +57,14 @@ export async function getCoinRate(conn: Pick<Tx, "select"> = getDb()): Promise<n
 export async function setCoinRate(rate: number, adminId: string) {
   if (!Number.isFinite(rate) || rate < 0 || rate > 100) throw new HttpError(400, "兑换比例需在 0 ~ 100 之间");
   const value = round3(rate);
-  await getDb()
+  getDb()
     .insert(appSettings)
     .values({ key: COIN_RATE_KEY, value, updatedBy: adminId })
     .onConflictDoUpdate({
       target: appSettings.key,
       set: { value, updatedBy: adminId, updatedAt: new Date() },
-    });
+    })
+    .run();
   return value;
 }
 
@@ -80,13 +79,14 @@ export async function getBalance(userId: string): Promise<number> {
   return balanceOf(getDb(), userId);
 }
 
-/** SUM over the ledger. Rounded because summing float8 can leave 12.600000000000001. */
-async function balanceOf(conn: Pick<Tx, "select">, userId: string): Promise<number> {
-  const [row] = await conn
-    .select({ balance: sql<number>`coalesce(sum(${coinTransactions.amount}), 0)::float8` })
+/** SUM over the ledger. Rounded because summing REALs can leave 12.600000000000001. */
+function balanceOf(conn: Pick<Tx, "select">, userId: string): number {
+  const row = conn
+    .select({ balance: sql<number>`coalesce(sum(${coinTransactions.amount}), 0)` })
     .from(coinTransactions)
-    .where(eq(coinTransactions.userId, userId));
-  return round3(row?.balance ?? 0);
+    .where(eq(coinTransactions.userId, userId))
+    .get();
+  return round3(Number(row?.balance ?? 0));
 }
 
 export async function getLedger(userId: string, limit = 50): Promise<CoinTransaction[]> {
@@ -131,21 +131,18 @@ export type GradedQuestion = {
  * with `questions: 0` rather than null: the student needs to be told the question
  * had already paid out, otherwise an unchanged balance just looks broken.
  *
- * Safe to call with the whole batch a hand-in produced.
+ * Safe to call with the whole batch a hand-in produced. Synchronous: pass `tx` to
+ * join the caller's transaction, otherwise it opens its own.
  */
-export async function rewardQuestions(
-  userId: string,
-  graded: GradedQuestion[],
-  tx?: Tx,
-): Promise<CoinReward | null> {
+export function rewardQuestions(userId: string, graded: GradedQuestion[], tx?: Tx | DB): CoinReward | null {
   if (!graded.length) return null;
   if (!tx) return getDb().transaction((t) => rewardQuestions(userId, graded, t));
 
-  const rate = await getCoinRate(tx);
+  const rate = getCoinRate(tx);
 
-  // No wallet lock needed: nothing here is a read-modify-write. The composite primary
-  // key decides which questions are new, and the ledger row is a plain append.
-  const fresh = await tx
+  // The composite primary key decides which questions are new, and the ledger row
+  // is a plain append.
+  const fresh = tx
     .insert(questionRewards)
     .values(
       graded.map((g) => ({
@@ -162,26 +159,29 @@ export async function rewardQuestions(
       questionId: questionRewards.questionId,
       score: questionRewards.score,
       coins: questionRewards.coins,
-    });
+    })
+    .all();
 
   const score = round3(fresh.reduce((s, r) => s + r.score, 0));
   const coins = round3(fresh.reduce((s, r) => s + r.coins, 0));
 
   if (coins > 0) {
     const single = fresh.length === 1 ? graded.find((g) => g.questionId === fresh[0].questionId) : undefined;
-    await tx.insert(coinTransactions).values({
-      userId,
-      amount: coins,
-      type: "reward",
-      questionId: single?.questionId ?? null,
-      attemptId: graded[0].attemptId ?? null,
-      note: single
-        ? `${single.label ?? "答题"} ${score} 分 × ${rate}`
-        : `${fresh.length} 道题共 ${score} 分 × ${rate}`,
-    });
+    tx.insert(coinTransactions)
+      .values({
+        userId,
+        amount: coins,
+        type: "reward",
+        questionId: single?.questionId ?? null,
+        attemptId: graded[0].attemptId ?? null,
+        note: single
+          ? `${single.label ?? "答题"} ${score} 分 × ${rate}`
+          : `${fresh.length} 道题共 ${score} 分 × ${rate}`,
+      })
+      .run();
   }
 
-  return { coins, balance: await balanceOf(tx, userId), questions: fresh.length };
+  return { coins, balance: balanceOf(tx, userId), questions: fresh.length };
 }
 
 // ───────────────────────── deductions ─────────────────────────
@@ -199,25 +199,30 @@ export async function spendCoins(params: {
   if (!Number.isFinite(params.amount) || params.amount <= 0) throw new HttpError(400, "扣除数量需为正数");
   const amount = round3(params.amount);
 
-  const db = getDb();
-  return db.transaction(async (tx) => {
-    // Lock the user row so two concurrent deductions can't both pass the check — this
-    // one really is a read-modify-write on the balance.
-    const [owner] = await tx.select({ id: users.id }).from(users).where(eq(users.id, userId)).for("update");
-    if (!owner) throw new HttpError(404, "用户不存在");
+  // This one really is a read-modify-write on the balance. The transaction is
+  // synchronous and IMMEDIATE (takes the write lock up front), so two deductions
+  // can't both pass the check.
+  return getDb().transaction(
+    (tx) => {
+      const owner = tx.select({ id: users.id }).from(users).where(eq(users.id, userId)).get();
+      if (!owner) throw new HttpError(404, "用户不存在");
 
-    const balance = await balanceOf(tx, userId);
-    if (balance < amount) throw new HttpError(400, `金币不足：当前仅有 ${balance} 枚`);
+      const balance = balanceOf(tx, userId);
+      if (balance < amount) throw new HttpError(400, `金币不足：当前仅有 ${balance} 枚`);
 
-    await tx.insert(coinTransactions).values({
-      userId,
-      amount: -amount,
-      type,
-      note: note?.trim() || null,
-      createdBy: actorId ?? userId,
-    });
-    return { balance: round3(balance - amount) };
-  });
+      tx.insert(coinTransactions)
+        .values({
+          userId,
+          amount: -amount,
+          type,
+          note: note?.trim() || null,
+          createdBy: actorId ?? userId,
+        })
+        .run();
+      return { balance: round3(balance - amount) };
+    },
+    { behavior: "immediate" },
+  );
 }
 
 /** Admin: credit coins back / correct a mistake. */
@@ -232,8 +237,9 @@ export async function adjustCoins(params: {
   const amount = round3(params.amount);
   if (amount < 0) return spendCoins({ userId, amount: -amount, note, actorId, type: "adjust" });
 
-  await getDb()
+  getDb()
     .insert(coinTransactions)
-    .values({ userId, amount, type: "adjust", note: note?.trim() || null, createdBy: actorId });
+    .values({ userId, amount, type: "adjust", note: note?.trim() || null, createdBy: actorId })
+    .run();
   return { balance: await getBalance(userId) };
 }

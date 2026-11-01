@@ -1,6 +1,6 @@
 import "server-only";
 import { and, eq, inArray, isNull } from "drizzle-orm";
-import { getDb } from "@/db";
+import { getDb, type DB } from "@/db";
 import { EMBEDDING_DIMENSIONS, exams, papers, questionKeys, questions, testCases } from "@/db/schema";
 import { getEmbeddings } from "@/lib/ai/model";
 import { questionId, type Paper } from "@/lib/schema/paper";
@@ -11,22 +11,25 @@ export type StoredCase = { idx: number; input: string; expectedOutput: string; i
  * Idempotent upsert of one paper with its questions, answer keys and test cases.
  * Hidden test cases come from `loadTests` (see scripts/gen-tests.ts); without
  * them a programming question is judged on its samples only.
+ *
+ * Synchronous on purpose: the whole paper is one SQLite transaction with no
+ * `await` inside, so no other request can interleave with it (see db/sqlite).
  */
-export async function seedPaper(
+export function seedPaper(
   paper: Paper,
-  { publish, loadTests }: { publish: boolean; loadTests?: (qid: string) => Promise<StoredCase[] | null> },
+  { publish, loadTests }: { publish: boolean; loadTests?: (qid: string) => StoredCase[] | null },
+  db: DB = getDb(),
 ) {
-  const db = getDb();
   const totalScore = paper.questions.reduce((s, q) => s + q.score, 0);
 
-  await db.transaction(async (tx) => {
-    await tx
-      .insert(exams)
+  db.transaction((tx) => {
+    tx.insert(exams)
       .values({ id: paper.exam.id, title: paper.exam.title, sourceUrl: paper.exam.sourceUrl })
       .onConflictDoUpdate({
         target: exams.id,
         set: { title: paper.exam.title, sourceUrl: paper.exam.sourceUrl },
-      });
+      })
+      .run();
 
     const paperValues = {
       id: paper.id,
@@ -39,13 +42,13 @@ export async function seedPaper(
       totalScore,
       updatedAt: new Date(),
     };
-    await tx.insert(papers).values(paperValues).onConflictDoUpdate({ target: papers.id, set: paperValues });
+    tx.insert(papers).values(paperValues).onConflictDoUpdate({ target: papers.id, set: paperValues }).run();
 
     // Drop questions that disappeared from the JSON (re-parses can change numbering).
     const ids = paper.questions.map((q) => questionId(paper.id, q));
-    const existing = await tx.select({ id: questions.id }).from(questions).where(eq(questions.paperId, paper.id));
+    const existing = tx.select({ id: questions.id }).from(questions).where(eq(questions.paperId, paper.id)).all();
     const stale = existing.filter((r) => !ids.includes(r.id)).map((r) => r.id);
-    if (stale.length) await tx.delete(questions).where(inArray(questions.id, stale));
+    if (stale.length) tx.delete(questions).where(inArray(questions.id, stale)).run();
 
     for (const [i, q] of paper.questions.entries()) {
       const id = questionId(paper.id, q);
@@ -67,7 +70,7 @@ export async function seedPaper(
         sortOrder: i,
       };
       // Leave the embedding untouched so re-seeding doesn't force a re-embed.
-      await tx.insert(questions).values(row).onConflictDoUpdate({ target: questions.id, set: row });
+      tx.insert(questions).values(row).onConflictDoUpdate({ target: questions.id, set: row }).run();
 
       const key = {
         questionId: id,
@@ -75,17 +78,16 @@ export async function seedPaper(
         explanation: q.type === "programming" ? null : (q.explanation ?? null),
         referenceSolution: q.type === "programming" ? (q.referenceSolution ?? null) : null,
       };
-      await tx.insert(questionKeys).values(key).onConflictDoUpdate({ target: questionKeys.questionId, set: key });
+      tx.insert(questionKeys).values(key).onConflictDoUpdate({ target: questionKeys.questionId, set: key }).run();
 
       if (q.type !== "programming") continue;
 
-      const generated = (await loadTests?.(id)) ?? null;
+      const generated = loadTests?.(id) ?? null;
       const cases: StoredCase[] =
         generated ??
         q.samples.map((s, idx) => ({ idx, input: s.input, expectedOutput: s.output, isSample: true }));
-      await tx.delete(testCases).where(eq(testCases.questionId, id));
-      if (cases.length)
-        await tx.insert(testCases).values(cases.map((c) => ({ ...c, questionId: id })));
+      tx.delete(testCases).where(eq(testCases.questionId, id)).run();
+      if (cases.length) tx.insert(testCases).values(cases.map((c) => ({ ...c, questionId: id }))).run();
     }
   });
 
@@ -110,13 +112,20 @@ export function embeddingText(q: typeof questions.$inferSelect) {
  * limited to one paper. Returns how many were embedded.
  */
 export async function embedQuestions(
-  { paperId, force = false, log = () => {} }: { paperId?: string; force?: boolean; log?: (msg: string) => void } = {},
+  {
+    paperId,
+    force = false,
+    limit,
+    log = () => {},
+  }: { paperId?: string; force?: boolean; limit?: number; log?: (msg: string) => void } = {},
 ) {
   const db = getDb();
-  const rows = await db
+  const query = db
     .select()
     .from(questions)
-    .where(and(paperId ? eq(questions.paperId, paperId) : undefined, force ? undefined : isNull(questions.embedding)));
+    .where(and(paperId ? eq(questions.paperId, paperId) : undefined, force ? undefined : isNull(questions.embedding)))
+    .orderBy(questions.id);
+  const rows = limit ? await query.limit(limit) : await query;
   if (rows.length === 0) return 0;
 
   const embeddings = await getEmbeddings(EMBEDDING_DIMENSIONS);
@@ -124,9 +133,9 @@ export async function embedQuestions(
   for (let i = 0; i < rows.length; i += BATCH) {
     const batch = rows.slice(i, i + BATCH);
     const vectors = await embeddings.embedDocuments(batch.map(embeddingText));
-    await db.transaction(async (tx) => {
+    db.transaction((tx) => {
       for (const [j, row] of batch.entries())
-        await tx.update(questions).set({ embedding: vectors[j] }).where(eq(questions.id, row.id));
+        tx.update(questions).set({ embedding: vectors[j] }).where(eq(questions.id, row.id)).run();
     });
     log(`已生成 ${Math.min(i + BATCH, rows.length)}/${rows.length}`);
   }

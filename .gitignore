@@ -45,3 +45,13 @@ next-env.d.ts
 
 # 数据库备份含账号与作答记录，只留在本地（`bun run backup`）
 /data/backups/
+
+# Monaco is copied from node_modules (scripts/desktop/copy-monaco.mjs)
+/public/monaco/
+
+# Local SQLite database (bun run dev) and desktop build output
+/data/gesp.db*
+/data/secret.key
+/dist-desktop/
+/build-desktop/
+/.next-desktop/

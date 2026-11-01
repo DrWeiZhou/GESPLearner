@@ -1,6 +1,6 @@
 import "server-only";
 import { and, eq, notInArray } from "drizzle-orm";
-import { getDb } from "@/db";
+import { getDb, type DB } from "@/db";
 import { knowledgePoints, syllabi } from "@/db/schema";
 import { knowledgePointId, type Syllabus } from "@/lib/schema/syllabus";
 
@@ -11,8 +11,7 @@ import { knowledgePointId, type Syllabus } from "@/lib/schema/syllabus";
  * classifications under them (`question_knowledge`) — those questions are then
  * classified again against the new list the next time they're missed.
  */
-export async function seedSyllabus(syllabus: Syllabus) {
-  const db = getDb();
+export function seedSyllabus(syllabus: Syllabus, db: DB = getDb()) {
   const rows = syllabus.points.map((p, i) => ({
     id: knowledgePointId(syllabus.level, p.name),
     level: syllabus.level,
@@ -22,7 +21,8 @@ export async function seedSyllabus(syllabus: Syllabus) {
     sortOrder: i,
   }));
 
-  await db.transaction(async (tx) => {
+  // One synchronous transaction, like seedPaper.
+  db.transaction((tx) => {
     const head = {
       level: syllabus.level,
       language: syllabus.language,
@@ -32,18 +32,18 @@ export async function seedSyllabus(syllabus: Syllabus) {
       pages: syllabus.pages ?? null,
       updatedAt: new Date(),
     };
-    await tx.insert(syllabi).values(head).onConflictDoUpdate({ target: syllabi.level, set: head });
+    tx.insert(syllabi).values(head).onConflictDoUpdate({ target: syllabi.level, set: head }).run();
 
     // Points the new parse dropped (a level always has at least one, see the schema).
     // Deleting them cascades to question_knowledge.
-    await tx
-      .delete(knowledgePoints)
+    tx.delete(knowledgePoints)
       .where(
         and(eq(knowledgePoints.level, syllabus.level), notInArray(knowledgePoints.id, rows.map((r) => r.id))),
-      );
+      )
+      .run();
 
     for (const row of rows) {
-      await tx.insert(knowledgePoints).values(row).onConflictDoUpdate({ target: knowledgePoints.id, set: row });
+      tx.insert(knowledgePoints).values(row).onConflictDoUpdate({ target: knowledgePoints.id, set: row }).run();
     }
   });
 

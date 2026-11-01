@@ -96,8 +96,8 @@ export function AISettingsForm({ settings }: { settings: AISettingsView }) {
           </Badge>
         </CardTitle>
         <CardDescription>
-          任意 OpenAI 兼容接口，用于 AI 讲解、试卷解析与相似题向量。后台保存的配置优先于环境变量；API key
-          加密存储，保存后只显示末 4 位。
+          任意 OpenAI 兼容接口（如智谱、SiliconFlow、DeepSeek），用于 AI 讲解、错题知识点归类、试卷解析与相似题向量。
+          API key 加密保存在本机，保存后只显示末 4 位。
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -151,7 +151,7 @@ export function AISettingsForm({ settings }: { settings: AISettingsView }) {
             <Label htmlFor="ai-embedding">向量模型</Label>
             <Input id="ai-embedding" value={form.embeddingModel} onChange={set("embeddingModel")} spellCheck={false} />
             <p className="text-xs text-muted-foreground">
-              需支持 1024 维输出；更换后请运行 <code>bun run embed --force</code> 重新生成题目向量。
+              需支持 1024 维输出；更换后请在下方「相似题向量」中全部重新生成。
             </p>
           </div>
         </div>
